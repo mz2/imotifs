@@ -1,0 +1,576 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F61DFE70E2DF2C00091787E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5F61DFE60E2DF2C00091787E /* icon.icns */; };
+		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
+		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
+		5F83CA800E366A9300369591 /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */; };
+		5FA66A620E142A12009E5AFA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* AppController.m */; };
+		5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
+		5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8976C0E3158150084D9D8 /* MotifComparitor.m */; };
+		5FB897830E315C2D0084D9D8 /* MotifPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897820E315C2D0084D9D8 /* MotifPair.m */; };
+		5FB897860E315C3D0084D9D8 /* IMDoubleMatrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */; };
+		5FB897890E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */; };
+		5FB8982E0E316DD30084D9D8 /* IMIntMatrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */; };
+		5FB898980E31E82A0084D9D8 /* IMObjectMatrix2D.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */; };
+		5FB899DE0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899DD0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.m */; };
+		5FB899E40E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899E30E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m */; };
+		5FB89A380E324AAA0084D9D8 /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */; };
+		5FC3084D0E185802006C4679 /* MotifViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3084C0E185802006C4679 /* MotifViewCell.m */; };
+		5FC308720E18BF94006C4679 /* RegexKit.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FC308710E18BF94006C4679 /* RegexKit.framework */; };
+		5FC350C20EBBDA5C00404E38 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC350C10EBBDA5C00404E38 /* Metamotif.m */; };
+		5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */; };
+		5FE93A9A0E2EAC3D00FAC7A3 /* PreferencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */; };
+		5FF1CB2E0E333BC9001966B7 /* IMIntMatrix2DTranspose.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */; };
+		5FFA099F0E14133900E0F87D /* MotifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA099E0E14133900E0F87D /* MotifView.m */; };
+		5FFA09D10E1415BC00E0F87D /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C40E1415BC00E0F87D /* MotifSet.m */; };
+		5FFA09D20E1415BC00E0F87D /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C60E1415BC00E0F87D /* Symbol.m */; };
+		5FFA09D30E1415BC00E0F87D /* Multinomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C80E1415BC00E0F87D /* Multinomial.m */; };
+		5FFA09D40E1415BC00E0F87D /* Motif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09CA0E1415BC00E0F87D /* Motif.m */; };
+		5FFA09D50E1415BC00E0F87D /* Alphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09CC0E1415BC00E0F87D /* Alphabet.m */; };
+		5FFA09D60E1415BC00E0F87D /* MotifSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09CE0E1415BC00E0F87D /* MotifSetParser.m */; };
+		5FFA09D70E1415BC00E0F87D /* Dirichlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09D00E1415BC00E0F87D /* Dirichlet.m */; };
+		8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */; };
+		8D15AC2D0486D014006FF6A4 /* MainMenu.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */; };
+		8D15AC2E0486D014006FF6A4 /* MotifSetDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 2A37F4B4FDCFA73011CA2CEA /* MotifSetDocument.nib */; };
+		8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165FFE840EACC02AAC07 /* InfoPlist.strings */; };
+		8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FC3088C0E18C020006C4679 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5FC308720E18BF94006C4679 /* RegexKit.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C1660FE840EACC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		13E42FBA07B3F13500E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetDocument.m; sourceTree = "<group>"; };
+		2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetDocument.h; sourceTree = "<group>"; };
+		2A37F4B0FDCFA73011CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2A37F4B5FDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MotifSetDocument.nib; sourceTree = "<group>"; };
+		2A37F4B7FDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MainMenu.nib; sourceTree = "<group>"; };
+		2A37F4BAFDCFA73011CA2CEA /* English */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = English; path = English.lproj/Credits.rtf; sourceTree = "<group>"; };
+		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		32DBCF750370BD2300C91783 /* iMotifs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iMotifs_Prefix.pch; sourceTree = "<group>"; };
+		5F61DFE60E2DF2C00091787E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetWindowController.h; sourceTree = "<group>"; };
+		5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetWindowController.m; sourceTree = "<group>"; };
+		5F83C9B70E363C4900369591 /* MotifNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNameCell.h; sourceTree = "<group>"; };
+		5F83C9B80E363C4900369591 /* MotifNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNameCell.m; sourceTree = "<group>"; };
+		5F83CA7E0E366A9300369591 /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSColorExtras.h; sourceTree = "<group>"; };
+		5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNSColorExtras.m; sourceTree = "<group>"; };
+		5FA66A600E142A12009E5AFA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
+		5FA66A610E142A12009E5AFA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetController.h; sourceTree = "<group>"; };
+		5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetController.m; sourceTree = "<group>"; };
+		5FB8976B0E3158150084D9D8 /* MotifComparitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifComparitor.h; sourceTree = "<group>"; };
+		5FB8976C0E3158150084D9D8 /* MotifComparitor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifComparitor.m; sourceTree = "<group>"; };
+		5FB897810E315C2D0084D9D8 /* MotifPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPair.h; sourceTree = "<group>"; };
+		5FB897820E315C2D0084D9D8 /* MotifPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPair.m; sourceTree = "<group>"; };
+		5FB897840E315C3D0084D9D8 /* IMDoubleMatrix2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDoubleMatrix2D.h; sourceTree = "<group>"; };
+		5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDoubleMatrix2D.m; sourceTree = "<group>"; };
+		5FB897870E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMotifComparisonMatrixBundle.h; sourceTree = "<group>"; };
+		5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMMotifComparisonMatrixBundle.m; sourceTree = "<group>"; };
+		5FB8982C0E316DD30084D9D8 /* IMIntMatrix2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2D.h; sourceTree = "<group>"; };
+		5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMIntMatrix2D.m; sourceTree = "<group>"; };
+		5FB898960E31E82A0084D9D8 /* IMObjectMatrix2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMObjectMatrix2D.h; sourceTree = "<group>"; };
+		5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMObjectMatrix2D.m; sourceTree = "<group>"; };
+		5FB899D80E3218380084D9D8 /* IMMatrix2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMMatrix2D.h; sourceTree = "<group>"; };
+		5FB899DC0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMObjectMatrix2DTranspose.h; sourceTree = "<group>"; };
+		5FB899DD0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMObjectMatrix2DTranspose.m; sourceTree = "<group>"; };
+		5FB899E20E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDoubleMatrix2DTranspose.h; sourceTree = "<group>"; };
+		5FB899E30E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDoubleMatrix2DTranspose.m; sourceTree = "<group>"; };
+		5FB89A360E324AAA0084D9D8 /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSArrayExtras.h; sourceTree = "<group>"; };
+		5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNSArrayExtras.m; sourceTree = "<group>"; };
+		5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDoubleMatrix2DIface.h; sourceTree = "<group>"; };
+		5FC3084B0E185802006C4679 /* MotifViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifViewCell.h; sourceTree = "<group>"; };
+		5FC3084C0E185802006C4679 /* MotifViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifViewCell.m; sourceTree = "<group>"; };
+		5FC308710E18BF94006C4679 /* RegexKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RegexKit.framework; path = Local/Frameworks/RegexKit.framework; sourceTree = DEVELOPER_DIR; };
+		5FC3094B0E18DF5A006C4679 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotable.h; path = ../XMSParser/Annotable.h; sourceTree = SOURCE_ROOT; };
+		5FC350C00EBBDA5C00404E38 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metamotif.h; sourceTree = "<group>"; };
+		5FC350C10EBBDA5C00404E38 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metamotif.m; sourceTree = "<group>"; };
+		5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesDialog.xib; sourceTree = "<group>"; };
+		5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesDialogController.h; sourceTree = "<group>"; };
+		5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesDialogController.m; sourceTree = "<group>"; };
+		5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DIface.h; sourceTree = "<group>"; };
+		5FF1CB2C0E333BC9001966B7 /* IMIntMatrix2DTranspose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DTranspose.h; sourceTree = "<group>"; };
+		5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMIntMatrix2DTranspose.m; sourceTree = "<group>"; };
+		5FFA099D0E14133900E0F87D /* MotifView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifView.h; sourceTree = "<group>"; };
+		5FFA099E0E14133900E0F87D /* MotifView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifView.m; sourceTree = "<group>"; };
+		5FFA09C30E1415BC00E0F87D /* MotifSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifSet.h; path = ../XMSParser/MotifSet.h; sourceTree = SOURCE_ROOT; };
+		5FFA09C40E1415BC00E0F87D /* MotifSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifSet.m; path = ../XMSParser/MotifSet.m; sourceTree = SOURCE_ROOT; };
+		5FFA09C50E1415BC00E0F87D /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = ../XMSParser/Symbol.h; sourceTree = SOURCE_ROOT; };
+		5FFA09C60E1415BC00E0F87D /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = ../XMSParser/Symbol.m; sourceTree = SOURCE_ROOT; };
+		5FFA09C70E1415BC00E0F87D /* Multinomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Multinomial.h; path = ../XMSParser/Multinomial.h; sourceTree = SOURCE_ROOT; };
+		5FFA09C80E1415BC00E0F87D /* Multinomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Multinomial.m; path = ../XMSParser/Multinomial.m; sourceTree = SOURCE_ROOT; };
+		5FFA09C90E1415BC00E0F87D /* Motif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Motif.h; path = ../XMSParser/Motif.h; sourceTree = SOURCE_ROOT; };
+		5FFA09CA0E1415BC00E0F87D /* Motif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Motif.m; path = ../XMSParser/Motif.m; sourceTree = SOURCE_ROOT; };
+		5FFA09CB0E1415BC00E0F87D /* Alphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alphabet.h; path = ../XMSParser/Alphabet.h; sourceTree = SOURCE_ROOT; };
+		5FFA09CC0E1415BC00E0F87D /* Alphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alphabet.m; path = ../XMSParser/Alphabet.m; sourceTree = SOURCE_ROOT; };
+		5FFA09CD0E1415BC00E0F87D /* MotifSetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifSetParser.h; path = ../XMSParser/MotifSetParser.h; sourceTree = SOURCE_ROOT; };
+		5FFA09CE0E1415BC00E0F87D /* MotifSetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifSetParser.m; path = ../XMSParser/MotifSetParser.m; sourceTree = SOURCE_ROOT; };
+		5FFA09CF0E1415BC00E0F87D /* Dirichlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dirichlet.h; path = ../XMSParser/Dirichlet.h; sourceTree = SOURCE_ROOT; };
+		5FFA09D00E1415BC00E0F87D /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../XMSParser/Dirichlet.m; sourceTree = SOURCE_ROOT; };
+		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D15AC330486D014006FF6A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7A8FEA54F5311CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */,
+				13E42FBA07B3F13500E4EEF1 /* CoreData.framework */,
+				2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		19C28FB0FE9D524F11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D15AC370486D014006FF6A4 /* iMotifs.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
+			isa = PBXGroup;
+			children = (
+				5FC308710E18BF94006C4679 /* RegexKit.framework */,
+				2A37F4ABFDCFA73011CA2CEA /* Classes */,
+				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
+				2A37F4B8FDCFA73011CA2CEA /* Resources */,
+				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
+				19C28FB0FE9D524F11CA2CBB /* Products */,
+			);
+			name = iMotif;
+			sourceTree = "<group>";
+		};
+		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				5FB898990E31E8450084D9D8 /* matrix */,
+				5FB8976A0E3157F60084D9D8 /* util */,
+				5FA66A5F0E142A05009E5AFA /* control */,
+				5FFA09B90E1415A400E0F87D /* model */,
+				5FFA09930E1412DF00E0F87D /* ui */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF750370BD2300C91783 /* iMotifs_Prefix.pch */,
+				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5F61DFE60E2DF2C00091787E /* icon.icns */,
+				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
+				2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */,
+				2A37F4B4FDCFA73011CA2CEA /* MotifSetDocument.nib */,
+				8D15AC360486D014006FF6A4 /* Info.plist */,
+				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
+				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		2A37F4C3FDCFA73011CA2CEA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */,
+				1058C7A8FEA54F5311CA2CBB /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5FA66A5F0E142A05009E5AFA /* control */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
+				5FA66A600E142A12009E5AFA /* AppController.h */,
+				5FA66A610E142A12009E5AFA /* AppController.m */,
+				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
+				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
+				5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */,
+				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
+				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
+				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
+			);
+			name = control;
+			sourceTree = "<group>";
+		};
+		5FB8976A0E3157F60084D9D8 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				5FB8976B0E3158150084D9D8 /* MotifComparitor.h */,
+				5FB8976C0E3158150084D9D8 /* MotifComparitor.m */,
+				5FB897870E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.h */,
+				5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */,
+				5FB89A360E324AAA0084D9D8 /* IMNSArrayExtras.h */,
+				5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */,
+				5F83CA7E0E366A9300369591 /* IMNSColorExtras.h */,
+				5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */,
+			);
+			name = util;
+			sourceTree = "<group>";
+		};
+		5FB898990E31E8450084D9D8 /* matrix */ = {
+			isa = PBXGroup;
+			children = (
+				5FF1CB2F0E333BCC001966B7 /* transpose */,
+				5FB8982C0E316DD30084D9D8 /* IMIntMatrix2D.h */,
+				5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */,
+				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
+				5FB897840E315C3D0084D9D8 /* IMDoubleMatrix2D.h */,
+				5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */,
+				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
+				5FB898960E31E82A0084D9D8 /* IMObjectMatrix2D.h */,
+				5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */,
+				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
+			);
+			name = matrix;
+			sourceTree = "<group>";
+		};
+		5FF1CB2F0E333BCC001966B7 /* transpose */ = {
+			isa = PBXGroup;
+			children = (
+				5FB899DC0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.h */,
+				5FB899DD0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.m */,
+				5FB899E20E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.h */,
+				5FB899E30E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m */,
+				5FF1CB2C0E333BC9001966B7 /* IMIntMatrix2DTranspose.h */,
+				5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */,
+			);
+			name = transpose;
+			sourceTree = "<group>";
+		};
+		5FFA09930E1412DF00E0F87D /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				5FFA099D0E14133900E0F87D /* MotifView.h */,
+				5FFA099E0E14133900E0F87D /* MotifView.m */,
+				5FC3084B0E185802006C4679 /* MotifViewCell.h */,
+				5FC3084C0E185802006C4679 /* MotifViewCell.m */,
+				5F83C9B70E363C4900369591 /* MotifNameCell.h */,
+				5F83C9B80E363C4900369591 /* MotifNameCell.m */,
+			);
+			name = ui;
+			sourceTree = "<group>";
+		};
+		5FFA09B90E1415A400E0F87D /* model */ = {
+			isa = PBXGroup;
+			children = (
+				5FC3094B0E18DF5A006C4679 /* Annotable.h */,
+				5FFA09C30E1415BC00E0F87D /* MotifSet.h */,
+				5FFA09C40E1415BC00E0F87D /* MotifSet.m */,
+				5FFA09C50E1415BC00E0F87D /* Symbol.h */,
+				5FFA09C60E1415BC00E0F87D /* Symbol.m */,
+				5FFA09C70E1415BC00E0F87D /* Multinomial.h */,
+				5FFA09C80E1415BC00E0F87D /* Multinomial.m */,
+				5FFA09C90E1415BC00E0F87D /* Motif.h */,
+				5FFA09CA0E1415BC00E0F87D /* Motif.m */,
+				5FFA09CB0E1415BC00E0F87D /* Alphabet.h */,
+				5FFA09CC0E1415BC00E0F87D /* Alphabet.m */,
+				5FFA09CD0E1415BC00E0F87D /* MotifSetParser.h */,
+				5FFA09CE0E1415BC00E0F87D /* MotifSetParser.m */,
+				5FFA09CF0E1415BC00E0F87D /* Dirichlet.h */,
+				5FFA09D00E1415BC00E0F87D /* Dirichlet.m */,
+				5FB897810E315C2D0084D9D8 /* MotifPair.h */,
+				5FB897820E315C2D0084D9D8 /* MotifPair.m */,
+				5FC350C00EBBDA5C00404E38 /* Metamotif.h */,
+				5FC350C10EBBDA5C00404E38 /* Metamotif.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8D15AC270486D014006FF6A4 /* iMotif */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iMotif" */;
+			buildPhases = (
+				5FC3088C0E18C020006C4679 /* CopyFiles */,
+				8D15AC2B0486D014006FF6A4 /* Resources */,
+				8D15AC300486D014006FF6A4 /* Sources */,
+				8D15AC330486D014006FF6A4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = iMotif;
+			productInstallPath = "$(HOME)/Applications";
+			productName = iMotif;
+			productReference = 8D15AC370486D014006FF6A4 /* iMotifs.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2A37F4A9FDCFA73011CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "iMotifs" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 2A37F4AAFDCFA73011CA2CEA /* iMotif */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D15AC270486D014006FF6A4 /* iMotif */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D15AC2B0486D014006FF6A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC2C0486D014006FF6A4 /* Credits.rtf in Resources */,
+				8D15AC2D0486D014006FF6A4 /* MainMenu.nib in Resources */,
+				8D15AC2E0486D014006FF6A4 /* MotifSetDocument.nib in Resources */,
+				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
+				5F61DFE70E2DF2C00091787E /* icon.icns in Resources */,
+				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D15AC300486D014006FF6A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */,
+				8D15AC320486D014006FF6A4 /* main.m in Sources */,
+				5FFA099F0E14133900E0F87D /* MotifView.m in Sources */,
+				5FFA09D10E1415BC00E0F87D /* MotifSet.m in Sources */,
+				5FFA09D20E1415BC00E0F87D /* Symbol.m in Sources */,
+				5FFA09D30E1415BC00E0F87D /* Multinomial.m in Sources */,
+				5FFA09D40E1415BC00E0F87D /* Motif.m in Sources */,
+				5FFA09D50E1415BC00E0F87D /* Alphabet.m in Sources */,
+				5FFA09D60E1415BC00E0F87D /* MotifSetParser.m in Sources */,
+				5FFA09D70E1415BC00E0F87D /* Dirichlet.m in Sources */,
+				5FA66A620E142A12009E5AFA /* AppController.m in Sources */,
+				5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */,
+				5FC3084D0E185802006C4679 /* MotifViewCell.m in Sources */,
+				5FE93A9A0E2EAC3D00FAC7A3 /* PreferencesDialogController.m in Sources */,
+				5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */,
+				5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */,
+				5FB897830E315C2D0084D9D8 /* MotifPair.m in Sources */,
+				5FB897860E315C3D0084D9D8 /* IMDoubleMatrix2D.m in Sources */,
+				5FB897890E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m in Sources */,
+				5FB8982E0E316DD30084D9D8 /* IMIntMatrix2D.m in Sources */,
+				5FB898980E31E82A0084D9D8 /* IMObjectMatrix2D.m in Sources */,
+				5FB899DE0E3218AF0084D9D8 /* IMObjectMatrix2DTranspose.m in Sources */,
+				5FB899E40E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m in Sources */,
+				5FB89A380E324AAA0084D9D8 /* IMNSArrayExtras.m in Sources */,
+				5FF1CB2E0E333BC9001966B7 /* IMIntMatrix2DTranspose.m in Sources */,
+				5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */,
+				5F83CA800E366A9300369591 /* IMNSColorExtras.m in Sources */,
+				5FC350C20EBBDA5C00404E38 /* Metamotif.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		089C165FFE840EACC02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1660FE840EACC02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		2A37F4B4FDCFA73011CA2CEA /* MotifSetDocument.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4B5FDCFA73011CA2CEA /* English */,
+			);
+			name = MotifSetDocument.nib;
+			sourceTree = "<group>";
+		};
+		2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4B7FDCFA73011CA2CEA /* English */,
+			);
+			name = MainMenu.nib;
+			sourceTree = "<group>";
+		};
+		2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2A37F4BAFDCFA73011CA2CEA /* English */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C05733C808A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_NAME = iMotifs;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
+				WRAPPER_EXTENSION = app;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		C05733C908A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
+					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Applications";
+				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
+				PRODUCT_NAME = iMotifs;
+				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		C05733CC08A9546B00998B17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		C05733CD08A9546B00998B17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					/usr/local/include,
+					/opt/local/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
+					/opt/local/lib,
+				);
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iMotif" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733C808A9546B00998B17 /* Debug */,
+				C05733C908A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C05733CB08A9546B00998B17 /* Build configuration list for PBXProject "iMotifs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C05733CC08A9546B00998B17 /* Debug */,
+				C05733CD08A9546B00998B17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2A37F4A9FDCFA73011CA2CEA /* Project object */;
+}
