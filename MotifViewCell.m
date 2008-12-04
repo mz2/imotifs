@@ -9,17 +9,17 @@
 #import <MotifViewCell.h>
 
 @interface MotifViewCell (Private)
-- (void) drawMotif:(NSRect)rect 
-    inControlView:(NSView*)controlView;
-- (void) drawConsensus:(NSRect)rect 
-        inControlView:(NSView*)controlView;
+- (void) drawConsensus: (Motif*)m 
+				  rect: (NSRect)rect 
+           controlView: (NSView*)controlView;
 + (NSMutableAttributedString*) makeSymbolDrawable:(Symbol*)sym 
                                           ofSize:(CGFloat)size 
                                          ofColor:(NSColor*) color;
-+ (NSMutableAttributedString*) infoContentStringForMotif:(Motif*) motif;
-+ (NSMutableAttributedString*) scoreThresholdStringForMotif:(Motif*) motif;
 - (NSRect) measureString:(NSString*)str inRect:(NSRect)rect;
 @end
+
+const NSString *IMMotifSetPboardType = @"net.piipari.motifset.pasteboard";
+const NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pasteboard";
 
 NSString *IMLogoFontName = @"Arial Bold";
 
@@ -164,8 +164,9 @@ NSString *IMLogoFontName = @"Arial Bold";
     [cellTransform translateXBy:cellFrame.origin.x 
                             yBy:cellFrame.origin.y];
     [cellTransform concat];
-    [self drawMotif: cellFrame 
-      inControlView: controlView];
+    [self drawMotif: (Motif*)self.objectValue
+			   rect: cellFrame 
+        controlView: controlView];
     [NSGraphicsContext restoreGraphicsState];
     if ([self showInformationContent]) {
         NSMutableAttributedString *infoCStr = [MotifViewCell infoContentStringForMotif:[self objectValue]]; 
@@ -424,10 +425,14 @@ NSString *IMLogoFontName = @"Arial Bold";
     [context restoreGraphicsState];
 }
 
-- (void) drawMotif:(NSRect)rect inControlView:(NSView*)controlView {
+- (void) drawMotif: (Motif*) m
+			  rect: (NSRect)rect 
+	   controlView: (NSView*)controlView {
     NSRect insetRect = NSInsetRect(rect, IMMotifMargin, IMMotifMargin);
     if ([self drawingStyle] == IMConsensus) {
-        [self drawConsensus:insetRect inControlView:controlView];
+        [self drawConsensus: (Motif*) m 
+					   rect: insetRect 
+				controlView: controlView];
     } else if ([self drawingStyle] == IMLogo) {
         [MotifViewCell drawLogoForMotif:[self objectValue]
                                  inRect:insetRect scaleByInformationContent:NO 

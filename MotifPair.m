@@ -9,16 +9,18 @@
 #import "MotifPair.h"
 
 @implementation MotifPair
-@synthesize m1;
-@synthesize m2;
-@synthesize flipped;
-@synthesize score;
+@synthesize m1,m2,flipped,score,offset;
 
--(MotifPair*) initWithMotif:(Motif*)a andMotif:(Motif*)b withScore:(double)s isFlipped:(BOOL)yesno {
+-(MotifPair*) initWithMotif: (Motif*)a 
+                   andMotif: (Motif*)b 
+                      score: (double)s 
+                    flipped: (BOOL)yesno
+                     offset: (NSInteger) offs {
     m1 = [a retain];
     m2 = [b retain];
     flipped = yesno;
     score = s;
+    offset = offs;
     return self;
 }
 

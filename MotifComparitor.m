@@ -9,12 +9,15 @@
 #import <math.h>
 #import "MotifComparitor.h"
 #import "IMDoubleMatrix2DTranspose.h"
+#import "IMIntMatrix2DTranspose.h"
 #import "IMIntMatrix2D.h"
 #import "IMMatrix2D.h"
 #import "Multinomial.h"
 #import "MotifPair.h"
 #import "IMNSArrayExtras.h"
 #import "IMDoubleMatrix2D.h"
+#import "IMMotifComparisonMatrixBundle.h"
+#import "ScoreOffsetPair.h"
 
 
 @interface MotifComparitor (private)
@@ -27,6 +30,17 @@
 
 @implementation MotifComparitor
 @synthesize exponentRatio;
+
+-(id) initWithExponentRatio:(double) ratio
+{
+	self = [super init];
+	if (self != nil) {
+		exponentRatio = ratio;
+	}
+	return self;
+}
+
+
 -(NSArray*) comparisonMatrixBetwMotifs:(NSArray*)motifs0 
                             withMotifs:(NSArray*)motifs1 {
     NSUInteger m0count,m1count;
@@ -37,24 +51,22 @@
     IMDoubleMatrix2D *fMatrix = [[IMDoubleMatrix2D alloc] initWithRows:m0count cols:m1count];
     
     Alphabet *alpha = [[motifs0 objectAtIndex:0] alphabet];
-    NSUInteger step = 0;
+    //NSUInteger step = 0;
     Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
     NSUInteger i,j;
     for (i = 0; i < m0count; i++) {
         for (j = 0; j < m1count; j++) {
-            [dMatrix setValue:[self compareMotif:[motifs0 objectAtIndex:i] 
-                                      background:elsewhere 
-                                         toMotif:[motifs1 objectAtIndex:j] 
-                                      background:elsewhere] 
-                          row:i 
-                          col:j];
-            [fMatrix setValue:[self compareMotif:[motifs0 objectAtIndex:i] 
-                                      background:elsewhere 
-                                         toMotif:[[motifs1 objectAtIndex:j] reverseComplement] 
-                                      background:elsewhere] 
-                          row:i 
-                          col:j];
-            ++step;
+			double fval = [self compareMotif:[motifs0 objectAtIndex:i] 
+								  background:elsewhere 
+									 toMotif:[motifs1 objectAtIndex:j] 
+								  background:elsewhere];
+			double rval = [self compareMotif:[motifs0 objectAtIndex:i] 
+								  background:elsewhere 
+									 toMotif:[[motifs1 objectAtIndex:j] reverseComplement] 
+								  background:elsewhere];
+            [dMatrix setValue:fval row:i col:j];
+            [fMatrix setValue:rval row:i col:j];
+            //++step;
         }
     }
     
@@ -101,7 +113,9 @@
 -(NSArray*) bestMotifPairHitsFrom:(NSArray*)motifs0 
                                to:(NSArray*)motifs1 
                       senseScores:(IMDoubleMatrix2D*) dMatrix 
+                     senseOffsets:(IMIntMatrix2D*) dOffsetMatrix
                   antisenseScores:(IMDoubleMatrix2D*) fMatrix 
+                 antisenseOffsets:(IMIntMatrix2D*) fOffsetMatrix
                              flip:(BOOL)flipped {
     NSMutableArray *mpairs = [NSMutableArray array];
     
@@ -109,9 +123,9 @@
     for (i = 0, m0count = [motifs0 count]; i < m0count; i++) {
         NSUInteger bestJ = -1;
         double bestScore = positiveInfinity;
+        NSUInteger bestOffset = NSUIntegerMax;
         BOOL bestIsFlipped = NO;
         for (j = 0,m1count = [motifs1 count]; j < m1count; j++) {
-            
             {
                 double score = [dMatrix valueAtRow:i 
                                                col:j];
@@ -119,6 +133,7 @@
                     bestScore = score;
                     bestJ = j;
                     bestIsFlipped = NO;
+                    bestOffset = [dOffsetMatrix valueAtRow:i col:j];
                 }                
             }
             
@@ -129,15 +144,18 @@
                     bestScore = score;
                     bestJ = j;
                     bestIsFlipped = YES;
+                    bestOffset = [fOffsetMatrix valueAtRow:i col:j];
                 }
             }
             
         }
         
-        MotifPair *mpair = [[MotifPair alloc] initWithMotif:[motifs0 objectAtIndex:i] 
-                                                   andMotif:[motifs1 objectAtIndex:j] 
-                                                  withScore:bestScore
-                                                  isFlipped:bestIsFlipped];
+		NSLog(@"i:%d bestJ:%d bestOffset:%d",i,bestJ,bestOffset);
+        MotifPair *mpair = [[MotifPair alloc] initWithMotif: [motifs0 objectAtIndex:i] 
+                                                   andMotif: [motifs1 objectAtIndex:bestJ] 
+                                                      score: bestScore
+                                                    flipped: bestIsFlipped
+                                                     offset: bestOffset];
         [mpairs addObject:mpair];
         [mpair release];
     } 
@@ -154,7 +172,7 @@
     m1count = [motifs1 count];
     
     IMDoubleMatrix2D *hitMatrix = [[IMDoubleMatrix2D alloc] initWithRows:m0count
-                                                                     cols:m1count];
+																	cols:m1count];
     
     NSUInteger i,j;
     for (i = 0; i < m0count; i++) {
@@ -172,6 +190,7 @@
                 best = f; bestIsFlipped = YES;
             }
             
+			NSLog(@"Setting value %d %d", i, j);
             [hitMatrix setValue:best 
                             row:i 
                             col:j];
@@ -248,8 +267,9 @@
             if (best < thresh) {
                 MotifPair *mpair = [[MotifPair alloc] initWithMotif:[motifs0 objectAtIndex:i] 
                                                            andMotif:[motifs1 objectAtIndex:j] 
-                                                          withScore:best 
-                                                          isFlipped:bestIsFlipped];
+                                                              score:best 
+                                                            flipped:bestIsFlipped
+                                                             offset:0];
                 [array addObject:mpair];
                 [mpair release];
             }
@@ -260,17 +280,21 @@
 
 -(NSArray*) bestMotifPairsHitsFrom:(NSArray*) motifs0 
                                 to:(NSArray*) motifs1 {
-    NSArray *matrices = [self comparisonMatrixBetwMotifs:motifs0 
-                                              withMotifs:motifs1];
-    IMDoubleMatrix2D *dMatrix = [matrices objectAtIndex:0];
-    IMDoubleMatrix2D *fMatrix = [matrices objectAtIndex:1];
-        
-    NSArray *mpairs = [self bestMotifPairHitsFrom:motifs0 
-                                               to:motifs1 
-                                      senseScores:dMatrix 
-                                  antisenseScores:fMatrix
-                                             flip:NO];    
+    IMMotifComparisonMatrixBundle *matrices = [self comparisonMatrixBundleOfMotifs:motifs0 
+                                                  withMotifs:motifs1];
+    IMDoubleMatrix2D *dMatrix = [matrices senseScoreMatrix];
+    IMDoubleMatrix2D *fMatrix = [matrices antisenseScoreMatrix];
+    IMIntMatrix2D *dOffsetMatrix = [matrices senseOffsetMatrix];
+    IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
     
+	NSLog(@"Getting best motif pair hits between motif sets");
+    NSArray *mpairs = [self bestMotifPairHitsFrom: motifs0 
+                                               to: motifs1 
+                                      senseScores: dMatrix
+                                     senseOffsets: dOffsetMatrix
+                                  antisenseScores: fMatrix
+                                 antisenseOffsets: fOffsetMatrix
+                                             flip: NO];
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] 
                                          initWithKey:@"score" 
                                          ascending:YES 
@@ -296,21 +320,25 @@
 
 -(NSArray*) bestReciprocalHitsFrom:(NSArray*) motifs0 
                                 to:(NSArray*) motifs1 {
-    NSArray *matrices = [self comparisonMatrixBetwMotifs:motifs0 
-                                              withMotifs:motifs1];
-    IMDoubleMatrix2D *dMatrix = [matrices objectAtIndex:0];
-    IMDoubleMatrix2D *fMatrix = [matrices objectAtIndex:1];
-    
+    IMMotifComparisonMatrixBundle *matrices = [self comparisonMatrixBundleOfMotifs:motifs0 withMotifs:motifs1];
+    IMDoubleMatrix2D *dMatrix = [matrices senseScoreMatrix];
+    IMDoubleMatrix2D *fMatrix = [matrices antisenseScoreMatrix];
+    IMIntMatrix2D *dOffsetMatrix = [matrices senseOffsetMatrix];
+    IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
     NSArray *mpairs = [self bestMotifPairHitsFrom:motifs0 
-                             to:motifs1 
-                    senseScores:dMatrix 
-                antisenseScores:fMatrix 
-                           flip:NO];
+                             to: motifs1 
+                    senseScores: dMatrix 
+                        senseOffsets:dOffsetMatrix
+                antisenseScores: fMatrix 
+                antisenseOffsets: fOffsetMatrix
+                           flip: NO];
     
     NSArray *mpairsTransp = [self bestMotifPairHitsFrom:motifs0 
                                                      to:motifs1 
                                             senseScores:[IMDoubleMatrix2DTranspose transpose:dMatrix] 
+                                           senseOffsets:[IMIntMatrix2DTranspose transpose:dOffsetMatrix]
                                         antisenseScores:[IMDoubleMatrix2DTranspose transpose:fMatrix]
+                                       antisenseOffsets:[IMIntMatrix2DTranspose transpose:fOffsetMatrix]
                                                    flip:YES];
     NSArray *mpairsIntersect = [mpairs retainAll:mpairsTransp];
     
@@ -328,10 +356,53 @@
     double cScore = 0.0;
     
     for (Symbol* sym in [[d0 alphabet] symbols]) {
-        cScore += pow([d0 weightForSymbol:sym] - [d1 weightForSymbol:sym], 2.0);
+        double sym0w = [d0 weightForSymbol:sym];
+		double sym1w = [d1 weightForSymbol:sym];
+		//NSLog(@"%.3f %.3f %.3f %.3f %.3f",sym0w, sym1w, sym0w - sym1w, pow(sym0w - sym1w, 2.0), cScore);
+		cScore += pow(sym0w - sym1w, 2.0);
     }
+    //NSLog(@"%.3f %.3f %.3f", cScore, pow(cScore, exponentRatio), exponentRatio);
+	double val = pow(cScore, exponentRatio);
+	//NSLog(@"%.3f",val);
+    return val;
+}
+
+- (ScoreOffsetPair*) compareWithOffsetsMotif:(Motif*)wm0 
+                       background:(Multinomial*)pad0 
+                          toMotif:(Motif*)wm1
+                       background:(Multinomial*)pad1 {
+    double bestScore = positiveInfinity;
+    int bestOffset = 0;
     
-    return pow(cScore, exponentRatio);
+    int wm0cols = [wm0 columnCount];
+    int wm1cols = [wm1 columnCount];
+    int minPos = -wm1cols;
+    int maxPos = wm0cols + wm1cols;
+    
+    int offset;
+    for (offset = -wm1cols; offset <= wm0cols; ++offset) {
+        double score = 0.0;
+        int pos;
+        for (pos = minPos; pos <= maxPos; ++pos) {
+            Multinomial *col0 = pad0, *col1 = pad1;
+            if (pos >= 0 && pos < wm0cols) {
+                col0 = [wm0 column:pos];
+            }
+            int opos = pos - offset;
+            if (opos >= 0 && opos < wm1cols) {
+                col1 = [wm1 column:opos];
+            }
+            double cScore = [self divMultinomial:col0 
+                                 withMultinomial:col1];
+            score += cScore;
+        }
+        if (score < bestScore) {
+            bestScore = score;
+            bestOffset =  offset;
+        }
+    }
+    return [[[ScoreOffsetPair alloc] initWithScore: bestScore 
+                                            offset: bestOffset] autorelease];
 }
 
 - (double) compareMotif:(Motif*)wm0 
@@ -340,32 +411,29 @@
              background:(Multinomial*)pad1 {
     double bestScore = positiveInfinity;
     
-    int minPos = [wm1 columnCount];
-    int maxPos = [wm0 columnCount] + [wm1 columnCount];
+    int wm0cols = [wm0 columnCount];
+    int wm1cols = [wm1 columnCount];
+    int minPos = -wm1cols;
+    int maxPos = wm0cols + wm1cols;
     
     int offset;
-    for (offset = -[wm1 columnCount]; offset <= [wm0 columnCount]; ++offset) {
+    for (offset = -wm1cols; offset <= wm0cols; ++offset) {
         double score = 0.0;
         int pos;
         for (pos = minPos; pos <= maxPos; ++pos) {
             Multinomial *col0 = pad0, *col1 = pad1;
-            if (pos >= 0 && pos < [wm0 columnCount]) {
+            if (pos >= 0 && pos < wm0cols) {
                 col0 = [wm0 column:pos];
             }
             int opos = pos - offset;
-            if (opos >= 0 && opos < [wm1 columnCount]) {
+            if (opos >= 0 && opos < wm1cols) {
                 col1 = [wm1 column:opos];
             }
             double cScore = [self divMultinomial:col0 
                                  withMultinomial:col1];
             score += cScore;
         }
-        
-        if (score < bestScore) {
-            bestScore += score;
-        } else {
-            bestScore += bestScore;
-        }
+        bestScore = fmin(score, bestScore);
     }
     return bestScore;
 }
@@ -380,7 +448,54 @@ public abstract double compareMotifs(
 
 public abstract ScoreOffsetPair compareMotifsWithOffset
 (WeightMatrix wm0, Distribution pad0, WeightMatrix wm1, Distribution pad1);
+*/
 
+-(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs {
+    return nil;
+}
+
+-(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs0 
+                                                      withMotifs:(NSArray*)motifs1 {
+    int m0count = motifs0.count;
+    int m1count = motifs1.count;
+    Alphabet *alpha = [[motifs0 objectAtIndex:0] alphabet];
+    IMDoubleMatrix2D *dMatrix = [[IMDoubleMatrix2D alloc] initWithRows:m0count cols:m1count];
+    IMDoubleMatrix2D *fMatrix = [[IMDoubleMatrix2D alloc] initWithRows:m0count cols:m1count];
+    IMIntMatrix2D *dOffsetMatrix = [[IMIntMatrix2D alloc] initWithRows:m0count cols:m1count];
+    IMIntMatrix2D *fOffsetMatrix = [[IMIntMatrix2D alloc] initWithRows:m0count cols:m1count];
+    
+    Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
+
+    int i;
+    for (i = 0; i < m0count; i++) {
+        int j;
+        for (j = 0; j < m1count; j++) {
+            ScoreOffsetPair *dsp = [self compareWithOffsetsMotif: [motifs0 objectAtIndex:i]
+                                                      background: elsewhere 
+                                                         toMotif: [motifs1 objectAtIndex:j] 
+                                                      background: elsewhere];
+            [dMatrix setValue:dsp.score row:i col:j];
+            [dOffsetMatrix setValue:dsp.offset row:i col:j];
+
+            ScoreOffsetPair *fsp = [self compareWithOffsetsMotif: [motifs0 objectAtIndex:i]
+                                                      background: elsewhere 
+                                                         toMotif: [[motifs1 objectAtIndex:j] reverseComplement] 
+                                                      background: elsewhere];
+            
+            [fMatrix setValue:fsp.score row:i col:j];
+            [fOffsetMatrix setValue:fsp.offset row:i col:j];
+        }
+    }
+    
+    return [[[IMMotifComparisonMatrixBundle alloc] initWithBestSenseHitScores: dMatrix 
+                                                                      offsets: dOffsetMatrix 
+                                                        andAntisenseHitScores: fMatrix 
+                                                                      offsets: fOffsetMatrix 
+                                                                    rowMotifs: motifs0 
+                                                                    colMotifs: motifs1] autorelease];
+}
+
+/*
 public MotifComparisonMatrixBundle getComparisonMatrixWithOffsets(
                                                                   Motif[] motifs0, Motif[] motifs1) throws IllegalAlphabetException {
     Matrix2D dMatrix = new SimpleMatrix2D(motifs0.length, motifs1.length);
@@ -473,18 +588,10 @@ throws IllegalSymbolException, IllegalAlphabetException {
     static MotifComparitor *comparitor;
     @synchronized(self) {
         if (!comparitor) {
-            comparitor = [[MotifComparitor alloc] init];
+            comparitor = [[MotifComparitor alloc] initWithExponentRatio:2.0];
         }
     }
     return comparitor;
-}
-
--(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs0 
-                                                      withMotifs:(NSArray*)motifs1 {
-    return nil;
-}
--(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs {
-    return nil;
 }
 
 @end

@@ -15,15 +15,18 @@
     Motif* m2;
     BOOL flipped;
     double score;
+    NSInteger offset;
 }
 
 @property (readonly) Motif *m1;
 @property (readonly) Motif *m2;
 @property (readonly) BOOL flipped;
 @property (readonly) double score;
+@property (readonly) NSInteger offset;
 
--(MotifPair*) initWithMotif:(Motif*)a 
-                   andMotif:(Motif*)b 
-                  withScore:(double)score 
-                  isFlipped:(BOOL)yesno;
+-(MotifPair*) initWithMotif: (Motif*)a 
+                   andMotif: (Motif*)b 
+                      score: (double)score 
+                    flipped: (BOOL)yesno 
+                     offset: (NSInteger) offset;
 @end

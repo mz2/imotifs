@@ -19,6 +19,12 @@
     IMIntMatrix2D *antisenseOffsetMatrix;
 }
 
+-(IMMotifComparisonMatrixBundle*) initWithBestSenseHitScores: (IMDoubleMatrix2D*) matrix0
+                                                     offsets: (IMIntMatrix2D*) matrixOffsets0
+                                       andAntisenseHitScores: (IMDoubleMatrix2D*) matrix1
+                                                     offsets: (IMIntMatrix2D*) matrixOffsets1
+                                                   rowMotifs: (NSArray*)motifs0
+                                                   colMotifs: (NSArray*)motifs1;
 @property (copy,readonly) NSArray *rowMotifs;
 @property (copy,readonly) NSArray *colMotifs;
 

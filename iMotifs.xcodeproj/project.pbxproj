@@ -43,6 +43,14 @@
 		8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
+		959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3C180EE58A7000072A66 /* MotifPairCell.m */; };
+		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
+		959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
+		959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
+		959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */; };
+		959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */; };
+		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +140,20 @@
 		5FFA09D00E1415BC00E0F87D /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreOffsetPair.h; sourceTree = "<group>"; };
+		954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreOffsetPair.m; sourceTree = "<group>"; };
+		959E3C170EE58A7000072A66 /* MotifPairCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairCell.h; sourceTree = "<group>"; };
+		959E3C180EE58A7000072A66 /* MotifPairCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairCell.m; sourceTree = "<group>"; };
+		959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifPairWindow.xib; sourceTree = "<group>"; };
+		959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairWindowController.h; sourceTree = "<group>"; };
+		959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairWindowController.m; sourceTree = "<group>"; };
+		959E3CC60EE681A600072A66 /* MotifPairArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairArrayController.h; sourceTree = "<group>"; };
+		959E3CC70EE681A600072A66 /* MotifPairArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairArrayController.m; sourceTree = "<group>"; };
+		959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifSetPickerWindow.xib; sourceTree = "<group>"; };
+		959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerWindow.h; sourceTree = "<group>"; };
+		959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerWindow.m; sourceTree = "<group>"; };
+		959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerTableDelegate.h; sourceTree = "<group>"; };
+		959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerTableDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,6 +238,8 @@
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
 				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
+				959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */,
+				959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -242,6 +266,14 @@
 				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
+				959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */,
+				959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */,
+				959E3CC60EE681A600072A66 /* MotifPairArrayController.h */,
+				959E3CC70EE681A600072A66 /* MotifPairArrayController.m */,
+				959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */,
+				959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */,
+				959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */,
+				959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -257,6 +289,8 @@
 				5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */,
 				5F83CA7E0E366A9300369591 /* IMNSColorExtras.h */,
 				5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */,
+				954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */,
+				954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -300,6 +334,8 @@
 				5FC3084C0E185802006C4679 /* MotifViewCell.m */,
 				5F83C9B70E363C4900369591 /* MotifNameCell.h */,
 				5F83C9B80E363C4900369591 /* MotifNameCell.m */,
+				959E3C170EE58A7000072A66 /* MotifPairCell.h */,
+				959E3C180EE58A7000072A66 /* MotifPairCell.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -380,6 +416,8 @@
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				5F61DFE70E2DF2C00091787E /* icon.icns in Resources */,
 				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
+				959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */,
+				959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +456,12 @@
 				5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */,
 				5F83CA800E366A9300369591 /* IMNSColorExtras.m in Sources */,
 				5FC350C20EBBDA5C00404E38 /* Metamotif.m in Sources */,
+				959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */,
+				959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */,
+				959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */,
+				959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */,
+				959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */,
+				954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

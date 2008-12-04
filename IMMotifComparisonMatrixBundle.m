@@ -9,12 +9,9 @@
 #import "IMMotifComparisonMatrixBundle.h"
 
 @implementation IMMotifComparisonMatrixBundle
-@synthesize rowMotifs;
-@synthesize colMotifs;
-@synthesize senseScoreMatrix; 
-@synthesize antisenseScoreMatrix;
-@synthesize senseOffsetMatrix;
-@synthesize antisenseOffsetMatrix;
+@synthesize rowMotifs,colMotifs;
+@synthesize senseScoreMatrix,antisenseScoreMatrix;
+@synthesize senseOffsetMatrix,antisenseOffsetMatrix;
 
 -(IMMotifComparisonMatrixBundle*) initWithBestSenseHitScores:(IMDoubleMatrix2D*) matrix0
                                                      offsets:(IMIntMatrix2D*) matrixOffsets0

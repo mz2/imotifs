@@ -3,12 +3,12 @@
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
 		<string key="IBDocument.SystemVersion">9F33</string>
-		<string key="IBDocument.InterfaceBuilderVersion">670</string>
+		<string key="IBDocument.InterfaceBuilderVersion">672</string>
 		<string key="IBDocument.AppKitVersion">949.34</string>
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="81"/>
+			<integer value="455"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -468,7 +468,24 @@
 								<object class="NSMenuItem" id="92555804">
 									<reference key="NSMenu" ref="294598153"/>
 									<string key="NSTitle">Align motifs</string>
-									<string key="NSKeyEquiv"/>
+									<string key="NSKeyEquiv">A</string>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="621954948">
+									<reference key="NSMenu" ref="294598153"/>
+									<string key="NSTitle">Best hits with ...</string>
+									<string key="NSKeyEquiv">b</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="85653918">
+									<reference key="NSMenu" ref="294598153"/>
+									<string key="NSTitle">Best reciprocal hits with ...</string>
+									<string key="NSKeyEquiv">r</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1064276977"/>
@@ -594,6 +611,15 @@
 									<string key="NSTitle">Show bit score threshold</string>
 									<string key="NSKeyEquiv">t</string>
 									<int key="NSKeyEquivModMask">1048840</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="118588246">
+									<reference key="NSMenu" ref="502084290"/>
+									<string key="NSTitle">Show length</string>
+									<string key="NSKeyEquiv">l</string>
+									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1064276977"/>
 									<reference key="NSMixedImage" ref="980219229"/>
@@ -1005,6 +1031,30 @@
 					</object>
 					<int key="connectionID">464</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">bestHitsWith:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="621954948"/>
+					</object>
+					<int key="connectionID">468</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">bestReciprocalHitsWith:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="85653918"/>
+					</object>
+					<int key="connectionID">469</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">showLength:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="118588246"/>
+					</object>
+					<int key="connectionID">470</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1343,6 +1393,7 @@
 							<reference ref="1028416764"/>
 							<reference ref="834042562"/>
 							<reference ref="374047956"/>
+							<reference ref="118588246"/>
 						</object>
 						<reference key="parent" ref="626404410"/>
 					</object>
@@ -1521,6 +1572,8 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="92555804"/>
+							<reference ref="621954948"/>
+							<reference ref="85653918"/>
 						</object>
 						<reference key="parent" ref="972520079"/>
 					</object>
@@ -1544,6 +1597,21 @@
 						<reference key="object" ref="475855828"/>
 						<reference key="parent" ref="720053764"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">465</int>
+						<reference key="object" ref="621954948"/>
+						<reference key="parent" ref="294598153"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">466</int>
+						<reference key="object" ref="85653918"/>
+						<reference key="parent" ref="294598153"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">467</int>
+						<reference key="object" ref="118588246"/>
+						<reference key="parent" ref="502084290"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1555,6 +1623,7 @@
 					<string>-3.IBPluginDependency</string>
 					<string>103.IBPluginDependency</string>
 					<string>103.ImportedFromIB2</string>
+					<string>106.IBEditorWindowLastContentRect</string>
 					<string>106.IBPluginDependency</string>
 					<string>106.ImportedFromIB2</string>
 					<string>106.editorWindowContentRectSynchronizationRect</string>
@@ -1620,6 +1689,7 @@
 					<string>23.ImportedFromIB2</string>
 					<string>236.IBPluginDependency</string>
 					<string>236.ImportedFromIB2</string>
+					<string>24.IBEditorWindowLastContentRect</string>
 					<string>24.IBPluginDependency</string>
 					<string>24.ImportedFromIB2</string>
 					<string>24.editorWindowContentRectSynchronizationRect</string>
@@ -1629,6 +1699,7 @@
 					<string>29.WindowOrigin</string>
 					<string>29.editorWindowContentRectSynchronizationRect</string>
 					<string>299.IBPluginDependency</string>
+					<string>300.IBEditorWindowLastContentRect</string>
 					<string>300.IBPluginDependency</string>
 					<string>300.editorWindowContentRectSynchronizationRect</string>
 					<string>345.IBPluginDependency</string>
@@ -1650,11 +1721,15 @@
 					<string>446.IBPluginDependency</string>
 					<string>453.IBPluginDependency</string>
 					<string>454.IBPluginDependency</string>
+					<string>455.IBEditorWindowLastContentRect</string>
 					<string>455.IBPluginDependency</string>
 					<string>455.editorWindowContentRectSynchronizationRect</string>
 					<string>456.IBPluginDependency</string>
 					<string>461.IBPluginDependency</string>
 					<string>463.IBPluginDependency</string>
+					<string>465.IBPluginDependency</string>
+					<string>466.IBPluginDependency</string>
+					<string>467.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -1698,6 +1773,7 @@
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1" id="9"/>
+					<string>{{423, 712}, {156, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{476, 803}, {156, 23}}</string>
@@ -1745,7 +1821,7 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{123, 562}, {240, 263}}</string>
+					<string>{{123, 472}, {240, 263}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{295, 563}, {240, 263}}</string>
@@ -1763,15 +1839,17 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
+					<string>{{352, 682}, {197, 53}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{524, 773}, {197, 53}}</string>
-					<string>{{0, 825}, {484, 20}}</string>
+					<string>{{109, 729}, {484, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
 					<string>{{172, 826}, {484, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{395, 646}, {268, 83}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{458, 763}, {268, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1782,7 +1860,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{238, 712}, {151, 113}}</string>
+					<string>{{238, 622}, {151, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{410, 713}, {151, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1793,8 +1871,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{276, 666}, {258, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{339, 803}, {152, 23}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1823,7 +1905,7 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{81, 602}, {199, 223}}</string>
+					<string>{{190, 506}, {199, 223}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{253, 623}, {199, 203}}</string>
@@ -1855,7 +1937,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">464</int>
+			<int key="maxID">470</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1881,6 +1963,8 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alignMotifs:</string>
 							<string>alignMotifsToLeftEnd:</string>
+							<string>bestHitsWith:</string>
+							<string>bestReciprocalHitsWith:</string>
 							<string>exportToPDF:</string>
 							<string>find:</string>
 							<string>remove:</string>
@@ -1889,11 +1973,15 @@
 							<string>selectNone:</string>
 							<string>shiftLeft:</string>
 							<string>shiftRight:</string>
+							<string>showLength:</string>
 							<string>toggleInformationContentShown:</string>
 							<string>toggleScoreThresholdShown:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -1918,7 +2006,7 @@
 					<string key="superclassName">NSObject</string>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">../XMSParser/Motif.h</string>
+						<string key="minorKey">../libxms/Motif.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
@@ -1937,6 +2025,9 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>alignMotifs:</string>
+							<string>bestHitsWith:</string>
+							<string>bestReciprocalHitsWith:</string>
+							<string>closeMotifSetPickerSheet:</string>
 							<string>exportToPDF:</string>
 							<string>find:</string>
 							<string>searchMotifs:</string>
@@ -1951,6 +2042,9 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -1959,6 +2053,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>motifColumn</string>
 							<string>motifSetController</string>
+							<string>motifSetPickerOkButton</string>
+							<string>motifSetPickerSheet</string>
+							<string>motifSetPickerTableDelegate</string>
+							<string>motifSetPickerTableView</string>
 							<string>motifTable</string>
 							<string>motifView</string>
 							<string>nameColumn</string>
@@ -1971,6 +2069,10 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>NSTableColumn</string>
 							<string>MotifSetController</string>
+							<string>NSButton</string>
+							<string>MotifSetPickerWindow</string>
+							<string>MotifSetPickerTableDelegate</string>
+							<string>NSTableView</string>
 							<string>NSTableView</string>
 							<string>MotifView</string>
 							<string>NSTableColumn</string>
@@ -1983,6 +2085,26 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">MotifSetDocument.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MotifSetPickerTableDelegate</string>
+					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="outlets">
+						<string key="NS.key.0">motifSetDocument</string>
+						<string key="NS.object.0">MotifSetDocument</string>
+					</object>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">MotifSetPickerTableDelegate.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">MotifSetPickerWindow</string>
+					<string key="superclassName">NSWindow</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">MotifSetPickerWindow.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

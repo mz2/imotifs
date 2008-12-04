@@ -8,15 +8,19 @@
 
 #import <Cocoa/Cocoa.h>
 #import <IMDoubleMatrix2DIface.h>
-#import <IMIntMatrix2D.h>
-#import <Motif.h>
-#import <IMMotifComparisonMatrixBundle.h>
+@class IMIntMatrix2D;
+@class Multinomial;
+@class Motif;
+@class IMMotifComparisonMatrixBundle;
+@class ScoreOffsetPair;
 
 @interface MotifComparitor : NSObject {
     double exponentRatio;
 }
 
 @property (readonly) double exponentRatio;
+
+-(id) initWithExponentRatio:(double) ratio;
 
 -(id<IMDoubleMatrix2DIface>) bestHitsFrom:(NSArray*)motifSet0 to:(NSArray*)motifSet1;
 -(id<IMDoubleMatrix2DIface>) bestHitsBetween:(NSArray*) motifSet;
@@ -33,6 +37,13 @@
             background:(Multinomial*)bg0 
                toMotif:(Motif*)motif1
             background:(Multinomial*)bg1;
+
+-(ScoreOffsetPair*) compareWithOffsetsMotif:(Motif*)motif0 
+            background:(Multinomial*)bg0 
+               toMotif:(Motif*)motif1
+            background:(Multinomial*)bg1;
+
+
 -(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs0 
                                                       withMotifs:(NSArray*)motifs1;
 -(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs;

@@ -8,12 +8,16 @@
 
 
 #import <Cocoa/Cocoa.h>
-#import <MotifSet.h>
-#import <Motif.h>
-#import <MotifView.h>
-#import <MotifViewCell.h>
-#import <MotifSetController.h>
-#import <MotifNameCell.h>
+#import <MotifSetPickerWindow.h>
+@class MotifSet;
+@class Motif;
+@class MotifView;
+@class MotifViewCell;
+@class MotifSetController;
+@class MotifNameCell;
+@class MotifSetDocument;
+@class MotifSetPickerTableDelegate;
+@class MotifComparitor;
 
 typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByName = 0,
@@ -21,8 +25,8 @@ typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByConsensusScoring = 2
 } IMMotifSetSearchType;
 
-static NSString *IMMotifSetPboardType = @"net.piipari.motifset.pasteboard";
-static NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pasteboard";
+extern const NSString *IMMotifSetPboardType;
+extern const NSString *IMMotifSetIndicesPboardType;
 
 @interface MotifSetDocument : NSDocument {
     MotifSet *motifSet;
@@ -41,6 +45,14 @@ static NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pa
     IBOutlet NSMenuItem *searchTypeConsensusItem;
     IBOutlet NSMenuItem *searchTypeConsensusScoringItem;
     
+	IBOutlet MotifSetPickerWindow *motifSetPickerSheet;
+	IBOutlet MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
+	IBOutlet NSButton *motifSetPickerOkButton;
+	
+	IBOutlet NSTableView *motifSetPickerTableView;
+	
+	//MotifComparitor *motifComparitor;
+	
     NSTask *task;
     NSPipe *pipe;
     
@@ -56,7 +68,12 @@ static NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pa
 -(IBAction) searchTypeToggled:(id) sender;
 -(IBAction) selectNone:(id) sender;
 -(IBAction) find:(id) sender;
-- (IBAction) alignMotifs: (id) sender;
+
+-(IBAction) alignMotifs: (id) sender;
+-(IBAction) bestHitsWith: (id) sender;
+-(IBAction) bestReciprocalHitsWith: (id) sender;
+
+- (IBAction)closeMotifSetPickerSheet: (id) sender;
 
 -(BOOL) searchingByName;
 -(BOOL) searchingByConsensusMatching;
@@ -81,6 +98,10 @@ static NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pa
 @property (retain,readwrite) NSMenuItem *searchTypeConsensusScoringItem;
 
 @property (readwrite) NSUInteger searchType;
-
+@property (retain,readwrite) MotifSetPickerWindow *motifSetPickerSheet;
+@property (retain,readwrite) MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
+@property (retain,readwrite) NSTableView *motifSetPickerTableView;
 @property (retain,readwrite) MotifSetController *motifSetController;
+@property (retain,readwrite) NSButton *motifSetPickerOkButton;
+
 @end

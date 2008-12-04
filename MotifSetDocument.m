@@ -9,22 +9,27 @@
 #import <MotifSetDocument.h>
 #import <Motif.h>
 #import <MotifSet.h>
+#import <MotifView.h>
 #import <MotifSetParser.h>
 #import <MotifViewCell.h>
 #import <IMDoubleMatrix2D.h>
+#import <MotifNameCell.h>
+#import <MotifSetPickerTableDelegate.h>
+#import <MotifComparitor.h>
+#import <MotifPair.h>
+
+@interface MotifSetDocument (private)
+-(void) initializeUI;
+@end
 
 @implementation MotifSetDocument
 @synthesize motifTable;
-@synthesize motifNameCell;
-@synthesize motifViewCell;
-@synthesize nameColumn;
-@synthesize motifColumn;
+@synthesize motifNameCell,motifViewCell;
+@synthesize nameColumn,motifColumn;
 @synthesize motifSetController;
-@synthesize searchField;
-@synthesize searchType;
-@synthesize searchTypeNameItem;
-@synthesize searchTypeConsensusItem;
-@synthesize searchTypeConsensusScoringItem;
+@synthesize searchField,searchType;
+@synthesize searchTypeNameItem,searchTypeConsensusItem,searchTypeConsensusScoringItem;
+@synthesize motifSetPickerSheet, motifSetPickerTableDelegate, motifSetPickerTableView, motifSetPickerOkButton;
 
 - (id)init
 {
@@ -32,18 +37,15 @@
     self = [super init];
     if (self) {
         [self setMotifSet:[[MotifSet alloc] init]];
-        
+        [self initializeUI];
         // Add your subclass-specific initialization here.
         // If an error occurs here, send a [self release] message and return nil.
-        pboardMotifs = nil;
-        pboardMotifsOriginals = nil;
     }
     return self;
 }
 
-- (void) awakeFromNib {
-    //NSLog(@"MotifSetDocument: awakening from Nib (motifset=%@)",[self motifSet]);
-    [motifTable setRowHeight: IMDefaultColHeight];
+- (void) initializeUI {
+    //[motifTable setRowHeight: IMDefaultColHeight];
     
     NSArray *dragTypes = [NSArray arrayWithObjects:IMMotifSetPboardType,NSFilenamesPboardType,NSStringPboardType,nil];
     [motifTable setDraggingSourceOperationMask:NSDragOperationCopy|NSDragOperationMove|NSDragOperationDelete forLocal:YES];
@@ -51,18 +53,25 @@
     [motifTable registerForDraggedTypes:dragTypes];
     
     motifViewCell = [[[MotifViewCell alloc] 
-                                     initImageCell:[[motifColumn dataCell] image]] autorelease];
+                      initImageCell:[[motifColumn dataCell] image]] autorelease];
     [motifViewCell setColumnDisplayOffset: [[self motifSet] columnCountWithOffsets]];
     
     motifNameCell = [[[MotifNameCell alloc]
                       initTextCell:@""] autorelease];
     
-    
     [motifColumn setDataCell: motifViewCell];
     [nameColumn setDataCell: motifNameCell];
+    pboardMotifs = nil;
+    pboardMotifsOriginals = nil;
     
     [motifSetController rearrangeObjects];
+    
+}
+
+- (void) awakeFromNib {
+    NSLog(@"MotifSetDocument: awakening from Nib (motifset=%@)",[[self motifSet] name]);
     //NSLog(@"Arranged objects:%@",[motifSetController arrangedObjects]);
+    [self initializeUI];
 }
 
 - (NSString *)windowNibName
@@ -107,7 +116,8 @@
     
     //NSLog([motifSet description]);
     [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
-    return motifSet != nil ? true : false;
+    [motifSet setName: [self displayName]];
+	return motifSet != nil ? true : false;
 }
 
 #pragma mark Accessors
@@ -136,7 +146,7 @@
 }
 
 - (void) setMotifSet:(MotifSet*) ms {
-    //NSLog(@"MotifSetDocument: setting motif set to %@", ms);
+    NSLog(@"MotifSetDocument: setting motif set to %@", ms);
     [ms retain];
     [motifSet release];
     motifSet = ms;
@@ -217,7 +227,7 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
           mouseLocation:(NSPoint)mouseLocation {
     NSLog(@"MotifSetWindowController: toolTip");
     if ([[aTableColumn identifier] isEqual:@"motif"]) {
-        NSLog(@"MotifSetWindowController: arrangedObjects:%@",[motifSetController arrangedObjects]);
+        //NSLog(@"MotifSetWindowController: arrangedObjects:%@",[motifSetController arrangedObjects]);
         Motif *m = [[motifSetController arrangedObjects] objectAtIndex:row];
         return [NSString stringWithFormat:@"%@: %@",[m name],[[m consensusString] uppercaseString]];
     } 
@@ -273,7 +283,8 @@ provideDataForType:(NSString *)type {
         NSLog(@"MotifSetDocument: provideDataForType IMMotifSetPboardType");
         NSLog(@"Pasteboard motifs:%@",pboardMotifs);
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:pboardMotifs];
-        [sender setData:data forType:IMMotifSetPboardType];
+        [sender setData:data 
+				forType:IMMotifSetPboardType];
         
     } else if ([type isEqual:NSFilenamesPboardType]) {
         NSLog(@"MotifSetDocument: provideDataForType NSFilenamesPboardType");
@@ -734,9 +745,9 @@ provideDataForType:(NSString *)type {
     
     //NSTask *task;
     task = [[NSTask alloc] init];
-    [task setLaunchPath: @"/Users/mz2/workspace/nmica-extra/bin/nmalign"];
+    [task setLaunchPath: @"~/workspace/nmica-extra/bin/nmalign"];
     
-    NSArray *arguments = [NSArray arrayWithObjects: @"-motifs", @"/tmp/foo.xms", @"-outputType", @"all",nil];    
+    NSArray *arguments = [NSArray arrayWithObjects: @"/tmp/foo.xms", @"-outputType", @"all",nil];    
     NSLog(@"Setting arguments");
     [task setArguments: arguments];
     
@@ -747,13 +758,15 @@ provideDataForType:(NSString *)type {
     [task setStandardOutput: pipe];
     //[pipe release];
     
-    //[task launch];    
+    //[task launch]; 
+    NSLog(@"Getting file handle for reading from pipe");
     NSFileHandle *handle = [pipe fileHandleForReading];
     //NSData *data = [handle availableData];
     
     NSNotificationCenter *nc;
     nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
+    NSLog(@"Adding self as an observer");
     [nc addObserver:self 
            selector:@selector(dataReady:) 
                name:NSFileHandleReadToEndOfFileCompletionNotification 
@@ -783,6 +796,140 @@ provideDataForType:(NSString *)type {
                                   error:&error];
     NSLog (@"Got:\n%@", alignedDoc);
     */
+}
+
+- (IBAction) bestHitsWith: (id)sender {
+    if (!motifSetPickerSheet) {
+        [NSBundle loadNibNamed: @"MotifSetPickerWindow" 
+						 owner: self];
+	}
+	
+	[motifSetPickerTableDelegate setMotifSetDocument: self];
+	[motifSetPickerTableView reloadData];
+	NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+						  @"bestHitsWith",@"action",nil];
+	
+	[NSApp beginSheet: motifSetPickerSheet
+	   modalForWindow: [NSApp mainWindow]
+		modalDelegate: self
+	   didEndSelector: @selector(didEndMotifPickerSheet:returnCode:contextInfo:)
+		  contextInfo: dict];
+}
+
+-(IBAction) bestReciprocalHitsWith: (id)sender {
+    if (!motifSetPickerSheet) {
+        [NSBundle loadNibNamed: @"MotifSetPickerWindow" 
+						 owner: self];
+	}
+	
+	[motifSetPickerTableDelegate setMotifSetDocument: self];
+	[motifSetPickerTableView reloadData];
+	NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+						  @"bestReciprocalHitsWith",@"action",nil];
+	
+	[NSApp beginSheet: motifSetPickerSheet
+	   modalForWindow: [NSApp mainWindow]
+		modalDelegate: self
+	   didEndSelector: @selector(didEndMotifPickerSheet:returnCode:contextInfo:)
+		  contextInfo: dict];
+    
+}
+
+
+- (IBAction)closeMotifSetPickerSheet: (id)sender {
+	NSLog(@"Closing sheet (sender: %@)",sender);
+	[motifSetPickerSheet orderOut: self];
+	//NOTE: The tableview has its doubleAction also tied to this closeMotifSetPickerSheet and the tableview's tag is 1 (i.e. OK)
+    [NSApp endSheet:motifSetPickerSheet 
+		 returnCode:([sender tag] == 1) ? NSOKButton : NSCancelButton];
+}
+
+- (void)didEndMotifPickerSheet: (NSWindow*)sheet 
+					returnCode: (int)returnCode 
+				   contextInfo: (void*)contextInfo {
+	if (returnCode == NSCancelButton) { 
+		NSLog(@"Pressed cancel in the sheet");
+		return;
+	}
+	else {
+		NSLog(@"Processing");
+		NSDictionary *dict = contextInfo;
+		NSLog(@"contextInfo = %@", dict);
+		NSString *action = [dict objectForKey:@"action"];
+		NSIndexSet *indexes = [motifSetPickerTableView selectedRowIndexes];
+		if ([action isEqual: @"bestHitsWith"]||[action isEqual:@"bestReciprocalHitsWith"]) {
+			NSLog(@"Will calculate best hits with...");
+			NSUInteger curIndex = [indexes firstIndex];
+			NSLog(@"First index: %d", curIndex);
+			while (curIndex != NSNotFound) {
+				NSLog(@"curIndex: %d", curIndex);
+				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] 
+								  objectAtIndex: curIndex];
+                
+                NSArray *bestHitPairs;
+                if ([action isEqual:@"bestHitsWith"])
+                    bestHitPairs = [[MotifComparitor sharedMotifComparitor] 
+                                            bestMotifPairsHitsFrom: self.motifSet.motifs 
+                                            to: mset.motifs];
+				else {
+                    bestHitPairs = [[MotifComparitor sharedMotifComparitor] 
+                                            bestReciprocalHitsFrom:self.motifSet.motifs 
+                                            to: mset.motifs];
+                }
+				NSLog(@"Found %d pairs", [bestHitPairs count]);
+                NSError *error;
+                MotifSetDocument *msetDocument = [[NSDocumentController sharedDocumentController] 
+                                                 makeUntitledDocumentOfType:@"Motif set" 
+                                                 error:&error];
+                
+                if (msetDocument) {
+                    [[NSDocumentController sharedDocumentController] addDocument: msetDocument];
+                    [msetDocument makeWindowControllers];
+                    for (MotifPair *mp in bestHitPairs) {
+                        Motif *m1 = [[Motif alloc] initWithMotif: mp.m1];
+                        Motif *m2;
+                        if ([mp flipped]) 
+                            m2 = [[Motif alloc] initWithMotif: [mp.m2 reverseComplement]];
+                        else
+                            m2 = [[Motif alloc] initWithMotif: mp.m2];
+                        [m2 setOffset: mp.offset];
+                        [[msetDocument motifSet] addMotif: m1]; 
+                        [[msetDocument motifSet] addMotif: m2];
+                        NSLog(@"%@ -> %@ : %d (%d)",
+                              m1.name,
+                              m2.name,
+                              mp.offset,
+                              mp.flipped);
+                    }
+                    [msetDocument showWindows];
+                    
+                } else {
+                    NSAlert *alert = [NSAlert alertWithError:error];
+                    int button = [alert runModal];
+                    if (button != NSAlertFirstButtonReturn) {
+                        // handle
+                    }
+                    /*
+                    [[self windowForSheet] presentError:error
+                           modalForWindow: [self windowForSheet]
+                                 delegate: self
+                       didPresentSelector:
+                     @selector(didPresentErrorWithRecovery:contextInfo:)
+                              contextInfo:nil];
+                     */
+                }
+                curIndex = [indexes indexGreaterThanIndex: curIndex];
+			}
+		}
+	}
+}
+
+- (void)didPresentErrorWithRecovery:(BOOL)recover
+                        contextInfo:(void *)info {
+    if (recover == NO) { 
+        // recovery did not succeed, or no recovery attempter
+        // proceed accordingly
+    }
 }
 
 - (void) dataReady:(NSNotification*) n {
@@ -855,5 +1002,4 @@ provideDataForType:(NSString *)type {
         [a runModal];
     }
 }
-
 @end
