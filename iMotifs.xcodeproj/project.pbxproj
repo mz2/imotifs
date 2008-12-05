@@ -44,6 +44,7 @@
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
 		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
+		95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */; };
 		959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3C180EE58A7000072A66 /* MotifPairCell.m */; };
 		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
 		959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
@@ -142,6 +143,8 @@
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreOffsetPair.h; sourceTree = "<group>"; };
 		954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreOffsetPair.m; sourceTree = "<group>"; };
+		95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetDrawerTableDelegate.h; sourceTree = "<group>"; };
+		95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetDrawerTableDelegate.m; sourceTree = "<group>"; };
 		959E3C170EE58A7000072A66 /* MotifPairCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairCell.h; sourceTree = "<group>"; };
 		959E3C180EE58A7000072A66 /* MotifPairCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairCell.m; sourceTree = "<group>"; };
 		959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifPairWindow.xib; sourceTree = "<group>"; };
@@ -274,6 +277,8 @@
 				959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */,
 				959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */,
 				959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */,
+				95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */,
+				95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -462,6 +467,7 @@
 				959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */,
 				959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */,
 				954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */,
+				95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

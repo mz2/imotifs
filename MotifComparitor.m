@@ -29,17 +29,22 @@
 @end
 
 @implementation MotifComparitor
-@synthesize exponentRatio;
+@synthesize exponentRatio, indicator;
 
--(id) initWithExponentRatio:(double) ratio
-{
+-(id) initWithExponentRatio: (double) ratio 
+          progressIndicator: (NSProgressIndicator*)ind {
 	self = [super init];
 	if (self != nil) {
 		exponentRatio = ratio;
+        indicator = [ind retain];
 	}
 	return self;
 }
 
+-(void) dealloc {
+    [indicator release];
+    [super dealloc];
+}
 
 -(NSArray*) comparisonMatrixBetwMotifs:(NSArray*)motifs0 
                             withMotifs:(NSArray*)motifs1 {
@@ -120,7 +125,13 @@
     NSMutableArray *mpairs = [NSMutableArray array];
     
     NSUInteger i,j,m0count,m1count;
-    for (i = 0, m0count = [motifs0 count]; i < m0count; i++) {
+    m0count = [motifs0 count];
+    m1count = [motifs1 count];
+    double incrementSize = 1.0 / (double)m0count * 100.0;
+    
+    for (i = 0; i < m0count; i++) {
+        [indicator incrementBy:incrementSize];
+        NSLog(@"indicator state: %.3f",[indicator doubleValue]);
         NSUInteger bestJ = -1;
         double bestScore = positiveInfinity;
         NSUInteger bestOffset = NSUIntegerMax;
@@ -287,6 +298,9 @@
     IMIntMatrix2D *dOffsetMatrix = [matrices senseOffsetMatrix];
     IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
     
+    [indicator setHidden: NO];
+    [indicator setDoubleValue:0.0];
+    
 	NSLog(@"Getting best motif pair hits between motif sets");
     NSArray *mpairs = [self bestMotifPairHitsFrom: motifs0 
                                                to: motifs1 
@@ -300,6 +314,8 @@
                                          ascending:YES 
                                          selector:@selector(compare:)] autorelease];
     
+    [indicator setDoubleValue:100.0];
+    [indicator setHidden: YES];
     return [mpairs sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
@@ -584,6 +600,7 @@ throws IllegalSymbolException, IllegalAlphabetException {
     }
 */
 
+/*
 +(MotifComparitor*) sharedMotifComparitor {
     static MotifComparitor *comparitor;
     @synchronized(self) {
@@ -593,5 +610,5 @@ throws IllegalSymbolException, IllegalAlphabetException {
     }
     return comparitor;
 }
-
+*/
 @end

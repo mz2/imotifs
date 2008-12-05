@@ -16,11 +16,14 @@
 
 @interface MotifComparitor : NSObject {
     double exponentRatio;
+    NSProgressIndicator *indicator;
 }
 
 @property (readonly) double exponentRatio;
+@property (readonly) NSProgressIndicator *indicator;
 
--(id) initWithExponentRatio:(double) ratio;
+-(id) initWithExponentRatio: (double) ratio 
+          progressIndicator: (NSProgressIndicator*)indicator;
 
 -(id<IMDoubleMatrix2DIface>) bestHitsFrom:(NSArray*)motifSet0 to:(NSArray*)motifSet1;
 -(id<IMDoubleMatrix2DIface>) bestHitsBetween:(NSArray*) motifSet;
@@ -48,5 +51,5 @@
                                                       withMotifs:(NSArray*)motifs1;
 -(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs;
 
-+ (MotifComparitor*) sharedMotifComparitor;
+//+ (MotifComparitor*) sharedMotifComparitor;
 @end

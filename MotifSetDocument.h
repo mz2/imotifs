@@ -18,6 +18,7 @@
 @class MotifSetDocument;
 @class MotifSetPickerTableDelegate;
 @class MotifComparitor;
+@class MotifSetDrawerTableDelegate;
 
 typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByName = 0,
@@ -30,10 +31,13 @@ extern const NSString *IMMotifSetIndicesPboardType;
 
 @interface MotifSetDocument : NSDocument {
     MotifSet *motifSet;
-    IBOutlet MotifView *motifView;
     MotifNameCell *motifNameCell;
     MotifViewCell *motifViewCell;
+
+    MotifComparitor *motifComparitor;
     
+    IBOutlet MotifView *motifView; //TODO: Remove this.
+
     IBOutlet NSTableView *motifTable;
     IBOutlet NSTableColumn *nameColumn;
     IBOutlet NSTableColumn *motifColumn;
@@ -48,9 +52,12 @@ extern const NSString *IMMotifSetIndicesPboardType;
 	IBOutlet MotifSetPickerWindow *motifSetPickerSheet;
 	IBOutlet MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
 	IBOutlet NSButton *motifSetPickerOkButton;
-	
 	IBOutlet NSTableView *motifSetPickerTableView;
 	
+    IBOutlet MotifSetDrawerTableDelegate *drawerTableDelegate;
+    IBOutlet NSDrawer *drawer;
+    
+    IBOutlet NSProgressIndicator *progressIndicator;
 	//MotifComparitor *motifComparitor;
 	
     NSTask *task;
@@ -73,7 +80,11 @@ extern const NSString *IMMotifSetIndicesPboardType;
 -(IBAction) bestHitsWith: (id) sender;
 -(IBAction) bestReciprocalHitsWith: (id) sender;
 
-- (IBAction)closeMotifSetPickerSheet: (id) sender;
+-(IBAction) closeMotifSetPickerSheet: (id) sender;
+
+-(IBAction) toggleDrawer: (id) sender;
+-(IBAction) newAnnotation: (id) sender;
+-(IBAction) removeAnnotation: (id) sender;
 
 -(BOOL) searchingByName;
 -(BOOL) searchingByConsensusMatching;
@@ -84,9 +95,11 @@ extern const NSString *IMMotifSetIndicesPboardType;
 //-(IBAction) openMotifSet:(id)sender;
 //-(void) 
 @property (retain,readwrite) MotifSet *motifSet;
-@property (retain,readwrite) MotifView *motifView;
 @property (readonly) MotifViewCell *motifViewCell;
 @property (readonly) MotifNameCell *motifNameCell;
+@property (retain, readonly) MotifComparitor *motifComparitor;
+
+@property (retain,readwrite) MotifView *motifView;
 
 @property (retain,readwrite) NSTableView *motifTable;
 @property (retain,readwrite) NSTableColumn *nameColumn;
@@ -104,4 +117,9 @@ extern const NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) MotifSetController *motifSetController;
 @property (retain,readwrite) NSButton *motifSetPickerOkButton;
 
+@property (retain,readwrite) MotifSetDrawerTableDelegate *drawerTableDelegate;
+
+@property (retain,readwrite) NSProgressIndicator *progressIndicator;
+
+@property (retain,readwrite) NSDrawer *drawer;
 @end

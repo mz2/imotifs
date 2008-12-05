@@ -15,6 +15,7 @@
 #import <IMDoubleMatrix2D.h>
 #import <MotifNameCell.h>
 #import <MotifSetPickerTableDelegate.h>
+#import <MotifSetDrawerTableDelegate.h>
 #import <MotifComparitor.h>
 #import <MotifPair.h>
 
@@ -26,10 +27,14 @@
 @synthesize motifTable;
 @synthesize motifNameCell,motifViewCell;
 @synthesize nameColumn,motifColumn;
+@synthesize motifComparitor;
+@synthesize motifColumn;
 @synthesize motifSetController;
 @synthesize searchField,searchType;
 @synthesize searchTypeNameItem,searchTypeConsensusItem,searchTypeConsensusScoringItem;
 @synthesize motifSetPickerSheet, motifSetPickerTableDelegate, motifSetPickerTableView, motifSetPickerOkButton;
+@synthesize drawerTableDelegate,drawer;
+@synthesize progressIndicator;
 
 - (id)init
 {
@@ -66,6 +71,8 @@
     
     [motifSetController rearrangeObjects];
     
+    motifComparitor = [[MotifComparitor alloc] initWithExponentRatio:2.0 progressIndicator: progressIndicator];
+    [progressIndicator setUsesThreadedAnimation: YES];
 }
 
 - (void) awakeFromNib {
@@ -852,9 +859,7 @@ provideDataForType:(NSString *)type {
 		return;
 	}
 	else {
-		NSLog(@"Processing");
 		NSDictionary *dict = contextInfo;
-		NSLog(@"contextInfo = %@", dict);
 		NSString *action = [dict objectForKey:@"action"];
 		NSIndexSet *indexes = [motifSetPickerTableView selectedRowIndexes];
 		if ([action isEqual: @"bestHitsWith"]||[action isEqual:@"bestReciprocalHitsWith"]) {
@@ -868,11 +873,11 @@ provideDataForType:(NSString *)type {
                 
                 NSArray *bestHitPairs;
                 if ([action isEqual:@"bestHitsWith"])
-                    bestHitPairs = [[MotifComparitor sharedMotifComparitor] 
+                    bestHitPairs = [motifComparitor 
                                             bestMotifPairsHitsFrom: self.motifSet.motifs 
                                             to: mset.motifs];
 				else {
-                    bestHitPairs = [[MotifComparitor sharedMotifComparitor] 
+                    bestHitPairs = [motifComparitor 
                                             bestReciprocalHitsFrom:self.motifSet.motifs 
                                             to: mset.motifs];
                 }
@@ -1001,5 +1006,25 @@ provideDataForType:(NSString *)type {
         NSAlert *a = [NSAlert alertWithError:error];
         [a runModal];
     }
+}
+
+/*
+-(IBAction) selectAll: (id) sender {
+    
+}
+
+-(IBAction) selectNone: (id) sender {
+    
+}*/
+
+-(IBAction) toggleDrawer: (id) sender {
+    [drawer toggle: sender];
+    [drawerTableDelegate refresh: self];
+}
+
+
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    [drawerTableDelegate refresh: self];
 }
 @end
