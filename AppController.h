@@ -23,9 +23,11 @@
 
 @interface AppController : NSObject {
     PreferencesDialogController *preferenceController;
+    NSOperationQueue *sharedOperationQueue;
 }
 
 @property (readonly) PreferencesDialogController *preferenceController;
+@property (retain,readonly) NSOperationQueue *sharedOperationQueue;
 
 - (IBAction) showPreferencePanel:(id)sender;
 @end

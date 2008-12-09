@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">352.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="471"/>
+			<integer value="300"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -402,6 +402,34 @@
 									<string key="NSTitle">Select None</string>
 									<string key="NSKeyEquiv">A</string>
 									<int key="NSKeyEquivModMask">1179648</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="845285655">
+									<reference key="NSMenu" ref="789758025"/>
+									<bool key="NSIsDisabled">YES</bool>
+									<bool key="NSIsSeparator">YES</bool>
+									<string key="NSTitle"/>
+									<string key="NSKeyEquiv"/>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="17420981">
+									<reference key="NSMenu" ref="789758025"/>
+									<string key="NSTitle">Add prefix to names ...</string>
+									<string key="NSKeyEquiv">p</string>
+									<int key="NSKeyEquivModMask">1310720</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="439743391">
+									<reference key="NSMenu" ref="789758025"/>
+									<string key="NSTitle">Add suffix to names ...</string>
+									<string key="NSKeyEquiv">s</string>
+									<int key="NSKeyEquivModMask">1310720</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1064276977"/>
 									<reference key="NSMixedImage" ref="980219229"/>
@@ -1059,19 +1087,35 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">showLength:</string>
-						<reference key="source" ref="1014"/>
-						<reference key="destination" ref="118588246"/>
-					</object>
-					<int key="connectionID">470</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">toggleDrawer:</string>
 						<reference key="source" ref="1014"/>
 						<reference key="destination" ref="743604172"/>
 					</object>
 					<int key="connectionID">472</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addPrefixToMotifNames:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="17420981"/>
+					</object>
+					<int key="connectionID">476</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addSuffixToMotifNames:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="439743391"/>
+					</object>
+					<int key="connectionID">477</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleLengthShown:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="118588246"/>
+					</object>
+					<int key="connectionID">479</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1445,6 +1489,9 @@
 							<reference ref="874996857"/>
 							<reference ref="336055695"/>
 							<reference ref="966769305"/>
+							<reference ref="17420981"/>
+							<reference ref="845285655"/>
+							<reference ref="439743391"/>
 						</object>
 						<reference key="parent" ref="952259628"/>
 					</object>
@@ -1636,6 +1683,21 @@
 						<reference key="object" ref="743604172"/>
 						<reference key="parent" ref="835318025"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">473</int>
+						<reference key="object" ref="17420981"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">474</int>
+						<reference key="object" ref="845285655"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">475</int>
+						<reference key="object" ref="439743391"/>
+						<reference key="parent" ref="789758025"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1755,6 +1817,9 @@
 					<string>466.IBPluginDependency</string>
 					<string>467.IBPluginDependency</string>
 					<string>471.IBPluginDependency</string>
+					<string>473.IBPluginDependency</string>
+					<string>474.IBPluginDependency</string>
+					<string>475.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -1846,7 +1911,7 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{232, 466}, {240, 263}}</string>
+					<string>{{149, 416}, {256, 313}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{295, 563}, {240, 263}}</string>
@@ -1874,7 +1939,7 @@
 					<string>{74, 862}</string>
 					<string>{{172, 826}, {484, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{395, 646}, {268, 83}}</string>
+					<string>{{312, 646}, {268, 83}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{458, 763}, {268, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1885,7 +1950,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{347, 616}, {151, 113}}</string>
+					<string>{{264, 616}, {151, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{410, 713}, {151, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1896,9 +1961,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{276, 666}, {258, 63}}</string>
+					<string>{{193, 666}, {258, 63}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{339, 803}, {152, 23}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -1931,7 +1999,7 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{190, 506}, {199, 223}}</string>
+					<string>{{107, 506}, {199, 223}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{253, 623}, {199, 203}}</string>
@@ -1963,7 +2031,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">472</int>
+			<int key="maxID">479</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1987,6 +2055,8 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addPrefixToMotifNames:</string>
+							<string>addSuffixToMotifNames:</string>
 							<string>alignMotifs:</string>
 							<string>alignMotifsToLeftEnd:</string>
 							<string>bestHitsWith:</string>
@@ -2002,10 +2072,14 @@
 							<string>showLength:</string>
 							<string>toggleDrawer:</string>
 							<string>toggleInformationContentShown:</string>
+							<string>toggleLengthShown:</string>
 							<string>toggleScoreThresholdShown:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2052,9 +2126,12 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addPrefixToMotifNames:</string>
+							<string>addSuffixToMotifNames:</string>
 							<string>alignMotifs:</string>
 							<string>bestHitsWith:</string>
 							<string>bestReciprocalHitsWith:</string>
+							<string>closeMotifNamePickerSheet:</string>
 							<string>closeMotifSetPickerSheet:</string>
 							<string>exportToPDF:</string>
 							<string>find:</string>
@@ -2075,6 +2152,9 @@
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
@@ -2084,6 +2164,9 @@
 							<string>drawer</string>
 							<string>drawerTableDelegate</string>
 							<string>motifColumn</string>
+							<string>motifNamePickerLabel</string>
+							<string>motifNamePickerSheet</string>
+							<string>motifNamePickerTextField</string>
 							<string>motifSetController</string>
 							<string>motifSetPickerOkButton</string>
 							<string>motifSetPickerSheet</string>
@@ -2092,6 +2175,7 @@
 							<string>motifTable</string>
 							<string>motifView</string>
 							<string>nameColumn</string>
+							<string>progressIndicator</string>
 							<string>searchField</string>
 							<string>searchTypeConsensusItem</string>
 							<string>searchTypeConsensusScoringItem</string>
@@ -2102,6 +2186,9 @@
 							<string>NSDrawer</string>
 							<string>MotifSetDrawerTableDelegate</string>
 							<string>NSTableColumn</string>
+							<string>NSTextField</string>
+							<string>NSWindow</string>
+							<string>NSTextField</string>
 							<string>MotifSetController</string>
 							<string>NSButton</string>
 							<string>MotifSetPickerWindow</string>
@@ -2110,6 +2197,7 @@
 							<string>NSTableView</string>
 							<string>MotifView</string>
 							<string>NSTableColumn</string>
+							<string>NSProgressIndicator</string>
 							<string>NSSearchField</string>
 							<string>NSMenuItem</string>
 							<string>NSMenuItem</string>
@@ -2124,6 +2212,40 @@
 				<object class="IBPartialClassDescription">
 					<string key="className">MotifSetDrawerTableDelegate</string>
 					<string key="superclassName">NSObject</string>
+					<object class="NSMutableDictionary" key="actions">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>newAnnotation:</string>
+							<string>refresh:</string>
+							<string>removeAnnotation:</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
+							<string>id</string>
+						</object>
+					</object>
+					<object class="NSMutableDictionary" key="outlets">
+						<bool key="EncodedWithXMLCoder">YES</bool>
+						<object class="NSMutableArray" key="dict.sortedKeys">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>addButton</string>
+							<string>motifSetDocument</string>
+							<string>removeButton</string>
+							<string>table</string>
+							<string>tableLabel</string>
+						</object>
+						<object class="NSMutableArray" key="dict.values">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
+							<string>MotifSetDocument</string>
+							<string>NSButton</string>
+							<string>NSTableView</string>
+							<string>NSTextField</string>
+						</object>
+					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">MotifSetDrawerTableDelegate.h</string>

@@ -11,8 +11,6 @@
 #import "MotifSetParser.h"
 
 @implementation MotifSetWindowController
-
-
 - (id) init {
     self = [super init];
     if (self != nil) {

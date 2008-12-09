@@ -46,6 +46,7 @@ extern const NSString *IMMotifSetIndicesPboardType;
     CGFloat columnWidth;
     BOOL showInformationContent;
     BOOL showScoreThreshold;
+    BOOL showLength;
 }
 
 @property (readwrite) MotifDrawingStyle drawingStyle;
@@ -53,6 +54,7 @@ extern const NSString *IMMotifSetIndicesPboardType;
 @property (readwrite) CGFloat columnWidth;
 @property (readwrite) BOOL showInformationContent;
 @property (readwrite) BOOL showScoreThreshold;
+@property (readwrite) BOOL showLength;
 
 - (NSInteger) calcFittingColumnCountInRect:(NSRect)rect;
 
@@ -67,4 +69,5 @@ extern const NSString *IMMotifSetIndicesPboardType;
 
 + (NSMutableAttributedString*) infoContentStringForMotif:(Motif*) motif;
 + (NSMutableAttributedString*) scoreThresholdStringForMotif:(Motif*) motif;
++ (NSMutableAttributedString*) lengthStringForMotif:(Motif*) motif;
 @end

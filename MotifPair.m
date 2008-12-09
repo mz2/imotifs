@@ -24,7 +24,7 @@
     return self;
 }
 
--(BOOL) equals:(id)o {
+-(BOOL) isEqual:(id)o {
     if ([o isKindOfClass:[MotifPair class]]) {
         return false;
     }

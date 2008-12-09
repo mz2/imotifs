@@ -12,14 +12,13 @@
 @implementation IMObjectMatrix2DTranspose
 
 +(IMObjectMatrix2D*) transpose:(id<IMMatrix2D>)r {
-    IMObjectMatrix2DTranspose *transp = [[[IMObjectMatrix2DTranspose alloc] init] autorelease];
-    transp->raw = r;
+    IMObjectMatrix2DTranspose *transp = [[IMObjectMatrix2DTranspose alloc] init];
+    transp->raw = [r retain];
     return (IMObjectMatrix2D*)transp;
 }
 
 -(void) dealloc {
     [(id)raw release];
-    raw = nil;
     [super dealloc];
 }
 

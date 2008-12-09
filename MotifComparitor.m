@@ -115,12 +115,12 @@
     return array;
 }
 
--(NSArray*) bestMotifPairHitsFrom:(NSArray*)motifs0 
-                               to:(NSArray*)motifs1 
-                      senseScores:(IMDoubleMatrix2D*) dMatrix 
-                     senseOffsets:(IMIntMatrix2D*) dOffsetMatrix
-                  antisenseScores:(IMDoubleMatrix2D*) fMatrix 
-                 antisenseOffsets:(IMIntMatrix2D*) fOffsetMatrix
+-(NSArray*) bestMotifPairHitsFrom: (NSArray*)motifs0 
+                               to: (NSArray*)motifs1 
+                      senseScores: (IMDoubleMatrix2D*) dMatrix 
+                     senseOffsets: (IMIntMatrix2D*) dOffsetMatrix
+                  antisenseScores: (IMDoubleMatrix2D*) fMatrix 
+                 antisenseOffsets: (IMIntMatrix2D*) fOffsetMatrix
                              flip:(BOOL)flipped {
     NSMutableArray *mpairs = [NSMutableArray array];
     
@@ -291,6 +291,9 @@
 
 -(NSArray*) bestMotifPairsHitsFrom:(NSArray*) motifs0 
                                 to:(NSArray*) motifs1 {
+    //[indicator setHidden: NO];
+    //[indicator setDoubleValue:0.0];
+    //[indicator startAnimation: self];
     IMMotifComparisonMatrixBundle *matrices = [self comparisonMatrixBundleOfMotifs:motifs0 
                                                   withMotifs:motifs1];
     IMDoubleMatrix2D *dMatrix = [matrices senseScoreMatrix];
@@ -298,10 +301,8 @@
     IMIntMatrix2D *dOffsetMatrix = [matrices senseOffsetMatrix];
     IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
     
-    [indicator setHidden: NO];
-    [indicator setDoubleValue:0.0];
     
-	NSLog(@"Getting best motif pair hits between motif sets");
+	//NSLog(@"Getting best motif pair hits between motif sets");
     NSArray *mpairs = [self bestMotifPairHitsFrom: motifs0 
                                                to: motifs1 
                                       senseScores: dMatrix
@@ -314,8 +315,9 @@
                                          ascending:YES 
                                          selector:@selector(compare:)] autorelease];
     
-    [indicator setDoubleValue:100.0];
-    [indicator setHidden: YES];
+    //[indicator setDoubleValue:100.0];
+    //[indicator stopAnimation: self];
+    //[indicator setHidden: YES];
     return [mpairs sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
@@ -341,21 +343,23 @@
     IMDoubleMatrix2D *fMatrix = [matrices antisenseScoreMatrix];
     IMIntMatrix2D *dOffsetMatrix = [matrices senseOffsetMatrix];
     IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
+    
     NSArray *mpairs = [self bestMotifPairHitsFrom:motifs0 
                              to: motifs1 
                     senseScores: dMatrix 
-                        senseOffsets:dOffsetMatrix
+                   senseOffsets: dOffsetMatrix
                 antisenseScores: fMatrix 
                 antisenseOffsets: fOffsetMatrix
                            flip: NO];
     
-    NSArray *mpairsTransp = [self bestMotifPairHitsFrom:motifs0 
-                                                     to:motifs1 
-                                            senseScores:[IMDoubleMatrix2DTranspose transpose:dMatrix] 
-                                           senseOffsets:[IMIntMatrix2DTranspose transpose:dOffsetMatrix]
-                                        antisenseScores:[IMDoubleMatrix2DTranspose transpose:fMatrix]
-                                       antisenseOffsets:[IMIntMatrix2DTranspose transpose:fOffsetMatrix]
-                                                   flip:YES];
+    NSArray *mpairsTransp = [self bestMotifPairHitsFrom: motifs0 
+                                                     to: motifs1 
+                                            senseScores: [IMDoubleMatrix2DTranspose transpose:dMatrix] 
+                                           senseOffsets: [IMIntMatrix2DTranspose transpose:dOffsetMatrix]
+                                        antisenseScores: [IMDoubleMatrix2DTranspose transpose:fMatrix]
+                                       antisenseOffsets: [IMIntMatrix2DTranspose transpose:fOffsetMatrix]
+                                                   flip: YES];
+    
     NSArray *mpairsIntersect = [mpairs retainAll:mpairsTransp];
     
     NSSortDescriptor *sortDescriptor = [[[NSSortDescriptor alloc] 
@@ -472,6 +476,9 @@ public abstract ScoreOffsetPair compareMotifsWithOffset
 
 -(IMMotifComparisonMatrixBundle*) comparisonMatrixBundleOfMotifs:(NSArray*)motifs0 
                                                       withMotifs:(NSArray*)motifs1 {
+    //[indicator setHidden: NO];
+    [indicator startAnimation: self];
+    
     int m0count = motifs0.count;
     int m1count = motifs1.count;
     Alphabet *alpha = [[motifs0 objectAtIndex:0] alphabet];
@@ -481,9 +488,13 @@ public abstract ScoreOffsetPair compareMotifsWithOffset
     IMIntMatrix2D *fOffsetMatrix = [[IMIntMatrix2D alloc] initWithRows:m0count cols:m1count];
     
     Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
-
+    [indicator setDoubleValue:0.0];
+    double incrementSize = 1.0 / (double)m0count * 100.0;
     int i;
     for (i = 0; i < m0count; i++) {
+        
+        //setDoubleValue rather than incrementBy used because of multithreading
+        [indicator setDoubleValue:incrementSize * (double)i];
         int j;
         for (j = 0; j < m1count; j++) {
             ScoreOffsetPair *dsp = [self compareWithOffsetsMotif: [motifs0 objectAtIndex:i]
@@ -502,6 +513,8 @@ public abstract ScoreOffsetPair compareMotifsWithOffset
             [fOffsetMatrix setValue:fsp.offset row:i col:j];
         }
     }
+    
+    [indicator stopAnimation: self];
     
     return [[[IMMotifComparisonMatrixBundle alloc] initWithBestSenseHitScores: dMatrix 
                                                                       offsets: dOffsetMatrix 

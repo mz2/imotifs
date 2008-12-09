@@ -27,8 +27,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 @synthesize drawingStyle;
 @synthesize columnDisplayOffset;
 @synthesize columnWidth;
-@synthesize showInformationContent;
-@synthesize showScoreThreshold;
+@synthesize showInformationContent,showScoreThreshold,showLength;
 
 
 - (void) awakeFromNib {
@@ -45,6 +44,8 @@ NSString *IMLogoFontName = @"Arial Bold";
         [self setColumnDisplayOffset: IMLeftColPadding];
         [self setColumnWidth: IMDefaultColWidth];
         [self setShowInformationContent: NO];
+        [self setShowScoreThreshold: NO];
+        [self setShowLength: NO];
     }
     return self;
 }
@@ -67,6 +68,7 @@ NSString *IMLogoFontName = @"Arial Bold";
     columnWidth = [coder decodeFloatForKey:@"columnWidth"];
     showInformationContent = [coder decodeBoolForKey:@"showInformationContent"];
     showScoreThreshold = [coder decodeBoolForKey:@"showScoreThreshold"];
+    showLength = [coder decodeBoolForKey:@"showLength"];
     return self;
 }
 
@@ -83,20 +85,22 @@ NSString *IMLogoFontName = @"Arial Bold";
                forKey: @"showInformationContent"];
     [coder encodeBool: showScoreThreshold
                forKey: @"showScoreThreshold"];
+    [coder encodeBool: showLength 
+               forKey: @"showLength"];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
     //NSLog(@"MotifViewCell: copying %@",self);
     MotifViewCell *cellCopy = NSCopyObject(self, 0, zone);
     [[self objectValue] retain];
-    [cellCopy setObjectValue: [self objectValue]];
-    [cellCopy setImage:[self image]];
-    [cellCopy setColumnWidth: [self columnWidth]];
-    [cellCopy setColumnDisplayOffset: [self columnDisplayOffset]];
-    [cellCopy setDrawingStyle: [self drawingStyle]];
-    [cellCopy setShowInformationContent: [self showInformationContent]];
-    [cellCopy setShowScoreThreshold: [self showScoreThreshold]];
-        
+    [cellCopy setObjectValue: self.objectValue];
+    [cellCopy setImage: self.image];
+    [cellCopy setColumnWidth: self.columnWidth];
+    [cellCopy setColumnDisplayOffset: self.columnDisplayOffset];
+    [cellCopy setDrawingStyle: self.drawingStyle];
+    [cellCopy setShowInformationContent: self.showInformationContent];
+    [cellCopy setShowScoreThreshold: self.showScoreThreshold];
+    [cellCopy setShowLength: self.showLength];
     return [cellCopy retain];
 }
 
@@ -168,12 +172,12 @@ NSString *IMLogoFontName = @"Arial Bold";
 			   rect: cellFrame 
         controlView: controlView];
     [NSGraphicsContext restoreGraphicsState];
-    if ([self showInformationContent]) {
+    if (self.showInformationContent) {
         NSMutableAttributedString *infoCStr = [MotifViewCell infoContentStringForMotif:[self objectValue]]; 
         [infoCStr drawInRect:NSInsetRect(cellFrame, 3.0, 3.0)];
     }
     
-    if ([self showScoreThreshold]) {
+    if (self.showScoreThreshold) {
         NSMutableAttributedString *thrStr = [MotifViewCell scoreThresholdStringForMotif:[self objectValue]];
         NSRect rect = [thrStr boundingRectWithSize:cellFrame.size 
                                            options:0];
@@ -182,6 +186,17 @@ NSString *IMLogoFontName = @"Arial Bold";
                               cellFrame.size.width - 6.0, 
                               rect.size.height);
         [thrStr drawInRect:r];
+    }
+    
+    if (self.showLength) {
+        NSMutableAttributedString *lenStr = [MotifViewCell lengthStringForMotif:[self objectValue]];
+        NSRect rect = [lenStr boundingRectWithSize:cellFrame.size 
+                                           options:0];
+        NSRect r = NSMakeRect(cellFrame.origin.x + 3.0, 
+                              cellFrame.origin.y + (cellFrame.size.height / 2 - 6.0), 
+                              cellFrame.size.width - 6.0, 
+                              rect.size.height);
+        [lenStr drawInRect:r];
     }
     
 }
@@ -234,7 +249,7 @@ NSString *IMLogoFontName = @"Arial Bold";
     
     NSRange range = NSMakeRange(0,[infoStr length]);
     [infoStr addAttribute: NSFontAttributeName
-                         value: [NSFont userFontOfSize:12.0]
+                         value: [NSFont userFontOfSize:9.0]
                          range: range];
     
     [infoStr applyFontTraits: NSBoldFontMask 
@@ -256,11 +271,33 @@ NSString *IMLogoFontName = @"Arial Bold";
     
     NSRange range = NSMakeRange(0,[infoStr length]);
     [infoStr addAttribute: NSFontAttributeName
-                    value: [NSFont userFontOfSize:12.0]
+                    value: [NSFont userFontOfSize:9.0]
                     range: range];
         
     [infoStr addAttribute: NSForegroundColorAttributeName 
                     value: [[NSColor blueColor] colorWithAlphaComponent:0.5] 
+                    range: range];
+    
+    [infoStr applyFontTraits: NSBoldFontMask 
+                       range: range];
+    
+    [infoStr setAlignment: NSRightTextAlignment 
+                    range: range];
+    return [infoStr autorelease];
+}
+
++ (NSMutableAttributedString*) lengthStringForMotif:(Motif*) motif {
+    NSMutableAttributedString* infoStr = [[NSMutableAttributedString alloc] 
+                                          initWithString: 
+                                          [NSString stringWithFormat:@"%d",[motif columnCount]]];
+    
+    NSRange range = NSMakeRange(0,[infoStr length]);
+    [infoStr addAttribute: NSFontAttributeName
+                    value: [NSFont userFontOfSize:9.0]
+                    range: range];
+    
+    [infoStr addAttribute: NSForegroundColorAttributeName 
+                    value: [[NSColor redColor] colorWithAlphaComponent:0.7] 
                     range: range];
     
     [infoStr applyFontTraits: NSBoldFontMask 

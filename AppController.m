@@ -11,11 +11,15 @@
 
 @implementation AppController
 @synthesize preferenceController;
+@synthesize sharedOperationQueue;
 
 - (id) init {
     self = [super init];
     if (self != nil) {
         NSLog(@"AppController: initialising");
+        sharedOperationQueue = [[NSOperationQueue alloc] init];
+        
+        //[[NSApplication sharedApplication]  
     }
     return self;
 }
@@ -40,7 +44,9 @@
 
 
 -(void) dealloc {
-    NSLog(@"AppController: deallocating");
+    [sharedOperationQueue release];
+    [preferenceController release];
+    //NSLog(@"AppController: deallocating");
     [super dealloc];
 }
 
@@ -55,4 +61,5 @@
     NSLog(@"AppController: showing %@", preferenceController);
     [preferenceController showWindow:self];
 }
+
 @end

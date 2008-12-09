@@ -52,6 +52,12 @@
 		959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */; };
 		959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */; };
 		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
+		95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
+		95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
+		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
+		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
+		95B2C82D0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */; };
+		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -157,6 +163,18 @@
 		959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerWindow.m; sourceTree = "<group>"; };
 		959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerTableDelegate.h; sourceTree = "<group>"; };
 		959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerTableDelegate.m; sourceTree = "<group>"; };
+		95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifComparisonOperation.h; sourceTree = "<group>"; };
+		95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifComparisonOperation.m; sourceTree = "<group>"; };
+		95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestHitsOperation.h; sourceTree = "<group>"; };
+		95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestHitsOperation.m; sourceTree = "<group>"; };
+		95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNamePickerWindow.h; sourceTree = "<group>"; };
+		95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerWindow.m; sourceTree = "<group>"; };
+		95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNamePickerController.h; sourceTree = "<group>"; };
+		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
+		95B2C82B0EEE6C3E004605A6 /* BestReciprocalHitsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestReciprocalHitsOperation.h; sourceTree = "<group>"; };
+		95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestReciprocalHitsOperation.m; sourceTree = "<group>"; };
+		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
+		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +277,10 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
+				95B2C6770EED8F40004605A6 /* motifnamepicker */,
+				95B2C6760EED8F2C004605A6 /* pairs */,
+				95B2C6750EED8F11004605A6 /* drawer */,
+				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
 				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				5FA66A600E142A12009E5AFA /* AppController.h */,
@@ -269,16 +291,6 @@
 				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
-				959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */,
-				959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */,
-				959E3CC60EE681A600072A66 /* MotifPairArrayController.h */,
-				959E3CC70EE681A600072A66 /* MotifPairArrayController.m */,
-				959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */,
-				959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */,
-				959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */,
-				959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */,
-				95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */,
-				95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -286,8 +298,7 @@
 		5FB8976A0E3157F60084D9D8 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				5FB8976B0E3158150084D9D8 /* MotifComparitor.h */,
-				5FB8976C0E3158150084D9D8 /* MotifComparitor.m */,
+				95B2C60D0EED7B95004605A6 /* motifcomparison */,
 				5FB897870E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.h */,
 				5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */,
 				5FB89A360E324AAA0084D9D8 /* IMNSArrayExtras.h */,
@@ -369,6 +380,65 @@
 				5FC350C10EBBDA5C00404E38 /* Metamotif.m */,
 			);
 			name = model;
+			sourceTree = "<group>";
+		};
+		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
+			isa = PBXGroup;
+			children = (
+				5FB8976B0E3158150084D9D8 /* MotifComparitor.h */,
+				5FB8976C0E3158150084D9D8 /* MotifComparitor.m */,
+				95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */,
+				95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */,
+				95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */,
+				95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */,
+				95B2C82B0EEE6C3E004605A6 /* BestReciprocalHitsOperation.h */,
+				95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */,
+				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
+				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
+			);
+			name = motifcomparison;
+			sourceTree = "<group>";
+		};
+		95B2C6740EED8EE3004605A6 /* motifsetpicker */ = {
+			isa = PBXGroup;
+			children = (
+				959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */,
+				959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */,
+				959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */,
+				959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */,
+			);
+			name = motifsetpicker;
+			sourceTree = "<group>";
+		};
+		95B2C6750EED8F11004605A6 /* drawer */ = {
+			isa = PBXGroup;
+			children = (
+				95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */,
+				95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */,
+			);
+			name = drawer;
+			sourceTree = "<group>";
+		};
+		95B2C6760EED8F2C004605A6 /* pairs */ = {
+			isa = PBXGroup;
+			children = (
+				959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */,
+				959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */,
+				959E3CC60EE681A600072A66 /* MotifPairArrayController.h */,
+				959E3CC70EE681A600072A66 /* MotifPairArrayController.m */,
+			);
+			name = pairs;
+			sourceTree = "<group>";
+		};
+		95B2C6770EED8F40004605A6 /* motifnamepicker */ = {
+			isa = PBXGroup;
+			children = (
+				95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */,
+				95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */,
+				95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */,
+				95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */,
+			);
+			name = motifnamepicker;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +538,12 @@
 				959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */,
 				954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */,
 				95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */,
+				95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */,
+				95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */,
+				95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */,
+				95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */,
+				95B2C82D0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m in Sources */,
+				95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

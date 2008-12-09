@@ -19,6 +19,8 @@
 @class MotifSetPickerTableDelegate;
 @class MotifComparitor;
 @class MotifSetDrawerTableDelegate;
+@class MotifNamePickerWindow;
+@class MotifNamePickerController;
 
 typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByName = 0,
@@ -53,6 +55,10 @@ extern const NSString *IMMotifSetIndicesPboardType;
 	IBOutlet MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
 	IBOutlet NSButton *motifSetPickerOkButton;
 	IBOutlet NSTableView *motifSetPickerTableView;
+    
+    IBOutlet NSWindow *motifNamePickerSheet;
+    IBOutlet NSTextField *motifNamePickerTextField;
+    IBOutlet NSTextField *motifNamePickerLabel;
 	
     IBOutlet MotifSetDrawerTableDelegate *drawerTableDelegate;
     IBOutlet NSDrawer *drawer;
@@ -82,9 +88,13 @@ extern const NSString *IMMotifSetIndicesPboardType;
 
 -(IBAction) closeMotifSetPickerSheet: (id) sender;
 
+- (IBAction) addPrefixToMotifNames: (id) sender;
+- (IBAction) addSuffixToMotifNames: (id) sender;
+-(IBAction) closeMotifNamePickerSheet: (id) sender;
+
 -(IBAction) toggleDrawer: (id) sender;
--(IBAction) newAnnotation: (id) sender;
--(IBAction) removeAnnotation: (id) sender;
+//-(IBAction) newAnnotation: (id) sender;
+//-(IBAction) removeAnnotation: (id) sender;
 
 -(BOOL) searchingByName;
 -(BOOL) searchingByConsensusMatching;
@@ -116,6 +126,10 @@ extern const NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) NSTableView *motifSetPickerTableView;
 @property (retain,readwrite) MotifSetController *motifSetController;
 @property (retain,readwrite) NSButton *motifSetPickerOkButton;
+
+@property (retain,readwrite) NSWindow *motifNamePickerSheet;
+@property (retain,readwrite) NSTextField *motifNamePickerTextField;
+@property (retain,readwrite) NSTextField *motifNamePickerLabel;
 
 @property (retain,readwrite) MotifSetDrawerTableDelegate *drawerTableDelegate;
 

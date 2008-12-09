@@ -12,14 +12,13 @@
 @implementation IMDoubleMatrix2DTranspose
 
 +(id<IMDoubleMatrix2DIface>) transpose:(id<IMDoubleMatrix2DIface>)r {
-    IMDoubleMatrix2DTranspose *transp = [[[IMDoubleMatrix2DTranspose alloc] init] autorelease];
-    transp->raw = r;
-    return transp;
+    IMDoubleMatrix2DTranspose *transp = [[IMDoubleMatrix2DTranspose alloc] init];
+    transp->raw = [r retain];
+    return [transp autorelease];
 }
 
 -(void) dealloc {
     [raw release];
-    raw = nil;
     [super dealloc];
 }
 
