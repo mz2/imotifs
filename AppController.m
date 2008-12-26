@@ -18,6 +18,7 @@
     if (self != nil) {
         NSLog(@"AppController: initialising");
         sharedOperationQueue = [[NSOperationQueue alloc] init];
+        //[sharedOperationQueue setMaxConcurrentOperationCount:[NSApplication]];
         
         //[[NSApplication sharedApplication]  
     }

@@ -277,10 +277,10 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
+				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
 				95B2C6770EED8F40004605A6 /* motifnamepicker */,
 				95B2C6760EED8F2C004605A6 /* pairs */,
 				95B2C6750EED8F11004605A6 /* drawer */,
-				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
 				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				5FA66A600E142A12009E5AFA /* AppController.h */,
@@ -387,14 +387,14 @@
 			children = (
 				5FB8976B0E3158150084D9D8 /* MotifComparitor.h */,
 				5FB8976C0E3158150084D9D8 /* MotifComparitor.m */,
+				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
+				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 				95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */,
 				95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */,
 				95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */,
 				95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */,
 				95B2C82B0EEE6C3E004605A6 /* BestReciprocalHitsOperation.h */,
 				95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */,
-				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
-				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 			);
 			name = motifcomparison;
 			sourceTree = "<group>";

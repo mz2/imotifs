@@ -941,7 +941,7 @@ provideDataForType:(NSString *)type {
 				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] 
 								  objectAtIndex: curIndex];
                 
-                NSArray *bestHitPairs;
+                //NSArray *bestHitPairs;
                 if ([action isEqual:@"bestHitsWith"]) {
                     //bestHitPairs = [motifComparitor 
                     //                        bestMotifPairsHitsFrom: self.motifSet.motifs 
@@ -953,10 +953,11 @@ provideDataForType:(NSString *)type {
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
                      addOperation:bestHitsOperation];
                     [bestHitsOperation release];
+                    
 				} else {
-                    bestHitPairs = [motifComparitor 
-                                            bestReciprocalHitsFrom:self.motifSet.motifs 
-                                            to: mset.motifs];
+                    //bestHitPairs = [motifComparitor 
+                    //                        bestReciprocalHitsFrom:self.motifSet.motifs 
+                    //                        to: mset.motifs];
                     BestReciprocalHitsOperation *bestRecipHitsOperation = [[BestReciprocalHitsOperation alloc]
                                                                            initWithComparitor:motifComparitor 
                                                                            from:self.motifSet.motifs 

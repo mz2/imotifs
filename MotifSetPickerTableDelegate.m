@@ -67,6 +67,7 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	for (MotifSetDocument* msdoc in otherMotifSetDocuments) {
 		[otherMotifSets addObject: [msdoc motifSet]];
 	}
+    [otherMotifSets sortUsingSelector:@selector(compare:)];
 }
 
 - (MotifSetDocument*) motifSetDocument {
