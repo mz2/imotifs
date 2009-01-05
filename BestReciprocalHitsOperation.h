@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "MotifComparisonOperation.h"
+#import "BestHitsOperation.h"
 
-@interface BestReciprocalHitsOperation : MotifComparisonOperation {
+@interface BestReciprocalHitsOperation : BestHitsOperation {
 
 }
 

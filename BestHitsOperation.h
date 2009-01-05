@@ -13,13 +13,22 @@
 @interface BestHitsOperation : MotifComparisonOperation {
     NSArray *m1s;
     NSArray *m2s;
+    
+    @private
+    BOOL isReciprocal;
 }
 
 -(id) initWithComparitor: (MotifComparitor*) comp 
                     from: (NSArray*) am1 
                       to: (NSArray*) am2;
 
+-(id) initWithComparitor: (MotifComparitor*) comp 
+                    from: (NSArray*) am1 
+                      to: (NSArray*) am2
+              reciprocal: (BOOL) recip;
+
 @property (retain,readonly) NSArray *m1s;
 @property (retain,readonly) NSArray *m2s;
+@property (readonly) BOOL isReciprocal;
 
 @end

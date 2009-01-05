@@ -21,13 +21,22 @@
 #define NMExtraBinPath @"NMExtraBinPath"
 #endif
 
+#ifndef IMConsensusSearchDefaultCutoff
+#define IMConsensusSearchDefaultCutoff (double)2.0
+#endif
+
+extern NSString *IMConsensusSearchCutoff;
+
 @interface AppController : NSObject {
     PreferencesDialogController *preferenceController;
     NSOperationQueue *sharedOperationQueue;
+    
+    double consensusSearchCutoff;
 }
 
 @property (readonly) PreferencesDialogController *preferenceController;
 @property (retain,readonly) NSOperationQueue *sharedOperationQueue;
+@property (readwrite) double consensusSearchCutoff;
 
 - (IBAction) showPreferencePanel:(id)sender;
 @end

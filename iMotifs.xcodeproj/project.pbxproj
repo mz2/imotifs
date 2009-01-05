@@ -43,6 +43,7 @@
 		8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */; };
 		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
 		95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */; };
 		959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3C180EE58A7000072A66 /* MotifPairCell.m */; };
@@ -56,7 +57,6 @@
 		95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
 		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
-		95B2C82D0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */; };
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
 /* End PBXBuildFile section */
 
@@ -147,6 +147,8 @@
 		5FFA09D00E1415BC00E0F87D /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifsBelowDistanceCutoffOperation.h; sourceTree = "<group>"; };
+		95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifsBelowDistanceCutoffOperation.m; sourceTree = "<group>"; };
 		954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreOffsetPair.h; sourceTree = "<group>"; };
 		954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreOffsetPair.m; sourceTree = "<group>"; };
 		95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetDrawerTableDelegate.h; sourceTree = "<group>"; };
@@ -171,8 +173,6 @@
 		95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerWindow.m; sourceTree = "<group>"; };
 		95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNamePickerController.h; sourceTree = "<group>"; };
 		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
-		95B2C82B0EEE6C3E004605A6 /* BestReciprocalHitsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestReciprocalHitsOperation.h; sourceTree = "<group>"; };
-		95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestReciprocalHitsOperation.m; sourceTree = "<group>"; };
 		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -277,20 +277,13 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
+				95414FDA0F1245DB0083E72A /* app */,
+				95414FD90F1245CF0083E72A /* doc */,
 				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
 				95B2C6770EED8F40004605A6 /* motifnamepicker */,
+				95414FDB0F1245F00083E72A /* preferences */,
 				95B2C6760EED8F2C004605A6 /* pairs */,
 				95B2C6750EED8F11004605A6 /* drawer */,
-				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
-				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
-				5FA66A600E142A12009E5AFA /* AppController.h */,
-				5FA66A610E142A12009E5AFA /* AppController.m */,
-				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
-				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
-				5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */,
-				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
-				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
-				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -382,6 +375,37 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		95414FD90F1245CF0083E72A /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
+				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
+				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
+				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
+				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+		95414FDA0F1245DB0083E72A /* app */ = {
+			isa = PBXGroup;
+			children = (
+				5FA66A600E142A12009E5AFA /* AppController.h */,
+				5FA66A610E142A12009E5AFA /* AppController.m */,
+			);
+			name = app;
+			sourceTree = "<group>";
+		};
+		95414FDB0F1245F00083E72A /* preferences */ = {
+			isa = PBXGroup;
+			children = (
+				5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */,
+				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
+			);
+			name = preferences;
+			sourceTree = "<group>";
+		};
 		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,8 +417,8 @@
 				95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */,
 				95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */,
 				95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */,
-				95B2C82B0EEE6C3E004605A6 /* BestReciprocalHitsOperation.h */,
-				95B2C82C0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m */,
+				95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */,
+				95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */,
 			);
 			name = motifcomparison;
 			sourceTree = "<group>";
@@ -542,8 +566,8 @@
 				95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */,
 				95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */,
 				95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */,
-				95B2C82D0EEE6C3E004605A6 /* BestReciprocalHitsOperation.m in Sources */,
 				95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */,
+				95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

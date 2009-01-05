@@ -10,7 +10,16 @@
 
 
 @interface MotifSetController : NSArrayController {
-
+    @private
+    NSMutableArray *hiddenObjects;
+    NSMutableArray *shownObjects;
 }
 
+//@property (retain,readonly) NSMutableArray *hiddenIndices;
+
+-(id) init;
+-(BOOL) objectIsShown:(id)obj;
+-(void) hideObject:(id)obj;
+-(void) showObject:(id)obj;
+-(void) showAll;
 @end

@@ -57,7 +57,7 @@
     
     Alphabet *alpha = [[motifs0 objectAtIndex:0] alphabet];
     //NSUInteger step = 0;
-    Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
+    Multinomial *elsewhere = [Multinomial multinomialWithAlphabet:alpha];
     NSUInteger i,j;
     for (i = 0; i < m0count; i++) {
         for (j = 0; j < m1count; j++) {
@@ -89,8 +89,7 @@
                                                                   cols:mcount];
     
     Alphabet *alpha = [[motifs objectAtIndex:0] alphabet];
-    Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
-    
+    Multinomial *elsewhere = [Multinomial multinomialWithAlphabet:alpha];    
     NSUInteger i,j;
     for (i = 0; i < mcount; i++) {
         for (j = (i+1); j < mcount; j++) {
@@ -487,7 +486,7 @@ public abstract ScoreOffsetPair compareMotifsWithOffset
     IMIntMatrix2D *dOffsetMatrix = [[IMIntMatrix2D alloc] initWithRows:m0count cols:m1count];
     IMIntMatrix2D *fOffsetMatrix = [[IMIntMatrix2D alloc] initWithRows:m0count cols:m1count];
     
-    Multinomial *elsewhere = [[[Multinomial alloc] initWithAlphabet:alpha] autorelease];
+    Multinomial *elsewhere = [Multinomial multinomialWithAlphabet:alpha];
     [indicator setDoubleValue:0.0];
     double incrementSize = 1.0 / (double)m0count * 100.0;
     int i;
@@ -516,12 +515,18 @@ public abstract ScoreOffsetPair compareMotifsWithOffset
     
     [indicator stopAnimation: self];
     
-    return [[[IMMotifComparisonMatrixBundle alloc] initWithBestSenseHitScores: dMatrix 
-                                                                      offsets: dOffsetMatrix 
-                                                        andAntisenseHitScores: fMatrix 
-                                                                      offsets: fOffsetMatrix 
-                                                                    rowMotifs: motifs0 
-                                                                    colMotifs: motifs1] autorelease];
+    IMMotifComparisonMatrixBundle *b = [[[IMMotifComparisonMatrixBundle alloc] 
+                                       initWithBestSenseHitScores: dMatrix 
+                                                          offsets: dOffsetMatrix 
+                                            andAntisenseHitScores: fMatrix 
+                                                          offsets: fOffsetMatrix 
+                                                        rowMotifs: motifs0 
+                                                        colMotifs: motifs1] autorelease];
+    //[dMatrix release];
+    //[fMatrix release];
+    //[fOffsetMatrix release];
+    //[dOffsetMatrix release];
+    return b;
 }
 
 /*

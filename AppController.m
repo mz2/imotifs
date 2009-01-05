@@ -13,11 +13,14 @@
 @synthesize preferenceController;
 @synthesize sharedOperationQueue;
 
+NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
+
 - (id) init {
     self = [super init];
     if (self != nil) {
         NSLog(@"AppController: initialising");
         sharedOperationQueue = [[NSOperationQueue alloc] init];
+        consensusSearchCutoff = FP_INFINITE;
         //[sharedOperationQueue setMaxConcurrentOperationCount:[NSApplication]];
         
         //[[NSApplication sharedApplication]  
@@ -34,12 +37,31 @@
     
     [defaultValues setObject:@"~/workspace/nmica/bin" forKey:NMBinPath];
     [defaultValues setObject:@"~/workspace/nmica-extra/bin" forKey:NMExtraBinPath];
-    
+    [defaultValues setObject:[NSNumber numberWithDouble:IMConsensusSearchDefaultCutoff] 
+                                                 forKey:IMConsensusSearchCutoff];
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
+}
+    
+-(void) setConsensusSearchCutoff:(double) d {
+    NSLog(@"Setting consensus search cutoff: %f",d);
+    [[NSUserDefaults standardUserDefaults] 
+     setObject:[NSNumber numberWithDouble:d] 
+                                   forKey:IMConsensusSearchCutoff];
+    consensusSearchCutoff = d;
+}
+
+-(double) consensusSearchCutoff {
+    if (consensusSearchCutoff == FP_INFINITE) {
+        consensusSearchCutoff = [[[NSUserDefaults standardUserDefaults] 
+                                  objectForKey:IMConsensusSearchCutoff] doubleValue];
+    }
+    
+    //NSLog(@"Retrieving consensus search cutoff: %f",consensusSearchCutoff);
+    return consensusSearchCutoff;
 }
 
 - (BOOL) applicationShouldOpenUntitledFile: (NSApplication *)sender {
-    NSLog(@"AppController: application should NOT open untitled file.");
+    //NSLog(@"AppController: application should NOT open untitled file.");
     return [[NSUserDefaults standardUserDefaults] boolForKey:IMOpenUntitledDoc]; 
 }
 

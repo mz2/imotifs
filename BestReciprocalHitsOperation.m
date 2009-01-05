@@ -10,5 +10,10 @@
 
 
 @implementation BestReciprocalHitsOperation
+-(id) initWithComparitor: (MotifComparitor*) comp 
+                    from: (NSArray*) am1 
+                      to: (NSArray*) am2 {
+    return [super initWithComparitor:comp from:am1 to:am2];
+}
 
 @end

@@ -21,7 +21,7 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        NSLog(@"MotifView: initialising with frame");
+        //NSLog(@"MotifView: initialising with frame");
         bgColor = [[NSColor controlBackgroundColor] retain];
         //[self setDrawingStyle:IMInfoScaledLogo];
     }

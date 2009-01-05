@@ -22,6 +22,10 @@
 @class MotifNamePickerWindow;
 @class MotifNamePickerController;
 
+#ifndef IMMotifSetConsensusScoringSearchMinLength
+#define IMMotifSetConsensusScoringSearchMinLength 3
+#endif
+
 typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByName = 0,
     IMMotifSetSearchByConsensusString = 1,

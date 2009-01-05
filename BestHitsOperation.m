@@ -14,14 +14,26 @@
 #import "MotifSet.h"
 
 @implementation BestHitsOperation
-@synthesize m1s,m2s;
+@synthesize m1s,m2s,isReciprocal;
 
 -(id) initWithComparitor: (MotifComparitor*) comp 
                     from: (NSArray*) am1 
                       to: (NSArray*) am2 {
+    return [self initWithComparitor: comp 
+                               from: am1 
+                                 to: am2 
+                         reciprocal: NO];
+}
+    
+
+-(id) initWithComparitor: (MotifComparitor*) comp 
+                    from: (NSArray*) am1 
+                      to: (NSArray*) am2
+              reciprocal: (BOOL) recip {
     [super initWithComparitor: comp];
     m1s = [am1 retain];
     m2s = [am2 retain];
+    isReciprocal = recip;
     return self;
 }
 
@@ -34,9 +46,15 @@
 -(void) run {
     NSLog(@"Running BestHitsOperation");
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    NSArray *bestHitPairs = [comparitor bestMotifPairsHitsFrom: m1s 
-                                                      to: m2s];
     
+    NSArray *bestHitPairs;
+    if (isReciprocal) {
+        bestHitPairs = [comparitor bestReciprocalHitsFrom: m1s to: m2s];
+    }
+    else {
+        bestHitPairs = [comparitor bestMotifPairsHitsFrom: m1s to: m2s];
+    }
+        
     NSError *error;
     MotifSetDocument *msetDocument = [[NSDocumentController sharedDocumentController] 
                                       makeUntitledDocumentOfType:@"Motif set" 

@@ -20,6 +20,7 @@
 #import <MotifPair.h>
 #import "BestHitsOperation.h"
 #import "BestReciprocalHitsOperation.h"
+#import "MotifsBelowDistanceCutoffOperation.h"
 #import "AppController.h"
 
 @interface MotifSetDocument (private)
@@ -628,24 +629,34 @@ provideDataForType:(NSString *)type {
 }
 
 - (IBAction) searchMotifs:(id) sender {
-    if ([[searchField stringValue] isEqual:@""]) {
+    if ([searchField.stringValue isEqual:@""]) {
         NSLog(@"clearing predicate");
         [motifSetController setFilterPredicate:nil];
     } else {
         NSString *str = [[self searchField] stringValue];
         
-        if ([self searchType] == IMMotifSetSearchByName) {
+        if (self.searchType == IMMotifSetSearchByName) {
             [motifSetController 
              setFilterPredicate:[NSPredicate 
                                  predicateWithFormat:@"name contains[c] %@",str]];
-        } else if ([self searchType] == IMMotifSetSearchByConsensusString) {
+        } else if (self.searchType == IMMotifSetSearchByConsensusString) {
             [motifSetController 
              setFilterPredicate:[NSPredicate 
                                  predicateWithFormat:@"consensusString contains[c] %@",str]];
-        } else if ([self searchType] == IMMotifSetSearchByConsensusScoring) {
-            Motif *m = [[Motif alloc] initWithAlphabet:[Alphabet dna] 
-                        fromConsensusString:@"acgacg"];
-            NSLog(@"MotifSetDocument: -searchMotifs: motif=g%@",m);
+        } else if (self.searchType == IMMotifSetSearchByConsensusScoring) {
+            if (searchField.stringValue.length >= IMMotifSetConsensusScoringSearchMinLength) {
+                Motif *consm = [[Motif alloc] initWithAlphabet:[Alphabet dna] 
+                            fromConsensusString:searchField.stringValue];
+                NSLog(@"MotifSetDocument: -searchMotifs: motif=%@",consm);
+                
+                MotifsBelowDistanceCutoffOperation *belowCutoffOperation = 
+                [[MotifsBelowDistanceCutoffOperation alloc] initWithComparitor: motifComparitor 
+                                                                         motif: consm 
+                                                     againstMotifsControlledBy: motifSetController]; 
+                                [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
+                 addOperation:belowCutoffOperation];
+                [belowCutoffOperation release];
+            }
         }
     }
     [motifSetController rearrangeObjects];
@@ -958,10 +969,11 @@ provideDataForType:(NSString *)type {
                     //bestHitPairs = [motifComparitor 
                     //                        bestReciprocalHitsFrom:self.motifSet.motifs 
                     //                        to: mset.motifs];
-                    BestReciprocalHitsOperation *bestRecipHitsOperation = [[BestReciprocalHitsOperation alloc]
+                    BestHitsOperation *bestRecipHitsOperation = [[BestHitsOperation alloc]
                                                                            initWithComparitor:motifComparitor 
                                                                            from:self.motifSet.motifs 
-                                                                           to:mset.motifs];
+                                                                           to:mset.motifs
+                                                                 reciprocal: YES];
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue]
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
