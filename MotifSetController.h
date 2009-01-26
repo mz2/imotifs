@@ -16,7 +16,7 @@
 }
 
 //@property (retain,readonly) NSMutableArray *hiddenIndices;
-
+@property (retain, readonly) NSArray *hiddenObjects;
 -(id) init;
 -(BOOL) objectIsShown:(id)obj;
 -(void) hideObject:(id)obj;

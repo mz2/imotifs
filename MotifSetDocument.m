@@ -22,6 +22,7 @@
 #import "BestReciprocalHitsOperation.h"
 #import "MotifsBelowDistanceCutoffOperation.h"
 #import "AppController.h"
+#import "MotifSetController.h"
 
 @interface MotifSetDocument (private)
 -(void) initializeUI;
@@ -628,10 +629,28 @@ provideDataForType:(NSString *)type {
     [motifSetController rearrangeObjects];
 }
 
+//search field delegate method
+- (void)textDidChange:(NSNotification *)aNotification {
+    NSLog(@"Text changed!");
+    if (searchField.stringValue.length == 0) {
+
+    }
+}
+
+
 - (IBAction) searchMotifs:(id) sender {
+    
+    if (self.searchType != IMMotifSetSearchByConsensusScoring && 
+        [motifSetController hiddenObjects].count > 0) {
+        [motifSetController showAll];
+        [motifSetController rearrangeObjects];
+    }
+    
     if ([searchField.stringValue isEqual:@""]) {
-        NSLog(@"clearing predicate");
+        NSLog(@"clearing predicate and showing all");
         [motifSetController setFilterPredicate:nil];
+        [motifSetController showAll];
+        [motifSetController rearrangeObjects];
     } else {
         NSString *str = [[self searchField] stringValue];
         
@@ -647,7 +666,7 @@ provideDataForType:(NSString *)type {
             if (searchField.stringValue.length >= IMMotifSetConsensusScoringSearchMinLength) {
                 Motif *consm = [[Motif alloc] initWithAlphabet:[Alphabet dna] 
                             fromConsensusString:searchField.stringValue];
-                NSLog(@"MotifSetDocument: -searchMotifs: motif=%@",consm);
+                NSLog(@"MotifSetDocument: searchMotifs: motif=%@",[consm consensusString]);
                 
                 MotifsBelowDistanceCutoffOperation *belowCutoffOperation = 
                 [[MotifsBelowDistanceCutoffOperation alloc] initWithComparitor: motifComparitor 
@@ -681,6 +700,11 @@ provideDataForType:(NSString *)type {
     return [super validateUserInterfaceItem:item];
 }
 
+- (void) setSearchType:(IMMotifSetSearchType)stype {
+    searchType = stype;
+    
+}
+
 - (IBAction) searchTypeToggled:(id) sender {
     //NSMenuItem *item = (NSMenuItem*) sender;
     NSUInteger oldSearchType = [self searchType];    
@@ -697,8 +721,12 @@ provideDataForType:(NSString *)type {
     
     if ([self searchType] != oldSearchType) {
         if (oldSearchType == IMMotifSetSearchByName ||
-            [self searchType] == IMMotifSetSearchByName) {
-            [[self searchField] setStringValue:@""];            
+            self.searchType == IMMotifSetSearchByName) {
+            self.searchField.stringValue = @"";
+            if (self.searchType != IMMotifSetSearchByConsensusScoring) {
+                [self.motifSetController showAll];   
+                [self.motifSetController rearrangeObjects];
+            }
         }
     }
 }

@@ -13,6 +13,8 @@
 @end
 
 @implementation MotifSetController
+@synthesize hiddenObjects;
+
 - (id) init {
     NSLog(@"\n\n\nMotifSetController: initialising MotifSetController\n\n\n");
     self = [super init];
@@ -41,11 +43,11 @@
 
 -(NSArray*) arrangeObjects:(NSArray*) objs {
     if (hiddenObjects.count == 0) {
-        NSLog(@"MotifSetController: arranging objects with super",objs.count);
+        //NSLog(@"MotifSetController: arranging objects with super",objs.count);
         return [super arrangeObjects: objs];
     }
     
-    NSLog(@"MotifSetController: arranging objects: %d",objs.count);
+    //NSLog(@"MotifSetController: arranging objects: %d",objs.count);
     NSMutableArray *arrObjs = [NSMutableArray arrayWithArray:objs];
     for (id obj in hiddenObjects) {
         [arrObjs removeObject: obj];
@@ -65,13 +67,13 @@
 
 -(id) arrangedObjects {
     if (hiddenObjects.count == 0) {
-        NSLog(@"ArrangedObjects: count (super) : %d",[[super arrangedObjects] count]);
+        //NSLog(@"ArrangedObjects: count (super) : %d",[[super arrangedObjects] count]);
         return [super arrangedObjects];
     }
         
     else {
         //[_shownObjects sortUsingDescriptors:self.sortDescriptors];
-        NSLog(@"ArrangedObjects: count : %d",shownObjects.count);
+        //NSLog(@"ArrangedObjects: count : %d",shownObjects.count);
         return shownObjects;
     }
 }
@@ -82,6 +84,7 @@
         return [super rearrangeObjects];
     }
     
+    //TODO: You need to change the selection indices so they match the new arranged objects.
     NSLog(@"Rearrange objects");
     [shownObjects release];
     shownObjects = [[NSMutableArray alloc] initWithArray:self.content];

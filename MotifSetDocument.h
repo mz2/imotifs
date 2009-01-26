@@ -23,7 +23,7 @@
 @class MotifNamePickerController;
 
 #ifndef IMMotifSetConsensusScoringSearchMinLength
-#define IMMotifSetConsensusScoringSearchMinLength 3
+#define IMMotifSetConsensusScoringSearchMinLength 4
 #endif
 
 typedef enum IMMotifSetSearchType {
@@ -32,8 +32,8 @@ typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByConsensusScoring = 2
 } IMMotifSetSearchType;
 
-extern const NSString *IMMotifSetPboardType;
-extern const NSString *IMMotifSetIndicesPboardType;
+extern NSString *IMMotifSetPboardType;
+extern NSString *IMMotifSetIndicesPboardType;
 
 @interface MotifSetDocument : NSDocument {
     MotifSet *motifSet;
@@ -73,7 +73,7 @@ extern const NSString *IMMotifSetIndicesPboardType;
     NSTask *task;
     NSPipe *pipe;
     
-    NSUInteger searchType;
+    IMMotifSetSearchType searchType;
     
     @private 
     NSArray *pboardMotifs;
@@ -124,7 +124,7 @@ extern const NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) NSMenuItem *searchTypeConsensusItem;
 @property (retain,readwrite) NSMenuItem *searchTypeConsensusScoringItem;
 
-@property (readwrite) NSUInteger searchType;
+@property (readwrite) IMMotifSetSearchType searchType;
 @property (retain,readwrite) MotifSetPickerWindow *motifSetPickerSheet;
 @property (retain,readwrite) MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
 @property (retain,readwrite) NSTableView *motifSetPickerTableView;
