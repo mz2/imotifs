@@ -32,11 +32,24 @@ extern NSString *IMConsensusSearchCutoff;
     NSOperationQueue *sharedOperationQueue;
     
     double consensusSearchCutoff;
+    @private
+    NSWindow *fullScreenMainWindow;
+    NSWindow *mainWindowBeforeGoingFullScreen;
+    NSView *mainWindowBeforeGoingFullScreenView;
+    NSRect mainWindowBeforeGoingFullScreenRect;
+    CGDirectDisplayID displayID;
 }
 
 @property (readonly) PreferencesDialogController *preferenceController;
 @property (retain,readonly) NSOperationQueue *sharedOperationQueue;
 @property (readwrite) double consensusSearchCutoff;
 
+//@property (retain, readwrite) NSWindow *fullScreenMainWindow;
+//@property (retain, readwrite) NSWindow *mainWindowBeforeGoingFullScreen;
+//@property (retain, readwrite) NSView *mainWindowBeforeGoingFullScreenView;
+//@property (readwrite) NSRect mainWindowBeforeGoingFullScreenRect;
+
 - (IBAction) showPreferencePanel:(id)sender;
+- (IBAction) toggleFullScreenMode:(id) sender;
+- (IBAction) goAwayFromFullScreenMode:(id) sender;
 @end
