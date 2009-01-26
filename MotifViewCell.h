@@ -36,8 +36,8 @@ typedef enum MotifDrawingStyle {
     IMInfoScaledLogo = 3 
 } MotifDrawingStyle;
 
-extern const NSString *IMMotifSetPboardType;
-extern const NSString *IMMotifSetIndicesPboardType;
+extern NSString *IMMotifSetPboardType;
+extern NSString *IMMotifSetIndicesPboardType;
 
 
 @interface MotifViewCell : NSActionCell <NSCopying> {

@@ -18,8 +18,8 @@
 - (NSRect) measureString:(NSString*)str inRect:(NSRect)rect;
 @end
 
-const NSString *IMMotifSetPboardType = @"net.piipari.motifset.pasteboard";
-const NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pasteboard";
+NSString *IMMotifSetPboardType = @"net.piipari.motifset.pasteboard";
+NSString *IMMotifSetIndicesPboardType = @"net.piipari.motifset.indices.pasteboard";
 
 NSString *IMLogoFontName = @"Arial Bold";
 
