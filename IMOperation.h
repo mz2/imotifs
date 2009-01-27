@@ -10,11 +10,12 @@
 
 
 @interface IMOperation : NSOperation {
+    @protected
     BOOL isExecuting;
     BOOL isFinished;
 }
 @property (readonly) BOOL isExecuting;
 @property (readonly) BOOL isFinished;
 
--(void) run;
+-(void) run; //override this in subclasses
 @end

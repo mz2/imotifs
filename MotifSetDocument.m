@@ -23,6 +23,8 @@
 #import "MotifsBelowDistanceCutoffOperation.h"
 #import "AppController.h"
 #import "MotifSetController.h"
+#import "NMOperationConfigDialogController.h"
+
 
 @interface MotifSetDocument (private)
 -(void) initializeUI;
@@ -103,8 +105,9 @@
 }
 
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
-    if (![typeName isEqual:@"Motif set"])
+    if (![typeName isEqual:@"Motif set"]) {
         return nil;
+    }
     
     if ( outError != NULL ) {
 		*outError = [NSError errorWithDomain:NSOSStatusErrorDomain 
@@ -113,25 +116,35 @@
 	}
     
     NSXMLDocument *xmsDoc = [[[self motifSet] toXMS] retain];
-    //NSLog(@"MotifSetDocument: dataOfType:%@ xms=%@",
-    //      typeName, 
-    //      xmsDoc);
     return [[xmsDoc description] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
 -(BOOL)readFromURL:(NSURL*) url 
             ofType:(NSString*)type 
              error:(NSError*) outError {
-    NSLog(@"MotifSetDocument: reading file of type %@ from URL %@",type, url);
-    if (![type isEqual: @"Motif set"]) {
-        NSLog(@"WARNING: unexpected file type: %@",type);
+    if ([type isEqual:@"Motif set"]) {
+        NSLog(@"MotifSetDocument: reading file of type %@ from URL %@",type, url);
+        if (![type isEqual: @"Motif set"]) {
+            NSLog(@"WARNING: unexpected file type: %@",type);
+        }
+        NSLog(@"MotifSetDocument: parsing motif set file");
+        
+        //NSLog([motifSet description]);
+        [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
+        [motifSet setName: [self displayName]];        
+        
+        return motifSet != nil ? true : false;
+    } else if ([type isEqual:@"Sequence set"]) {
+        NMOperationConfigDialogController 
+        *configDialogController = 
+        [[NMOperationConfigDialogController alloc] initWithWindowNibName:@"NMOperationConfigDialog"];
+        
+        [configDialogController showWindow: self];
+        return NO;
+    } else {
+        ddfprintf(stderr, @"Tryin to read unsupported type : %@\n", type);
+        return NO;
     }
-    NSLog(@"MotifSetDocument: parsing motif set file");
-    
-    //NSLog([motifSet description]);
-    [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
-    [motifSet setName: [self displayName]];
-	return motifSet != nil ? true : false;
 }
 
 #pragma mark Accessors

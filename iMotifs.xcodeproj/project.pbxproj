@@ -43,6 +43,16 @@
 		8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		953D7F270F2E089B00049823 /* JavaVM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 953D7F260F2E089B00049823 /* JavaVM.framework */; };
+		953D80550F2F18B800049823 /* IMTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80540F2F18B800049823 /* IMTaskOperation.m */; };
+		953D80960F2F1B0400049823 /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80950F2F1B0400049823 /* NMOperation.m */; };
+		953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */; };
+		953D811A0F2F417700049823 /* NMOperationStatusDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D81190F2F417700049823 /* NMOperationStatusDialogController.m */; };
+		953D81A60F2F4B4E00049823 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D81A50F2F4B4E00049823 /* DDCliUtil.m */; };
+		953D82BC0F2F64D500049823 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 953D82BB0F2F64D500049823 /* skull.png */; };
+		953D82BE0F2F65F400049823 /* skull-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 953D82BD0F2F65F400049823 /* skull-small.png */; };
+		953D83290F2F6DA900049823 /* NMOperationConfigDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D83280F2F6DA900049823 /* NMOperationConfigDialog.xib */; };
+		953D832D0F2F6E7300049823 /* NMOperationConfigDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */; };
 		95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */; };
 		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
 		95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */; };
@@ -58,6 +68,7 @@
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
 		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
+		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -147,6 +158,21 @@
 		5FFA09D00E1415BC00E0F87D /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		953D7F260F2E089B00049823 /* JavaVM.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaVM.framework; path = System/Library/Frameworks/JavaVM.framework; sourceTree = SDKROOT; };
+		953D80530F2F18B800049823 /* IMTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTaskOperation.h; sourceTree = "<group>"; };
+		953D80540F2F18B800049823 /* IMTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTaskOperation.m; sourceTree = "<group>"; };
+		953D80940F2F1B0400049823 /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperation.h; sourceTree = "<group>"; };
+		953D80950F2F1B0400049823 /* NMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperation.m; sourceTree = "<group>"; };
+		953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMOperationStatusDialog.xib; sourceTree = "<group>"; };
+		953D81180F2F417700049823 /* NMOperationStatusDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperationStatusDialogController.h; sourceTree = "<group>"; };
+		953D81190F2F417700049823 /* NMOperationStatusDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperationStatusDialogController.m; sourceTree = "<group>"; };
+		953D81A40F2F4B4E00049823 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
+		953D81A50F2F4B4E00049823 /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
+		953D82BB0F2F64D500049823 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skull.png; path = Images/Icons/skull.png; sourceTree = "<group>"; };
+		953D82BD0F2F65F400049823 /* skull-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "skull-small.png"; path = "Images/Icons/skull-small.png"; sourceTree = "<group>"; };
+		953D83280F2F6DA900049823 /* NMOperationConfigDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMOperationConfigDialog.xib; sourceTree = "<group>"; };
+		953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperationConfigDialogController.h; sourceTree = "<group>"; };
+		953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperationConfigDialogController.m; sourceTree = "<group>"; };
 		95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifsBelowDistanceCutoffOperation.h; sourceTree = "<group>"; };
 		95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifsBelowDistanceCutoffOperation.m; sourceTree = "<group>"; };
 		954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreOffsetPair.h; sourceTree = "<group>"; };
@@ -175,6 +201,7 @@
 		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
 		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
+		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +210,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
+				95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */,
+				953D7F270F2E089B00049823 /* JavaVM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +253,8 @@
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
 				2A37F4C3FDCFA73011CA2CEA /* Frameworks */,
 				19C28FB0FE9D524F11CA2CBB /* Products */,
+				95F680360F2622AC00FD797B /* ApplicationServices.framework */,
+				953D7F260F2E089B00049823 /* JavaVM.framework */,
 			);
 			name = iMotif;
 			sourceTree = "<group>";
@@ -252,15 +283,12 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				953D82B80F2F64B800049823 /* icons */,
+				953D81110F2F40BA00049823 /* nib */,
 				5F61DFE60E2DF2C00091787E /* icon.icns */,
 				2A37F4B9FDCFA73011CA2CEA /* Credits.rtf */,
-				2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */,
-				2A37F4B4FDCFA73011CA2CEA /* MotifSetDocument.nib */,
 				8D15AC360486D014006FF6A4 /* Info.plist */,
 				089C165FFE840EACC02AAC07 /* InfoPlist.strings */,
-				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
-				959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */,
-				959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -279,6 +307,7 @@
 			children = (
 				95414FDA0F1245DB0083E72A /* app */,
 				95414FD90F1245CF0083E72A /* doc */,
+				953D81140F2F410700049823 /* nmica */,
 				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
 				95B2C6770EED8F40004605A6 /* motifnamepicker */,
 				95414FDB0F1245F00083E72A /* preferences */,
@@ -291,15 +320,9 @@
 		5FB8976A0E3157F60084D9D8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				953D81A70F2F4B5100049823 /* ddcli */,
+				953D7F0F0F2E07D200049823 /* cocoa-extras */,
 				95B2C60D0EED7B95004605A6 /* motifcomparison */,
-				5FB897870E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.h */,
-				5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */,
-				5FB89A360E324AAA0084D9D8 /* IMNSArrayExtras.h */,
-				5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */,
-				5F83CA7E0E366A9300369591 /* IMNSColorExtras.h */,
-				5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */,
-				954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */,
-				954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -352,6 +375,26 @@
 		5FFA09B90E1415A400E0F87D /* model */ = {
 			isa = PBXGroup;
 			children = (
+				953D80260F2F14D400049823 /* operation */,
+				953D80250F2F14BF00049823 /* libxms */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		953D7F0F0F2E07D200049823 /* cocoa-extras */ = {
+			isa = PBXGroup;
+			children = (
+				5FB89A360E324AAA0084D9D8 /* IMNSArrayExtras.h */,
+				5FB89A370E324AAA0084D9D8 /* IMNSArrayExtras.m */,
+				5F83CA7E0E366A9300369591 /* IMNSColorExtras.h */,
+				5F83CA7F0E366A9300369591 /* IMNSColorExtras.m */,
+			);
+			name = "cocoa-extras";
+			sourceTree = "<group>";
+		};
+		953D80250F2F14BF00049823 /* libxms */ = {
+			isa = PBXGroup;
+			children = (
 				5FC3094B0E18DF5A006C4679 /* Annotable.h */,
 				5FFA09C30E1415BC00E0F87D /* MotifSet.h */,
 				5FFA09C40E1415BC00E0F87D /* MotifSet.m */,
@@ -372,7 +415,79 @@
 				5FC350C00EBBDA5C00404E38 /* Metamotif.h */,
 				5FC350C10EBBDA5C00404E38 /* Metamotif.m */,
 			);
-			name = model;
+			name = libxms;
+			sourceTree = "<group>";
+		};
+		953D80260F2F14D400049823 /* operation */ = {
+			isa = PBXGroup;
+			children = (
+				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
+				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
+				953D80530F2F18B800049823 /* IMTaskOperation.h */,
+				953D80540F2F18B800049823 /* IMTaskOperation.m */,
+				953D80940F2F1B0400049823 /* NMOperation.h */,
+				953D80950F2F1B0400049823 /* NMOperation.m */,
+			);
+			name = operation;
+			sourceTree = "<group>";
+		};
+		953D81110F2F40BA00049823 /* nib */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */,
+				953D811C0F2F41AB00049823 /* dialog */,
+				953D811B0F2F418A00049823 /* doc */,
+			);
+			name = nib;
+			sourceTree = "<group>";
+		};
+		953D81140F2F410700049823 /* nmica */ = {
+			isa = PBXGroup;
+			children = (
+				953D81180F2F417700049823 /* NMOperationStatusDialogController.h */,
+				953D81190F2F417700049823 /* NMOperationStatusDialogController.m */,
+				953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */,
+				953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */,
+			);
+			name = nmica;
+			sourceTree = "<group>";
+		};
+		953D811B0F2F418A00049823 /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4B4FDCFA73011CA2CEA /* MotifSetDocument.nib */,
+				959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */,
+			);
+			name = doc;
+			sourceTree = "<group>";
+		};
+		953D811C0F2F41AB00049823 /* dialog */ = {
+			isa = PBXGroup;
+			children = (
+				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
+				959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */,
+				953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */,
+				953D83280F2F6DA900049823 /* NMOperationConfigDialog.xib */,
+			);
+			name = dialog;
+			sourceTree = "<group>";
+		};
+		953D81A70F2F4B5100049823 /* ddcli */ = {
+			isa = PBXGroup;
+			children = (
+				953D81A40F2F4B4E00049823 /* DDCliUtil.h */,
+				953D81A50F2F4B4E00049823 /* DDCliUtil.m */,
+			);
+			name = ddcli;
+			sourceTree = "<group>";
+		};
+		953D82B80F2F64B800049823 /* icons */ = {
+			isa = PBXGroup;
+			children = (
+				953D82BD0F2F65F400049823 /* skull-small.png */,
+				953D82BB0F2F64D500049823 /* skull.png */,
+			);
+			name = icons;
 			sourceTree = "<group>";
 		};
 		95414FD90F1245CF0083E72A /* doc */ = {
@@ -380,10 +495,10 @@
 			children = (
 				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
-				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
-				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
+				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
+				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
 			);
 			name = doc;
 			sourceTree = "<group>";
@@ -409,10 +524,12 @@
 		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
 			isa = PBXGroup;
 			children = (
+				954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */,
+				954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */,
+				5FB897870E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.h */,
+				5FB897880E315D4D0084D9D8 /* IMMotifComparisonMatrixBundle.m */,
 				5FB8976B0E3158150084D9D8 /* MotifComparitor.h */,
 				5FB8976C0E3158150084D9D8 /* MotifComparitor.m */,
-				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
-				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 				95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */,
 				95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */,
 				95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */,
@@ -517,6 +634,10 @@
 				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
 				959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */,
 				959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */,
+				953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */,
+				953D82BC0F2F64D500049823 /* skull.png in Resources */,
+				953D82BE0F2F65F400049823 /* skull-small.png in Resources */,
+				953D83290F2F6DA900049823 /* NMOperationConfigDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +689,11 @@
 				95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */,
 				95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */,
 				95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */,
+				953D80550F2F18B800049823 /* IMTaskOperation.m in Sources */,
+				953D80960F2F1B0400049823 /* NMOperation.m in Sources */,
+				953D811A0F2F417700049823 /* NMOperationStatusDialogController.m in Sources */,
+				953D81A60F2F4B4E00049823 /* DDCliUtil.m in Sources */,
+				953D832D0F2F6E7300049823 /* NMOperationConfigDialogController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

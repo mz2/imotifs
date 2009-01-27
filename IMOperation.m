@@ -25,6 +25,7 @@
     return NO;
 }
 
+//override this in subclasses
 - (void) run {
     
 }
@@ -36,6 +37,15 @@
         isExecuting = YES;
         [self didChangeValueForKey:@"isExecuting"];
         [self run];
+
+        [self willChangeValueForKey:@"isExecuting"];
+        isExecuting = NO;
+        [self didChangeValueForKey:@"isExecuting"];
+        
+        [self willChangeValueForKey:@"isFinished"];
+        isFinished = YES;
+        [self didChangeValueForKey:@"isFinished"];
+        
     }
 }
 @end

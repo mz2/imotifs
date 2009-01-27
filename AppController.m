@@ -5,9 +5,15 @@
 //  Created by Matias Piipari on 26/06/2008.
 //  Copyright 2008 Matias Piipari. All rights reserved.
 //
+#import "stdlib.h"
 
 #import <ApplicationServices/ApplicationServices.h>
 #import <AppController.h>
+#import "JavaLauncher.h"
+#import "JavaLauncherUtils.h"
+#import "NMOperation.h"
+#import "NMOperationStatusDialogController.h"
+
 
 @implementation AppController
 @synthesize preferenceController;
@@ -97,21 +103,6 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     mainWindowBeforeGoingFullScreenRect = mainWindowBeforeGoingFullScreen.frame;
     mainWindowBeforeGoingFullScreenView = mainWindowBeforeGoingFullScreen.contentView;
     
-    //#define MAX_DISPLAYS (16)
-    //CGDirectDisplayID displays[MAX_DISPLAYS];
-    //CGDisplayCount displayCount;
-    
-    //NSRect screenFrame = [mainWindowBeforeGoingFullScreen screen];
-    //NSRect winFrame = [mainWindowBeforeGoingFullScreen.screen frame];
-    
-    //CGDisplayErr err = CGGetDisplaysWithRect((CGRect){
-    //    NSMinX(winFrame), NSMinY(winFrame),NSWidth(winFrame),NSHeight(winFrame)},
-    //    MAX_DISPLAYS, displays, &displayCount);
-    
-    //if (err != kCGErrorSuccess) {
-    //    NSLog(@"WARNING! could not determine the display ID!");
-    //}
-    
     // Capture the screen that contains the window
     displayID = [[[mainWindowBeforeGoingFullScreen.screen deviceDescription] objectForKey:@"NSScreenNumber"] intValue];
     
@@ -136,14 +127,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //[fullScreenMainWindow setBackgroundColor:[NSColor blackColor]];
     [fullScreenMainWindow makeKeyAndOrderFront:nil];
     
-    NSLog(@"Showing content view for : %@ : %@ : %@", 
-          mainWindowBeforeGoingFullScreen, 
-          mainWindowBeforeGoingFullScreen.contentView,
-          fullScreenMainWindow);
+    //NSLog(@"Showing content view for : %@ : %@ : %@", 
+    //      mainWindowBeforeGoingFullScreen, 
+    //      mainWindowBeforeGoingFullScreen.contentView,
+    //     fullScreenMainWindow);
     [mainWindowBeforeGoingFullScreen setFrame:screenRect display:YES];
     [fullScreenMainWindow setContentView:mainWindowBeforeGoingFullScreen.contentView];
-
-    
 }
 
 - (IBAction) goAwayFromFullScreenMode:(id) sender {
@@ -163,6 +152,45 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
 - (void) applicationWillTerminate:(NSNotification*) notification {
     [self goAwayFromFullScreenMode:self];
+}
+
+-(IBAction) runNMICA:(id) sender {
+    ddfprintf(stderr,@"Running NMICA\n");
+    
+    NMOperationStatusDialogController *operationDialogController = 
+    [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
+    [operationDialogController showWindow: self];
+    
+    NMOperation *nminferOperation = [[NMOperation alloc] initMotifDiscoveryTaskWithSequences:@"/Users/mp4/Desktop/example.fasta" 
+                                                                                  outputPath:@"/Users/mp4/Desktop/output.xms"];
+    [operationDialogController setOperation: nminferOperation];
+    [nminferOperation setDialogController: operationDialogController];
+    
+    [[self sharedOperationQueue] addOperation:nminferOperation];
+    [nminferOperation release];
+    
+    /*
+    char *argv[5];
+    argv[0] = "foobar"; //this is never used
+    argv[1] = "-Djava.class.path=\
+/Users/mp4/workspace/nmica-dev/lib/changeless.jar:\
+/Users/mp4/workspace/nmica-dev/lib/biojava.jar:\
+/Users/mp4/workspace/nmica-dev/lib/bytecode.jar:\
+/Users/mp4/workspace/nmica-dev/lib/bjv2-core-0.1.jar:\
+/Users/mp4/workspace/nmica-dev/lib/stax-api-1.0.1.jar:\
+/Users/mp4/workspace/nmica-dev/lib/wstx-lgpl-3.0.2.jar:\
+/Users/mp4/workspace/nmica-dev/lib/nmica.jar";
+    argv[2] = "-Djava.library.path=\
+/Users/mp4/workspace/nmica-dev/native";
+    argv[3] = "-Dchangeless.no_dire_warning=\
+true";
+    argv[4] = "net.derkholm.nmica.apps.MotifFinderApplication";
+    
+    
+    
+    VMLaunchOptions *launchOpts = NewVMLaunchOptions(5,(const char**)&argv);
+    startupJava(launchOpts);
+     */
 }
 
 @end

@@ -52,4 +52,5 @@ extern NSString *IMConsensusSearchCutoff;
 - (IBAction) showPreferencePanel:(id)sender;
 - (IBAction) toggleFullScreenMode:(id) sender;
 - (IBAction) goAwayFromFullScreenMode:(id) sender;
+- (IBAction) runNMICA:(id) sender;
 @end

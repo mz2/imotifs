@@ -4,19 +4,29 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
-	
-    <!--
-    <key>CFBundleDocumentTypes</key>
+	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
-				<string>????</string>
+				<string>xms</string>
 			</array>
-			<key>CFBundleTypeIconFile</key>
-			<string></string>
 			<key>CFBundleTypeName</key>
-			<string>DocumentType</string>
+			<string>Motif set</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>NSDocumentClass</key>
+			<string>MotifSetDocument</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>XML</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>jos</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>NestedMICA matrices</string>
 			<key>CFBundleTypeOSTypes</key>
 			<array>
 				<string>????</string>
@@ -26,7 +36,23 @@
 			<key>NSDocumentClass</key>
 			<string>MotifSetDocument</string>
 		</dict>
-	</array> -->
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>fasta</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Sequence set</string>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>MotifSetDocument</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+	</array>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
@@ -47,59 +73,46 @@
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
-	    <key>UTExportedTypeDeclarations</key>
-	    <array>
-	        <dict>
-	            <key>UTTypeIdentifier</key>
-	            <string>net.derkholm.motifset.xms</string>
-	            <key>UTTypeReferenceURL</key>
-	            <string>http://www.sanger.ac.uk/Software/analysis/nmica/</string>
-	            <key>UTTypeDescription</key>
-	            <string>XMS motif set</string>
-	            <key>UTTypeConformsTo</key>
-	            <array>
-	                <string>public.xml</string>
-	            </array>
-	            <key>UTTypeTagSpecification</key>
-	            <dict>
-	                <key>public.filename-extension</key>
-	                <array>
-	                    <string>xms</string>
-	                </array>
-	            </dict>
-	        </dict>
-	    </array>
-        
-          <key>CFBundleDocumentTypes</key>
-        <array>
-                <dict>
-                        <key>CFBundleTypeExtensions</key>
-                        <array>
-                                <string>xms</string>
-                        </array>
-                        <key>CFBundleTypeName</key>
-                        <string>Motif set</string>
-                        <key>CFBundleTypeRole</key>
-                        <string>Editor</string>
-                        <key>NSDocumentClass</key>
-                        <string>MotifSetDocument</string>
-                </dict>
-                <dict>
-                        <key>CFBundleTypeExtensions</key>
-                        <array>
-                                <string>jos</string>
-                        </array>
-                        <key>CFBundleTypeName</key>
-                        <string>NestedMICA matrices</string>
-                        <key>CFBundleTypeOSTypes</key>
-                        <array>
-                                <string>????</string>
-                        </array>
-                        <key>CFBundleTypeRole</key>
-                        <string>Viewer</string>
-                        <key>NSDocumentClass</key>
-                        <string>MotifSetDocument</string>
-                </dict>
-        </array>
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>XMS motif set</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.derkholm.motifset.xms</string>
+			<key>UTTypeReferenceURL</key>
+			<string>http://www.sanger.ac.uk/Software/analysis/nmica/</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>xms</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.xml</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>FASTA sequence set</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.derkholm.sequenceset.fasta</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>fasta</string>
+					<string>fa</string>
+					<string>seq</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>
