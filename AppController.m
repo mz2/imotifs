@@ -13,8 +13,8 @@
 #import "JavaLauncherUtils.h"
 #import "NMOperation.h"
 #import "NMOperationStatusDialogController.h"
-
-
+#import "MotifSetDocumentController.h"
+#import "NMOperationConfigDialogController.h"
 @implementation AppController
 @synthesize preferenceController;
 @synthesize sharedOperationQueue;
@@ -193,4 +193,25 @@ true";
      */
 }
 
+- (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
+    //MotifSetDocumentController *msetDocController = [[MotifSetDocumentController alloc] init];
+    //this object is set as the shared document controller because it's the first to be loaded, so it can be released.
+    //[msetDocController release];
+}
+
+- (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
+    //NSLog(@"Application should OPEN FILE: %@", filename);
+    if ([filename hasSuffix:@".fasta"] || [filename hasSuffix:@".fa"] || [filename hasSuffix:@".seq"]) {
+        NMOperationConfigDialogController 
+        *configDialogController = 
+        [[NMOperationConfigDialogController alloc] initWithWindowNibName:@"NMOperationConfigDialog"];
+        
+        [configDialogController showWindow: self];
+        [configDialogController setInputSeqFilename: filename];
+        
+        return YES;
+    } else {
+        return NO;
+    }
+}
 @end

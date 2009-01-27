@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.02">
+<archive type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="7.03">
 	<data>
 		<int key="IBDocument.SystemTarget">1050</int>
-		<string key="IBDocument.SystemVersion">9F33</string>
-		<string key="IBDocument.InterfaceBuilderVersion">672</string>
-		<string key="IBDocument.AppKitVersion">949.34</string>
-		<string key="IBDocument.HIToolboxVersion">352.00</string>
+		<string key="IBDocument.SystemVersion">9G55</string>
+		<string key="IBDocument.InterfaceBuilderVersion">677</string>
+		<string key="IBDocument.AppKitVersion">949.43</string>
+		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="38"/>
@@ -14,6 +14,15 @@
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<string>com.apple.InterfaceBuilderKit</string>
 			<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+		</object>
+		<object class="NSMutableDictionary" key="IBDocument.Metadata">
+			<bool key="EncodedWithXMLCoder">YES</bool>
+			<object class="NSArray" key="dict.sortedKeys">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+			</object>
+			<object class="NSMutableArray" key="dict.values">
+				<bool key="EncodedWithXMLCoder">YES</bool>
+			</object>
 		</object>
 		<object class="NSMutableArray" key="IBDocument.RootObjects" id="1000">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -33,12 +42,6 @@
 				<string key="NSClassName">PreferencesDialogController</string>
 			</object>
 			<object class="NSUserDefaultsController" id="436294034">
-				<object class="NSMutableArray" key="NSDeclaredKeys">
-					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>IM</string>
-					<string>IMConsensusSearchCutoff</string>
-					<string>IMConsensusSearchDefaultCutoffKey</string>
-				</object>
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="227005503">
@@ -81,14 +84,9 @@
 										<bytes key="NSWhite">MQA</bytes>
 									</object>
 								</object>
-								<object class="NSColor" key="NSTextColor" id="541291702">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">textColor</string>
-									<object class="NSColor" key="NSColor" id="727169042">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MAA</bytes>
-									</object>
+								<object class="NSColor" key="NSTextColor" id="863104614">
+									<int key="NSColorSpace">1</int>
+									<bytes key="NSRGB">MCAwIDAAA</bytes>
 								</object>
 							</object>
 						</object>
@@ -113,12 +111,7 @@
 										<bytes key="NSWhite">MC42NjY2NjY2OQA</bytes>
 									</object>
 								</object>
-								<object class="NSColor" key="NSTextColor" id="400341356">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlTextColor</string>
-									<reference key="NSColor" ref="727169042"/>
-								</object>
+								<reference key="NSTextColor" ref="863104614"/>
 							</object>
 						</object>
 						<object class="NSTextField" id="1027203867">
@@ -135,7 +128,15 @@
 								<reference key="NSControlView" ref="1027203867"/>
 								<bool key="NSDrawsBackground">YES</bool>
 								<reference key="NSBackgroundColor" ref="708488484"/>
-								<reference key="NSTextColor" ref="541291702"/>
+								<object class="NSColor" key="NSTextColor" id="541291702">
+									<int key="NSColorSpace">6</int>
+									<string key="NSCatalogName">System</string>
+									<string key="NSColorName">textColor</string>
+									<object class="NSColor" key="NSColor">
+										<int key="NSColorSpace">3</int>
+										<bytes key="NSWhite">MAA</bytes>
+									</object>
+								</object>
 							</object>
 						</object>
 						<object class="NSTextField" id="277844897">
@@ -151,7 +152,7 @@
 								<reference key="NSSupport" ref="119582840"/>
 								<reference key="NSControlView" ref="277844897"/>
 								<reference key="NSBackgroundColor" ref="115979894"/>
-								<reference key="NSTextColor" ref="400341356"/>
+								<reference key="NSTextColor" ref="863104614"/>
 							</object>
 						</object>
 						<object class="NSButton" id="611896351">
@@ -267,7 +268,7 @@
 								<reference key="NSSupport" ref="119582840"/>
 								<reference key="NSControlView" ref="702270159"/>
 								<reference key="NSBackgroundColor" ref="115979894"/>
-								<reference key="NSTextColor" ref="400341356"/>
+								<reference key="NSTextColor" ref="863104614"/>
 							</object>
 						</object>
 					</object>
@@ -576,9 +577,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilderKit</string>
-					<string>{{0, 546}, {285, 205}}</string>
+					<string>{{594, 432}, {285, 205}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{0, 546}, {285, 205}}</string>
+					<string>{{594, 432}, {285, 205}}</string>
 					<integer value="0"/>
 					<string>{{353, 162}, {285, 156}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

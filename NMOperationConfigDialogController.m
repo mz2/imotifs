@@ -35,6 +35,16 @@
 
 -(void) setInputSeqFilename:(NSString*) str {
     self.inputSeqFilenameTextField.objectValue = str;
+    inputSeqFilename = [str copy];
+    if (outputMotifSetFilename == nil) {
+        [self setOutputMotifSetFilename:
+         [[inputSeqFilename stringByReplacingOccurrencesOfString:@".fasta" withString:@""] stringByAppendingString:@"xms"]];
+        
+    }
+}
+-(void) setOutputMotifSetFilename:(NSString*) str {
+    outputMotifSetFilename = [str copy];
+    outputMotifSetFilenameTextField.objectValue = outputMotifSetFilename;
 }
 
 -(IBAction) browseForOutputFile:(id) sender {

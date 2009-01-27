@@ -134,15 +134,8 @@
         [motifSet setName: [self displayName]];        
         
         return motifSet != nil ? true : false;
-    } else if ([type isEqual:@"Sequence set"]) {
-        NMOperationConfigDialogController 
-        *configDialogController = 
-        [[NMOperationConfigDialogController alloc] initWithWindowNibName:@"NMOperationConfigDialog"];
-        
-        [configDialogController showWindow: self];
-        return NO;
     } else {
-        ddfprintf(stderr, @"Tryin to read unsupported type : %@\n", type);
+        ddfprintf(stderr, @"Trying to read an unsupported type : %@\n", type);
         return NO;
     }
 }

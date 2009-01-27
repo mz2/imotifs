@@ -21,6 +21,11 @@
     NSLog(@"PreferencesDialogController: Nib file loaded");
 }
 
+- (void) awakeFromNib {
+    
+    
+}
+
 - (IBAction) changeNewEmptyDoc:(id)sender {
     int state = [emptyDocCheckbox state];
     NSLog(@"PreferencesDialogController: new empty doc state changed:%d",state);

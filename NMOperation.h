@@ -14,7 +14,12 @@
     NSFileHandle *readHandle;
     NSFileHandle *errorReadHandle;
     
+    BOOL receivedOutputData;
+    BOOL receivedErrorData;
+    
     NMOperationStatusDialogController *dialogController;
+    NSData *outputData;
+    NSData *errorData;
 @private 
     NSNumberFormatter *numFormatter;
 }

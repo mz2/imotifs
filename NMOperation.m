@@ -100,14 +100,16 @@
     [args addObject:[NSString stringWithFormat:@"%d",1000]];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
-    NSPipe *stdErrPipe = [NSPipe pipe];
+    //NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
-    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
+    //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
     // write handle is closed to this process
     //[t setArguments: args];
     [t setStandardOutput: stdOutPipe];
-    [t setStandardError: stdErrPipe];
+    //[t setStandardError: stdErrPipe];
+    
+    [t setStandardError:[NSFileHandle fileHandleWithNullDevice]];
     
     //TODO: Make configurable from user defaults
     [t setLaunchPath:@"/Users/mp4/workspace/nmica-dev/bin/nminfer"];
