@@ -21,6 +21,7 @@
     NSData *outputData;
     NSData *errorData;
 @private 
+    //NSMutableString *buf;
     NSNumberFormatter *numFormatter;
 }
 

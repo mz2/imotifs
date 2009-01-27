@@ -42,4 +42,5 @@
 //@property (readwrite) double likelihood;
 //@property (readwrite) double iterationTime;
 -(IBAction) stop:(id) sender;
+-(IBAction) stopAnimatingSpinner:(id) sender;
 @end

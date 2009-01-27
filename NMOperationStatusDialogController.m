@@ -44,4 +44,7 @@
     [spinner stopAnimation: self];
     [self close];
 }
+-(IBAction) stopAnimatingSpinner:(id) sender {
+    [spinner stopAnimation: self];
+}
 @end

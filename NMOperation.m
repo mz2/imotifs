@@ -19,6 +19,7 @@
 @synthesize readHandle, errorReadHandle, dialogController;
 
 -(void) run {
+    NSLog(@"Running NMOperation");
     [dialogController performSelectorOnMainThread: @selector(setStatus:) 
                                        withObject: @"Discovering motifs..." 
                                     waitUntilDone: NO];
@@ -50,6 +51,12 @@
             //NSLog(@"Last, incomplete line: '%@'", [lines objectAtIndex:lines.count - 1]);
         }
     }
+    
+    [dialogController performSelectorOnMainThread: @selector(stopAnimatingSpinner:) 
+                                       withObject: self 
+                                    waitUntilDone: NO];
+    
+    NSLog(@"NMOperation Done.");
 }
 
 -(void) parseNMInferLogLines:(NSArray*) lines {
@@ -97,19 +104,18 @@
     [args addObject:@"-logInterval"];
     [args addObject:[NSString stringWithFormat:@"%d",100]];
     [args addObject:@"-maxCycles"];
-    [args addObject:[NSString stringWithFormat:@"%d",1000]];
+    [args addObject:[NSString stringWithFormat:@"%d",10000]];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
-    //NSPipe *stdErrPipe = [NSPipe pipe];
+    NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
-    //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
+    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
     // write handle is closed to this process
-    //[t setArguments: args];
+    [t setArguments: args];
+    //[t setStandardOutput: [NSFileHandle fileHandleWithNullDevice]];
     [t setStandardOutput: stdOutPipe];
-    //[t setStandardError: stdErrPipe];
-    
-    [t setStandardError:[NSFileHandle fileHandleWithNullDevice]];
+    [t setStandardError: [NSFileHandle fileHandleWithNullDevice]];
     
     //TODO: Make configurable from user defaults
     [t setLaunchPath:@"/Users/mp4/workspace/nmica-dev/bin/nminfer"];

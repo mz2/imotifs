@@ -39,7 +39,10 @@
     //[[[NSApplication sharedApplication] delegate] registerNotifications];
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(handleTaskExitedNotification:) name: NSTaskDidTerminateNotification object: task];
+    [[NSNotificationCenter defaultCenter] addObserver: self 
+                                             selector: @selector(handleTaskExitedNotification:) 
+                                                 name: NSTaskDidTerminateNotification 
+                                               object: task];
     [task setArguments: arguments];
     // If the operation hasn't already been cancelled, launch it.
     if (![self isCancelled]) {
@@ -56,6 +59,7 @@
         [self willChangeValueForKey:@"isExecuting"];
         isExecuting = NO;
         [self didChangeValueForKey:@"isExecuting"];
+        NSLog(@"IMTaskOperation done.");
     }
     
     [pool drain];
