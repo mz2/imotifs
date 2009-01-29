@@ -7,12 +7,14 @@
 //
 
 #import "NMOperationConfigDialogController.h"
+#import "NMOperationStatusDialogController.h"
+#import "NMOperation.h"
+#import "AppController.h"
 
 
 @implementation NMOperationConfigDialogController
 @synthesize expUsageFractionSlider, expUsageFractionTextField;
-@synthesize inputSeqFilename, outputMotifSetFilename;
-@synthesize inputSeqFilenameTextField, outputMotifSetFilenameTextField;
+@synthesize inputSeqFilenameTextField, outputMotifSetFilenameTextField,nminferOperation;
 
 -(IBAction) browseForSequenceFile:(id) sender {
     NSOpenPanel *seqFilePanel = [NSOpenPanel openPanel];
@@ -29,25 +31,38 @@
                         returnCode: (int) returnCode
                        contextInfo: (void*) contextInfo {
     NSString *filename = [sheet filename];
-    self.inputSeqFilename = [filename copy];
-    
+    self.inputSeqFilenameTextField = [filename copy];
 }
 
--(void) setInputSeqFilename:(NSString*) str {
-    self.inputSeqFilenameTextField.objectValue = str;
-    inputSeqFilename = [str copy];
-    if (outputMotifSetFilename == nil) {
-        [self setOutputMotifSetFilename:
-         [[inputSeqFilename stringByReplacingOccurrencesOfString:@".fasta" withString:@""] stringByAppendingString:@"xms"]];
-        
+-(void) browseForMotifSetDirectory: (NSOpenPanel*) sheet 
+                        returnCode: (int) returnCode
+                       contextInfo: (void*) contextInfo {
+    NSString *filename = [sheet filename];
+    if (returnCode) {
+        [self.nminferOperation setOutputMotifSetPath:filename];                
     }
-}
--(void) setOutputMotifSetFilename:(NSString*) str {
-    outputMotifSetFilename = [str copy];
-    outputMotifSetFilenameTextField.objectValue = outputMotifSetFilename;
 }
 
 -(IBAction) browseForOutputFile:(id) sender {
+    NSString *fileSugg = nil;
+    NSString *dirSugg = nil;
+    if (nminferOperation.outputMotifSetPath == nil) {
+        fileSugg = [[[self.nminferOperation sequenceFilePath] lastPathComponent] 
+         stringByReplacingOccurrencesOfString:@".fasta" 
+         withString:@".xms"];
+        dirSugg = [[self.nminferOperation sequenceFilePath] stringByDeletingLastPathComponent];
+    } else {
+        fileSugg = [[self.nminferOperation outputMotifSetPath] lastPathComponent];
+        dirSugg = [self.nminferOperation.outputMotifSetPath stringByDeletingLastPathComponent];
+    }
+    
+    NSSavePanel *seqFilePanel = [NSSavePanel savePanel];
+    [seqFilePanel beginSheetForDirectory: dirSugg
+                                    file: fileSugg
+                          modalForWindow: self.window 
+                           modalDelegate: self 
+                          didEndSelector: @selector(browseForMotifSetDirectory:returnCode:contextInfo:) 
+                             contextInfo: nil];
     
 }
 
@@ -56,7 +71,19 @@
 }
 
 -(IBAction) ok:(id) sender {
+    NMOperationStatusDialogController *operationDialogController = 
+    [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
+    [operationDialogController showWindow: self];
+    [operationDialogController setOutputMotifSetPath: self.outputMotifSetFilenameTextField.stringValue]; 
+    
+    [operationDialogController setOperation: nminferOperation];
+    [nminferOperation setDialogController: operationDialogController];
+    
+    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: nminferOperation];
+    [nminferOperation release];    
+    
     [self close];
+    
 }
 
 @end

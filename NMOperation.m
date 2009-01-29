@@ -7,6 +7,7 @@
 //
 
 #import "NMOperation.h"
+#import "stdlib.h"
 
 @interface NMOperation (private)
 
@@ -17,15 +18,78 @@
 
 @implementation NMOperation
 @synthesize readHandle, errorReadHandle, dialogController;
+@synthesize numMotifs, minMotifLength, maxMotifLength,expectedUsageFraction,logInterval,maxCycles,reverseComplement;
+
+@synthesize sequenceFilePath, outputMotifSetPath;
+@synthesize backgroundModelPath,backgroundClasses,backgroundOrder;
+
+- (id) init
+{
+    self = [super init];
+    if (self != nil) {
+        logInterval = 100;
+        maxCycles = 100000;
+        launchPath = @"/Users/mp4/workspace/nmica-dev/bin/nminfer";
+        numMotifs = 1;
+        minMotifLength = 6;
+        maxMotifLength = 14;
+        expectedUsageFraction = 0.5;
+        reverseComplement = YES;
+        backgroundClasses = 4;
+        backgroundOrder = 1;
+    }
+    return self;
+}
+
+
+-(void) initializeTask {
+    task = [[NSTask alloc] init];
+    numFormatter = [[NSNumberFormatter alloc] init];
+    
+    [arguments setObject:sequenceFilePath forKey:@"-seqs"];
+    [arguments setObject:outputMotifSetPath forKey:@"-out"];
+    [arguments setObject:[NSString stringWithFormat:@"%d",logInterval] forKey:@"-logInterval"];
+    [arguments setObject:[NSString stringWithFormat:@"%d",maxCycles] forKey:@"-maxCycles"];
+    [arguments setObject:[NSString stringWithFormat:@"%d",numMotifs] forKey:@"-numMotifs"];
+    [arguments setObject:[NSString stringWithFormat:@"%d",minMotifLength] forKey:@"-minLength"];
+    [arguments setObject:[NSString stringWithFormat:@"%d",maxMotifLength] forKey:@"-maxLength"];
+    [arguments setObject:[NSString stringWithFormat:@"%f",expectedUsageFraction] forKey:@"-expectedUsageFraction"];
+    if (reverseComplement) {[arguments setObject:[NSNull null] forKey:@"-reverseComplement"];}
+    
+    if (backgroundModelPath != nil) {
+        [arguments setObject:self.backgroundModelPath forKey:@"-backgroundModel"];
+    } else {
+        [arguments setObject:[NSString stringWithFormat:@"%d",backgroundOrder] forKey:@"-backgroundOrder"];
+        [arguments setObject:[NSString stringWithFormat:@"%d",backgroundClasses] forKey:@"-backgroundClasses"];
+    }
+    
+    NSPipe *stdOutPipe = [NSPipe pipe];
+    NSPipe *stdErrPipe = [NSPipe pipe];
+    readHandle = [[stdOutPipe fileHandleForReading] retain];
+    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
+    
+    [task setStandardOutput: stdOutPipe];
+    [task setStandardError: stdErrPipe];
+    //[self setLaunchPath:launchPath];
+}
+
+-(void) setSequenceFilePath:(NSString*) str {
+    sequenceFilePath = str;
+    if (outputMotifSetPath == nil) {
+        [self willChangeValueForKey:@"outputMotifSetPath"];
+        [[sequenceFilePath lastPathComponent] 
+            stringByReplacingOccurrencesOfString:@".fasta" 
+                                      withString:@".xms"]; 
+    }
+    
+}
 
 -(void) run {
-    NSLog(@"Running NMOperation");
     [dialogController performSelectorOnMainThread: @selector(setStatus:) 
-                                       withObject: @"Discovering motifs..." 
-                                    waitUntilDone: NO];
+                                       withObject: @"Discover Sequence Motifs : Thinking..." 
+                                    waitUntilDone: NO];    
     
     NSData *inData = nil;
-    ddfprintf(stderr,@"Reading data from NMICA\n");
     NSMutableString *buf = [[NSMutableString alloc] init];
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
@@ -52,11 +116,15 @@
         }
     }
     
-    [dialogController performSelectorOnMainThread: @selector(stopAnimatingSpinner:) 
+    [dialogController performSelectorOnMainThread: @selector(motifDiscoveryDone:) 
                                        withObject: self 
                                     waitUntilDone: NO];
     
-    NSLog(@"NMOperation Done.");
+    [dialogController performSelectorOnMainThread: @selector(setStatus:) 
+                                       withObject: @"Discover Sequence Motifs : Done." 
+                                    waitUntilDone: NO];
+    
+    ddfprintf(stderr,@"NMOperation Done.\n");
 }
 
 -(void) parseNMInferLogLines:(NSArray*) lines {
@@ -86,50 +154,24 @@
         [dialogController performSelectorOnMainThread: @selector(setAccummulatedEvidence:)
                                            withObject: accumEvidence waitUntilDone: NO];
         [dialogController performSelectorOnMainThread: @selector(setIterationTime:)
-                                           withObject: iterationTime waitUntilDone: NO];            
+                                           withObject: iterationTime waitUntilDone: NO];     
+        
+        
     //NSLog(@"iterationNo: %d priorMass : %f bestLikelihood: %f accumEvidence : %f iterationTime: %f", 
     //          iterationNo, priorMassShifted, bestLikelihood, accumEvidence, iterationTime);
     }
 }
 
--(id) initMotifDiscoveryTaskWithSequences: (NSString*) seqfpath
-                                 outputPath: (NSString*) outputpath {
-    NSTask *t = [[NSTask alloc] init];
-    NSMutableArray *args = [NSMutableArray array];
-    numFormatter = [[NSNumberFormatter alloc] init];
-    [args addObject:@"-seqs"];
-    [args addObject:seqfpath];
-    [args addObject:@"-out"];
-    [args addObject:outputpath];
-    [args addObject:@"-logInterval"];
-    [args addObject:[NSString stringWithFormat:@"%d",100]];
-    [args addObject:@"-maxCycles"];
-    [args addObject:[NSString stringWithFormat:@"%d",10000]];
-    
-    NSPipe *stdOutPipe = [NSPipe pipe];
-    NSPipe *stdErrPipe = [NSPipe pipe];
-    readHandle = [[stdOutPipe fileHandleForReading] retain];
-    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
-    
-    // write handle is closed to this process
-    [t setArguments: args];
-    //[t setStandardOutput: [NSFileHandle fileHandleWithNullDevice]];
-    [t setStandardOutput: stdOutPipe];
-    [t setStandardError: [NSFileHandle fileHandleWithNullDevice]];
-    
-    //TODO: Make configurable from user defaults
-    [t setLaunchPath:@"/Users/mp4/workspace/nmica-dev/bin/nminfer"];
-    [t setArguments:args];
-    
-    
-    self = [super initWithTask: t arguments:args];
-    [t release]; //t is retained by the superclass constructor
-    return self;
+-(void) setMinMotifLength:(NSUInteger) i {
+    NSLog(@"Setting minimum motif length to %d", i);
+    [self willChangeValueForKey:@"minMotifLength"];
+    minMotifLength = i;
 }
+
 -(void) cancel {
-    NSLog(@"About to terminate NMICA...");
+    ddfprintf(stderr,@"About to terminate NMICA...\n");
     [task terminate];
-    NSLog(@"NMICA terminated");
+    ddfprintf(stderr,@"NMICA terminated\n");
     [super cancel];
 }
 

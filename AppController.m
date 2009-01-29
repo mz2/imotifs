@@ -15,6 +15,8 @@
 #import "NMOperationStatusDialogController.h"
 #import "MotifSetDocumentController.h"
 #import "NMOperationConfigDialogController.h"
+#import "MotifSetDocument.h"
+
 @implementation AppController
 @synthesize preferenceController;
 @synthesize sharedOperationQueue;
@@ -26,7 +28,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     if (self != nil) {
         NSLog(@"AppController: initialising");
         sharedOperationQueue = [[NSOperationQueue alloc] init];
-        [sharedOperationQueue setMaxConcurrentOperationCount:1];
+        [sharedOperationQueue setMaxConcurrentOperationCount:2];
         consensusSearchCutoff = FP_INFINITE;
         //[sharedOperationQueue setMaxConcurrentOperationCount:[NSApplication]];
         
@@ -155,8 +157,22 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
 
 -(IBAction) runNMICA:(id) sender {
-    ddfprintf(stderr,@"Running NMICA\n");
+    //MotifSetDocument *doc = [[MotifSetDocument alloc] initWithContentsOfURL: [NSURL fileURLWithPath: @"/Users/mp4/Desktop/example.xms"] 
+    //                                                                 ofType: @"Motif set"];
     
+    //if (error) {
+    //    NSLog(@"Error encountered: %@", [error localizedDescription]);
+    //}
+    
+    //ddfprintf(stderr,@"Running NMICA\n");
+    NMOperationConfigDialogController 
+    *configDialogController = 
+    [[NMOperationConfigDialogController alloc] initWithWindowNibName:@"NMOperationConfigDialog"];
+    
+    [configDialogController showWindow: self];
+    
+    
+    /*
     NMOperationStatusDialogController *operationDialogController = 
     [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
     [operationDialogController showWindow: self];
@@ -168,7 +184,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     
     [[self sharedOperationQueue] addOperation:nminferOperation];
     [nminferOperation release];
-    
+    */
     /*
     char *argv[5];
     argv[0] = "foobar"; //this is never used
@@ -207,7 +223,7 @@ true";
         [[NMOperationConfigDialogController alloc] initWithWindowNibName:@"NMOperationConfigDialog"];
         
         [configDialogController showWindow: self];
-        [configDialogController setInputSeqFilename: filename];
+        [[configDialogController nminferOperation] setSequenceFilePath: filename];
         
         return YES;
     } else {

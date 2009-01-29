@@ -16,6 +16,11 @@
     IBOutlet NSProgressIndicator *spinner;
     IBOutlet NSLevelIndicator *level;
     
+    IBOutlet NSButton *closeButton;
+    IBOutlet NSButton *showResultsButton;
+    
+    
+    NSString *outputMotifSetPath;
     ///NSUInteger iterationNumber;
     //double evidence;
     //double likelihood;
@@ -29,7 +34,12 @@
 @property (retain, readwrite) NSProgressIndicator *spinner;
 @property (retain, readwrite) NSLevelIndicator *level;
 
+@property (retain, readwrite) NSButton *closeButton;
+@property (retain, readwrite) NSButton *showResultsButton;
+
 @property (nonatomic, retain, readwrite) NMOperation *operation;
+@property (nonatomic, retain, readwrite) NSString *outputMotifSetPath;
+
 
 -(void) setIterationNumber: (NSNumber*)num;
 -(void) setPriorMassShifted: (NSNumber*)num;
@@ -42,5 +52,7 @@
 //@property (readwrite) double likelihood;
 //@property (readwrite) double iterationTime;
 -(IBAction) stop:(id) sender;
--(IBAction) stopAnimatingSpinner:(id) sender;
+//-(IBAction) stopAnimatingSpinner:(id) sender;
+-(IBAction) motifDiscoveryDone:(id) sender;
+-(IBAction) showResults:(id) sender;
 @end

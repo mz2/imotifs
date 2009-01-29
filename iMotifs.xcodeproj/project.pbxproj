@@ -53,7 +53,6 @@
 		953D82BE0F2F65F400049823 /* skull-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 953D82BD0F2F65F400049823 /* skull-small.png */; };
 		953D832D0F2F6E7300049823 /* NMOperationConfigDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */; };
 		953D84290F2F896800049823 /* NMOperationConfigDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D84280F2F896800049823 /* NMOperationConfigDialog.xib */; };
-		953D84390F2F8B1000049823 /* TestWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D84380F2F8B1000049823 /* TestWindowController.m */; };
 		953D84920F2F9A1900049823 /* MotifSetDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D84910F2F9A1900049823 /* MotifSetDocumentController.m */; };
 		95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */; };
 		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
@@ -175,8 +174,6 @@
 		953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperationConfigDialogController.h; sourceTree = "<group>"; };
 		953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperationConfigDialogController.m; sourceTree = "<group>"; };
 		953D84280F2F896800049823 /* NMOperationConfigDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMOperationConfigDialog.xib; sourceTree = "<group>"; };
-		953D84370F2F8B1000049823 /* TestWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestWindowController.h; sourceTree = "<group>"; };
-		953D84380F2F8B1000049823 /* TestWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestWindowController.m; sourceTree = "<group>"; };
 		953D84900F2F9A1900049823 /* MotifSetDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetDocumentController.h; sourceTree = "<group>"; };
 		953D84910F2F9A1900049823 /* MotifSetDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetDocumentController.m; sourceTree = "<group>"; };
 		95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifsBelowDistanceCutoffOperation.h; sourceTree = "<group>"; };
@@ -454,8 +451,6 @@
 				953D81190F2F417700049823 /* NMOperationStatusDialogController.m */,
 				953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */,
 				953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */,
-				953D84370F2F8B1000049823 /* TestWindowController.h */,
-				953D84380F2F8B1000049823 /* TestWindowController.m */,
 			);
 			name = nmica;
 			sourceTree = "<group>";
@@ -704,7 +699,6 @@
 				953D811A0F2F417700049823 /* NMOperationStatusDialogController.m in Sources */,
 				953D81A60F2F4B4E00049823 /* DDCliUtil.m in Sources */,
 				953D832D0F2F6E7300049823 /* NMOperationConfigDialogController.m in Sources */,
-				953D84390F2F8B1000049823 /* TestWindowController.m in Sources */,
 				953D84920F2F9A1900049823 /* MotifSetDocumentController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

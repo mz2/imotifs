@@ -119,21 +119,28 @@
     return [[xmsDoc description] dataUsingEncoding:NSUTF8StringEncoding];
 }
 
+- (BOOL)readFromData: (NSData *)data 
+              ofType: (NSString *)typeName 
+               error: (NSError **)outError {
+    if ([typeName isEqual:@"Motif set"]) {
+        [self setMotifSet:[MotifSetParser motifSetFromData: data]];
+        [motifSet setName: [self displayName]];
+        return motifSet != nil ? YES : NO;
+    } else {
+        ddfprintf(stderr, @"Trying to read an unsupported type : %@", typeName);
+        return NO;
+    }
+}
+
+//TODO: You might be using some of the deprecated methods from NSDocument, check through that you're not
+
 -(BOOL)readFromURL:(NSURL*) url 
             ofType:(NSString*)type 
              error:(NSError*) outError {
     if ([type isEqual:@"Motif set"]) {
-        NSLog(@"MotifSetDocument: reading file of type %@ from URL %@",type, url);
-        if (![type isEqual: @"Motif set"]) {
-            NSLog(@"WARNING: unexpected file type: %@",type);
-        }
-        NSLog(@"MotifSetDocument: parsing motif set file");
-        
-        //NSLog([motifSet description]);
         [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
         [motifSet setName: [self displayName]];        
-        
-        return motifSet != nil ? true : false;
+        return motifSet != nil ? YES : NO;
     } else {
         ddfprintf(stderr, @"Trying to read an unsupported type : %@\n", type);
         return NO;

@@ -10,13 +10,12 @@
 #import "IMOperation.h"
 
 @implementation IMTaskOperation
-@synthesize task, arguments;
+@synthesize task, arguments, launchPath;
 
--(id) initWithTask:(NSTask*) t arguments:(NSArray*)args {
+-(id) init {
     self = [super init];
-    if (self){
-        task = [t retain];
-        arguments = [args retain];
+    if (self) {
+        arguments = [[NSMutableDictionary alloc] init];
     }
     
     return self;
@@ -32,18 +31,30 @@
     return NO;
 }
 
+//this method here needs to initialize  the task
+- (void) initializeTask {
+    @throw [NSException exceptionWithName:@"IMInitializeTaskNotOverridenException" 
+                                   reason:@"-initializeTask should be overridden in the subclasses of IMTaskOperation" 
+                                 userInfo:nil];
+    
+}
+
 - (void)start {
     // Create the NSTask object.
     //task = [[NSTask alloc] init];
     
     //[[[NSApplication sharedApplication] delegate] registerNotifications];
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    [self initializeTask];
+    [task setArguments:[IMTaskOperation argumentArrayFromDictionary:arguments]];
+    [task setLaunchPath:launchPath];
+    
     
     [[NSNotificationCenter defaultCenter] addObserver: self 
                                              selector: @selector(handleTaskExitedNotification:) 
                                                  name: NSTaskDidTerminateNotification 
                                                object: task];
-    [task setArguments: arguments];
+    
     // If the operation hasn't already been cancelled, launch it.
     if (![self isCancelled]) {
         [self willChangeValueForKey:@"isExecuting"];
@@ -84,5 +95,18 @@
     
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];
+}
+
++(NSArray*) argumentArrayFromDictionary:(NSMutableDictionary*) dict {
+    NSMutableArray *args = [NSMutableArray array];
+    for (NSString *key in [dict allKeys]) {
+        NSString *value = [dict objectForKey:key];
+        [args addObject: key];
+        if ((id)value != [NSNull null]) {
+            [args addObject:value];
+        }
+    }
+    ddfprintf(stderr, @"%@",args);
+    return args;
 }
 @end

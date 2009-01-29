@@ -7,29 +7,32 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "NMOperation.h"
 
 @interface NMOperationConfigDialogController : NSWindowController {
     IBOutlet NSSlider *expUsageFractionSlider;
     IBOutlet NSTextField *expUsageFractionTextField;
     
-    NSString *inputSeqFilename;
+    //NSString *inputSeqFilename;
     IBOutlet NSTextField *inputSeqFilenameTextField;
     
-    NSString *outputMotifSetFilename;
+    //NSString *outputMotifSetFilename;
     IBOutlet NSTextField *outputMotifSetFilenameTextField;
     
+    IBOutlet NMOperation *nminferOperation;
     
 }
 
 @property (retain, readwrite) NSSlider  *expUsageFractionSlider;
 @property (retain, readwrite) NSTextField  *expUsageFractionTextField;
 
-@property (retain, readwrite) NSString *inputSeqFilename;
+//@property (retain, readwrite) NSString *inputSeqFilename;
 @property (retain, readwrite) NSTextField *inputSeqFilenameTextField;
 
-@property (retain, readwrite) NSString *outputMotifSetFilename;
+//@property (retain, readwrite) NSString *outputMotifSetFilename;
 @property (retain, readwrite) NSTextField *outputMotifSetFilenameTextField;
+
+@property (retain, readwrite) NMOperation *nminferOperation;
 
 -(IBAction) browseForSequenceFile:(id) sender;
 -(IBAction) browseForOutputFile:(id) sender;
