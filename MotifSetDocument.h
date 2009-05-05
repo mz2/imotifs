@@ -68,7 +68,9 @@ extern NSString *IMMotifSetIndicesPboardType;
     IBOutlet NSDrawer *drawer;
     
     IBOutlet NSProgressIndicator *progressIndicator;
-	//MotifComparitor *motifComparitor;
+	
+    IBOutlet BOOL annotationsEditable;
+    //MotifComparitor *motifComparitor;
 	
     NSTask *task;
     NSPipe *pipe;
@@ -140,4 +142,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) NSProgressIndicator *progressIndicator;
 
 @property (retain,readwrite) NSDrawer *drawer;
+@property (readwrite) BOOL annotationsEditable;
+
 @end

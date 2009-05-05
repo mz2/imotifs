@@ -17,7 +17,7 @@
 
 @implementation MotifSetDrawerTableDelegate
 @synthesize table, tableLabel;
-@synthesize addButton, removeButton;
+@synthesize addButton, removeButton, lockToggleButton;
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView {
     //NSLog(@"controller:%@ selectedObjects:%@",
@@ -164,6 +164,26 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
         [removeButton setEnabled: NO];
     } else {
         [removeButton setEnabled: YES];
+    }
+}
+
+-(BOOL) annotationsEditable {
+    return self.motifSetDocument.annotationsEditable;
+}
+
+-(void) setAnnotationsEditable:(BOOL) ae {
+    [self.motifSetDocument setAnnotationsEditable: ae];
+}
+
+- (void) toggleEditable:(id) sender {
+    NSLog(@"Toggling annotations editable:%d",[self.motifSetDocument annotationsEditable]);
+    //[self.motifSetDocument willChangeValueForKey:
+    self.annotationsEditable = !self.annotationsEditable;
+    
+    if (self.annotationsEditable) {
+        self.lockToggleButton.image = [NSImage imageNamed:@"NSLockLockedTemplate"];
+    } else {
+        self.lockToggleButton.image = [NSImage imageNamed:@"NSLockUnlockedTemplate"];
     }
 }
 @end

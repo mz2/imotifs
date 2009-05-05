@@ -13,8 +13,9 @@
 
 
 @implementation NMOperationConfigDialogController
-@synthesize expUsageFractionSlider, expUsageFractionTextField;
-@synthesize inputSeqFilenameTextField, outputMotifSetFilenameTextField,nminferOperation;
+//@synthesize expUsageFractionSlider, expUsageFractionTextField;
+//@synthesize inputSeqFilenameTextField, outputMotifSetFilenameTextField;
+@synthesize nminferOperation;
 
 -(IBAction) browseForSequenceFile:(id) sender {
     NSOpenPanel *seqFilePanel = [NSOpenPanel openPanel];
@@ -27,29 +28,13 @@
                              contextInfo: NULL];
 }
 
--(void) browseForSequenceFileEnded: (NSOpenPanel*) sheet 
-                        returnCode: (int) returnCode
-                       contextInfo: (void*) contextInfo {
-    NSString *filename = [sheet filename];
-    self.inputSeqFilenameTextField = [filename copy];
-}
-
--(void) browseForMotifSetDirectory: (NSOpenPanel*) sheet 
-                        returnCode: (int) returnCode
-                       contextInfo: (void*) contextInfo {
-    NSString *filename = [sheet filename];
-    if (returnCode) {
-        [self.nminferOperation setOutputMotifSetPath:filename];                
-    }
-}
-
 -(IBAction) browseForOutputFile:(id) sender {
     NSString *fileSugg = nil;
     NSString *dirSugg = nil;
     if (nminferOperation.outputMotifSetPath == nil) {
         fileSugg = [[[self.nminferOperation sequenceFilePath] lastPathComponent] 
-         stringByReplacingOccurrencesOfString:@".fasta" 
-         withString:@".xms"];
+                    stringByReplacingOccurrencesOfString:@".fasta" 
+                    withString:@".xms"];
         dirSugg = [[self.nminferOperation sequenceFilePath] stringByDeletingLastPathComponent];
     } else {
         fileSugg = [[self.nminferOperation outputMotifSetPath] lastPathComponent];
@@ -66,6 +51,38 @@
     
 }
 
+
+-(IBAction) browseForBGModelFile:(id) sender {
+    NSOpenPanel *seqFilePanel = [NSOpenPanel openPanel];
+    [seqFilePanel setAllowsMultipleSelection: NO];
+    [seqFilePanel beginSheetForDirectory: nil
+                                    file: nil
+                          modalForWindow: self.window
+                           modalDelegate: self
+                          didEndSelector: @selector(browseForBGModelFileEnded:returnCode:contextInfo:) 
+                             contextInfo: NULL];
+}
+
+-(void) browseForSequenceFileEnded: (NSOpenPanel*) sheet 
+                        returnCode: (int) returnCode
+                       contextInfo: (void*) contextInfo {
+    self.nminferOperation.sequenceFilePath = sheet.filename;
+}
+
+-(void) browseForMotifSetDirectory: (NSOpenPanel*) sheet 
+                        returnCode: (int) returnCode
+                       contextInfo: (void*) contextInfo {
+    if (returnCode) {
+        self.nminferOperation.outputMotifSetPath = sheet.filename;                
+    }
+}
+
+-(void) browseForBGModelFileEnded: (NSOpenPanel*) sheet 
+                       returnCode: (int) returnCode
+                      contextInfo: (void*) contextInfo {
+    self.nminferOperation.backgroundModelPath = sheet.filename;
+}
+
 -(IBAction) cancel:(id) sender {
     [self close];
 }
@@ -74,7 +91,7 @@
     NMOperationStatusDialogController *operationDialogController = 
     [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
     [operationDialogController showWindow: self];
-    [operationDialogController setOutputMotifSetPath: self.outputMotifSetFilenameTextField.stringValue]; 
+    //[operationDialogController setOutputMotifSetPath: self.outputMotifSetFilenameTextField.stringValue]; 
     
     [operationDialogController setOperation: nminferOperation];
     [nminferOperation setDialogController: operationDialogController];

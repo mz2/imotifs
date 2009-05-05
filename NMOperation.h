@@ -12,34 +12,31 @@
 @class NMOperationStatusDialogController;
 
 @interface NMOperation : IMTaskOperation {
-    NSFileHandle *readHandle;
-    NSFileHandle *errorReadHandle;
+    NMOperationStatusDialogController *dialogController;
+    
+    NSString *sequenceFilePath;
+    NSString *outputMotifSetPath;
+    NSString *backgroundModelPath;
     
     BOOL receivedOutputData;
     BOOL receivedErrorData;
-    
-    NMOperationStatusDialogController *dialogController;
-
-    NSString *sequenceFilePath;
-    NSString *outputMotifSetPath;
-    
     NSUInteger numMotifs;
     NSUInteger minMotifLength;
     NSUInteger maxMotifLength;
     double expectedUsageFraction;
     NSUInteger logInterval;
     NSUInteger maxCycles;
+    BOOL reverseComplement;
     
-    NSString *backgroundModelPath;
     NSUInteger backgroundClasses;
     NSUInteger backgroundOrder;
     
-    BOOL reverseComplement;
-    
     //BOOL needsRepeatMasking;
 
-@private 
+    @private 
     //NSMutableString *buf;
+    NSFileHandle *readHandle;
+    NSFileHandle *errorReadHandle;
     NSNumberFormatter *numFormatter;
 }
 

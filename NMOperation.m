@@ -47,14 +47,14 @@
     numFormatter = [[NSNumberFormatter alloc] init];
     
     [arguments setObject:sequenceFilePath forKey:@"-seqs"];
-    [arguments setObject:outputMotifSetPath forKey:@"-out"];
+    if (outputMotifSetPath != nil) {[arguments setObject:outputMotifSetPath forKey:@"-out"];}
     [arguments setObject:[NSString stringWithFormat:@"%d",logInterval] forKey:@"-logInterval"];
     [arguments setObject:[NSString stringWithFormat:@"%d",maxCycles] forKey:@"-maxCycles"];
     [arguments setObject:[NSString stringWithFormat:@"%d",numMotifs] forKey:@"-numMotifs"];
     [arguments setObject:[NSString stringWithFormat:@"%d",minMotifLength] forKey:@"-minLength"];
     [arguments setObject:[NSString stringWithFormat:@"%d",maxMotifLength] forKey:@"-maxLength"];
     [arguments setObject:[NSString stringWithFormat:@"%f",expectedUsageFraction] forKey:@"-expectedUsageFraction"];
-    if (reverseComplement) {[arguments setObject:[NSNull null] forKey:@"-reverseComplement"];}
+    if (reverseComplement) {[arguments setObject:[NSNull null] forKey:@"-revComp"];}
     
     if (backgroundModelPath != nil) {
         [arguments setObject:self.backgroundModelPath forKey:@"-backgroundModel"];
@@ -64,23 +64,26 @@
     }
     
     NSPipe *stdOutPipe = [NSPipe pipe];
-    NSPipe *stdErrPipe = [NSPipe pipe];
+    //NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
-    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
+    //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
     [task setStandardOutput: stdOutPipe];
-    [task setStandardError: stdErrPipe];
+    //[task setStandardError: stdErrPipe];
     //[self setLaunchPath:launchPath];
 }
 
 -(void) setSequenceFilePath:(NSString*) str {
+    NSLog(@"Setting sequence file path to %@",str);
+    [self willChangeValueForKey:@"sequenceFilePath"];
     sequenceFilePath = str;
-    if (outputMotifSetPath == nil) {
-        [self willChangeValueForKey:@"outputMotifSetPath"];
-        [[sequenceFilePath lastPathComponent] 
-            stringByReplacingOccurrencesOfString:@".fasta" 
-                                      withString:@".xms"]; 
+    if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
+        self.outputMotifSetPath = [[sequenceFilePath stringByDeletingLastPathComponent] stringByAppendingString:
+             [[sequenceFilePath lastPathComponent] 
+                        stringByReplacingOccurrencesOfString:@".fasta" 
+                                                  withString:@".xms"]]; 
     }
+    [self didChangeValueForKey:@"sequenceFilePath"];
     
 }
 
@@ -178,6 +181,13 @@
 - (void) dealloc {
     [readHandle release];
     [errorReadHandle release];
+    [dialogController release];
+    
+    [sequenceFilePath release];
+    [outputMotifSetPath release];
+    [backgroundModelPath release];
+    
+    [numFormatter release];
     [super dealloc];
 }
 @end

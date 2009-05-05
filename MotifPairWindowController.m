@@ -11,4 +11,10 @@
 
 @implementation MotifPairWindowController
 @synthesize motifPairs, motifPairController;
+
+-(void) dealloc {
+    [motifPairs release];
+    
+    [super dealloc];
+}
 @end

@@ -15,6 +15,7 @@
     IBOutlet NSTextField *tableLabel;
     IBOutlet NSButton *addButton;
     IBOutlet NSButton *removeButton;
+    IBOutlet NSButton *lockToggleButton;
 }
 
 @property (retain, readwrite) MotifSetDocument *motifSetDocument;
@@ -22,6 +23,9 @@
 @property (retain, readwrite) NSTextField *tableLabel;
 @property (retain, readwrite) NSButton *addButton;
 @property (retain, readwrite) NSButton *removeButton;
+@property (retain, readwrite) NSButton *lockToggleButton;
+
+@property (readwrite) BOOL annotationsEditable;
 
 -(NSString*) tableDescription;
 -(NSArray*) sortedAnnotationKeys;
@@ -30,4 +34,6 @@
 -(NSMutableDictionary*) annotations;
 -(IBAction) newAnnotation: (id) sender;
 -(IBAction) removeAnnotation: (id) sender;
+-(IBAction) toggleEditable: (id) sender;
+
 @end

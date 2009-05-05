@@ -73,4 +73,10 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 - (MotifSetDocument*) motifSetDocument {
 	return motifSetDocument;
 }
+
+-(void) dealloc {
+    [otherMotifSetDocuments release];
+	[otherMotifSets release];
+    [super dealloc];
+}
 @end

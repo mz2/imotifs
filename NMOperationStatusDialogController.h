@@ -19,12 +19,7 @@
     IBOutlet NSButton *closeButton;
     IBOutlet NSButton *showResultsButton;
     
-    
-    NSString *outputMotifSetPath;
-    ///NSUInteger iterationNumber;
-    //double evidence;
-    //double likelihood;
-    //double iterationTime;
+    //NSString *outputMotifSetPath;
     NMOperation *operation;
 }
 
@@ -38,7 +33,7 @@
 @property (retain, readwrite) NSButton *showResultsButton;
 
 @property (nonatomic, retain, readwrite) NMOperation *operation;
-@property (nonatomic, retain, readwrite) NSString *outputMotifSetPath;
+//@property (nonatomic, retain, readwrite) NSString *outputMotifSetPath;
 
 
 -(void) setIterationNumber: (NSNumber*)num;

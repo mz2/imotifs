@@ -43,6 +43,7 @@
 @synthesize drawerTableDelegate,drawer;
 @synthesize progressIndicator;
 @synthesize motifNamePickerSheet, motifNamePickerTextField, motifNamePickerLabel;
+@synthesize annotationsEditable;
 
 - (id)init {
     NSLog(@"MotifSetDocument: initialising MotifSetDocument");
@@ -104,6 +105,18 @@
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
 }
 
+- (NSString *)displayName {
+    if ([self fileURL] == nil) {
+        if (self.motifSet.name != nil) {
+            return self.motifSet.name;
+        } else {
+            return [super displayName];
+        }
+    } else {
+        return [super displayName];
+    }
+}
+
 - (NSData *)dataOfType:(NSString *)typeName error:(NSError **)outError {
     if (![typeName isEqual:@"Motif set"]) {
         return nil;
@@ -115,6 +128,15 @@
                                     userInfo:NULL];
 	}
     
+    NSMutableDictionary *annots = [[self motifSet] annotations];
+    if ([annots objectForKey:@"imotifs-window-width"]) {
+        
+    }
+    if ([annots objectForKey:@"imotifs-window-height"]) {
+        
+    }
+    
+    
     NSXMLDocument *xmsDoc = [[[self motifSet] toXMS] retain];
     return [[xmsDoc description] dataUsingEncoding:NSUTF8StringEncoding];
 }
@@ -124,7 +146,10 @@
                error: (NSError **)outError {
     if ([typeName isEqual:@"Motif set"]) {
         [self setMotifSet:[MotifSetParser motifSetFromData: data]];
-        [motifSet setName: [self displayName]];
+        //if (motifSet.name == nil) {
+        //    [motifSet setName: [self displayName]];            
+        //}
+        
         return motifSet != nil ? YES : NO;
     } else {
         ddfprintf(stderr, @"Trying to read an unsupported type : %@", typeName);
@@ -139,7 +164,7 @@
              error:(NSError*) outError {
     if ([type isEqual:@"Motif set"]) {
         [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
-        [motifSet setName: [self displayName]];        
+        //[motifSet setName: [self displayName]];        
         return motifSet != nil ? YES : NO;
     } else {
         ddfprintf(stderr, @"Trying to read an unsupported type : %@\n", type);
@@ -669,8 +694,7 @@ provideDataForType:(NSString *)type {
         
         if (self.searchType == IMMotifSetSearchByName) {
             [motifSetController 
-             setFilterPredicate:[NSPredicate 
-                                 predicateWithFormat:@"name contains[c] %@",str]];
+             setFilterPredicate:[NSPredicate predicateWithFormat:@"name contains[c] %@",str]];
         } else if (self.searchType == IMMotifSetSearchByConsensusString) {
             [motifSetController 
              setFilterPredicate:[NSPredicate 

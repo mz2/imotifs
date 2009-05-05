@@ -22,9 +22,7 @@
 @property (retain, readwrite) NSMutableDictionary *arguments;
 @property (retain, readwrite) NSString *launchPath;
 
-//-(id) initWithTask:(NSTask*) task arguments:(NSArray*) arguments;
-
--(void) initializeTask;
+-(void) initializeTask; //the task is allocated and initialised here, and input/output pipes connected
 - (void)handleTaskExitedNotification:(NSNotification*)aNotification;
 
 +(NSArray*) argumentArrayFromDictionary:(NSMutableDictionary*) dict;

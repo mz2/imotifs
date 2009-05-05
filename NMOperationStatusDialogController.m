@@ -8,17 +8,20 @@
 
 #import "NMOperationStatusDialogController.h"
 #import "MotifSetDocument.h"
+#import "NMOperation.h"
 
 @implementation NMOperationStatusDialogController
 @synthesize iterationNumberLabel,evidenceLabel,iterationNumberLabel,likelihoodLabel, spinner,level;
 @synthesize operation;
-@synthesize closeButton, showResultsButton, outputMotifSetPath;
+@synthesize closeButton, showResultsButton;
+//@synthesize outputMotifSetPath;
 
 -(void) awakeFromNib {
     NSLog(@"Awakening from NIB");
     [spinner startAnimation: self];
 }
 -(void) dealloc {
+    [operation release];
     [super dealloc];
 }
 -(void) setIterationNumber: (NSNumber*)num {
@@ -42,12 +45,20 @@
     [self.window setTitle:str];
 }
 
--(IBAction) stop:(id) sender {
+-(void) _stop:(id) sender {
     ddfprintf(stderr, @"Stopping NMICA...\n");
-    [operation cancel];
-    [spinner stopAnimation: self];
-    [self close];
+    if ([operation isExecuting]) {
+        [operation cancel];
+    }
+    [spinner stopAnimation: self];    
 }
+
+-(IBAction) stop:(id) sender {
+    [self _stop:self];
+    [self close];
+
+}
+
 -(IBAction) motifDiscoveryDone:(id) sender {
     [spinner stopAnimation: self];
     [closeButton setEnabled: NO];
@@ -55,9 +66,18 @@
 }
 -(IBAction) showResults:(id) sender {
     [self close];
-    NSLog(@"Getting motifs from %@", outputMotifSetPath);
-    MotifSetDocument *doc = [[MotifSetDocument alloc] initWithContentsOfURL: [NSURL fileURLWithPath: outputMotifSetPath] 
-                                                                     ofType: @"Motif set"];
+    NSLog(@"Getting motifs from %@", [operation outputMotifSetPath]);
+    MotifSetDocument *doc = [[MotifSetDocument alloc] 
+                             initWithContentsOfFile:
+                             [NSURL fileURLWithPath: operation.outputMotifSetPath] 
+                             ofType:@"Motif set"];
+    [doc showWindows];
     //try setting the motif set by hand?
 }
+
+
+- (void)windowWillClose:(NSNotification *)notification {
+    [self _stop: self];
+}
+     
 @end
