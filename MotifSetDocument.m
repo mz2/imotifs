@@ -91,6 +91,8 @@
     [self initializeUI];
 }
 
+
+
 - (NSString *)windowNibName
 {
     // Override returning the nib file name of the document
@@ -103,6 +105,17 @@
     [super windowControllerDidLoadNib:aController];
     NSLog(@"MotifSetDocument: window controller loaded the %@ Nib file",[self windowNibName]);
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
+    
+    NSLog(@"Window controller: %@ %@", aController, motifSet);
+    if ([self fileName]) {
+        [aController setWindowFrameAutosaveName:[self fileName]];
+    }
+    //[self setShouldCascadeWindows: NO];
+    //[self setWindowFrameAutosaveName: @"pannerWindow"];
+        
+        // and any other windowDidLoad work to be done
+    //} // windowDidLoad
+    
 }
 
 - (NSString *)displayName {
@@ -164,7 +177,12 @@
              error:(NSError*) outError {
     if ([type isEqual:@"Motif set"]) {
         [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
-        //[motifSet setName: [self displayName]];        
+        
+        if (![[motifSet annotations] objectForKey:@"imotifs-window-autosave-id"]) {
+            [[motifSet annotations] setObject: [NSString stringWithFormat:@"%d",rand()] 
+                                       forKey: @"imotifs-window-autosave-id"];
+        }
+        //[motifSet setName: [self displayName]];
         return motifSet != nil ? YES : NO;
     } else {
         ddfprintf(stderr, @"Trying to read an unsupported type : %@\n", type);
