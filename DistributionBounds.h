@@ -16,10 +16,12 @@
 }
 
 -(id) initWithAlphabet: alphabet 
-          symbolBounds: symBounds];
+          symbolBounds: symBounds;
 
-+(SymbolBounds*) boundsWithAlphabet: alphabet 
-                       symbolBounds: symBounds];
++(DistributionBounds*) boundsWithAlphabet: alphabet 
+                       symbolBounds: symBounds;
 
 -(SymbolBounds*) boundsForSymbol:(Symbol*) sym;
+-(void) setBounds:(SymbolBounds*) forSymbol:(Symbol*) sym;
+
 @end

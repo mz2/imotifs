@@ -20,6 +20,8 @@
 @property (readwrite) double mean;
 
 - (id) initWithMin:(double) mi Max:(double)ma mean:(double) me;
-+ (SymbolBounds*) boundsWithMin:(double) mi max:(double)ma mean:(double) me;
++ (SymbolBounds*) boundsWithMin:(double) mi 
+                            max:(double)ma 
+                           mean:(double) me;
 
 @end
