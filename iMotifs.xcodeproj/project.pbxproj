@@ -189,6 +189,8 @@
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
 		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
+		95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDDD530FC31AA600EB39C4 /* DebugLog.h */; };
+		95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDDD540FC31AA600EB39C4 /* DebugLog.m */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -349,6 +351,8 @@
 		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
 		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
+		95BDDD530FC31AA600EB39C4 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
+		95BDDD540FC31AA600EB39C4 /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLog.m; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -480,6 +484,7 @@
 		5FB8976A0E3157F60084D9D8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				95BDDD520FC31A9C00EB39C4 /* debuglog */,
 				953D81A70F2F4B5100049823 /* ddcli */,
 				953D7F0F0F2E07D200049823 /* cocoa-extras */,
 				95B2C60D0EED7B95004605A6 /* motifcomparison */,
@@ -807,6 +812,15 @@
 			name = motifnamepicker;
 			sourceTree = "<group>";
 		};
+		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
+			isa = PBXGroup;
+			children = (
+				95BDDD530FC31AA600EB39C4 /* DebugLog.h */,
+				95BDDD540FC31AA600EB39C4 /* DebugLog.m */,
+			);
+			name = debuglog;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -871,6 +885,7 @@
 				9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */,
 				9595B4000FB9D47700CE2BFF /* SymbolBounds.h in Headers */,
 				9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */,
+				95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1098,6 +1113,7 @@
 				9595B2A10FB9C59F00CE2BFF /* incomplete_beta.m in Sources */,
 				9595B4010FB9D47700CE2BFF /* SymbolBounds.m in Sources */,
 				9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */,
+				95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
