@@ -13,7 +13,7 @@
 
 - (void) awakeFromNib {
     [super awakeFromNib];
-    NSLog(@"MotifViewCell: awakening from Nib");
+    DebugLog(@"MotifViewCell: awakening from Nib");
 }
 
 /* the designated initializer for cells that contain images */
@@ -77,14 +77,14 @@
         currentTint=[self controlTint];
     
     //if (![[self objectValue] color]) {
-    //    NSLog(@"MotifViewCell: color not set for %@.",[[self objectValue] name]);
+    //    DebugLog(@"MotifViewCell: color not set for %@.",[[self objectValue] name]);
     //    [[NSColor controlBackgroundColor] set];
     //} else {
-    //    NSLog(@"MotifViewCell: color set for %@.",[[self objectValue] name]);
+    //    DebugLog(@"MotifViewCell: color set for %@.",[[self objectValue] name]);
     //    [[[self objectValue] color] set];
     //}
     //[[NSColor controlAlternatingRowBackgroundColors
-    //NSLog(@"MotifViewCell: color for %@.",[[self objectValue] color]);
+    //DebugLog(@"MotifViewCell: color for %@.",[[self objectValue] color]);
     if ([[self objectValue] color]) {
         [[[self objectValue] color] set];
         [NSBezierPath fillRect: cellFrame];

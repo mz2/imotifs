@@ -18,7 +18,7 @@
 }
 
 - (void) windowDidLoad {
-    NSLog(@"PreferencesDialogController: Nib file loaded");
+    DebugLog(@"PreferencesDialogController: Nib file loaded");
 }
 
 - (void) awakeFromNib {
@@ -28,7 +28,7 @@
 
 - (IBAction) changeNewEmptyDoc:(id)sender {
     int state = [emptyDocCheckbox state];
-    NSLog(@"PreferencesDialogController: new empty doc state changed:%d",state);
+    DebugLog(@"PreferencesDialogController: new empty doc state changed:%d",state);
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setBool:[emptyDocCheckbox state] 
                forKey:IMOpenUntitledDoc];

@@ -25,6 +25,30 @@
 #define IMConsensusSearchDefaultCutoff (double)2.0
 #endif
 
+#ifndef IMConsensusSearchDefaultCutoffKey
+#define IMConsensusSearchDefaultCutoffKey @"IMConsensusSearchDefaultCutoffKey"
+#endif
+
+#ifndef IMMotifHeight
+#define IMMotifHeight @"IMMotifHeight"
+#endif
+
+#ifndef IMMetamotifDefaultConfidenceIntervalCutoffKey
+#define IMMetamotifDefaultConfidenceIntervalCutoffKey @"IMMetamotifDefaultConfidenceIntervalCutoff"
+#endif
+
+#ifndef IMMetamotifDefaultConfidenceIntervalCutoff
+#define IMMetamotifDefaultConfidenceIntervalCutoff (CGFloat)0.95
+#endif
+
+#ifndef IMMotifDrawingStyle
+#define IMMotifDrawingStyle (NSString*)@"IMMotifDrawingStyle"
+#endif
+
+#ifndef IMMotifColumnPrecisionDrawingStyleKey
+#define IMMotifColumnPrecisionDrawingStyleKey (NSString*)@"IMMotifColumnPrecisionDrawingStyle"
+#endif
+
 extern NSString *IMConsensusSearchCutoff;
 
 @interface AppController : NSObject {

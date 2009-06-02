@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="482"/>
+			<integer value="24"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -697,8 +697,17 @@
 								</object>
 								<object class="NSMenuItem" id="743604172">
 									<reference key="NSMenu" ref="835318025"/>
-									<string key="NSTitle">Show attribute drawer</string>
+									<string key="NSTitle">Show annotations drawer</string>
 									<string key="NSKeyEquiv">d</string>
+									<int key="NSKeyEquivModMask">1048576</int>
+									<int key="NSMnemonicLoc">2147483647</int>
+									<reference key="NSOnImage" ref="1064276977"/>
+									<reference key="NSMixedImage" ref="980219229"/>
+								</object>
+								<object class="NSMenuItem" id="43863678">
+									<reference key="NSMenu" ref="835318025"/>
+									<string key="NSTitle">Set annotations editable</string>
+									<string key="NSKeyEquiv">u</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="1064276977"/>
@@ -1159,6 +1168,14 @@
 					</object>
 					<int key="connectionID">483</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">toggleAnnotationsEditable:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="43863678"/>
+					</object>
+					<int key="connectionID">485</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1464,6 +1481,7 @@
 							<reference ref="1011231497"/>
 							<reference ref="743604172"/>
 							<reference ref="998701437"/>
+							<reference ref="43863678"/>
 						</object>
 						<reference key="parent" ref="713487014"/>
 					</object>
@@ -1752,6 +1770,11 @@
 						<reference key="object" ref="549525168"/>
 						<reference key="parent" ref="294598153"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">484</int>
+						<reference key="object" ref="43863678"/>
+						<reference key="parent" ref="835318025"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1877,6 +1900,7 @@
 					<string>475.IBPluginDependency</string>
 					<string>480.IBPluginDependency</string>
 					<string>482.IBPluginDependency</string>
+					<string>484.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>5.ImportedFromIB2</string>
 					<string>56.IBPluginDependency</string>
@@ -1986,11 +2010,11 @@
 					<reference ref="9"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
-					<string>{{470, 632}, {245, 93}}</string>
+					<string>{{374, 381}, {267, 113}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{{524, 773}, {197, 53}}</string>
-					<string>{{118, 725}, {484, 20}}</string>
+					<string>{{22, 494}, {484, 20}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<reference ref="9"/>
 					<string>{74, 862}</string>
@@ -2021,6 +2045,7 @@
 					<string>{{285, 642}, {310, 83}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{339, 803}, {152, 23}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2091,7 +2116,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">483</int>
+			<int key="maxID">485</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2145,6 +2170,7 @@
 							<string>shiftRight:</string>
 							<string>showLength:</string>
 							<string>toggleDrawer:</string>
+							<string>toggleEditable:</string>
 							<string>toggleFullScreenMode:</string>
 							<string>toggleInformationContentShown:</string>
 							<string>toggleLengthShown:</string>
@@ -2152,6 +2178,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2215,10 +2242,12 @@
 							<string>searchMotifs:</string>
 							<string>searchTypeToggled:</string>
 							<string>selectNone:</string>
+							<string>toggleAnnotationsEditable:</string>
 							<string>toggleDrawer:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2296,9 +2325,11 @@
 							<string>newAnnotation:</string>
 							<string>refresh:</string>
 							<string>removeAnnotation:</string>
+							<string>toggleEditable:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
@@ -2309,6 +2340,7 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addButton</string>
+							<string>lockToggleButton</string>
 							<string>motifSetDocument</string>
 							<string>removeButton</string>
 							<string>table</string>
@@ -2316,6 +2348,7 @@
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSButton</string>
 							<string>NSButton</string>
 							<string>MotifSetDocument</string>
 							<string>NSButton</string>

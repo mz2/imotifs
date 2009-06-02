@@ -76,10 +76,12 @@ extern NSString *IMMotifSetIndicesPboardType;
     NSPipe *pipe;
     
     IMMotifSetSearchType searchType;
-    
-    @private 
+
+    @protected
     NSArray *pboardMotifs;
     NSArray *pboardMotifsOriginals;
+    
+    CGFloat motifHeight;
 }
 
 
@@ -144,4 +146,5 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) NSDrawer *drawer;
 @property (readwrite) BOOL annotationsEditable;
 
+-(IBAction) toggleAnnotationsEditable: (id) sender;
 @end

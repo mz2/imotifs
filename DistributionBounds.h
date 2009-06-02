@@ -9,19 +9,25 @@
 #import <Cocoa/Cocoa.h>
 @class SymbolBounds;
 @class Symbol;
+@class Alphabet;
 
 @interface DistributionBounds : NSObject {
-    @protected
-    NSMutableDictionary *bounds;
+    Alphabet *alphabet;
+    NSMutableArray *bounds;
 }
 
--(id) initWithAlphabet: alphabet 
-          symbolBounds: symBounds;
+@property (retain, readonly) Alphabet *alphabet;
+@property (retain, readonly) NSArray *bounds;
 
-+(DistributionBounds*) boundsWithAlphabet: alphabet 
-                       symbolBounds: symBounds;
+-(id) initWithAlphabet: (Alphabet*) alphabet 
+          symbolBounds: (NSArray*) symBounds;
 
--(SymbolBounds*) boundsForSymbol:(Symbol*) sym;
--(void) setBounds:(SymbolBounds*) forSymbol:(Symbol*) sym;
++(DistributionBounds*) boundsWithAlphabet: (Alphabet*)alphabet 
+                             symbolBounds: (NSArray*)symBounds;
+
+-(SymbolBounds*) boundsForSymbol: (Symbol*) sym;
+
+-(void) setBounds: (SymbolBounds*) symBounds 
+        forSymbol: (Symbol*) sym;
 
 @end

@@ -130,7 +130,7 @@
     
     for (i = 0; i < m0count; i++) {
         [indicator incrementBy:incrementSize];
-        NSLog(@"indicator state: %.3f",[indicator doubleValue]);
+        DebugLog(@"indicator state: %.3f",[indicator doubleValue]);
         NSUInteger bestJ = -1;
         double bestScore = positiveInfinity;
         NSUInteger bestOffset = NSUIntegerMax;
@@ -160,7 +160,7 @@
             
         }
         
-		NSLog(@"i:%d bestJ:%d bestOffset:%d",i,bestJ,bestOffset);
+		DebugLog(@"i:%d bestJ:%d bestOffset:%d",i,bestJ,bestOffset);
         MotifPair *mpair = [[MotifPair alloc] initWithMotif: [motifs0 objectAtIndex:i] 
                                                    andMotif: [motifs1 objectAtIndex:bestJ] 
                                                       score: bestScore
@@ -200,7 +200,7 @@
                 best = f; bestIsFlipped = YES;
             }
             
-			NSLog(@"Setting value %d %d", i, j);
+			DebugLog(@"Setting value %d %d", i, j);
             [hitMatrix setValue:best 
                             row:i 
                             col:j];
@@ -301,7 +301,7 @@
     IMIntMatrix2D *fOffsetMatrix = [matrices antisenseOffsetMatrix];
     
     
-	//NSLog(@"Getting best motif pair hits between motif sets");
+	//DebugLog(@"Getting best motif pair hits between motif sets");
     NSArray *mpairs = [self bestMotifPairHitsFrom: motifs0 
                                                to: motifs1 
                                       senseScores: dMatrix
@@ -377,12 +377,12 @@
     for (Symbol* sym in [[d0 alphabet] symbols]) {
         double sym0w = [d0 weightForSymbol:sym];
 		double sym1w = [d1 weightForSymbol:sym];
-		//NSLog(@"%.3f %.3f %.3f %.3f %.3f",sym0w, sym1w, sym0w - sym1w, pow(sym0w - sym1w, 2.0), cScore);
+		//DebugLog(@"%.3f %.3f %.3f %.3f %.3f",sym0w, sym1w, sym0w - sym1w, pow(sym0w - sym1w, 2.0), cScore);
 		cScore += pow(sym0w - sym1w, 2.0);
     }
-    //NSLog(@"%.3f %.3f %.3f", cScore, pow(cScore, exponentRatio), exponentRatio);
+    //DebugLog(@"%.3f %.3f %.3f", cScore, pow(cScore, exponentRatio), exponentRatio);
 	double val = pow(cScore, exponentRatio);
-	//NSLog(@"%.3f",val);
+	//DebugLog(@"%.3f",val);
     return val;
 }
 

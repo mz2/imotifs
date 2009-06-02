@@ -24,7 +24,7 @@
 
 - (NSUInteger) motifSetCount {
 	NSUInteger count = [[NSDocumentController sharedDocumentController] documents].count;
-	//NSLog(@"MotifSetPickerTableDelegate: picker motif set count: %d", count);
+	//DebugLog(@"MotifSetPickerTableDelegate: picker motif set count: %d", count);
 	return count;
 }
 
@@ -54,7 +54,7 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 }
 
 - (void) setMotifSetDocument:(MotifSetDocument*)msetdoc {
-	NSLog(@"Setting motif set document");
+	DebugLog(@"Setting motif set document");
 	[msetdoc retain];
 	[motifSetDocument release];
 	motifSetDocument = msetdoc;

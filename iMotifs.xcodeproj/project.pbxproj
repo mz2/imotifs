@@ -44,6 +44,10 @@
 		951FF3E90F32562300A9175C /* NMTrainBGOperationConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */; };
 		951FF3EB0F32563400A9175C /* NMTrainBGOperationConfigController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */; };
 		951FF3F60F32573E00A9175C /* NMTrainBGModelOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */; };
+		95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 95371B160FCD8BC900273BA9 /* dirichlet_math.h */; };
+		95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 95371B170FCD8BC900273BA9 /* dirichlet_math.m */; };
+		95371B4D0FCD8D0D00273BA9 /* dirichlet_math.h in Sources */ = {isa = PBXBuildFile; fileRef = 95371B160FCD8BC900273BA9 /* dirichlet_math.h */; };
+		95371B4E0FCD8D0D00273BA9 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 95371B170FCD8BC900273BA9 /* dirichlet_math.m */; };
 		953D80550F2F18B800049823 /* IMTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80540F2F18B800049823 /* IMTaskOperation.m */; };
 		953D80960F2F1B0400049823 /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80950F2F1B0400049823 /* NMOperation.m */; };
 		953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */; };
@@ -292,6 +296,8 @@
 		951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMTrainBGOperationConfigController.xib; sourceTree = "<group>"; };
 		951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTrainBGModelOperation.h; sourceTree = "<group>"; };
 		951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTrainBGModelOperation.m; sourceTree = "<group>"; };
+		95371B160FCD8BC900273BA9 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dirichlet_math.h; sourceTree = "<group>"; };
+		95371B170FCD8BC900273BA9 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dirichlet_math.m; sourceTree = "<group>"; };
 		953D80530F2F18B800049823 /* IMTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTaskOperation.h; sourceTree = "<group>"; };
 		953D80540F2F18B800049823 /* IMTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTaskOperation.m; sourceTree = "<group>"; };
 		953D80940F2F1B0400049823 /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperation.h; sourceTree = "<group>"; };
@@ -630,6 +636,8 @@
 				9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */,
 				9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */,
 				9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */,
+				95371B160FCD8BC900273BA9 /* dirichlet_math.h */,
+				95371B170FCD8BC900273BA9 /* dirichlet_math.m */,
 			);
 			name = libxms;
 			sourceTree = "<group>";
@@ -886,6 +894,7 @@
 				9595B4000FB9D47700CE2BFF /* SymbolBounds.h in Headers */,
 				9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */,
 				95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */,
+				95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1001,6 +1010,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95371B4D0FCD8D0D00273BA9 /* dirichlet_math.h in Sources */,
+				95371B4E0FCD8D0D00273BA9 /* dirichlet_math.m in Sources */,
 				8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
 				5FFA099F0E14133900E0F87D /* MotifView.m in Sources */,
@@ -1114,6 +1125,7 @@
 				9595B4010FB9D47700CE2BFF /* SymbolBounds.m in Sources */,
 				9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */,
 				95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */,
+				95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -20,13 +20,13 @@
 @synthesize addButton, removeButton, lockToggleButton;
 
 - (int)numberOfRowsInTableView:(NSTableView *)aTableView {
-    //NSLog(@"controller:%@ selectedObjects:%@",
+    //DebugLog(@"controller:%@ selectedObjects:%@",
     //      motifSetDocument.motifSetController,[motifSetDocument.motifSetController selectedObjects]);
     if ([self singleMotifSelected]) {
-        //NSLog(@"DrawerDelegate: 1 motif selected");
+        //DebugLog(@"DrawerDelegate: 1 motif selected");
         return [[[[[motifSetDocument motifSetController] selectedObjects] objectAtIndex:0] annotations] count];
     } else {
-        //NSLog(@"DrawerDelegate: more than 1 selected");
+        //DebugLog(@"DrawerDelegate: more than 1 selected");
         return [[[motifSetDocument motifSet] annotations] count];
     }
 }
@@ -98,7 +98,7 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
 }
 
 - (void) setMotifSetDocument:(MotifSetDocument*)msetdoc {
-	NSLog(@"Setting motif set document");
+	DebugLog(@"Setting motif set document");
 	[msetdoc retain];
 	[motifSetDocument release];
 	motifSetDocument = msetdoc;
@@ -176,7 +176,7 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
 }
 
 - (void) toggleEditable:(id) sender {
-    NSLog(@"Toggling annotations editable:%d",[self.motifSetDocument annotationsEditable]);
+    DebugLog(@"Toggling annotations editable:%d",[self.motifSetDocument annotationsEditable]);
     //[self.motifSetDocument willChangeValueForKey:
     self.annotationsEditable = !self.annotationsEditable;
     

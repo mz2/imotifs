@@ -70,7 +70,7 @@
         [self willChangeValueForKey:@"isExecuting"];
         isExecuting = NO;
         [self didChangeValueForKey:@"isExecuting"];
-        NSLog(@"IMTaskOperation done.");
+        DebugLog(@"IMTaskOperation done.");
     }
     
     [pool drain];
@@ -78,7 +78,7 @@
 }
 
 - (void)handleTaskExitedNotification:(NSNotification*)aNotification {
-    NSLog(@"IMTaskOperation: terminating...");
+    DebugLog(@"IMTaskOperation: terminating...");
     [self willChangeValueForKey:@"isFinished"];
     [self willChangeValueForKey:@"isExecuting"];
     
@@ -91,7 +91,7 @@
                                                   object: task];
     //[task release]; //handled by dealloc
     
-    NSLog(@"Task exit notification received successfully.\n");
+    DebugLog(@"Task exit notification received successfully.\n");
     
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];

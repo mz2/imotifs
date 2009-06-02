@@ -14,19 +14,19 @@
 - (id) init {
     self = [super init];
     if (self != nil) {
-        //NSLog(@"MotifSetWindowController: initialising");
+        //DebugLog(@"MotifSetWindowController: initialising");
       }
     return self;
 }
 
 
 -(void) dealloc {
-    //NSLog(@"MotifSetWindowController: deallocating");
+    //DebugLog(@"MotifSetWindowController: deallocating");
     [super dealloc];
 }
 
 -(void) awakeFromNib {
-    //NSLog(@"MotifSetWindowController: awakening from Nib");
+    //DebugLog(@"MotifSetWindowController: awakening from Nib");
 }
 
 @end

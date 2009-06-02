@@ -74,7 +74,7 @@
 }
 
 -(void) setSequenceFilePath:(NSString*) str {
-    NSLog(@"Setting sequence file path to %@",str);
+    DebugLog(@"Setting sequence file path to %@",str);
     [self willChangeValueForKey:@"sequenceFilePath"];
     sequenceFilePath = str;
     if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
@@ -97,7 +97,7 @@
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
-        //NSLog(@"inData: %@", str);
+        //DebugLog(@"inData: %@", str);
         [buf appendString:str];
         [str release];
         
@@ -108,14 +108,14 @@
         } else {
             //NSUInteger i,cnt;
             //for (i = 0,cnt=lines.count; i < cnt - 1;i++) {
-                //NSLog(@"%@", [lines objectAtIndex:i]);
+                //DebugLog(@"%@", [lines objectAtIndex:i]);
             //}
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] initWithString:[lines objectAtIndex: lines.count - 1]];
             [buf release];
             buf = newBuf;
             [self parseNMInferLogLines: lines];
-            //NSLog(@"Last, incomplete line: '%@'", [lines objectAtIndex:lines.count - 1]);
+            //DebugLog(@"Last, incomplete line: '%@'", [lines objectAtIndex:lines.count - 1]);
         }
     }
     
@@ -141,7 +141,7 @@
     }
     NSArray *components = [line componentsSeparatedByString:@"\t"];
     if (components.count != 5) {
-        NSLog(@"Warning! could not parse output line (unexpected number of components : %d). line:'%@'", components.count,line);
+        DebugLog(@"Warning! could not parse output line (unexpected number of components : %d). line:'%@'", components.count,line);
     } else {
         NSNumber *iterationNo = [numFormatter numberFromString:[components objectAtIndex:0]];
         NSNumber *priorMassShifted = [numFormatter numberFromString:[components objectAtIndex:1]];
@@ -160,13 +160,13 @@
                                            withObject: iterationTime waitUntilDone: NO];     
         
         
-    //NSLog(@"iterationNo: %d priorMass : %f bestLikelihood: %f accumEvidence : %f iterationTime: %f", 
+    //DebugLog(@"iterationNo: %d priorMass : %f bestLikelihood: %f accumEvidence : %f iterationTime: %f", 
     //          iterationNo, priorMassShifted, bestLikelihood, accumEvidence, iterationTime);
     }
 }
 
 -(void) setMinMotifLength:(NSUInteger) i {
-    NSLog(@"Setting minimum motif length to %d", i);
+    DebugLog(@"Setting minimum motif length to %d", i);
     [self willChangeValueForKey:@"minMotifLength"];
     minMotifLength = i;
 }

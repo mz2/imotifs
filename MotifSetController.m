@@ -16,7 +16,7 @@
 @synthesize hiddenObjects;
 
 - (id) init {
-    NSLog(@"\n\n\nMotifSetController: initialising MotifSetController\n\n\n");
+    DebugLog(@"\n\n\nMotifSetController: initialising MotifSetController\n\n\n");
     self = [super init];
     if (self != nil) {
         shownObjects = [[NSMutableArray alloc] init];
@@ -26,7 +26,7 @@
 }
 
 -(id) initWithCoder:(NSCoder*) coder {
-    NSLog(@"\n\n\nMotifSetController: initialising MotifSetController with coder\n\n\n");
+    DebugLog(@"\n\n\nMotifSetController: initialising MotifSetController with coder\n\n\n");
     self = [super initWithCoder: coder];
     
     shownObjects = [[NSMutableArray alloc] init];
@@ -43,11 +43,11 @@
 
 -(NSArray*) arrangeObjects:(NSArray*) objs {
     if (hiddenObjects.count == 0) {
-        //NSLog(@"MotifSetController: arranging objects with super",objs.count);
+        //DebugLog(@"MotifSetController: arranging objects with super",objs.count);
         return [super arrangeObjects: objs];
     }
     
-    //NSLog(@"MotifSetController: arranging objects: %d",objs.count);
+    //DebugLog(@"MotifSetController: arranging objects: %d",objs.count);
     NSMutableArray *arrObjs = [NSMutableArray arrayWithArray:objs];
     for (id obj in hiddenObjects) {
         [arrObjs removeObject: obj];
@@ -67,25 +67,25 @@
 
 -(id) arrangedObjects {
     if (hiddenObjects.count == 0) {
-        //NSLog(@"ArrangedObjects: count (super) : %d",[[super arrangedObjects] count]);
+        //DebugLog(@"ArrangedObjects: count (super) : %d",[[super arrangedObjects] count]);
         return [super arrangedObjects];
     }
         
     else {
         //[_shownObjects sortUsingDescriptors:self.sortDescriptors];
-        //NSLog(@"ArrangedObjects: count : %d",shownObjects.count);
+        //DebugLog(@"ArrangedObjects: count : %d",shownObjects.count);
         return shownObjects;
     }
 }
 
 -(void) rearrangeObjects {
     if (hiddenObjects.count == 0) {
-        NSLog(@"Rearranging... (super)");
+        DebugLog(@"Rearranging... (super)");
         return [super rearrangeObjects];
     }
     
     //TODO: You need to change the selection indices so they match the new arranged objects.
-    NSLog(@"Rearrange objects");
+    DebugLog(@"Rearrange objects");
     [shownObjects release];
     shownObjects = [[NSMutableArray alloc] initWithArray:self.content];
     for (id obj in hiddenObjects) {
@@ -106,7 +106,7 @@
     return ![hiddenObjects containsObject: obj];
 }
 -(void) hideObject:(id)obj {
-    NSLog(@"Hiding obj %@, hidden count before: %d",[obj name],hiddenObjects.count);
+    DebugLog(@"Hiding obj %@, hidden count before: %d",[obj name],hiddenObjects.count);
     [hiddenObjects addObject: obj];
 }
 -(void) showObject:(id)obj {

@@ -9,10 +9,10 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="100192"/>
-			<integer value="6"/>
+			<integer value="100044"/>
 			<integer value="100165"/>
-			<integer value="100314"/>
 			<integer value="100243"/>
+			<integer value="100314"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -433,7 +433,7 @@
 													<bytes key="NSWhite">MC41AA</bytes>
 												</object>
 											</object>
-											<double key="NSRowHeight">4.000000e+01</double>
+											<double key="NSRowHeight">8.000000e+01</double>
 											<int key="NSTvFlags">-29360128</int>
 											<int key="NSGridStyleMask">3</int>
 											<int key="NSColumnAutoresizingStyle">4</int>
@@ -494,7 +494,7 @@
 							<reference key="NSContentView" ref="563092218"/>
 							<reference key="NSHeaderClipView" ref="294026207"/>
 							<reference key="NSCornerView" ref="294639822"/>
-							<bytes key="NSScrollAmts">QSAAAEEgAABCKAAAQigAAA</bytes>
+							<bytes key="NSScrollAmts">QSAAAEEgAABCpAAAQqQAAA</bytes>
 						</object>
 						<object class="NSSearchField" id="957825676">
 							<reference key="NSNextResponder" ref="568628114"/>
@@ -2239,6 +2239,14 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					</object>
 					<int key="connectionID">100403</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">nextKeyView</string>
+						<reference key="source" ref="957825676"/>
+						<reference key="destination" ref="117749130"/>
+					</object>
+					<int key="connectionID">100404</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2281,10 +2289,10 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<reference ref="972853842"/>
 							<reference ref="385284773"/>
 							<reference ref="600348142"/>
-							<reference ref="731552368"/>
 							<reference ref="957825676"/>
 							<reference ref="738798686"/>
 							<reference ref="335655267"/>
+							<reference ref="731552368"/>
 						</object>
 						<reference key="parent" ref="275939982"/>
 					</object>
@@ -3062,7 +3070,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{21, 112}, {187, 153}}</string>
+					<string>{{272, 112}, {187, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{103, 601}, {187, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3073,8 +3081,8 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{117, 427}, {437, 224}}</string>
-					<string>{{117, 427}, {437, 224}}</string>
+					<string>{{272, 427}, {437, 224}}</string>
+					<string>{{272, 427}, {437, 224}}</string>
 					<reference ref="8"/>
 					<reference ref="9"/>
 					<string>{437, 200}</string>
@@ -3097,7 +3105,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{200, 157}, {196, 252}}</string>
+					<string>{{272, 157}, {196, 252}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3117,8 +3125,8 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{31, 447}, {340, 83}}</string>
-					<string>{{31, 447}, {340, 83}}</string>
+					<string>{{272, 447}, {340, 83}}</string>
+					<string>{{272, 447}, {340, 83}}</string>
 					<reference ref="8"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3143,10 +3151,10 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{90, 764}, {538, 359}}</string>
+					<string>{{272, 764}, {538, 359}}</string>
 					<reference ref="8"/>
 					<reference ref="8"/>
-					<string>{{90, 764}, {538, 359}}</string>
+					<string>{{272, 764}, {538, 359}}</string>
 					<reference ref="9"/>
 					<string>{{181, 290}, {539, 362}}</string>
 					<reference ref="9"/>
@@ -3178,7 +3186,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">100403</int>
+			<int key="maxID">100404</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3226,10 +3234,12 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 							<string>searchMotifs:</string>
 							<string>searchTypeToggled:</string>
 							<string>selectNone:</string>
+							<string>toggleAnnotationsEditable:</string>
 							<string>toggleDrawer:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

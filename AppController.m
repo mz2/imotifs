@@ -9,8 +9,7 @@
 
 #import <ApplicationServices/ApplicationServices.h>
 #import <AppController.h>
-#import "JavaLauncher.h"
-#import "JavaLauncherUtils.h"
+#import "MotifViewCell.h"
 #import "NMOperation.h"
 #import "NMOperationStatusDialogController.h"
 #import "MotifSetDocumentController.h"
@@ -26,7 +25,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 - (id) init {
     self = [super init];
     if (self != nil) {
-        NSLog(@"AppController: initialising");
+        DebugLog(@"AppController: initialising");
         sharedOperationQueue = [[NSOperationQueue alloc] init];
         [sharedOperationQueue setMaxConcurrentOperationCount:2];
         consensusSearchCutoff = FP_INFINITE;
@@ -41,18 +40,30 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     NSMutableDictionary *defaultValues = [NSMutableDictionary dictionary];
     
     
-    [defaultValues setObject:[NSNumber numberWithBool: NO] 
-                      forKey:@"IMOpenUntitledDoc"];
+    [defaultValues setObject: [NSNumber numberWithBool: NO] 
+                      forKey: @"IMOpenUntitledDoc"];
     
-    [defaultValues setObject:@"~/workspace/nmica/bin" forKey:NMBinPath];
-    [defaultValues setObject:@"~/workspace/nmica-extra/bin" forKey:NMExtraBinPath];
-    [defaultValues setObject:[NSNumber numberWithDouble:IMConsensusSearchDefaultCutoff] 
-                                                 forKey:IMConsensusSearchCutoff];
+    [defaultValues setObject: @"~/workspace/nmica/bin" forKey: NMBinPath];
+    [defaultValues setObject: @"~/workspace/nmica-extra/bin" forKey: NMExtraBinPath];
+    [defaultValues setObject: [NSNumber numberWithDouble: IMConsensusSearchDefaultCutoff] 
+                                                 forKey: IMConsensusSearchCutoff];
+    
+    [defaultValues setObject: [NSNumber numberWithInt: 60] 
+                      forKey: IMMotifHeight];
+    [defaultValues setObject: [NSNumber numberWithDouble: 1.0] 
+                      forKey: IMConsensusSearchDefaultCutoffKey];
+    [defaultValues setObject: [NSNumber numberWithFloat: IMMetamotifDefaultConfidenceIntervalCutoff]
+                                                 forKey: IMMetamotifDefaultConfidenceIntervalCutoffKey];
+    [defaultValues setObject: [NSNumber numberWithInt: IMInfoScaledLogo] 
+                      forKey: IMMotifDrawingStyle];
+    [defaultValues setObject: [NSNumber numberWithInt: IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol] 
+                      forKey: IMMotifColumnPrecisionDrawingStyleKey];
+    
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
     
 -(void) setConsensusSearchCutoff:(double) d {
-    NSLog(@"Setting consensus search cutoff: %f",d);
+    DebugLog(@"Setting consensus search cutoff: %f",d);
     [[NSUserDefaults standardUserDefaults] 
      setObject:[NSNumber numberWithDouble:d] 
                                    forKey:IMConsensusSearchCutoff];
@@ -65,12 +76,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
                                   objectForKey:IMConsensusSearchCutoff] doubleValue];
     }
     
-    //NSLog(@"Retrieving consensus search cutoff: %f",consensusSearchCutoff);
+    //DebugLog(@"Retrieving consensus search cutoff: %f",consensusSearchCutoff);
     return consensusSearchCutoff;
 }
 
 - (BOOL) applicationShouldOpenUntitledFile: (NSApplication *)sender {
-    //NSLog(@"AppController: application should NOT open untitled file.");
+    //DebugLog(@"AppController: application should NOT open untitled file.");
     return [[NSUserDefaults standardUserDefaults] boolForKey:IMOpenUntitledDoc]; 
 }
 
@@ -78,19 +89,19 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 -(void) dealloc {
     [sharedOperationQueue release];
     [preferenceController release];
-    //NSLog(@"AppController: deallocating");
+    //DebugLog(@"AppController: deallocating");
     [super dealloc];
 }
 
 - (void) awakeFromNib {
-    NSLog(@"AppController: awakening from Nib");
+    DebugLog(@"AppController: awakening from Nib");
 }
 
 - (IBAction) showPreferencePanel:(id)sender {
     if (!preferenceController) {
         preferenceController = [[PreferencesDialogController alloc] init];
     }
-    NSLog(@"AppController: showing %@", preferenceController);
+    DebugLog(@"AppController: showing %@", preferenceController);
     [preferenceController showWindow:self];
 }
 
@@ -109,7 +120,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     displayID = [[[mainWindowBeforeGoingFullScreen.screen deviceDescription] objectForKey:@"NSScreenNumber"] intValue];
     
     if (CGDisplayCapture(displayID) != kCGErrorSuccess) {
-        NSLog(@"WARNING!  could not capture the display!");
+        DebugLog(@"WARNING!  could not capture the display!");
         // Note: you'll probably want to display a proper error dialog here
     }
     // Get the shielding window level
@@ -129,7 +140,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //[fullScreenMainWindow setBackgroundColor:[NSColor blackColor]];
     [fullScreenMainWindow makeKeyAndOrderFront:nil];
     
-    //NSLog(@"Showing content view for : %@ : %@ : %@", 
+    //DebugLog(@"Showing content view for : %@ : %@ : %@", 
     //      mainWindowBeforeGoingFullScreen, 
     //      mainWindowBeforeGoingFullScreen.contentView,
     //     fullScreenMainWindow);
@@ -142,7 +153,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     
     // Release the display(s)
     if (CGDisplayRelease(displayID) != kCGErrorSuccess) {
-        NSLog( @"Couldn't release the display(s)!" );
+        DebugLog( @"Couldn't release the display(s)!" );
     }
     [mainWindowBeforeGoingFullScreen 
      setFrame: mainWindowBeforeGoingFullScreenRect display: YES];
@@ -161,7 +172,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //                                                                 ofType: @"Motif set"];
     
     //if (error) {
-    //    NSLog(@"Error encountered: %@", [error localizedDescription]);
+    //    DebugLog(@"Error encountered: %@", [error localizedDescription]);
     //}
     
     //ddfprintf(stderr,@"Running NMICA\n");
@@ -171,42 +182,6 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     
     [configDialogController showWindow: self];
     
-    
-    /*
-    NMOperationStatusDialogController *operationDialogController = 
-    [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
-    [operationDialogController showWindow: self];
-    
-    NMOperation *nminferOperation = [[NMOperation alloc] initMotifDiscoveryTaskWithSequences:@"/Users/mp4/Desktop/example.fasta" 
-                                                                                  outputPath:@"/Users/mp4/Desktop/output.xms"];
-    [operationDialogController setOperation: nminferOperation];
-    [nminferOperation setDialogController: operationDialogController];
-    
-    [[self sharedOperationQueue] addOperation:nminferOperation];
-    [nminferOperation release];
-    */
-    /*
-    char *argv[5];
-    argv[0] = "foobar"; //this is never used
-    argv[1] = "-Djava.class.path=\
-/Users/mp4/workspace/nmica-dev/lib/changeless.jar:\
-/Users/mp4/workspace/nmica-dev/lib/biojava.jar:\
-/Users/mp4/workspace/nmica-dev/lib/bytecode.jar:\
-/Users/mp4/workspace/nmica-dev/lib/bjv2-core-0.1.jar:\
-/Users/mp4/workspace/nmica-dev/lib/stax-api-1.0.1.jar:\
-/Users/mp4/workspace/nmica-dev/lib/wstx-lgpl-3.0.2.jar:\
-/Users/mp4/workspace/nmica-dev/lib/nmica.jar";
-    argv[2] = "-Djava.library.path=\
-/Users/mp4/workspace/nmica-dev/native";
-    argv[3] = "-Dchangeless.no_dire_warning=\
-true";
-    argv[4] = "net.derkholm.nmica.apps.MotifFinderApplication";
-    
-    
-    
-    VMLaunchOptions *launchOpts = NewVMLaunchOptions(5,(const char**)&argv);
-    startupJava(launchOpts);
-     */
 }
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
@@ -216,7 +191,7 @@ true";
 }
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
-    //NSLog(@"Application should OPEN FILE: %@", filename);
+    //DebugLog(@"Application should OPEN FILE: %@", filename);
     if ([filename hasSuffix:@".fasta"] || [filename hasSuffix:@".fa"] || [filename hasSuffix:@".seq"]) {
         NMOperationConfigDialogController 
         *configDialogController = 

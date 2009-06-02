@@ -10,13 +10,13 @@
 #import "Alphabet.h"
 #import "Motif.h"
 
-@interface Metamotif : Motif {
+@interface Metamotif : Motif <NSCopying, NSCoding> {
 
 }
 
--(Motif*)initWithAlphabet:(Alphabet*) alpha
+-(id)initWithAlphabet:(Alphabet*) alpha
                andColumns:(NSArray*) columns;
--(Motif*)initWithAlphabet:(Alphabet*) alpha
+-(id)initWithAlphabet:(Alphabet*) alpha
       fromConsensusString:(NSString*) str;
 
 @end

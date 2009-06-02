@@ -44,7 +44,7 @@
 }
 
 -(void) run {
-    NSLog(@"Running BestHitsOperation");
+    DebugLog(@"Running BestHitsOperation");
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSArray *bestHitPairs;
@@ -73,7 +73,7 @@
             [m2 setOffset: mp.offset];
             [[msetDocument motifSet] addMotif: m1]; 
             [[msetDocument motifSet] addMotif: m2];
-            NSLog(@"%@ -> %@ : %d (%d)",
+            DebugLog(@"%@ -> %@ : %d (%d)",
                   m1.name,
                   m2.name,
                   mp.offset,

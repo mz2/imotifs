@@ -18,7 +18,7 @@
 #endif
 
 #ifndef IMDefaultColWidth
-#define IMDefaultColWidth (CGFloat)30.0
+#define IMDefaultColWidth (CGFloat)40.0
 #endif
 
 #ifndef IMDefaultColHeight
@@ -36,6 +36,12 @@ typedef enum MotifDrawingStyle {
     IMInfoScaledLogo = 3 
 } MotifDrawingStyle;
 
+typedef enum IMMotifColumnPrecisionDrawingStyle {
+    IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol = 0,
+    IMMotifColumnPrecisionDrawingStyleErrorBarsFromBottomToTop = 1,
+    IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif = 2
+} IMMotifColumnPrecisionDrawingStyle;
+
 extern NSString *IMMotifSetPboardType;
 extern NSString *IMMotifSetIndicesPboardType;
 
@@ -47,6 +53,9 @@ extern NSString *IMMotifSetIndicesPboardType;
     BOOL showInformationContent;
     BOOL showScoreThreshold;
     BOOL showLength;
+    
+    IMMotifColumnPrecisionDrawingStyle columnPrecisionDrawingStyle;
+    CGFloat confidenceIntervalCutoff;
 }
 
 @property (readwrite) MotifDrawingStyle drawingStyle;
@@ -55,13 +64,36 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (readwrite) BOOL showInformationContent;
 @property (readwrite) BOOL showScoreThreshold;
 @property (readwrite) BOOL showLength;
+@property (readwrite) CGFloat confidenceIntervalCutoff;
+@property (readwrite) IMMotifColumnPrecisionDrawingStyle columnPrecisionDrawingStyle;
 
 - (NSInteger) calcFittingColumnCountInRect:(NSRect)rect;
 
 + (void) drawLogoForMotif:(Motif*)motif 
-                   inRect:(NSRect)rect scaleByInformationContent:(BOOL)scaleByInfo 
+                   inRect:(NSRect)rect 
+scaleByInformationContent:(BOOL)scaleByInfo 
                   flipped:(BOOL) flipped
                withOffset:(NSInteger)colOffset;
+
++ (void) drawLogoForMotif: (Motif*)motif 
+                   inRect: (NSRect)rect 
+scaleByInformationContent: (BOOL)scaleByInfo 
+                  flipped: (BOOL) flipped
+               withOffset: (NSInteger)colOffset
+    minConfidenceInterval: (CGFloat) minInterval
+    maxConfidenceInterval: (CGFloat) maxInterval
+    precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle;
+
++ (void)        drawColumn: (NSUInteger) i 
+                   ofMotif: (Motif*) motif
+                    inRect: (NSRect) rect
+ scaleByInformationContent: (BOOL) scaleByInfo
+                   flipped: (BOOL) flipped 
+                withOffset: (NSInteger) offset
+     minConfidenceInterval: (CGFloat) minInterval
+     maxConfidenceInterval: (CGFloat) maxInterval
+     precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle;
+
 
 - (void) drawMotif:(Motif*) m
 			  rect:(NSRect) rect 

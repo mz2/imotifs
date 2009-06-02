@@ -46,13 +46,17 @@
 @synthesize annotationsEditable;
 
 - (id)init {
-    NSLog(@"MotifSetDocument: initialising MotifSetDocument");
+    DebugLog(@"MotifSetDocument: initialising MotifSetDocument");
     self = [super init];
     if (self) {
         [self setMotifSet:[[MotifSet alloc] init]];
         [self initializeUI];
         // Add your subclass-specific initialization here.
         // If an error occurs here, send a [self release] message and return nil.
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(userDefaultsChanged:)
+                                                     name:@"NSUserDefaultsDidChangeNotification" object:nil];
     }
     return self;
 }
@@ -82,12 +86,46 @@
     [motifSetController rearrangeObjects];
     
     motifComparitor = [[MotifComparitor alloc] initWithExponentRatio:2.0 progressIndicator: progressIndicator];
+    
+    motifHeight = [[self motifTable] rowHeight];
     //[progressIndicator setUsesThreadedAnimation: YES];
 }
 
+-(void) userDefaultsChanged:(NSNotification *)notification {
+    //DebugLog(@"User defaults changed: %@", notification);
+    NSNumber* defHeight = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifHeight];
+    NSNumber *defConfInterval = [[NSUserDefaults standardUserDefaults] objectForKey:IMMetamotifDefaultConfidenceIntervalCutoffKey];
+    NSNumber *defDrawingStyle = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifDrawingStyle];
+    NSNumber *defErrorBarStyle = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifColumnPrecisionDrawingStyleKey];
+    
+    CGFloat newHeight = [defHeight floatValue];
+    if (newHeight != motifHeight) {
+        motifHeight = newHeight;
+        [self.motifTable setRowHeight: newHeight];
+        [self.motifTable setNeedsDisplay: YES];
+    }
+    
+    CGFloat newConfInterval = [defConfInterval floatValue];
+    if (newConfInterval != motifViewCell.confidenceIntervalCutoff) {
+        motifViewCell.confidenceIntervalCutoff = newConfInterval;
+        [self.motifTable reloadData];
+    }
+    
+    if (motifViewCell.drawingStyle != [defDrawingStyle intValue]) {
+        motifViewCell.drawingStyle = [defDrawingStyle intValue];
+        [self.motifTable reloadData];
+    }
+    
+    if (motifViewCell.columnPrecisionDrawingStyle != [defErrorBarStyle intValue]) {
+        motifViewCell.columnPrecisionDrawingStyle = [defErrorBarStyle intValue];
+        NSLog(@"Column precision drawing style set: %d", motifViewCell.columnPrecisionDrawingStyle);
+        [self.motifTable reloadData];
+    }
+}
+
 - (void) awakeFromNib {
-    NSLog(@"MotifSetDocument: awakening from Nib (motifset=%@)",[[self motifSet] name]);
-    //NSLog(@"Arranged objects:%@",[motifSetController arrangedObjects]);
+    DebugLog(@"MotifSetDocument: awakening from Nib (motifset=%@)",[[self motifSet] name]);
+    //DebugLog(@"Arranged objects:%@",[motifSetController arrangedObjects]);
     [self initializeUI];
 }
 
@@ -103,10 +141,10 @@
 - (void)windowControllerDidLoadNib:(NSWindowController *) aController
 {
     [super windowControllerDidLoadNib:aController];
-    NSLog(@"MotifSetDocument: window controller loaded the %@ Nib file",[self windowNibName]);
+    DebugLog(@"MotifSetDocument: window controller loaded the %@ Nib file",[self windowNibName]);
     // Add any code here that needs to be executed once the windowController has loaded the document's window.
     
-    NSLog(@"Window controller: %@ %@", aController, motifSet);
+    DebugLog(@"Window controller: %@ %@", aController, motifSet);
     if ([self fileName]) {
         [aController setWindowFrameAutosaveName:[self fileName]];
     }
@@ -197,14 +235,14 @@
     motifView = mView;
     [motifView setMotif: [motifSet motifWithIndex:0]];
     [motifView setNeedsDisplay: YES];
-    NSLog(@"MotifSetDocument: setting motif view to %@", mView);
+    DebugLog(@"MotifSetDocument: setting motif view to %@", mView);
 }
 
 - (void) setMotifTable:(NSTableView*) mTable {
     [mTable retain];
     [motifTable release];
     motifTable = mTable;
-    NSLog(@"MotifSetDocument: set motif table to %@", mTable);
+    //DebugLog(@"MotifSetDocument: set motif table to %@", mTable);
     //MotifViewCell *cell = [[[MotifViewCell class] alloc] initImageCell:[[motifColumn dataCell] image]];
     //[cell setRepresentedObject:motif];
     //[motifColumn setDataCell:cell];
@@ -216,15 +254,15 @@
 }
 
 - (void) setMotifSet:(MotifSet*) ms {
-    //NSLog(@"MotifSetDocument: setting motif set to %@", ms);
+    //DebugLog(@"MotifSetDocument: setting motif set to %@", ms);
     [ms retain];
     [motifSet release];
     motifSet = ms;
     //Motif* motif = [ms motifWithIndex:0];
-    //NSLog(@"MotifSetDocument: setting the motif view %@ to show the first motif of the set: %@",motifView,motif);
+    //DebugLog(@"MotifSetDocument: setting the motif view %@ to show the first motif of the set: %@",motifView,motif);
     //[motifView setMotif:[ms motifWithIndex:0]];
-    NSLog(@"MotifSetDocument: total column count: %d", [motifSet columnCountWithOffsets]);
-    NSLog(@"MotifSetDocument: the current MotifViewCell=%@", motifViewCell);
+    //DebugLog(@"MotifSetDocument: total column count: %d", [motifSet columnCountWithOffsets]);
+    //DebugLog(@"MotifSetDocument: the current MotifViewCell=%@", motifViewCell);
     if ([motifSet count] > 0) {
         [motifViewCell setColumnDisplayOffset: [motifSet columnCountWithOffsets]];
         //[motifViewCell setColumnDisplayOffset: 5];
@@ -282,7 +320,7 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
               row:(NSInteger)rowIndex {
     if ([[aTableColumn identifier] isEqual:@"name"]) {
         [[[self motifSet] motifWithIndex:rowIndex] setName: anObject];
-        NSLog(@"MotifSetDocument: name of motif with index %d set to %@",rowIndex,anObject);
+        DebugLog(@"MotifSetDocument: name of motif with index %d set to %@",rowIndex,anObject);
     }
     
     [motifTable setNeedsDisplay: YES];
@@ -295,9 +333,9 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
             tableColumn:(NSTableColumn *)aTableColumn 
                     row:(NSInteger)row 
           mouseLocation:(NSPoint)mouseLocation {
-    //NSLog(@"MotifSetWindowController: toolTip");
+    //DebugLog(@"MotifSetWindowController: toolTip");
     if ([[aTableColumn identifier] isEqual:@"motif"]) {
-        //NSLog(@"MotifSetWindowController: arrangedObjects:%@",[motifSetController arrangedObjects]);
+        //DebugLog(@"MotifSetWindowController: arrangedObjects:%@",[motifSetController arrangedObjects]);
         Motif *m = [[motifSetController arrangedObjects] objectAtIndex:row];
         return [NSString stringWithFormat:@"%@: %@",[m name],[[m consensusString] uppercaseString]];
     } 
@@ -309,14 +347,14 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
 -   (BOOL) tableView:(NSTableView *)tv 
 writeRowsWithIndexes:(NSIndexSet *)rowIndexes 
         toPasteboard:(NSPasteboard*)pboard {
-    NSLog(@"MotifSetDocument: writing rows with indices to pasteboard %@",[pboard name]);
+    DebugLog(@"MotifSetDocument: writing rows with indices to pasteboard %@",[pboard name]);
     
     NSMutableArray *draggedMotifs = [[NSMutableArray alloc] init];
     NSMutableArray *draggedMotifsOriginals = [[NSMutableArray alloc] init];
     
     unsigned currentIndex = [rowIndexes firstIndex];
     while (currentIndex != NSNotFound) {
-        NSLog(@"currentIndex=%d",currentIndex);
+        DebugLog(@"currentIndex=%d",currentIndex);
         Motif *m = [[motifSetController arrangedObjects] objectAtIndex:currentIndex];
         [draggedMotifs addObject:[m copy]];
         [draggedMotifsOriginals addObject:m];
@@ -330,14 +368,14 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     
     pboardMotifs = [draggedMotifs retain];
     pboardMotifsOriginals = [draggedMotifsOriginals retain];
-    NSLog(@"MotifSetDocument: pboardMotifs = %@",pboardMotifs);
+    DebugLog(@"MotifSetDocument: pboardMotifs = %@",pboardMotifs);
     
     return YES;
 }
 
 /*
 -(NSArray*) namesOfPromisedFilesDroppedAtDestination:(NSURL*) dropDestination {
-    NSLog(@"Names of promised files dropped at destination %@", dropDestination);
+    DebugLog(@"Names of promised files dropped at destination %@", dropDestination);
     NSString *name;
     if ([pboardMotifs count] > 1) {
         name = [NSString stringWithFormat: @"%@.xms",[[pboardMotifs objectAtIndex:0] name]];
@@ -350,23 +388,23 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
 - (void)pasteboard:(NSPasteboard *)sender 
 provideDataForType:(NSString *)type {
     if ([type isEqual:IMMotifSetPboardType]) {
-        NSLog(@"MotifSetDocument: provideDataForType IMMotifSetPboardType");
-        NSLog(@"Pasteboard motifs:%@",pboardMotifs);
+        DebugLog(@"MotifSetDocument: provideDataForType IMMotifSetPboardType");
+        DebugLog(@"Pasteboard motifs:%@",pboardMotifs);
         NSData *data = [NSKeyedArchiver archivedDataWithRootObject:pboardMotifs];
         [sender setData:data 
 				forType:IMMotifSetPboardType];
         
     } else if ([type isEqual:NSFilenamesPboardType]) {
-        NSLog(@"MotifSetDocument: provideDataForType NSFilenamesPboardType");
+        DebugLog(@"MotifSetDocument: provideDataForType NSFilenamesPboardType");
     } else if ([type isEqual:NSStringPboardType]) {
-        NSLog(@"MotifSetDocument: provideDataForType NSStringPboardType");
+        DebugLog(@"MotifSetDocument: provideDataForType NSStringPboardType");
         MotifSet *pboardMotifSet = [[MotifSet alloc] init];
         [sender setData:[[[[pboardMotifSet toXMS] retain] description] dataUsingEncoding:NSUTF8StringEncoding] 
                 forType:NSStringPboardType];
         
         
     } else if ([type isEqual:IMMotifSetIndicesPboardType]) {
-        NSLog(@"MotifSetDocument: provideDataForType IMMotifSetIndicesPboardType");
+        DebugLog(@"MotifSetDocument: provideDataForType IMMotifSetIndicesPboardType");
         NSMutableArray *motifIndices = [[NSMutableArray alloc] init];
         for (Motif* m in pboardMotifsOriginals) {
             [motifIndices addObject:[NSNumber numberWithInteger:[[motifSetController arrangedObjects] indexOfObject:m]]];
@@ -374,7 +412,7 @@ provideDataForType:(NSString *)type {
             [sender setData: data forType:IMMotifSetIndicesPboardType];
         }
     } /*else if ([type isEqual:NSFilesPromisePboardType]) {
-        NSLog(@"MotifSetDocument: provideDataForType NSFilesPromisePboardType");
+        DebugLog(@"MotifSetDocument: provideDataForType NSFilesPromisePboardType");
         MotifSet *pboardMotifSet = [[MotifSet alloc] init];
         for (Motif *m in pboardMotifs) {
             [pboardMotifSet addMotif:m];
@@ -392,7 +430,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (void)pasteboardChangedOwner:(NSPasteboard *)sender {
-    NSLog(@"MotifSetDocument: pasteboard changed owner. Will relase the cached data.");
+    DebugLog(@"MotifSetDocument: pasteboard changed owner. Will relase the cached data.");
     [pboardMotifs release];
     pboardMotifs = nil;
 }
@@ -414,8 +452,8 @@ provideDataForType:(NSString *)type {
                  proposedRow:(int)row 
        proposedDropOperation:(NSTableViewDropOperation)op {
     // Add code here to validate the drop
-    //NSLog(@"MotifSetDocument: validating drop for drag with source=%@",[info draggingSource]);
-    //NSLog(@"Available types: %@",[[info draggingPasteboard] types]);
+    //DebugLog(@"MotifSetDocument: validating drop for drag with source=%@",[info draggingSource]);
+    //DebugLog(@"Available types: %@",[[info draggingPasteboard] types]);
     
     //id source = [info draggingSource];
     //NSDragOperation dragOperation = [info draggingSourceOperationMask];
@@ -426,10 +464,10 @@ provideDataForType:(NSString *)type {
     } 
     
     if ([info draggingSource] != tv) {
-        NSLog(@"You're dragging to a different document.");
+        DebugLog(@"You're dragging to a different document.");
         return NSDragOperationCopy;
     } else {
-        NSLog(@"You're dragging to the same document.");
+        DebugLog(@"You're dragging to the same document.");
         return NSDragOperationMove;
     }
 }
@@ -450,17 +488,17 @@ provideDataForType:(NSString *)type {
        acceptDrop:(id <NSDraggingInfo>)info
               row:(int)row 
     dropOperation:(NSTableViewDropOperation)operation {
-    NSLog(@"MotifSetDocument: dropOperation=%d",operation);
+    DebugLog(@"MotifSetDocument: dropOperation=%d",operation);
     
     if ([info draggingSourceOperationMask] & NSDragOperationCopy) {
         NSArray *types = [[info draggingPasteboard] types];
         
-        NSLog(@"OperationMask & NSDragOperationCopy");
+        DebugLog(@"OperationMask & NSDragOperationCopy");
         
         if ([types containsObject:IMMotifSetPboardType]) {
             NSData *data = [[info draggingPasteboard] dataForType:IMMotifSetPboardType];
             NSArray *copiedMotifs = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-            //NSLog(@"Copied motifs:%@",copiedMotifs);
+            //DebugLog(@"Copied motifs:%@",copiedMotifs);
             
             NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(row, [copiedMotifs count])];
             
@@ -478,7 +516,7 @@ provideDataForType:(NSString *)type {
                 
                 NSInteger mI;
                 for (mI = 0; mI < [mset count]; mI++) {
-                    NSLog(@"Adding motif with name %@ (#%d)",[[mset motifWithIndex:mI] name],mI);
+                    DebugLog(@"Adding motif with name %@ (#%d)",[[mset motifWithIndex:mI] name],mI);
                     [motifSetController insertObject:[[mset motifWithIndex:mI] retain] atArrangedObjectIndex:row];
                     
                     //[[self motifSet] addMotif:[[mset motifWithIndex:mI] retain] atIndex:row];
@@ -490,7 +528,7 @@ provideDataForType:(NSString *)type {
             //[[self motifTable] setNeedsDisplay:YES];
         }
     } else if ([info draggingSourceOperationMask] & NSDragOperationDelete) {
-        NSLog(@"OperationMask & NSDragOperationDelete");
+        DebugLog(@"OperationMask & NSDragOperationDelete");
         NSData *data = [[info draggingPasteboard] dataForType:IMMotifSetIndicesPboardType];
         NSArray *removedMotifIndices = [NSKeyedUnarchiver unarchiveObjectWithData:data];
         for (NSNumber* num in removedMotifIndices) {
@@ -521,7 +559,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (NSDragOperation) draggingSourceOperationMaskForLocal:(BOOL)isLocal {
-    NSLog(@"MotifSetDocument: Returning NSDragOperationCopy as dragging source operation mask");
+    DebugLog(@"MotifSetDocument: Returning NSDragOperationCopy as dragging source operation mask");
     //return isLocal ? NSDragOperationNone || NSDragOperationCopy || NSDragOperationMove : 
     //            NSDragOperationCopy;
     return NSDragOperationCopy;
@@ -529,7 +567,7 @@ provideDataForType:(NSString *)type {
 
 
 - (void) remove:(id)sender {
-    NSLog(@"MotifSetDocument: delete %d rows",[[[self motifTable] selectedRowIndexes] count]);
+    DebugLog(@"MotifSetDocument: delete %d rows",[[[self motifTable] selectedRowIndexes] count]);
     NSIndexSet *indices = [[self motifTable] selectedRowIndexes];
     
     NSUInteger ind = [indices firstIndex];
@@ -539,7 +577,7 @@ provideDataForType:(NSString *)type {
         ind = [indices indexGreaterThanIndex:ind];
     }
     for (Motif *m in motifs) {
-        NSLog(@"MotifSetDocument: deleting %@",[m name]);
+        DebugLog(@"MotifSetDocument: deleting %@",[m name]);
         [motifSetController removeObject:m];
         //[[motifSetController arrangedObjects] removeObject:m];
     }
@@ -571,22 +609,22 @@ provideDataForType:(NSString *)type {
 
 #pragma mark Event handling
 - (BOOL) acceptsFirstResponder {
-    NSLog(@"MotifSetDocument: accepting first responder");
+    DebugLog(@"MotifSetDocument: accepting first responder");
     return YES;
 }
 
 - (BOOL) resignFirstResponder {
-    NSLog(@"MotifSetDocument: resigning first responder");
+    DebugLog(@"MotifSetDocument: resigning first responder");
     return YES;
 }
 
 - (BOOL) becomeFirstResponder {
-    NSLog(@"MotifSetDocument: becoming first responder");
+    DebugLog(@"MotifSetDocument: becoming first responder");
     return YES;
 }
 
 - (void) keyDown: (NSEvent*) event {
-    NSLog(@"MotifSetDocument: interpreting key event");
+    DebugLog(@"MotifSetDocument: interpreting key event");
     if ([event modifierFlags] & NSNumericPadKeyMask) {
         NSString *str = [event charactersIgnoringModifiers];
         unichar ch = [str characterAtIndex:0];
@@ -612,7 +650,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (void) shiftLeft:(id) sender {
-    NSLog(@"MotifSetDocument: shiftLeft");
+    DebugLog(@"MotifSetDocument: shiftLeft");
     
     for (Motif *m in [motifSetController selectedObjects]) {
         [m decrementOffset];
@@ -622,7 +660,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (void) shiftRight:(id) sender {
-    NSLog(@"MotifSetDocument: shiftRight");
+    DebugLog(@"MotifSetDocument: shiftRight");
     
     for (Motif *m in [motifSetController selectedObjects]) {
         [m incrementOffset];
@@ -633,7 +671,7 @@ provideDataForType:(NSString *)type {
 
 /*
 - (void) reverseComplement:(id) sender {
-    NSLog(@"MotifSetDocument: reverseComplement");
+    DebugLog(@"MotifSetDocument: reverseComplement");
     NSIndexSet *indices = [[self motifTable] selectedRowIndexes];
     NSUInteger ind = [indices firstIndex];
     
@@ -656,7 +694,7 @@ provideDataForType:(NSString *)type {
 - (void) reverseComplement:(id) sender {
 
     
-    NSLog(@"MotifSetDocument: reverseComplement");
+    DebugLog(@"MotifSetDocument: reverseComplement");
     
     NSIndexSet *inds = [motifSetController selectionIndexes];
     NSUInteger mInd = [inds firstIndex];
@@ -666,7 +704,7 @@ provideDataForType:(NSString *)type {
         NSUInteger ind = [[motifSetController arrangedObjects] indexOfObject:m];
         
         if (ind != NSNotFound) {
-            NSLog(@"MotifSetDocument: reverse complementing %@ and replacing at index %d",[m name],ind);
+            DebugLog(@"MotifSetDocument: reverse complementing %@ and replacing at index %d",[m name],ind);
             Motif *revM = [m reverseComplement];
             //[motifSetController removeObject:m];
             [motifSetController removeObjectAtArrangedObjectIndex:ind];
@@ -675,7 +713,7 @@ provideDataForType:(NSString *)type {
             [motifSetController addSelectionIndexes: [NSIndexSet indexSetWithIndex:mInd]];
             
         } else {
-            NSLog(@"MotifSetDocument: motif %@ was not among arranged objects, will not reverse complement it.",
+            DebugLog(@"MotifSetDocument: motif %@ was not among arranged objects, will not reverse complement it.",
                   [m name]);
         }
         
@@ -687,7 +725,7 @@ provideDataForType:(NSString *)type {
 
 //search field delegate method
 - (void)textDidChange:(NSNotification *)aNotification {
-    NSLog(@"Text changed!");
+    DebugLog(@"Text changed!");
     if (searchField.stringValue.length == 0) {
 
     }
@@ -703,7 +741,7 @@ provideDataForType:(NSString *)type {
     }
     
     if ([searchField.stringValue isEqual:@""]) {
-        NSLog(@"clearing predicate and showing all");
+        DebugLog(@"clearing predicate and showing all");
         [motifSetController setFilterPredicate:nil];
         [motifSetController showAll];
         [motifSetController rearrangeObjects];
@@ -721,7 +759,7 @@ provideDataForType:(NSString *)type {
             if (searchField.stringValue.length >= IMMotifSetConsensusScoringSearchMinLength) {
                 Motif *consm = [[Motif alloc] initWithAlphabet:[Alphabet dna] 
                             fromConsensusString:searchField.stringValue];
-                NSLog(@"MotifSetDocument: searchMotifs: motif=%@",[consm consensusString]);
+                DebugLog(@"MotifSetDocument: searchMotifs: motif=%@",[consm consensusString]);
                 
                 MotifsBelowDistanceCutoffOperation *belowCutoffOperation = 
                 [[MotifsBelowDistanceCutoffOperation alloc] initWithComparitor: motifComparitor 
@@ -737,7 +775,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (BOOL)validateUserInterfaceItem:(id <NSValidatedUserInterfaceItem>) item {
-    //NSLog(@"Validating item %@",item);
+    //DebugLog(@"Validating item %@",item);
     if ([item tag] == 6666) {
         [self searchType] == IMMotifSetSearchByName ?
             [(id)item setState:NSOnState] :[(id)item setState:NSOffState];
@@ -764,13 +802,13 @@ provideDataForType:(NSString *)type {
     //NSMenuItem *item = (NSMenuItem*) sender;
     NSUInteger oldSearchType = [self searchType];    
     if ([[sender title] isEqual:@"Name"]) {
-        NSLog(@"MotifSetDocument: search type toggled to name");
+        DebugLog(@"MotifSetDocument: search type toggled to name");
         [self setSearchType:IMMotifSetSearchByName];
     } else if ([[sender title] isEqual:@"Consensus"]) {
-        NSLog(@"MotifSetDocument: search type toggled to consensus");
+        DebugLog(@"MotifSetDocument: search type toggled to consensus");
         [self setSearchType:IMMotifSetSearchByConsensusString];
     } else if ([[sender title] isEqual:@"Search"]) {
-        NSLog(@"MotifSetDocument: search type toggled to consensus");
+        DebugLog(@"MotifSetDocument: search type toggled to consensus");
         [self setSearchType:IMMotifSetSearchByConsensusScoring];
     }
     
@@ -787,13 +825,13 @@ provideDataForType:(NSString *)type {
 }
 
 - (void) alignMotifsToLeftEnd:(id) sender {
-    NSLog(@"MotifSetDocument: aligning motifs to left end");
+    DebugLog(@"MotifSetDocument: aligning motifs to left end");
     [motifSet alignToLeftEnd];
     [motifSetController rearrangeObjects];
 }
 
 - (IBAction) selectNone:(id) sender {
-    NSLog(@"MotifSetDocument: selecting none");
+    DebugLog(@"MotifSetDocument: selecting none");
     [motifSetController removeSelectionIndexes:[motifSetController selectionIndexes]];
     //[motifSetController rearrangeObjects];
 }
@@ -802,7 +840,7 @@ provideDataForType:(NSString *)type {
     NSColor *color = [[NSColorPanel sharedColorPanel] color];
     for (Motif *m in [motifSetController selectedObjects]) {
         [m setColor: color];
-        NSLog(@"Color for %@ = %@",[m name],[m color]);
+        DebugLog(@"Color for %@ = %@",[m name],[m color]);
     }
     
     [motifTable setNeedsDisplay:YES];
@@ -815,7 +853,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (IBAction) alignMotifs: (id) sender {
-    NSLog(@"MotifSetDocument: aligning motifs");
+    DebugLog(@"MotifSetDocument: aligning motifs");
     
     //char* in_tmpname = tmpnam(NULL);
     //char* aligned_tmpname = tmpnam(NULL);
@@ -829,16 +867,16 @@ provideDataForType:(NSString *)type {
     
     MotifSet *mset = [[[MotifSet alloc] init] autorelease];
     for (Motif *m in ms) {
-        NSLog(@"Adding motif %@",[m name]);
+        DebugLog(@"Adding motif %@",[m name]);
         [mset addMotif:m];
     }
     
-    NSLog(@"Exporting XMS");
+    DebugLog(@"Exporting XMS");
     NSXMLDocument *doc = [mset toXMS];
     
-    NSLog(@"Getting file handle");
+    DebugLog(@"Getting file handle");
     NSFileHandle *inTmpFH = [NSFileHandle fileHandleForWritingAtPath:@"/tmp/foo.xms"];
-    NSLog(@"Writing data");
+    DebugLog(@"Writing data");
     [inTmpFH writeData:[[doc description] dataUsingEncoding:NSUTF8StringEncoding]];
     [inTmpFH closeFile];
     
@@ -847,17 +885,17 @@ provideDataForType:(NSString *)type {
                         atomically: YES
                           encoding: NSUTF8StringEncoding
                              error: &writeError];
-    NSLog(@"Data written");
+    DebugLog(@"Data written");
     
     //NSTask *task;
     task = [[NSTask alloc] init];
     [task setLaunchPath: @"~/workspace/nmica-extra/bin/nmalign"];
     
     NSArray *arguments = [NSArray arrayWithObjects: @"/tmp/foo.xms", @"-outputType", @"all",nil];    
-    NSLog(@"Setting arguments");
+    DebugLog(@"Setting arguments");
     [task setArguments: arguments];
     
-    NSLog(@"Getting standard output pipe");
+    DebugLog(@"Getting standard output pipe");
     //NSPipe *pipe;
     [pipe release];
     pipe = [[NSPipe alloc] init];
@@ -865,14 +903,14 @@ provideDataForType:(NSString *)type {
     //[pipe release];
     
     //[task launch]; 
-    NSLog(@"Getting file handle for reading from pipe");
+    DebugLog(@"Getting file handle for reading from pipe");
     NSFileHandle *handle = [pipe fileHandleForReading];
     //NSData *data = [handle availableData];
     
     NSNotificationCenter *nc;
     nc = [NSNotificationCenter defaultCenter];
     [nc removeObserver:self];
-    NSLog(@"Adding self as an observer");
+    DebugLog(@"Adding self as an observer");
     [nc addObserver:self 
            selector:@selector(dataReady:) 
                name:NSFileHandleReadToEndOfFileCompletionNotification 
@@ -887,20 +925,20 @@ provideDataForType:(NSString *)type {
     
     
     /*
-    NSLog(@"Checking task termination status");
+    DebugLog(@"Checking task termination status");
     int status = [task terminationStatus];
     [task release];
     if (status != 0) {
-        NSLog(@"Motif alignment failed");
+        DebugLog(@"Motif alignment failed");
         return;
     }
     
-    NSLog(@"Parsing a motifset from the XMS");
+    DebugLog(@"Parsing a motifset from the XMS");
     NSError *error;
     NSXMLDocument *alignedDoc = [[NSXMLDocument alloc] initWithData:data 
                                 options:0 
                                   error:&error];
-    NSLog (@"Got:\n%@", alignedDoc);
+    DebugLog (@"Got:\n%@", alignedDoc);
     */
 }
 
@@ -1000,12 +1038,12 @@ provideDataForType:(NSString *)type {
         NSString *action = [dict objectForKey:@"action"];
         NSString *val = [motifNamePickerTextField objectValue];
         if ([action isEqual: @"addPrefixToMotifNames"]) {
-            NSLog(@"Add prefix");
+            DebugLog(@"Add prefix");
             for (Motif *m in [motifSet motifs]) {
                 [m setName: [val stringByAppendingFormat:m.name]];
             }
         } else {
-            NSLog(@"Add suffix");
+            DebugLog(@"Add suffix");
             for (Motif *m in [motifSet motifs]) {
                 [m setName: [m.name stringByAppendingFormat: val]];
             }
@@ -1019,7 +1057,7 @@ provideDataForType:(NSString *)type {
 					returnCode: (int)returnCode 
 				   contextInfo: (void*)contextInfo {
 	if (returnCode == NSCancelButton) { 
-		NSLog(@"Pressed cancel in the sheet");
+		DebugLog(@"Pressed cancel in the sheet");
 		return;
 	}
 	else {
@@ -1027,11 +1065,11 @@ provideDataForType:(NSString *)type {
 		NSString *action = [dict objectForKey:@"action"];
 		NSIndexSet *indexes = [motifSetPickerTableView selectedRowIndexes];
 		if ([action isEqual: @"bestHitsWith"]||[action isEqual:@"bestReciprocalHitsWith"]) {
-			NSLog(@"Will calculate best hits with...");
+			DebugLog(@"Will calculate best hits with...");
 			NSUInteger curIndex = [indexes firstIndex];
-			NSLog(@"First index: %d", curIndex);
+			DebugLog(@"First index: %d", curIndex);
 			while (curIndex != NSNotFound) {
-				NSLog(@"curIndex: %d", curIndex);
+				DebugLog(@"curIndex: %d", curIndex);
 				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] 
 								  objectAtIndex: curIndex];
                 
@@ -1061,7 +1099,7 @@ provideDataForType:(NSString *)type {
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
                 }
-				//NSLog(@"Found %d pairs", [bestHitPairs count]);
+				//DebugLog(@"Found %d pairs", [bestHitPairs count]);
                 
                 
                 /*
@@ -1083,7 +1121,7 @@ provideDataForType:(NSString *)type {
                         [m2 setOffset: mp.offset];
                         [[msetDocument motifSet] addMotif: m1]; 
                         [[msetDocument motifSet] addMotif: m2];
-                        NSLog(@"%@ -> %@ : %d (%d)",
+                        DebugLog(@"%@ -> %@ : %d (%d)",
                               m1.name,
                               m2.name,
                               mp.offset,
@@ -1115,14 +1153,14 @@ provideDataForType:(NSString *)type {
 - (void) dataReady:(NSNotification*) n {
     NSData *d;
     d = [[n userInfo] valueForKey:NSFileHandleNotificationDataItem];
-    NSLog(@"dataReady:%d bytes", [d length]);
+    DebugLog(@"dataReady:%d bytes", [d length]);
     if (task) {
         [[pipe fileHandleForReading] readInBackgroundAndNotify];
     }
 }
 
 - (void) taskTerminated:(NSNotification*) note {
-    NSLog(@"taskTerminated");
+    DebugLog(@"taskTerminated");
     [task release];
     task = nil;
 }
@@ -1208,5 +1246,9 @@ provideDataForType:(NSString *)type {
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
     [drawerTableDelegate refresh: self];
+}
+
+-(IBAction) toggleAnnotationsEditable: (id) sender {
+    [self.drawerTableDelegate toggleEditable: sender];
 }
 @end
