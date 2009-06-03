@@ -182,7 +182,6 @@
 		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
 		959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
 		959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
-		959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */; };
 		959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */; };
 		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
 		95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
@@ -337,7 +336,6 @@
 		959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairWindowController.m; sourceTree = "<group>"; };
 		959E3CC60EE681A600072A66 /* MotifPairArrayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairArrayController.h; sourceTree = "<group>"; };
 		959E3CC70EE681A600072A66 /* MotifPairArrayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairArrayController.m; sourceTree = "<group>"; };
-		959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifSetPickerWindow.xib; sourceTree = "<group>"; };
 		959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerWindow.h; sourceTree = "<group>"; };
 		959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerWindow.m; sourceTree = "<group>"; };
 		959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerTableDelegate.h; sourceTree = "<group>"; };
@@ -685,7 +683,6 @@
 				951FF41C0F3258BF00A9175C /* nmmakebg */,
 				951FF41B0F3258B700A9175C /* nminfer */,
 				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
-				959E3D330EE6933900072A66 /* MotifSetPickerWindow.xib */,
 			);
 			name = dialog;
 			sourceTree = "<group>";
@@ -961,7 +958,6 @@
 				5F61DFE70E2DF2C00091787E /* icon.icns in Resources */,
 				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
 				959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */,
-				959E3D340EE6933900072A66 /* MotifSetPickerWindow.xib in Resources */,
 				953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */,
 				953D82BC0F2F64D500049823 /* skull.png in Resources */,
 				953D82BE0F2F65F400049823 /* skull-small.png in Resources */,

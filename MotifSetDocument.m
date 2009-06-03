@@ -667,7 +667,7 @@ provideDataForType:(NSString *)type {
     }
 }
 
-- (void) shiftLeft:(id) sender {
+- (IBAction) shiftLeft:(id) sender {
     DebugLog(@"MotifSetDocument: shiftLeft");
     
     for (Motif *m in [motifSetController selectedObjects]) {
@@ -677,7 +677,7 @@ provideDataForType:(NSString *)type {
     [motifTable setNeedsDisplay:YES];
 }
 
-- (void) shiftRight:(id) sender {
+- (IBAction) shiftRight:(id) sender {
     DebugLog(@"MotifSetDocument: shiftRight");
     
     for (Motif *m in [motifSetController selectedObjects]) {
@@ -687,6 +687,38 @@ provideDataForType:(NSString *)type {
     [motifTable setNeedsDisplay:YES];
 }
 
+- (IBAction) addPseudocount:(id) sender {
+    //NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    
+    [NSApp beginSheet: pseudocountSheet
+	   modalForWindow: [NSApp mainWindow]
+		modalDelegate: self
+	   didEndSelector: @selector(didEndPseudoCountChooserSheet:returnCode:contextInfo:)
+		  contextInfo: nil];
+    
+}
+
+- (void)didEndPseudoCountChooserSheet: (NSWindow*)sheet 
+                           returnCode: (int)returnCode 
+                          contextInfo: (void*)contextInfo {
+    if (returnCode != NSOKButton) return;
+    //NSDictionary *dict = (NSDictionary*) contextInfo;
+    
+    double pseudoc = [[NSUserDefaults standardUserDefaults] doubleForKey:@"IMPseudocount"];
+    NSLog(@"pseudocount : %.3f");
+    if ([motifSetController selectedObjects].count > 0) {
+        for (Motif *m in [motifSetController selectedObjects]) {
+            [m addPseudocounts: pseudoc];
+        }        
+    } else {
+        for (Motif *m in [motifSetController arrangedObjects]) {
+            [m addPseudocounts: pseudoc];
+        }
+        
+    }
+    [motifTable setNeedsDisplay:YES];
+    //[dict release];
+}
 /*
 - (void) reverseComplement:(id) sender {
     DebugLog(@"MotifSetDocument: reverseComplement");
@@ -1046,6 +1078,12 @@ provideDataForType:(NSString *)type {
          returnCode:([sender tag] == 1) ? NSOKButton : NSCancelButton];
 }
 
+-(IBAction) closePseudocountSheet: (id) sender {
+    [pseudocountSheet orderOut: self];
+    [NSApp endSheet:pseudocountSheet
+         returnCode:([sender tag] == 1) ? NSOKButton : NSCancelButton];
+}
+
 - (void) didEndMotifNamePickerSheet: (NSWindow*) sheet 
                          returnCode: (int) returnCode 
                         contextInfo: (void*) contextInfo {
@@ -1069,7 +1107,6 @@ provideDataForType:(NSString *)type {
         [motifSetController rearrangeObjects];
     }
 }
-
 
 - (void)didEndMotifPickerSheet: (NSWindow*)sheet 
 					returnCode: (int)returnCode 

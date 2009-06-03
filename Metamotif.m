@@ -72,4 +72,7 @@
     return str;
 }
 
+- (NSArray*) exportedColumns {
+    return [columns valueForKey:@"mean"];
+}
 @end

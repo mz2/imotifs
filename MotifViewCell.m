@@ -44,7 +44,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 
 /* the designated initializer for cells that contain images */
 - (id) initImageCell:(NSImage*) image {
-    NSLog(@"MotifViewCell: initialising motif view image cell");
+    //NSLog(@"MotifViewCell: initialising motif view image cell");
     self = [super initImageCell:image];
     if (self != nil) {
         [self setDrawingStyle: IMInfoScaledLogo];
@@ -568,7 +568,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
 
 - (NSInteger) calcLeftPaddingColumns:(NSRect)rect {
     NSInteger extraCols = [self calcFittingColumnCountInRect:rect] / 3;
-    NSLog(@"MotifViewCell: fitting columns=%d , displayOffset=%d",extraCols,[self columnDisplayOffset]);
+    //NSLog(@"MotifViewCell: fitting columns=%d , displayOffset=%d",extraCols,[self columnDisplayOffset]);
 
     if (extraCols > 0) {
         return extraCols / 2;

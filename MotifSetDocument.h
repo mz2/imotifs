@@ -58,15 +58,22 @@ extern NSString *IMMotifSetIndicesPboardType;
     IBOutlet NSMenuItem *searchTypeConsensusItem;
     IBOutlet NSMenuItem *searchTypeConsensusScoringItem;
     
+    
+    /* motif set picker */
 	IBOutlet MotifSetPickerWindow *motifSetPickerSheet;
 	IBOutlet MotifSetPickerTableDelegate *motifSetPickerTableDelegate;
 	IBOutlet NSButton *motifSetPickerOkButton;
 	IBOutlet NSTableView *motifSetPickerTableView;
     
+    /* motif name picker */
     IBOutlet NSWindow *motifNamePickerSheet;
     IBOutlet NSTextField *motifNamePickerTextField;
     IBOutlet NSTextField *motifNamePickerLabel;
 	
+    /* pseudocount picker */
+    IBOutlet NSWindow *pseudocountSheet;
+    
+    /* drawer */
     IBOutlet MotifSetDrawerTableDelegate *drawerTableDelegate;
     IBOutlet NSDrawer *drawer;
     
@@ -149,6 +156,8 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) NSDrawer *drawer;
 @property (readwrite) BOOL annotationsEditable;
 
+
+-(IBAction) closePseudocountSheet: (id) sender;
 -(IBAction) toggleAnnotationsEditable: (id) sender;
 
 -(IBAction) increaseMotifHeight: (id) sender;
