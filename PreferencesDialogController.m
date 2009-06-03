@@ -26,6 +26,7 @@
     
 }
 
+/*
 - (IBAction) changeNewEmptyDoc:(id)sender {
     int state = [emptyDocCheckbox state];
     DebugLog(@"PreferencesDialogController: new empty doc state changed:%d",state);
@@ -33,5 +34,5 @@
     [defaults setBool:[emptyDocCheckbox state] 
                forKey:IMOpenUntitledDoc];
     
-}
+}*/
 @end

@@ -26,6 +26,9 @@
 #define IMMotifSetConsensusScoringSearchMinLength 4
 #endif
 
+extern CGFloat const IM_MOTIF_HEIGHT_INCREMENT;
+extern CGFloat const IM_MOTIF_WIDTH_INCREMENT;
+
 typedef enum IMMotifSetSearchType {
     IMMotifSetSearchByName = 0,
     IMMotifSetSearchByConsensusString = 1,
@@ -147,4 +150,9 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (readwrite) BOOL annotationsEditable;
 
 -(IBAction) toggleAnnotationsEditable: (id) sender;
+
+-(IBAction) increaseMotifHeight: (id) sender;
+-(IBAction) decreaseMotifHeight: (id) sender;
+-(IBAction) increaseMotifWidth: (id) sender;
+-(IBAction) decreaseMotifWidth: (id) sender;
 @end

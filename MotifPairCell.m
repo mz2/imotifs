@@ -51,8 +51,10 @@
             [self columnWidth],
             [self objectValue]];
 }
+
 #pragma mark drawing
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+- (void)drawWithFrame: (NSRect)cellFrame 
+               inView: (NSView *)controlView {
     if ([self showsFirstResponder]) {
         // showsFirstResponder is set for us by the NSControl that is drawing  us.
         NSRect focusRingFrame = cellFrame;        

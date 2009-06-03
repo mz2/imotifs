@@ -18,7 +18,7 @@
 #endif
 
 #ifndef IMDefaultColWidth
-#define IMDefaultColWidth (CGFloat)40.0
+#define IMDefaultColWidth (CGFloat)50.0
 #endif
 
 #ifndef IMDefaultColHeight
@@ -50,6 +50,7 @@ extern NSString *IMMotifSetIndicesPboardType;
     MotifDrawingStyle drawingStyle;
     NSInteger columnDisplayOffset;
     CGFloat columnWidth;
+    CGFloat columnHeight;
     BOOL showInformationContent;
     BOOL showScoreThreshold;
     BOOL showLength;
@@ -61,6 +62,7 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (readwrite) MotifDrawingStyle drawingStyle;
 @property (readwrite) NSInteger columnDisplayOffset;
 @property (readwrite) CGFloat columnWidth;
+@property (readwrite) CGFloat columnHeight;
 @property (readwrite) BOOL showInformationContent;
 @property (readwrite) BOOL showScoreThreshold;
 @property (readwrite) BOOL showLength;
@@ -71,12 +73,14 @@ extern NSString *IMMotifSetIndicesPboardType;
 
 + (void) drawLogoForMotif:(Motif*)motif 
                    inRect:(NSRect)rect 
+              columnWidth: (CGFloat) wantedWidth
 scaleByInformationContent:(BOOL)scaleByInfo 
                   flipped:(BOOL) flipped
                withOffset:(NSInteger)colOffset;
 
 + (void) drawLogoForMotif: (Motif*)motif 
                    inRect: (NSRect)rect 
+              columnWidth: (CGFloat) wantedWidth
 scaleByInformationContent: (BOOL)scaleByInfo 
                   flipped: (BOOL) flipped
                withOffset: (NSInteger)colOffset
@@ -87,17 +91,21 @@ scaleByInformationContent: (BOOL)scaleByInfo
 + (void)        drawColumn: (NSUInteger) i 
                    ofMotif: (Motif*) motif
                     inRect: (NSRect) rect
+               columnWidth: (CGFloat) wantedWidth
  scaleByInformationContent: (BOOL) scaleByInfo
                    flipped: (BOOL) flipped 
                 withOffset: (NSInteger) offset
      minConfidenceInterval: (CGFloat) minInterval
      maxConfidenceInterval: (CGFloat) maxInterval
-     precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle;
+     precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle
+            symbolsOrdered: (NSArray*) orderedSymbols;
 
 
 - (void) drawMotif:(Motif*) m
-			  rect:(NSRect) rect 
-	   controlView:(NSView*) controlView;
+			  rect:(NSRect) rect
+            offset:(NSInteger) offset;
+
+-(NSBitmapImageRep*) makeBitmapImageRepForMotif:(Motif*) motif;
 
 + (NSMutableAttributedString*) infoContentStringForMotif:(Motif*) motif;
 + (NSMutableAttributedString*) scoreThresholdStringForMotif:(Motif*) motif;

@@ -9,8 +9,8 @@
 #import <Cocoa/Cocoa.h>
 
 @interface PreferencesDialogController : NSWindowController {
-    IBOutlet NSButton *emptyDocCheckbox;
+    //IBOutlet NSButton *emptyDocCheckbox;
 }
 
--(IBAction) changeNewEmptyDoc:(id)sender;
+//-(IBAction) changeNewEmptyDoc:(id)sender;
 @end

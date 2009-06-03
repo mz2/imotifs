@@ -26,6 +26,9 @@
 #import "NMOperationConfigDialogController.h"
 
 
+CGFloat const IM_MOTIF_HEIGHT_INCREMENT = 5.0;
+CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
+
 @interface MotifSetDocument (private)
 -(void) initializeUI;
 @end
@@ -72,7 +75,6 @@
     motifViewCell = [[[MotifViewCell alloc] 
                       initImageCell:[[motifColumn dataCell] image]] autorelease];
     [motifViewCell setColumnDisplayOffset: [[self motifSet] columnCountWithOffsets]];
-    
     /*motifNameCell = [[[MotifNameCell alloc]
                       initTextCell:@""] autorelease];
     [nameColumn setDataCell: motifNameCell];
@@ -94,6 +96,7 @@
 -(void) userDefaultsChanged:(NSNotification *)notification {
     //DebugLog(@"User defaults changed: %@", notification);
     NSNumber* defHeight = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifHeight];
+    NSNumber* defWidth = [[NSUserDefaults standardUserDefaults] objectForKey:IMColumnWidth]; 
     NSNumber *defConfInterval = [[NSUserDefaults standardUserDefaults] objectForKey:IMMetamotifDefaultConfidenceIntervalCutoffKey];
     NSNumber *defDrawingStyle = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifDrawingStyle];
     NSNumber *defErrorBarStyle = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifColumnPrecisionDrawingStyleKey];
@@ -101,25 +104,32 @@
     CGFloat newHeight = [defHeight floatValue];
     if (newHeight != motifHeight) {
         motifHeight = newHeight;
-        [self.motifTable setRowHeight: newHeight];
+        self.motifTable.rowHeight = newHeight;
+        self.motifViewCell.columnHeight = newHeight;
+        [self.motifTable setNeedsDisplay: YES];
+    }
+    
+    CGFloat newWidth = [defWidth floatValue];
+    if (newHeight != motifViewCell.columnWidth) {
+        motifViewCell.columnWidth = newWidth;
         [self.motifTable setNeedsDisplay: YES];
     }
     
     CGFloat newConfInterval = [defConfInterval floatValue];
     if (newConfInterval != motifViewCell.confidenceIntervalCutoff) {
         motifViewCell.confidenceIntervalCutoff = newConfInterval;
-        [self.motifTable reloadData];
+        [self.motifTable setNeedsDisplay: YES];
     }
     
     if (motifViewCell.drawingStyle != [defDrawingStyle intValue]) {
         motifViewCell.drawingStyle = [defDrawingStyle intValue];
-        [self.motifTable reloadData];
+        [self.motifTable setNeedsDisplay: YES];
     }
     
     if (motifViewCell.columnPrecisionDrawingStyle != [defErrorBarStyle intValue]) {
         motifViewCell.columnPrecisionDrawingStyle = [defErrorBarStyle intValue];
         NSLog(@"Column precision drawing style set: %d", motifViewCell.columnPrecisionDrawingStyle);
-        [self.motifTable reloadData];
+        [self.motifTable setNeedsDisplay: YES];
     }
 }
 
@@ -264,7 +274,7 @@
     //DebugLog(@"MotifSetDocument: total column count: %d", [motifSet columnCountWithOffsets]);
     //DebugLog(@"MotifSetDocument: the current MotifViewCell=%@", motifViewCell);
     if ([motifSet count] > 0) {
-        [motifViewCell setColumnDisplayOffset: [motifSet columnCountWithOffsets]];
+        [motifViewCell setColumnDisplayOffset: [motifSet columnCountWithOffsets] / 2.0];
         //[motifViewCell setColumnDisplayOffset: 5];
     }
     
@@ -277,6 +287,14 @@
         [m setColor: [colors objectAtIndex:i++]];
         if ([colors count] >= i) i = 0;
     }*/
+    
+    /*
+    //just to test:
+    if (motifSet.count > 0) {
+        NSLog(@"Motif set size: %d", [motifSet count]);
+        [self.motifViewCell makeBitmapImageRepForMotif: [motifSet motifWithIndex: 0]];
+    }
+    */
     
     [motifSetController setContent:motifSet];
     [motifSetController rearrangeObjects];
@@ -1250,5 +1268,29 @@ provideDataForType:(NSString *)type {
 
 -(IBAction) toggleAnnotationsEditable: (id) sender {
     [self.drawerTableDelegate toggleEditable: sender];
+}
+
+-(IBAction) increaseMotifHeight: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMMotifHeight] + IM_MOTIF_HEIGHT_INCREMENT;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
+}
+
+-(IBAction) decreaseMotifHeight: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMMotifHeight] - IM_MOTIF_HEIGHT_INCREMENT;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
+}
+
+-(IBAction) increaseMotifWidth: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMColumnWidth] + IM_MOTIF_WIDTH_INCREMENT;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
+}
+
+-(IBAction) decreaseMotifWidth: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMColumnWidth] - IM_MOTIF_WIDTH_INCREMENT;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
 }
 @end

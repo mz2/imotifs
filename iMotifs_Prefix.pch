@@ -6,3 +6,7 @@
     #import <Cocoa/Cocoa.h>
     #import <DebugLog.h>
 #endif
+
+#ifndef IMOTIFS_COCOA_GUI
+#define IMOTIFS_COCOA_GUI 1
+#endif

@@ -112,7 +112,6 @@
 		9595B1490FB9BC2100CE2BFF /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
 		9595B14A0FB9BC2100CE2BFF /* MotifsBelowDistanceCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */; };
 		9595B14B0FB9BC2100CE2BFF /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
-		9595B14C0FB9BC2200CE2BFF /* MotifPairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3C180EE58A7000072A66 /* MotifPairCell.m */; };
 		9595B14D0FB9BC2300CE2BFF /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
 		9595B14E0FB9BC2300CE2BFF /* MotifPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897820E315C2D0084D9D8 /* MotifPair.m */; };
 		9595B14F0FB9BC2400CE2BFF /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
@@ -149,7 +148,6 @@
 		9595B2140FB9C02200CE2BFF /* MotifNamePickerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */; };
 		9595B2150FB9C02200CE2BFF /* MotifPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB897810E315C2D0084D9D8 /* MotifPair.h */; };
 		9595B2160FB9C02200CE2BFF /* MotifPairArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 959E3CC60EE681A600072A66 /* MotifPairArrayController.h */; };
-		9595B2170FB9C02200CE2BFF /* MotifPairCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 959E3C170EE58A7000072A66 /* MotifPairCell.h */; };
 		9595B2180FB9C02200CE2BFF /* MotifPairWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = 959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */; };
 		9595B2190FB9C02200CE2BFF /* MotifsBelowDistanceCutoffOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */; };
 		9595B21A0FB9C02200CE2BFF /* MotifSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA09C30E1415BC00E0F87D /* MotifSet.h */; };
@@ -181,7 +179,6 @@
 		9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
 		9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */; };
 		9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
-		959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3C180EE58A7000072A66 /* MotifPairCell.m */; };
 		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
 		959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
 		959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
@@ -335,8 +332,6 @@
 		9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolBounds.m; sourceTree = "<group>"; };
 		9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionBounds.h; sourceTree = "<group>"; };
 		9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionBounds.m; sourceTree = "<group>"; };
-		959E3C170EE58A7000072A66 /* MotifPairCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairCell.h; sourceTree = "<group>"; };
-		959E3C180EE58A7000072A66 /* MotifPairCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairCell.m; sourceTree = "<group>"; };
 		959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifPairWindow.xib; sourceTree = "<group>"; };
 		959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairWindowController.h; sourceTree = "<group>"; };
 		959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairWindowController.m; sourceTree = "<group>"; };
@@ -537,8 +532,6 @@
 				5FC3084C0E185802006C4679 /* MotifViewCell.m */,
 				5F83C9B70E363C4900369591 /* MotifNameCell.h */,
 				5F83C9B80E363C4900369591 /* MotifNameCell.m */,
-				959E3C170EE58A7000072A66 /* MotifPairCell.h */,
-				959E3C180EE58A7000072A66 /* MotifPairCell.m */,
 			);
 			name = ui;
 			sourceTree = "<group>";
@@ -866,7 +859,6 @@
 				9595B2140FB9C02200CE2BFF /* MotifNamePickerWindow.h in Headers */,
 				9595B2150FB9C02200CE2BFF /* MotifPair.h in Headers */,
 				9595B2160FB9C02200CE2BFF /* MotifPairArrayController.h in Headers */,
-				9595B2170FB9C02200CE2BFF /* MotifPairCell.h in Headers */,
 				9595B2180FB9C02200CE2BFF /* MotifPairWindowController.h in Headers */,
 				9595B2190FB9C02200CE2BFF /* MotifsBelowDistanceCutoffOperation.h in Headers */,
 				9595B21A0FB9C02200CE2BFF /* MotifSet.h in Headers */,
@@ -1038,7 +1030,6 @@
 				5FF1CB2E0E333BC9001966B7 /* IMIntMatrix2DTranspose.m in Sources */,
 				5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */,
 				5FC350C20EBBDA5C00404E38 /* Metamotif.m in Sources */,
-				959E3C190EE58A7000072A66 /* MotifPairCell.m in Sources */,
 				959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */,
 				959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */,
 				959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */,
@@ -1114,7 +1105,6 @@
 				9595B1490FB9BC2100CE2BFF /* MotifSetController.m in Sources */,
 				9595B14A0FB9BC2100CE2BFF /* MotifsBelowDistanceCutoffOperation.m in Sources */,
 				9595B14B0FB9BC2100CE2BFF /* MotifPairWindowController.m in Sources */,
-				9595B14C0FB9BC2200CE2BFF /* MotifPairCell.m in Sources */,
 				9595B14D0FB9BC2300CE2BFF /* MotifPairArrayController.m in Sources */,
 				9595B14E0FB9BC2300CE2BFF /* MotifPair.m in Sources */,
 				9595B14F0FB9BC2400CE2BFF /* MotifNamePickerWindow.m in Sources */,

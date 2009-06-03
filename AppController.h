@@ -33,6 +33,10 @@
 #define IMMotifHeight @"IMMotifHeight"
 #endif
 
+#ifndef IMColumnWidth
+#define IMColumnWidth @"IMColumnWidth"
+#endif
+
 #ifndef IMMetamotifDefaultConfidenceIntervalCutoffKey
 #define IMMetamotifDefaultConfidenceIntervalCutoffKey @"IMMetamotifDefaultConfidenceIntervalCutoff"
 #endif

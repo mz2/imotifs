@@ -58,6 +58,8 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
                       forKey: IMMotifDrawingStyle];
     [defaultValues setObject: [NSNumber numberWithInt: IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol] 
                       forKey: IMMotifColumnPrecisionDrawingStyleKey];
+    [defaultValues setObject: [NSNumber numberWithFloat: IMDefaultColWidth] 
+                      forKey: IMColumnWidth];
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }

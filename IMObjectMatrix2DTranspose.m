@@ -13,7 +13,7 @@
 
 +(IMObjectMatrix2D*) transpose:(id<IMMatrix2D>)r {
     IMObjectMatrix2DTranspose *transp = [[IMObjectMatrix2DTranspose alloc] init];
-    transp->raw = [r retain];
+    transp->raw = [(id)r retain];
     return (IMObjectMatrix2D*)transp;
 }
 

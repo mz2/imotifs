@@ -7,6 +7,7 @@
 //
 
 #import <MotifViewCell.h>
+#import "AppController.h"
 #import "Metamotif.h"
 #import "Dirichlet.h"
 #import "DistributionBounds.h"
@@ -14,11 +15,12 @@
 
 @interface MotifViewCell (Private)
 - (void) drawConsensus: (Motif*)m 
-				  rect: (NSRect)rect 
-           controlView: (NSView*)controlView;
+				  rect: (NSRect)rect
+            withOffset: (NSInteger) offset;
 + (NSMutableAttributedString*) makeSymbolDrawable:(Symbol*)sym 
                                           ofSize:(CGFloat)size 
                                          ofColor:(NSColor*) color;
+- (NSInteger) calcLeftPaddingColumns:(NSRect)rect;
 - (NSRect) measureString:(NSString*)str inRect:(NSRect)rect;
 @end
 
@@ -30,7 +32,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 @implementation MotifViewCell
 @synthesize drawingStyle;
 @synthesize columnDisplayOffset;
-@synthesize columnWidth;
+@synthesize columnWidth,columnHeight;
 @synthesize showInformationContent,showScoreThreshold,showLength;
 @synthesize confidenceIntervalCutoff;
 @synthesize columnPrecisionDrawingStyle;
@@ -42,12 +44,13 @@ NSString *IMLogoFontName = @"Arial Bold";
 
 /* the designated initializer for cells that contain images */
 - (id) initImageCell:(NSImage*) image {
-    DebugLog(@"MotifViewCell: initialising motif view image cell");
+    NSLog(@"MotifViewCell: initialising motif view image cell");
     self = [super initImageCell:image];
     if (self != nil) {
         [self setDrawingStyle: IMInfoScaledLogo];
         [self setColumnDisplayOffset: IMLeftColPadding];
-        [self setColumnWidth: IMDefaultColWidth];
+        [self setColumnWidth: [[NSUserDefaults standardUserDefaults] floatForKey:IMColumnWidth]];
+        [self setColumnHeight: [[NSUserDefaults standardUserDefaults] floatForKey:IMMotifHeight]];
         [self setShowInformationContent: NO];
         [self setShowScoreThreshold: NO];
         [self setShowLength: NO];
@@ -73,10 +76,12 @@ NSString *IMLogoFontName = @"Arial Bold";
     drawingStyle = [coder decodeIntegerForKey: @"drawingStyle"];
     columnDisplayOffset = [coder decodeIntegerForKey: @"columnDisplayOffset"];
     columnWidth = [coder decodeFloatForKey:@"columnWidth"];
+    columnHeight = [coder decodeFloatForKey:@"columnHeight"];
     showInformationContent = [coder decodeBoolForKey:@"showInformationContent"];
     showScoreThreshold = [coder decodeBoolForKey:@"showScoreThreshold"];
     showLength = [coder decodeBoolForKey:@"showLength"];
     confidenceIntervalCutoff = [coder decodeFloatForKey:@"confidenceIntervalCutoff"];
+    columnPrecisionDrawingStyle = [coder decodeIntegerForKey:@"columnPrecisionDrawingStyle"];
     return self;
 }
 
@@ -89,6 +94,8 @@ NSString *IMLogoFontName = @"Arial Bold";
                   forKey: @"columnDisplayOffset"];
     [coder encodeFloat: [self columnWidth] 
                          forKey: @"columnWidth"];
+    [coder encodeFloat: [self columnHeight] 
+                forKey:@"columnHeight"];
     [coder encodeBool: showInformationContent 
                forKey: @"showInformationContent"];
     [coder encodeBool: showScoreThreshold
@@ -97,6 +104,8 @@ NSString *IMLogoFontName = @"Arial Bold";
                forKey: @"showLength"];
     [coder encodeFloat: confidenceIntervalCutoff 
                 forKey: @"confidenceIntervalCutoff"];
+    [coder encodeInt: columnPrecisionDrawingStyle 
+              forKey: @"columnPrecisionDrawingStyle"];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -106,12 +115,14 @@ NSString *IMLogoFontName = @"Arial Bold";
     [cellCopy setObjectValue: self.objectValue];
     [cellCopy setImage: self.image];
     [cellCopy setColumnWidth: self.columnWidth];
+    [cellCopy setColumnHeight: self.columnHeight];
     [cellCopy setColumnDisplayOffset: self.columnDisplayOffset];
     [cellCopy setDrawingStyle: self.drawingStyle];
     [cellCopy setShowInformationContent: self.showInformationContent];
     [cellCopy setShowScoreThreshold: self.showScoreThreshold];
     [cellCopy setShowLength: self.showLength];
     [cellCopy setConfidenceIntervalCutoff: self.confidenceIntervalCutoff];
+    [cellCopy setColumnPrecisionDrawingStyle: self.columnPrecisionDrawingStyle];
     return [cellCopy retain];
 }
 
@@ -124,11 +135,14 @@ NSString *IMLogoFontName = @"Arial Bold";
             [self columnWidth],
             [self objectValue]];
 }
+
 #pragma mark drawing
-- (void)drawWithFrame:(NSRect)cellFrame inView:(NSView *)controlView {
+- (void)drawWithFrame:(NSRect)cellFrame 
+               inView:(NSView *)controlView {
+    //NSLog(@"Drawing with frame");
     if ([self showsFirstResponder]) {
         // showsFirstResponder is set for us by the NSControl that is drawing  us.
-        NSRect focusRingFrame = cellFrame;        
+        NSRect focusRingFrame = cellFrame;
         focusRingFrame.size.height -= 2.0;
         
         [NSGraphicsContext saveGraphicsState];
@@ -149,15 +163,6 @@ NSString *IMLogoFontName = @"Arial Bold";
     else
         currentTint=[self controlTint];
     
-    //if (![[self objectValue] color]) {
-    //    DebugLog(@"MotifViewCell: color not set for %@.",[[self objectValue] name]);
-    //    [[NSColor controlBackgroundColor] set];
-    //} else {
-    //    DebugLog(@"MotifViewCell: color set for %@.",[[self objectValue] name]);
-    //    [[[self objectValue] color] set];
-    //}
-    //[[NSColor controlAlternatingRowBackgroundColors
-    //DebugLog(@"MotifViewCell: color for %@.",[[self objectValue] color]);
     if ([[self objectValue] color]) {
         [[[self objectValue] color] set];
         [NSBezierPath fillRect: cellFrame];
@@ -173,15 +178,18 @@ NSString *IMLogoFontName = @"Arial Bold";
         [xform scaleXBy:1.0 yBy:-1.0];
         [xform concat];
     }
+    
     [NSGraphicsContext saveGraphicsState];
     [NSBezierPath clipRect:cellFrame];
     NSAffineTransform *cellTransform = [NSAffineTransform transform];
     [cellTransform translateXBy:cellFrame.origin.x 
                             yBy:cellFrame.origin.y];
     [cellTransform concat];
-    [self drawMotif: (Motif*)self.objectValue
-			   rect: cellFrame 
-        controlView: controlView];
+    
+    [self drawMotif: (Motif*)self.objectValue 
+               rect: cellFrame 
+             offset: [self calcLeftPaddingColumns:cellFrame]];
+    
     [NSGraphicsContext restoreGraphicsState];
     if (self.showInformationContent) {
         NSMutableAttributedString *infoCStr = [MotifViewCell infoContentStringForMotif:[self objectValue]]; 
@@ -212,13 +220,356 @@ NSString *IMLogoFontName = @"Arial Bold";
     
 }
 
+- (void) drawMotif: (Motif*) m
+			  rect: (NSRect)rect
+            offset: (NSInteger) offset {
+    
+    //NSLog(@"Column width: %.0f", self.columnWidth);
+    NSRect insetRect = NSInsetRect(rect, IMMotifMargin, IMMotifMargin);
+    if ([self drawingStyle] == IMConsensus) {
+        [self drawConsensus: (Motif*) m 
+					   rect: insetRect
+                 withOffset: offset];
+        
+    } else if ([self drawingStyle] == IMLogo) {
+        [MotifViewCell drawLogoForMotif: [self objectValue]
+                                 inRect: insetRect 
+                            columnWidth: self.columnWidth
+              scaleByInformationContent: NO 
+                                flipped: YES 
+                             withOffset: offset
+                  minConfidenceInterval: 1.0 - [self confidenceIntervalCutoff]
+                  maxConfidenceInterval: [self confidenceIntervalCutoff]
+                  precisionDrawingStyle: [self columnPrecisionDrawingStyle]];
+        
+    } else if ([self drawingStyle] == IMInfoScaledLogo) {
+        [MotifViewCell drawLogoForMotif: [self objectValue] 
+                                 inRect: insetRect 
+                            columnWidth: self.columnWidth
+              scaleByInformationContent: YES 
+                                flipped: YES 
+                             withOffset: offset 
+                  minConfidenceInterval: 1.0 - [self confidenceIntervalCutoff]
+                  maxConfidenceInterval: [self confidenceIntervalCutoff]
+                  precisionDrawingStyle: [self columnPrecisionDrawingStyle]];
+        
+    }
+}
+
++ (void) drawLogoForMotif: (Motif*)motif 
+                   inRect: (NSRect)rect 
+              columnWidth: (CGFloat) wantedWidth
+scaleByInformationContent: (BOOL)scaleByInfo 
+                  flipped: (BOOL) flipped
+               withOffset: (NSInteger)colOffset {
+    return [MotifViewCell drawLogoForMotif: motif 
+                                    inRect: rect 
+                               columnWidth: (CGFloat) wantedWidth
+                 scaleByInformationContent: scaleByInfo 
+                                   flipped: flipped
+                                withOffset: colOffset
+                     minConfidenceInterval: 0.05
+                     maxConfidenceInterval: 0.95
+                     precisionDrawingStyle: IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol];
+}
+
++ (void)   drawLogoForMotif: (Motif*)motif 
+                     inRect: (NSRect)rect 
+                columnWidth: (CGFloat) wantedWidth
+  scaleByInformationContent: (BOOL)scaleByInfo 
+                    flipped: (BOOL) flipped
+                 withOffset: (NSInteger)colOffset
+      minConfidenceInterval: (CGFloat) minInterval
+      maxConfidenceInterval: (CGFloat) maxInterval
+      precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle {
+    //DebugLog(@"MotifViewCell: drawing logo for objectValue=%@ (objectValue=%@)",[self objectValue], [self objectValue]);
+    int colCount = [motif columnCount];
+    int i;
+    NSPoint point;
+    point.x = 0;
+    point.y = 0;
+    
+    //BOOL isMetaMotif = [motif isKindOfClass:[Metamotif class]];
+    //DebugLog(@"Drawing logo for %@ (%@)", motif, motif.className);
+    
+    NSGraphicsContext *context = [NSGraphicsContext currentContext];
+    NSMutableAttributedString *aLetter = [[NSMutableAttributedString alloc] 
+                                          initWithString: @"A"];
+    
+    [aLetter addAttribute: NSFontAttributeName
+                    value: [NSFont fontWithName:IMLogoFontName size:rect.size.height]
+                    range:NSMakeRange(0,1)];
+        
+    [context saveGraphicsState];
+    
+    NSAffineTransform *offsetTransform = [NSAffineTransform transform];
+    [offsetTransform translateXBy:(colOffset + [motif offset]) * wantedWidth 
+                              yBy:0.0];
+    [offsetTransform concat];
+    
+    for (i = 0; i < colCount; i++) {
+        
+        if ([motif isKindOfClass:[Metamotif class]] && 
+            (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif)) {
+            
+            Multinomial *mean = [(Dirichlet*)[motif column: i] mean];
+            NSArray *syms = [mean symbolsWithWeightsInDescendingOrder];
+            
+            NSUInteger r;
+            for (r = 0; r < 200; r++) {
+                [MotifViewCell drawColumn: i
+                                  ofMotif: motif
+                                   inRect: rect
+                              columnWidth: wantedWidth
+                scaleByInformationContent: scaleByInfo
+                                  flipped: flipped 
+                               withOffset: colOffset
+                    minConfidenceInterval: minInterval
+                    maxConfidenceInterval: maxInterval
+                    precisionDrawingStyle: precStyle
+                           symbolsOrdered: syms];
+            }
+        } else {
+            [MotifViewCell drawColumn: i
+                              ofMotif: motif
+                               inRect: rect
+                          columnWidth: wantedWidth
+            scaleByInformationContent: scaleByInfo
+                              flipped: flipped 
+                           withOffset: colOffset
+                minConfidenceInterval: minInterval
+                maxConfidenceInterval: maxInterval
+                precisionDrawingStyle: precStyle
+                       symbolsOrdered: nil];
+        }
+        
+    }
+    [context restoreGraphicsState];
+}
+
+
++ (void)        drawColumn: (NSUInteger) i 
+                   ofMotif: (Motif*) motif
+                    inRect: (NSRect) rect
+               columnWidth: (CGFloat) wantedWidth
+ scaleByInformationContent: (BOOL) scaleByInfo
+                   flipped: (BOOL) flipped 
+                withOffset: (NSInteger) offset
+     minConfidenceInterval: (CGFloat) minInterval
+     maxConfidenceInterval: (CGFloat) maxInterval
+     precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle
+            symbolsOrdered: (NSArray*) orderedSymbols {
+    
+    NSGraphicsContext *context = [NSGraphicsContext currentContext];
+    
+    [context saveGraphicsState];
+    Multinomial *column = [motif column: i];
+    Multinomial *col;
+    Dirichlet *dir = nil;
+    
+    BOOL isMetaMotif = [column isKindOfClass:[Dirichlet class]];
+    if (isMetaMotif) {
+        dir = (Dirichlet*)column;
+        
+        if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif) {
+            col = [dir sample];            
+        } else {
+            col = [dir mean];
+        }
+    } else {
+        col = column;
+    }
+    
+    NSArray *syms;
+    if (orderedSymbols == nil) {
+        syms = [col symbolsWithWeightsInDescendingOrder];
+    } else {
+        syms = orderedSymbols;
+    }
+    
+    double colScale;
+    
+    double informationContent, totalBits;
+    informationContent = [col informationContent];
+    totalBits = [col totalBits];
+    
+    colScale = scaleByInfo ? informationContent/totalBits : 1.0;
+    
+    NSAffineTransform *transMove = [NSAffineTransform transform];
+    
+    //CGFloat wantedWidth = columnWidth;
+    
+    CGFloat xTrans = wantedWidth * i + wantedWidth * offset;
+    CGFloat yTrans = 0.0;
+    
+    if (flipped) {
+        yTrans = rect.size.height;
+    }
+    
+    [transMove translateXBy:xTrans
+                        yBy:yTrans];
+    [transMove concat];
+    CGFloat accumMove = 0;
+    
+    NSUInteger symNum = 0;
+    for (Symbol *sym in syms) {
+        double w = [col weightForSymbol:sym];
+        
+        [context saveGraphicsState];
+        
+        NSColor *color = nil;
+        if (isMetaMotif && precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif) {
+            color = [NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 1.0 
+                                              green: [[sym defaultFillColor] greenComponent] * 1.0 
+                                               blue: [[sym defaultFillColor] blueComponent] * 1.0
+                                              alpha: 0.005];
+        }
+        
+        NSMutableAttributedString *nameDrawable = [MotifViewCell makeSymbolDrawable:sym 
+                                                                             ofSize:rect.size.height 
+                                                                            ofColor: color];
+        NSRect symMeas = [nameDrawable boundingRectWithSize:rect.size
+                                                    options:0];
+        
+        double sizeRatio = symMeas.size.height / rect.size.height;
+        double scaleYRatio = 1.0 * colScale * w;
+        
+        if (flipped) {
+            accumMove -= scaleYRatio * symMeas.size.height;
+        } else {
+            accumMove += scaleYRatio * symMeas.size.height;
+        }
+        
+        NSAffineTransform *letterTransform = [NSAffineTransform transform];
+        [letterTransform translateXBy:0.0 yBy:accumMove];
+        [letterTransform scaleXBy: (wantedWidth/symMeas.size.width) yBy: scaleYRatio];
+        [letterTransform concat];
+        
+        NSPoint pointLB;
+        NSRect rectLB;
+        pointLB.x = 0;
+        pointLB.y = (symMeas.size.height - (symMeas.size.height / sizeRatio));
+        
+        rectLB = NSMakeRect(pointLB.x,
+                            pointLB.y,
+                            symMeas.size.width,
+                            symMeas.size.height / sizeRatio);
+        
+        
+        /*
+         NSColor* col = [NSColor colorWithCalibratedRed:[[sym defaultFillColor] redComponent] * 0.25 
+         green:[[sym defaultFillColor] greenComponent] * 0.25 
+         blue:[[sym defaultFillColor] blueComponent] * 0.25 
+         alpha:0.8];
+         
+         [col set];
+         [NSBezierPath fillRect:rectLB];
+         */
+        [nameDrawable drawInRect:rectLB];
+        if (isMetaMotif) {
+            
+            DistributionBounds *dirB = [dir confidenceAtMinInterval: minInterval 
+                                                        maxInterval: maxInterval];
+            SymbolBounds *symB = [dirB boundsForSymbol: sym];
+            
+            
+            //the min/max bar style error bars starting from the bottom of the letter
+            NSRect minSymBound;
+            
+            CGFloat minSymY;
+            if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFromBottomToTop) {
+                minSymY = pointLB.y + symMeas.size.height / sizeRatio;
+                minSymBound = NSMakeRect(pointLB.x + ((3.0 - (CGFloat)symNum) * symMeas.size.width * 0.25),
+                                         minSymY, 
+                                         symMeas.size.width * 0.25,
+                                         -((symB.min / w) * (symMeas.size.height / sizeRatio) * 0.74));
+            } else if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
+                minSymY = (pointLB.y + symMeas.size.height / sizeRatio) + (-((symB.min / w) * (symMeas.size.height / sizeRatio) * 0.74));
+                minSymBound = NSMakeRect(pointLB.x + (symMeas.size.width * 0.25),
+                                         minSymY, 
+                                         symMeas.size.width * 0.50,
+                                         3.0 * (1.0 / w));
+            }
+            
+            NSRect maxSymBound;
+            
+            CGFloat maxSymY;
+            if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFromBottomToTop) {
+                maxSymY = pointLB.y + symMeas.size.height / sizeRatio;
+                maxSymBound = NSMakeRect(pointLB.x + ((3.0 - (CGFloat)symNum) * symMeas.size.width * 0.25),
+                                         maxSymY, 
+                                         symMeas.size.width * 0.25,
+                                         -((symB.max / w) * (symMeas.size.height / sizeRatio) * 0.74));
+            } else if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
+                maxSymY = (pointLB.y + symMeas.size.height / sizeRatio) +(-((symB.max / w) * (symMeas.size.height / sizeRatio) * 0.74));
+                maxSymBound = NSMakeRect(pointLB.x + symMeas.size.width * 0.25,
+                                         maxSymY, 
+                                         symMeas.size.width * 0.50,
+                                         3.0 * (1.0 / w));
+            }
+            
+            [[NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 0.6 
+                                       green: [[sym defaultFillColor] greenComponent] * 0.6 
+                                        blue: [[sym defaultFillColor] blueComponent] * 0.6
+                                       alpha: 0.8] set];
+            
+            if ((minSymY - maxSymY) > 0.0 && (minSymY > 0.0) && (maxSymY > 0.0)) {
+                if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
+                    NSBezierPath *upBarPath = [NSBezierPath bezierPathWithRect:NSMakeRect(
+                                                                                          pointLB.x + symMeas.size.width * 0.47, 
+                                                                                          maxSymY, 
+                                                                                          symMeas.size.width * 0.06,
+                                                                                          minSymY - maxSymY)];
+                    //[upBarPath setLineWidth: 5.0];
+                    
+                    //[[NSColor blackColor] set];
+                    [upBarPath fill];
+                }
+            }
+            
+            NSBezierPath *minbpath = [NSBezierPath bezierPathWithRect: minSymBound];
+            
+            [minbpath setLineWidth: 3.0];
+            [minbpath fill];
+            [minbpath stroke];
+            
+            /*
+             [[NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 0.6
+             green: [[sym defaultFillColor] greenComponent] * 0.6
+             blue: [[sym defaultFillColor] blueComponent] * 0.6
+             alpha: 0.8] set];
+             */
+            
+            //NSLog(@"%@ minSymBound %.3f, %.3f - diff: %.3f", [sym shortName], minSymY, maxSymY, minSymY - maxSymY);
+            
+            
+            NSBezierPath *maxbpath = [NSBezierPath bezierPathWithRect: maxSymBound];
+            [maxbpath setLineWidth: 3.0];
+            [maxbpath stroke];
+            [maxbpath fill];
+            
+        }
+        
+        
+        /* set the color */
+        
+        [context restoreGraphicsState];
+        
+        symNum += 1;
+    }
+    
+    [context restoreGraphicsState];
+}
+
+
 - (NSInteger) calcFittingColumnCountInRect:(NSRect)rect {
     return (NSInteger)round(rect.size.width / [self columnWidth]);
 }
 
 - (NSInteger) calcLeftPaddingColumns:(NSRect)rect {
-    //DebugLog(@"MotifViewCell: fitting columns=%d , displayOffset=%d",[self calcFittingColumnCountInRect:rect],[self columnDisplayOffset]);
-    NSInteger extraCols = [self calcFittingColumnCountInRect:rect] - [self columnDisplayOffset];
+    NSInteger extraCols = [self calcFittingColumnCountInRect:rect] / 3;
+    NSLog(@"MotifViewCell: fitting columns=%d , displayOffset=%d",extraCols,[self columnDisplayOffset]);
+
     if (extraCols > 0) {
         return extraCols / 2;
     } else return 0;
@@ -365,312 +716,81 @@ NSString *IMLogoFontName = @"Arial Bold";
     s = nil;
 }
 
-+ (void) drawLogoForMotif:(Motif*)motif 
-                   inRect:(NSRect)rect 
-scaleByInformationContent:(BOOL)scaleByInfo 
-                  flipped:(BOOL) flipped
-               withOffset:(NSInteger)colOffset {
-    return [MotifViewCell drawLogoForMotif: motif 
-                                    inRect: rect 
-                 scaleByInformationContent: scaleByInfo 
-                                   flipped: flipped
-                                withOffset: colOffset
-                     minConfidenceInterval: 0.05
-                     maxConfidenceInterval: 0.95
-                     precisionDrawingStyle: IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol];
-}
-
-+ (void)   drawLogoForMotif: (Motif*)motif 
-                     inRect: (NSRect)rect 
-  scaleByInformationContent: (BOOL)scaleByInfo 
-                    flipped: (BOOL) flipped
-                 withOffset: (NSInteger)colOffset
-      minConfidenceInterval: (CGFloat) minInterval
-      maxConfidenceInterval: (CGFloat) maxInterval
-      precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle {
-    //DebugLog(@"MotifViewCell: drawing logo for objectValue=%@ (objectValue=%@)",[self objectValue], [self objectValue]);
-    int colCount = [motif columnCount];
-    int i;
-    NSPoint point;
-    point.x = 0;
-    point.y = 0;
+-(NSBitmapImageRep*) makeBitmapImageRepForMotif:(Motif*) motif {
+    NSRect offscreenRect = NSMakeRect(0.0, 0.0,
+                                      self.columnWidth * [motif columnCount] * 2, 
+                                      self.columnHeight * 2);
     
-    //BOOL isMetaMotif = [motif isKindOfClass:[Metamotif class]];
-    //DebugLog(@"Drawing logo for %@ (%@)", motif, motif.className);
+    NSBitmapImageRep* offscreenRep = nil;
     
-    NSGraphicsContext *context = [NSGraphicsContext currentContext];
     
-    NSMutableAttributedString *aLetter = [[NSMutableAttributedString alloc] 
-                                          initWithString: @"A"];
+    offscreenRep = [[[NSBitmapImageRep alloc] initWithBitmapDataPlanes:nil
+                                                           pixelsWide:(NSInteger)round(offscreenRect.size.width)
+                                                           pixelsHigh:(NSInteger)round(offscreenRect.size.height)
+                                                        bitsPerSample:8
+                                                      samplesPerPixel:4
+                                                             hasAlpha:YES
+                                                             isPlanar:NO
+                                                       colorSpaceName:NSCalibratedRGBColorSpace
+                                                         bitmapFormat:0
+                                                          bytesPerRow:4*(NSInteger)round(offscreenRect.size.width) * 2
+                                                         bitsPerPixel:32] autorelease];
     
-    [aLetter addAttribute: NSFontAttributeName
-                    value: [NSFont fontWithName:IMLogoFontName size:rect.size.height]
-                    range:NSMakeRange(0,1)];
+    NSLog(@"Bitmap rep created");
+    //NSImage *offscreenImage = [[NSImage alloc] initWithSize:offscreenRect.size];
+    //[offscreenImage addRepresentation: offscreenRep];
     
-    //double wantedWidth = rect.size.width / 20;
-    CGFloat wantedWidth = IMDefaultColWidth;
-
-    [context saveGraphicsState];
-    
-    NSAffineTransform *offsetTransform = [NSAffineTransform transform];
-    [offsetTransform translateXBy:colOffset*wantedWidth 
-                              yBy:0.0];
-    [offsetTransform concat];
-    
-    for (i = 0; i < colCount; i++) {
+    if (offscreenRep != nil) {
+        //NSLog(@"Off screen rep created");
+        [NSGraphicsContext saveGraphicsState];
+        [NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithBitmapImageRep: offscreenRep]];
+        NSGraphicsContext *context = [NSGraphicsContext currentContext];
         
-        if ([motif isKindOfClass:[Metamotif class]] && 
-            (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif)) {
-            
-            int r = 0;
-            for (r = 0; r < 100; r++) {
-                [MotifViewCell drawColumn: i
-                                  ofMotif: motif
-                                   inRect: rect
-                scaleByInformationContent: scaleByInfo
-                                  flipped: flipped 
-                               withOffset: colOffset
-                    minConfidenceInterval: minInterval
-                    maxConfidenceInterval: maxInterval
-                    precisionDrawingStyle: precStyle];                
-            }
-        } else {
-            [MotifViewCell drawColumn: i
-                              ofMotif: motif
-                               inRect: rect
-            scaleByInformationContent: scaleByInfo
-                              flipped: flipped 
-                           withOffset: colOffset
-                minConfidenceInterval: minInterval
-                maxConfidenceInterval: maxInterval
-                precisionDrawingStyle: precStyle];
-        }
-
-    }
-    [context restoreGraphicsState];
-}
+        //[NSGraphicsContext saveGraphicsState];
         
-
-+ (void)        drawColumn: (NSUInteger) i 
-                   ofMotif: (Motif*) motif
-                    inRect: (NSRect) rect
- scaleByInformationContent: (BOOL) scaleByInfo
-                   flipped: (BOOL) flipped 
-                withOffset: (NSInteger) offset
-     minConfidenceInterval: (CGFloat) minInterval
-     maxConfidenceInterval: (CGFloat) maxInterval
-     precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle {
-    NSGraphicsContext *context = [NSGraphicsContext currentContext];
-    
-    [context saveGraphicsState];
-    Multinomial *column = [motif column: i];
-    Multinomial *col;
-    Dirichlet *dir = nil;
-    
-    BOOL isMetaMotif = [column isKindOfClass:[Dirichlet class]];
-    if (isMetaMotif) {
-        dir = (Dirichlet*)column;
+        //because the view isn't flipped.
+        NSAffineTransform* xform = [NSAffineTransform transform];
+        [xform translateXBy:0.0 yBy: offscreenRect.size.height];
+        [xform scaleXBy:1.0 yBy:-1.0];
+        [xform concat];
         
-        if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif) {
-            col = [dir sample];            
-        } else {
-            col = [dir mean];
-        }
+        [NSGraphicsContext saveGraphicsState];
+        
+        
+        //xform = [NSAffineTransform transform];
+        //[xform translateXBy:0.0 yBy: -offscreenRect.size.height / 0.5];
+        //[xform concat];
+        //yTrans = rect.size.height;
+        
+        NSLog(@"Making Bitmap Rep. Context: %@ (%d)", context,[context isFlipped]);
+        
+        
+        //[offscreenImage lockFocus];
+        NSBezierPath *bpath = [NSBezierPath bezierPathWithRect:offscreenRect];
+        [[NSColor yellowColor] set];
+        [bpath fill];
+        
+        xform = [NSAffineTransform transform];
+        [xform translateXBy:offscreenRect.size.height * 0.7 yBy: offscreenRect.size.height * -2.0];
+        [xform concat];
+        
+        [self drawMotif: motif rect: offscreenRect offset: 0];
+        [NSGraphicsContext restoreGraphicsState];
+        //[offscreenImage unlockFocus];
+        //[NSGraphicsContext restoreGraphicsState];
+        
+        [NSGraphicsContext restoreGraphicsState];
+        //[offscreenImage release];
+        
+        //NSData *pngData = [offscreenRep representationUsingType:NSPNGFileType properties: nil];
+        //[pngData writeToFile:@"/Users/mp4/Desktop/foo.png" atomically:NO];
+
     } else {
-        col = column;
+        NSLog(@"ERROR: could not create offscreen rep for drawing the motif");
     }
     
-    NSArray *syms = [col symbolsWithWeightsInDescendingOrder];
-    double colScale;
+    return offscreenRep;
     
-    double informationContent, totalBits;
-    informationContent = [col informationContent];
-    totalBits = [col totalBits];
-    
-    colScale = scaleByInfo ? informationContent/totalBits : 1.0;
-    
-    NSAffineTransform *transMove = [NSAffineTransform transform];
-    
-    CGFloat wantedWidth = IMDefaultColWidth;
-
-    CGFloat xTrans = wantedWidth * i + wantedWidth * offset;
-    CGFloat yTrans = 0.0;
-    
-    if (flipped) {
-        yTrans = rect.size.height;
-    }
-    
-    [transMove translateXBy:xTrans
-                        yBy:yTrans];
-    [transMove concat];
-    CGFloat accumMove = 0;
-    
-    NSUInteger symNum = 0;
-    for (Symbol *sym in syms) {
-        double w = [col weightForSymbol:sym];
-        
-        [context saveGraphicsState];
-        
-        NSColor *color = nil;
-        
-        if (isMetaMotif && precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFuzzyMotif) {
-            color = [NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 1.0 
-                                              green: [[sym defaultFillColor] greenComponent] * 1.0 
-                                               blue: [[sym defaultFillColor] blueComponent] * 1.0
-                                              alpha: 0.05];
-        }
-        
-        
-        NSMutableAttributedString *nameDrawable = [MotifViewCell makeSymbolDrawable:sym 
-                                                                             ofSize:rect.size.height 
-                                                                            ofColor: color];
-        NSRect symMeas = [nameDrawable boundingRectWithSize:rect.size
-                                                    options:0];
-        
-        double sizeRatio = symMeas.size.height / rect.size.height;
-        double scaleYRatio = 1.0 * colScale * w;
-        
-        if (flipped) {
-            accumMove -= scaleYRatio * symMeas.size.height;
-        } else {
-            accumMove += scaleYRatio * symMeas.size.height;
-        }
-        
-        NSAffineTransform *letterTransform = [NSAffineTransform transform];
-        [letterTransform translateXBy:0.0 yBy:accumMove];
-        [letterTransform scaleXBy: (wantedWidth/symMeas.size.width) yBy: scaleYRatio];
-        [letterTransform concat];
-        
-        NSPoint pointLB;
-        NSRect rectLB;
-        pointLB.x = 0;
-        pointLB.y = (symMeas.size.height - (symMeas.size.height / sizeRatio));
-        
-        rectLB = NSMakeRect(pointLB.x,
-                            pointLB.y,
-                            symMeas.size.width,
-                            symMeas.size.height / sizeRatio);
-        
-        
-        /*
-         NSColor* col = [NSColor colorWithCalibratedRed:[[sym defaultFillColor] redComponent] * 0.25 
-         green:[[sym defaultFillColor] greenComponent] * 0.25 
-         blue:[[sym defaultFillColor] blueComponent] * 0.25 
-         alpha:0.8];
-         */
-        
-        /*
-         [col set];
-         [NSBezierPath fillRect:rectLB];
-         */
-        [nameDrawable drawInRect:rectLB];
-        if (isMetaMotif) {
-            
-            DistributionBounds *dirB = [dir confidenceAtMinInterval: minInterval 
-                                                        maxInterval: maxInterval];
-            SymbolBounds *symB = [dirB boundsForSymbol: sym];
-            
-            
-            //the min/max bar style error bars starting from the bottom of the letter
-            NSRect minSymBound;
-            
-            if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFromBottomToTop) {
-                minSymBound = NSMakeRect(pointLB.x + ((3.0 - (CGFloat)symNum) * symMeas.size.width * 0.25),
-                                         pointLB.y + symMeas.size.height / sizeRatio, 
-                                         symMeas.size.width * 0.25,
-                                         -((symB.min / w) * (symMeas.size.height / sizeRatio) * 0.74));
-            } else if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
-                minSymBound = NSMakeRect(pointLB.x + (symMeas.size.width * 0.25),
-                                         (pointLB.y + symMeas.size.height / sizeRatio) + (-((symB.min / w) * (symMeas.size.height / sizeRatio) * 0.74)), 
-                                         symMeas.size.width * 0.50,
-                                         3.0 * (1.0 / w));
-            }
-            
-            NSBezierPath *minbpath = [NSBezierPath bezierPathWithRect: minSymBound];
-            
-            [[NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 0.35 
-                                       green: [[sym defaultFillColor] greenComponent] * 0.35 
-                                        blue: [[sym defaultFillColor] blueComponent] * 0.35
-                                       alpha: 0.8] set];
-            
-            [minbpath setLineWidth: 3.0];
-            [minbpath fill];
-            [minbpath stroke];
-            
-            [[NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 0.55 
-                                       green: [[sym defaultFillColor] greenComponent] * 0.55
-                                        blue: [[sym defaultFillColor] blueComponent] * 0.55
-                                       alpha: 0.8] set];
-            
-            NSRect maxSymBound;
-            
-            if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsFromBottomToTop) {
-                maxSymBound = NSMakeRect(pointLB.x + ((3.0 - (CGFloat)symNum) * symMeas.size.width * 0.25),
-                                         pointLB.y + symMeas.size.height / sizeRatio, 
-                                         symMeas.size.width * 0.25,
-                                         -((symB.max / w) * (symMeas.size.height / sizeRatio) * 0.74));
-            } else if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
-                maxSymBound = NSMakeRect(pointLB.x + symMeas.size.width * 0.25,
-                                         (pointLB.y + symMeas.size.height / sizeRatio) +(-((symB.max / w) * (symMeas.size.height / sizeRatio) * 0.74)), 
-                                         symMeas.size.width * 0.50,
-                                         3.0 * (1.0 / w));
-            }
-            
-            if (precStyle == IMMotifColumnPrecisionDrawingStyleErrorBarsTopOfSymbol) {
-                NSBezierPath *upBarPath = [NSBezierPath bezierPath];
-                [upBarPath setLineWidth: 3.0];
-                [upBarPath moveToPoint: NSMakePoint(pointLB.x + symMeas.size.width * 0.50, pointLB.y)];
-                [upBarPath moveToPoint: NSMakePoint(pointLB.x + symMeas.size.width * 0.50, 
-                                                    (pointLB.y + symMeas.size.height / sizeRatio) +(-((symB.max / w) * (symMeas.size.height / sizeRatio) * 0.74)))];
-                [upBarPath stroke];
-            }
-            
-            NSBezierPath *maxbpath = [NSBezierPath bezierPathWithRect: maxSymBound];
-            
-            [maxbpath setLineWidth: 3.0];
-            [maxbpath stroke];
-            [maxbpath fill];
-        }
-        
-        
-        /* set the color */
-        
-        [context restoreGraphicsState];
-        
-        symNum += 1;
-    }
-    
-    [context restoreGraphicsState];
-}
-        
-
-- (void) drawMotif: (Motif*) m
-			  rect: (NSRect)rect 
-	   controlView: (NSView*)controlView {
-    NSRect insetRect = NSInsetRect(rect, IMMotifMargin, IMMotifMargin);
-    if ([self drawingStyle] == IMConsensus) {
-        [self drawConsensus: (Motif*) m 
-					   rect: insetRect 
-				controlView: controlView];
-    } else if ([self drawingStyle] == IMLogo) {
-        [MotifViewCell drawLogoForMotif: [self objectValue]
-                                 inRect: insetRect 
-              scaleByInformationContent: NO 
-                                flipped: YES 
-                             withOffset: [self calcLeftPaddingColumns:rect]
-                  minConfidenceInterval: 1.0 - [self confidenceIntervalCutoff]
-                  maxConfidenceInterval: [self confidenceIntervalCutoff]
-                  precisionDrawingStyle: [self columnPrecisionDrawingStyle]];
-    } else if ([self drawingStyle] == IMInfoScaledLogo) {
-        [MotifViewCell drawLogoForMotif: [self objectValue] 
-                                 inRect: insetRect 
-              scaleByInformationContent: YES 
-                                flipped: YES 
-                             withOffset: [self calcLeftPaddingColumns:rect]
-                  minConfidenceInterval: 1.0 - [self confidenceIntervalCutoff]
-                  maxConfidenceInterval: [self confidenceIntervalCutoff]
-                  precisionDrawingStyle: [self columnPrecisionDrawingStyle]];
-    }
 }
 
 
@@ -732,5 +852,10 @@ scaleByInformationContent:(BOOL)scaleByInfo
     }
     return;
 }*/
+
+-(void) setColumnDisplayOffset:(NSInteger) i {
+    NSLog(@"Column display offset changed to %d", i);
+    columnDisplayOffset = i;
+}
 
 @end
