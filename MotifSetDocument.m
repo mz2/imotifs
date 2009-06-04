@@ -24,7 +24,7 @@
 #import "AppController.h"
 #import "MotifSetController.h"
 #import "NMOperationConfigDialogController.h"
-
+#import "NMAlignOperation.h"
 
 CGFloat const IM_MOTIF_HEIGHT_INCREMENT = 5.0;
 CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
@@ -44,7 +44,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 @synthesize searchTypeNameItem,searchTypeConsensusItem,searchTypeConsensusScoringItem;
 @synthesize motifSetPickerSheet, motifSetPickerTableDelegate, motifSetPickerTableView, motifSetPickerOkButton;
 @synthesize drawerTableDelegate,drawer;
-@synthesize progressIndicator;
+@synthesize progressIndicator, alignmentProgressIndicator,statusLabel;
 @synthesize motifNamePickerSheet, motifNamePickerTextField, motifNamePickerLabel;
 @synthesize annotationsEditable;
 
@@ -815,7 +815,7 @@ provideDataForType:(NSString *)type {
                 [[MotifsBelowDistanceCutoffOperation alloc] initWithComparitor: motifComparitor 
                                                                          motif: consm 
                                                      againstMotifsControlledBy: motifSetController]; 
-                                [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
+                [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
                  addOperation:belowCutoffOperation];
                 [belowCutoffOperation release];
             }
@@ -904,12 +904,18 @@ provideDataForType:(NSString *)type {
 
 - (IBAction) alignMotifs: (id) sender {
     DebugLog(@"MotifSetDocument: aligning motifs");
+    NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet:self.motifSet];
+    [alignOperation setMotifSetDocument: self];
+    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation:alignOperation];
+    [alignOperation release];
     
     //char* in_tmpname = tmpnam(NULL);
     //char* aligned_tmpname = tmpnam(NULL);
     
     //NSString *inTmp = [NSString stringWithCString:in_tmpname];
     //NSString *alignTmp = [NSString stringWithCString:aligned_tmpname];
+    
+    /*
     
     NSArray *ms = [[motifSetController selectedObjects] count] > 0 ? 
                         [motifSetController selectedObjects]: 
@@ -931,6 +937,7 @@ provideDataForType:(NSString *)type {
     [inTmpFH closeFile];
     
     NSError *writeError;
+    
     [[doc description] writeToFile: @"/tmp/foo.xms" 
                         atomically: YES
                           encoding: NSUTF8StringEncoding
@@ -973,7 +980,7 @@ provideDataForType:(NSString *)type {
     [task launch];
     [handle readInBackgroundAndNotify];
     
-    
+    */
     /*
     DebugLog(@"Checking task termination status");
     int status = [task terminationStatus];
@@ -1329,5 +1336,26 @@ provideDataForType:(NSString *)type {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMColumnWidth] - IM_MOTIF_WIDTH_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
+}
+
+-(void) setStatus:(NSString*)str {
+    [statusLabel setStringValue: str];
+}
+
+-(NSString*) status {
+    return [statusLabel stringValue];
+}
+
+-(void) motifAlignmentStarted:(NMAlignOperation*) oper {
+    NSLog(@"Motif alignment started");
+    [self.alignmentProgressIndicator setHidden: NO];
+    [self.alignmentProgressIndicator startAnimation: self];
+    //self.status = @"Aligning motifs...";
+}
+
+-(void) motifAlignmentDone:(NMAlignOperation*) oper {
+    NSLog(@"Motif alignment done");
+    [self.alignmentProgressIndicator stopAnimation: self];
+    [self.alignmentProgressIndicator setHidden: YES];
 }
 @end

@@ -61,15 +61,18 @@
         isExecuting = YES;
         [task launch];
         [self run];
+        NSLog(@"Task has now been run.");
+        [self didChangeValueForKey:@"isExecuting"];
+        
+        NSLog(@"Changing isExecuting...");
+        [self willChangeValueForKey:@"isExecuting"];
+        isExecuting = NO;
         [self didChangeValueForKey:@"isExecuting"];
         
         [self willChangeValueForKey:@"isFinished"];
         isFinished = YES;
         [self didChangeValueForKey:@"isFinished"];
         
-        [self willChangeValueForKey:@"isExecuting"];
-        isExecuting = NO;
-        [self didChangeValueForKey:@"isExecuting"];
         DebugLog(@"IMTaskOperation done.");
     }
     
@@ -99,6 +102,8 @@
 
 +(NSArray*) argumentArrayFromDictionary:(NSMutableDictionary*) dict {
     NSMutableArray *args = [NSMutableArray array];
+    
+    //TODO: Make valueless keys be output in the end
     for (NSString *key in [dict allKeys]) {
         NSString *value = [dict objectForKey:key];
         [args addObject: key];

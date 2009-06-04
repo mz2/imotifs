@@ -6,8 +6,9 @@
 //  Copyright 2009 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
-#import "NMOperation.h"
 #import "stdlib.h"
+#import "NMOperation.h"
+#import "AppController.h"
 
 @interface NMOperation (private)
 
@@ -29,7 +30,9 @@
     if (self != nil) {
         logInterval = 100;
         maxCycles = 100000;
-        launchPath = @"/Users/mp4/workspace/nmica-dev/bin/nminfer";
+        launchPath = [[[[[NSUserDefaults standardUserDefaults] 
+                        stringForKey:NMBinPath] stringByExpandingTildeInPath] stringByAppendingPathComponent: @"nminfer"] retain];
+        NSLog(@"nminfer is at %@", launchPath);
         numMotifs = 1;
         minMotifLength = 6;
         maxMotifLength = 14;
@@ -78,7 +81,7 @@
     [self willChangeValueForKey:@"sequenceFilePath"];
     sequenceFilePath = str;
     if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
-        self.outputMotifSetPath = [[sequenceFilePath stringByDeletingLastPathComponent] stringByAppendingString:
+        self.outputMotifSetPath = [[sequenceFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:
              [[sequenceFilePath lastPathComponent] 
                         stringByReplacingOccurrencesOfString:@".fasta" 
                                                   withString:@".xms"]]; 

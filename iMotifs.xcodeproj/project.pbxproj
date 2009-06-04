@@ -39,6 +39,9 @@
 		8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC320486D014006FF6A4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A37F4B0FDCFA73011CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */; };
+		9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
+		950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */; };
+		950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
 		951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */; };
 		951FF3E60F32560E00A9175C /* NMTrainBGOperationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */; };
 		951FF3E90F32562300A9175C /* NMTrainBGOperationConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */; };
@@ -284,6 +287,8 @@
 		5FFA09D00E1415BC00E0F87D /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
 		8D15AC360486D014006FF6A4 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMAlignOperation.h; sourceTree = "<group>"; };
+		950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMAlignOperation.m; sourceTree = "<group>"; };
 		951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMTrainBGOperationStatusDialog.xib; sourceTree = "<group>"; };
 		951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTrainBGOperationStatusController.h; sourceTree = "<group>"; };
 		951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTrainBGOperationStatusController.m; sourceTree = "<group>"; };
@@ -568,6 +573,8 @@
 		951FF3DD0F32559900A9175C /* nmalign */ = {
 			isa = PBXGroup;
 			children = (
+				950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */,
+				950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */,
 			);
 			name = nmalign;
 			sourceTree = "<group>";
@@ -884,6 +891,7 @@
 				9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */,
 				95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */,
 				95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */,
+				950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1051,6 +1059,7 @@
 				9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */,
 				9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */,
 				9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */,
+				9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1112,6 +1121,7 @@
 				9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */,
 				95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */,
 				95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */,
+				950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

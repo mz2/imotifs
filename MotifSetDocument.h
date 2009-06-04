@@ -77,8 +77,11 @@ extern NSString *IMMotifSetIndicesPboardType;
     IBOutlet MotifSetDrawerTableDelegate *drawerTableDelegate;
     IBOutlet NSDrawer *drawer;
     
+    /* status and progress indication */
     IBOutlet NSProgressIndicator *progressIndicator;
-	
+    IBOutlet NSProgressIndicator *alignmentProgressIndicator;
+	IBOutlet NSTextField *statusLabel;
+    
     IBOutlet BOOL annotationsEditable;
     //MotifComparitor *motifComparitor;
 	
@@ -152,6 +155,9 @@ extern NSString *IMMotifSetIndicesPboardType;
 @property (retain,readwrite) MotifSetDrawerTableDelegate *drawerTableDelegate;
 
 @property (retain,readwrite) NSProgressIndicator *progressIndicator;
+@property (retain,readwrite) NSProgressIndicator *alignmentProgressIndicator;
+@property (retain,readwrite) NSTextField *statusLabel;
+@property (retain,readwrite) NSString *status;
 
 @property (retain,readwrite) NSDrawer *drawer;
 @property (readwrite) BOOL annotationsEditable;

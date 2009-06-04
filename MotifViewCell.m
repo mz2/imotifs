@@ -488,7 +488,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
                 minSymBound = NSMakeRect(pointLB.x + (symMeas.size.width * 0.25),
                                          minSymY, 
                                          symMeas.size.width * 0.50,
-                                         3.0 * (1.0 / w));
+                                         0.7 * (1.0 / w));
             }
             
             NSRect maxSymBound;
@@ -505,7 +505,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
                 maxSymBound = NSMakeRect(pointLB.x + symMeas.size.width * 0.25,
                                          maxSymY, 
                                          symMeas.size.width * 0.50,
-                                         3.0 * (1.0 / w));
+                                         0.7 * (1.0 / w));
             }
             
             [[NSColor colorWithCalibratedRed: [[sym defaultFillColor] redComponent] * 0.6 
