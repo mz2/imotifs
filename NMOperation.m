@@ -31,7 +31,7 @@
         logInterval = 100;
         maxCycles = 100000;
         launchPath = [[[[[NSUserDefaults standardUserDefaults] 
-                        stringForKey:NMBinPath] stringByExpandingTildeInPath] stringByAppendingPathComponent: @"nminfer"] retain];
+                        stringForKey:NMBinPath] stringByExpandingTildeInPath] stringByAppendingPathComponent: @"bin/nminfer"] retain];
         NSLog(@"nminfer is at %@", launchPath);
         numMotifs = 1;
         minMotifLength = 6;

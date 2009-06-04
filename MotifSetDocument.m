@@ -1347,14 +1347,12 @@ provideDataForType:(NSString *)type {
 }
 
 -(void) motifAlignmentStarted:(NMAlignOperation*) oper {
-    NSLog(@"Motif alignment started");
     [self.alignmentProgressIndicator setHidden: NO];
     [self.alignmentProgressIndicator startAnimation: self];
     //self.status = @"Aligning motifs...";
 }
 
 -(void) motifAlignmentDone:(NMAlignOperation*) oper {
-    NSLog(@"Motif alignment done");
     [self.alignmentProgressIndicator stopAnimation: self];
     [self.alignmentProgressIndicator setHidden: YES];
 }
