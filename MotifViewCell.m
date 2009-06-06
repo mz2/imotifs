@@ -13,6 +13,12 @@
 #import "DistributionBounds.h"
 #import "SymbolBounds.h"
 
+CGFloat const IMDefaultNameWidth = 100.0;
+NSInteger const IMLeftColPadding = 2;
+CGFloat const IMDefaultColWidth = 50.0;
+CGFloat const IMDefaultColHeight = 60.0;
+CGFloat const IMMotifMargin = 4.0;
+
 @interface MotifViewCell (Private)
 - (void) drawConsensus: (Motif*)m 
 				  rect: (NSRect)rect

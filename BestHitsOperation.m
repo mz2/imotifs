@@ -13,6 +13,9 @@
 #import "MotifSetDocument.h"
 #import "MotifSet.h"
 
+NSString* const IMClosestMotifMatchScoreKey = @"closest-motif-match-score";
+NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
+
 @implementation BestHitsOperation
 @synthesize m1s,m2s,isReciprocal;
 
@@ -71,6 +74,16 @@
             else
                 m2 = [[Motif alloc] initWithMotif: mp.m2];
             [m2 setOffset: mp.offset];
+            
+            [[m1 annotations] setObject: [NSNumber numberWithFloat:mp.score] 
+                                 forKey: IMClosestMotifMatchScoreKey];
+            [[m1 annotations] setObject: m2.name forKey: IMClosestMotifMatchNameKey];
+            
+            [[m2 annotations] setObject: [NSNumber numberWithFloat:mp.score] 
+                                 forKey: IMClosestMotifMatchScoreKey];
+            [[m2 annotations] setObject: m1.name forKey: IMClosestMotifMatchNameKey];
+              
+             
             [[msetDocument motifSet] addMotif: m1]; 
             [[msetDocument motifSet] addMotif: m2];
             DebugLog(@"%@ -> %@ : %d (%d)",

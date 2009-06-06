@@ -9,25 +9,11 @@
 #import <Cocoa/Cocoa.h>
 #import <Motif.h>
 
-#ifndef IMDefaultNameWidth
-#define IMDefaultNameWidth (CGFloat)100.0
-#endif
-
-#ifndef IMLeftColPadding
-#define IMLeftColPadding (NSInteger)2
-#endif
-
-#ifndef IMDefaultColWidth
-#define IMDefaultColWidth (CGFloat)50.0
-#endif
-
-#ifndef IMDefaultColHeight
-#define IMDefaultColHeight (CGFloat)60.0
-#endif
-
-#ifndef IMMotifMargin
-#define IMMotifMargin (CGFloat)4.0
-#endif
+extern CGFloat const IMDefaultNameWidth;
+extern NSInteger const IMLeftColPadding;
+extern CGFloat const IMDefaultColWidth;
+extern CGFloat const IMDefaultColHeight;
+extern CGFloat const IMMotifMargin;
 
 typedef enum MotifDrawingStyle {
     IMNone  = 0,

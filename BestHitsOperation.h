@@ -10,6 +10,9 @@
 #import "MotifComparisonOperation.h"
 @class Motif;
 
+extern NSString* const IMClosestMotifMatchScoreKey;
+extern NSString* const IMClosestMotifMatchNameKey;
+
 @interface BestHitsOperation : MotifComparisonOperation {
     NSArray *m1s;
     NSArray *m2s;

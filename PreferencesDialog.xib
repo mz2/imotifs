@@ -45,7 +45,7 @@
 				<bool key="NSSharedInstance">YES</bool>
 			</object>
 			<object class="NSWindowTemplate" id="227005503">
-				<int key="NSWindowStyleMask">7</int>
+				<int key="NSWindowStyleMask">23</int>
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{196, 26}, {319, 484}}</string>
 				<int key="NSWTFlags">-469762048</int>
@@ -1981,9 +1981,9 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{873, 345}, {319, 484}}</string>
+					<string>{{369, 484}, {319, 484}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{873, 345}, {319, 484}}</string>
+					<string>{{369, 484}, {319, 484}}</string>
 					<reference ref="8"/>
 					<string>{{353, 162}, {285, 156}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2040,7 +2040,7 @@ AAMAAAABAAEAAAFTAAMAAAAEAAAFwgAAAAAACAAIAAgACAABAAEAAQABA</bytes>
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">148</int>
+			<int key="maxID">159</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

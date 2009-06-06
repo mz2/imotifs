@@ -42,6 +42,12 @@
 		9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
 		950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */; };
 		950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
+		95113DF40FD91631006823C4 /* IMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 95113DF20FD91631006823C4 /* IMConstants.h */; };
+		95113DF50FD91631006823C4 /* IMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 95113DF30FD91631006823C4 /* IMConstants.m */; };
+		95113F480FD9685F006823C4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
+		95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
+		95113F4E0FD96869006823C4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
+		95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
 		951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */; };
 		951FF3E60F32560E00A9175C /* NMTrainBGOperationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */; };
 		951FF3E90F32562300A9175C /* NMTrainBGOperationConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */; };
@@ -56,8 +62,6 @@
 		953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */; };
 		953D811A0F2F417700049823 /* NMOperationStatusDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D81190F2F417700049823 /* NMOperationStatusDialogController.m */; };
 		953D81A60F2F4B4E00049823 /* DDCliUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D81A50F2F4B4E00049823 /* DDCliUtil.m */; };
-		953D82BC0F2F64D500049823 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 953D82BB0F2F64D500049823 /* skull.png */; };
-		953D82BE0F2F65F400049823 /* skull-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 953D82BD0F2F65F400049823 /* skull-small.png */; };
 		953D832D0F2F6E7300049823 /* NMOperationConfigDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */; };
 		953D84290F2F896800049823 /* NMOperationConfigDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 953D84280F2F896800049823 /* NMOperationConfigDialog.xib */; };
 		953D84920F2F9A1900049823 /* MotifSetDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D84910F2F9A1900049823 /* MotifSetDocumentController.m */; };
@@ -214,6 +218,17 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				95113F4E0FD96869006823C4 /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95113E720FD9570F006823C4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +304,9 @@
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMAlignOperation.h; sourceTree = "<group>"; };
 		950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMAlignOperation.m; sourceTree = "<group>"; };
+		95113DF20FD91631006823C4 /* IMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConstants.h; sourceTree = "<group>"; };
+		95113DF30FD91631006823C4 /* IMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConstants.m; sourceTree = "<group>"; };
+		95113F470FD9685F006823C4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Library/Frameworks/Sparkle.framework; sourceTree = "<absolute>"; };
 		951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMTrainBGOperationStatusDialog.xib; sourceTree = "<group>"; };
 		951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTrainBGOperationStatusController.h; sourceTree = "<group>"; };
 		951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTrainBGOperationStatusController.m; sourceTree = "<group>"; };
@@ -308,8 +326,6 @@
 		953D81190F2F417700049823 /* NMOperationStatusDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperationStatusDialogController.m; sourceTree = "<group>"; };
 		953D81A40F2F4B4E00049823 /* DDCliUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDCliUtil.h; sourceTree = "<group>"; };
 		953D81A50F2F4B4E00049823 /* DDCliUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDCliUtil.m; sourceTree = "<group>"; };
-		953D82BB0F2F64D500049823 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = skull.png; path = Images/Icons/skull.png; sourceTree = "<group>"; };
-		953D82BD0F2F65F400049823 /* skull-small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "skull-small.png"; path = "Images/Icons/skull-small.png"; sourceTree = "<group>"; };
 		953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperationConfigDialogController.h; sourceTree = "<group>"; };
 		953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMOperationConfigDialogController.m; sourceTree = "<group>"; };
 		953D84280F2F896800049823 /* NMOperationConfigDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMOperationConfigDialog.xib; sourceTree = "<group>"; };
@@ -367,6 +383,7 @@
 			files = (
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 				95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */,
+				95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +396,7 @@
 				9595B12F0FB9BC0100CE2BFF /* Cocoa.framework in Frameworks */,
 				9595B1300FB9BC0200CE2BFF /* CoreData.framework in Frameworks */,
 				9595B1320FB9BC0400CE2BFF /* Foundation.framework in Frameworks */,
+				95113F480FD9685F006823C4 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +406,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95113F470FD9685F006823C4 /* Sparkle.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -444,6 +463,8 @@
 			children = (
 				32DBCF750370BD2300C91783 /* iMotifs_Prefix.pch */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
+				95113DF20FD91631006823C4 /* IMConstants.h */,
+				95113DF30FD91631006823C4 /* IMConstants.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -706,8 +727,6 @@
 		953D82B80F2F64B800049823 /* icons */ = {
 			isa = PBXGroup;
 			children = (
-				953D82BD0F2F65F400049823 /* skull-small.png */,
-				953D82BB0F2F64D500049823 /* skull.png */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -892,6 +911,7 @@
 				95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */,
 				95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */,
 				950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */,
+				95113DF40FD91631006823C4 /* IMConstants.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -921,6 +941,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9595B0820FB9B1C800CE2BFF /* Build configuration list for PBXNativeTarget "iMotifs-unit" */;
 			buildPhases = (
+				95113E720FD9570F006823C4 /* CopyFiles */,
 				9595B2300FB9C04100CE2BFF /* Headers */,
 				9595B0790FB9B1C600CE2BFF /* Resources */,
 				9595B07A0FB9B1C600CE2BFF /* Sources */,
@@ -967,8 +988,6 @@
 				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
 				959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */,
 				953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */,
-				953D82BC0F2F64D500049823 /* skull.png in Resources */,
-				953D82BE0F2F65F400049823 /* skull-small.png in Resources */,
 				953D84290F2F896800049823 /* NMOperationConfigDialog.xib in Resources */,
 				951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */,
 				951FF3EB0F32563400A9175C /* NMTrainBGOperationConfigController.xib in Resources */,
@@ -1122,6 +1141,7 @@
 				95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */,
 				95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */,
 				950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */,
+				95113DF50FD91631006823C4 /* IMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,6 +5,7 @@
 #ifdef __OBJC__
     #import <Cocoa/Cocoa.h>
     #import <DebugLog.h>
+    #import "IMConstants.h"
 #endif
 
 #ifndef IMOTIFS_COCOA_GUI

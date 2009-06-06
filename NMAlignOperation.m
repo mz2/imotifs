@@ -31,7 +31,6 @@
     if (self != nil) {
         self.launchPath = [[[[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] 
                            stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
-        NSLog(@"nmalign launch path: %@", self.launchPath);
         self.addName = NO;
         self.maxPrecision = 0.0;
         self.minColWeight = 0.0;
@@ -50,14 +49,13 @@
         [[[mset toXMS] description] writeToFile:inputTempPath 
                                      atomically:NO 
                                        encoding:NSUTF8StringEncoding error:&err];
-        NSLog(@"Input motifs written to temporary file %@", inputTempPath);
-        NSLog(@"Output motifs will be written to temporary file at %@", outputTempPath);
+        //NSLog(@"Input motifs written to temporary file %@", inputTempPath);
+        //NSLog(@"Output motifs will be written to temporary file at %@", outputTempPath);
     }
     return self;    
 }
 
 -(void) initializeTask {
-    NSLog(@"Initializing task");
     setenv("NMICA_DEV_HOME", [[[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
     setenv("NMICA_HOME", [[[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
     //setenv("FOOBAR", "FOOBARRR!", YES);
