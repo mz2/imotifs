@@ -97,13 +97,13 @@ extern NSString *IMMotifSetIndicesPboardType;
     CGFloat motifHeight;
 }
 
-
 -(IBAction) searchMotifs:(id) sender;
 -(IBAction) searchTypeToggled:(id) sender;
 -(IBAction) selectNone:(id) sender;
 -(IBAction) find:(id) sender;
 
 -(IBAction) alignMotifs: (id) sender;
+-(IBAction) alignAndRepresentAsMLEMetamotif: (id) sender;
 -(IBAction) bestHitsWith: (id) sender;
 -(IBAction) bestReciprocalHitsWith: (id) sender;
 

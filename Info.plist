@@ -23,6 +23,8 @@
 		<dict>
 			<key>CFBundleTypeExtensions</key>
 			<array>
+				<string>seq</string>
+				<string>fa</string>
 				<string>fasta</string>
 			</array>
 			<key>CFBundleTypeName</key>
@@ -52,11 +54,13 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.1.5</string>
+	<string>0.1.7</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>SUFeedURL</key>
 	<string>http://imotifs.pearcomp.com/updates.xml</string>
+	<key>SUPublicDSAKeyFile</key>
+	<string>dsa_pub.pem</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>UTExportedTypeDeclarations</key>

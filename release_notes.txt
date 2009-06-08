@@ -1,4 +1,10 @@
-h1. <span>2009-06-05</span> Release 0.1.0
+h2. 0.1.7 - Motif alignment works with selected motifs / all motifs
+
+Motif alignments can be now done either for only selected motifs or all motifs (when none are selected). 
+
+h2. 0.1.6 - Test release for the Sparkle updates
+
+Just testing the Sparkle signing.
 
 h2. 0.1.5 - iMotifs with built-in NMICA
 

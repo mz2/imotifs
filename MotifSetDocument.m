@@ -31,6 +31,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 
 @interface MotifSetDocument (private)
 -(void) initializeUI;
+-(MotifSet*) motifSetWithSelectedOrAllMotifs;
 @end
 
 @implementation MotifSetDocument
@@ -168,7 +169,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 
 - (NSString *)displayName {
     if ([self fileURL] == nil) {
-        if (self.motifSet.name != nil) {
+        if (self.motifSet.name.length > 0) {
             return self.motifSet.name;
         } else {
             return [super displayName];
@@ -268,33 +269,11 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
     [ms retain];
     [motifSet release];
     motifSet = ms;
-    //Motif* motif = [ms motifWithIndex:0];
-    //DebugLog(@"MotifSetDocument: setting the motif view %@ to show the first motif of the set: %@",motifView,motif);
-    //[motifView setMotif:[ms motifWithIndex:0]];
-    //DebugLog(@"MotifSetDocument: total column count: %d", [motifSet columnCountWithOffsets]);
-    //DebugLog(@"MotifSetDocument: the current MotifViewCell=%@", motifViewCell);
+    motifSet.motifSetDocument = self;
+    
     if ([motifSet count] > 0) {
         [motifViewCell setColumnDisplayOffset: [motifSet columnCountWithOffsets] / 2.0];
-        //[motifViewCell setColumnDisplayOffset: 5];
     }
-    
-    /*
-    NSMutableArray *colors = [[[NSColorPanel sharedColorPanel] valueForKey:@"_colorSwatch"] 
-                              valueForKey:@"colors"];
-    
-    int i = 0;
-    for (Motif *m in [motifSet motifs]) {
-        [m setColor: [colors objectAtIndex:i++]];
-        if ([colors count] >= i) i = 0;
-    }*/
-    
-    /*
-    //just to test:
-    if (motifSet.count > 0) {
-        NSLog(@"Motif set size: %d", [motifSet count]);
-        [self.motifViewCell makeBitmapImageRepForMotif: [motifSet motifWithIndex: 0]];
-    }
-    */
     
     [motifSetController setContent:motifSet];
     [motifSetController rearrangeObjects];
@@ -714,7 +693,6 @@ provideDataForType:(NSString *)type {
         for (Motif *m in [motifSetController arrangedObjects]) {
             [m addPseudocounts: pseudoc];
         }
-        
     }
     [motifTable setNeedsDisplay:YES];
     //[dict release];
@@ -902,101 +880,39 @@ provideDataForType:(NSString *)type {
     //[searchField performClick: self];
 }
 
+-(MotifSet*) motifSetWithSelectedOrAllMotifs {
+    MotifSet *mset = [MotifSet motifSet];
+    if ([motifSetController selectedObjects].count > 0) {
+        for (Motif *m in [motifSetController selectedObjects]) {
+            [mset addMotif: m];
+        }        
+    } else {
+        for (Motif *m in [motifSetController arrangedObjects]) {
+            [mset addMotif: m];
+        }
+    }
+    return mset;
+}
+
 - (IBAction) alignMotifs: (id) sender {
     DebugLog(@"MotifSetDocument: aligning motifs");
-    NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet:self.motifSet];
+    
+    MotifSet *mset = [self motifSetWithSelectedOrAllMotifs];
+    NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet: mset];
     [alignOperation setMotifSetDocument: self];
     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation:alignOperation];
     [alignOperation release];
+}
+
+-(IBAction) alignAndRepresentAsMLEMetamotif: (id) sender {
     
-    //char* in_tmpname = tmpnam(NULL);
-    //char* aligned_tmpname = tmpnam(NULL);
+    MotifSet *mset = [self motifSetWithSelectedOrAllMotifs];
     
-    //NSString *inTmp = [NSString stringWithCString:in_tmpname];
-    //NSString *alignTmp = [NSString stringWithCString:aligned_tmpname];
-    
-    /*
-    
-    NSArray *ms = [[motifSetController selectedObjects] count] > 0 ? 
-                        [motifSetController selectedObjects]: 
-                        [motifSetController arrangedObjects];
-    
-    MotifSet *mset = [[[MotifSet alloc] init] autorelease];
-    for (Motif *m in ms) {
-        DebugLog(@"Adding motif %@",[m name]);
-        [mset addMotif:m];
-    }
-    
-    DebugLog(@"Exporting XMS");
-    NSXMLDocument *doc = [mset toXMS];
-    
-    DebugLog(@"Getting file handle");
-    NSFileHandle *inTmpFH = [NSFileHandle fileHandleForWritingAtPath:@"/tmp/foo.xms"];
-    DebugLog(@"Writing data");
-    [inTmpFH writeData:[[doc description] dataUsingEncoding:NSUTF8StringEncoding]];
-    [inTmpFH closeFile];
-    
-    NSError *writeError;
-    
-    [[doc description] writeToFile: @"/tmp/foo.xms" 
-                        atomically: YES
-                          encoding: NSUTF8StringEncoding
-                             error: &writeError];
-    DebugLog(@"Data written");
-    
-    //NSTask *task;
-    task = [[NSTask alloc] init];
-    [task setLaunchPath: @"~/workspace/nmica-extra/bin/nmalign"];
-    
-    NSArray *arguments = [NSArray arrayWithObjects: @"/tmp/foo.xms", @"-outputType", @"all",nil];    
-    DebugLog(@"Setting arguments");
-    [task setArguments: arguments];
-    
-    DebugLog(@"Getting standard output pipe");
-    //NSPipe *pipe;
-    [pipe release];
-    pipe = [[NSPipe alloc] init];
-    [task setStandardOutput: pipe];
-    //[pipe release];
-    
-    //[task launch]; 
-    DebugLog(@"Getting file handle for reading from pipe");
-    NSFileHandle *handle = [pipe fileHandleForReading];
-    //NSData *data = [handle availableData];
-    
-    NSNotificationCenter *nc;
-    nc = [NSNotificationCenter defaultCenter];
-    [nc removeObserver:self];
-    DebugLog(@"Adding self as an observer");
-    [nc addObserver:self 
-           selector:@selector(dataReady:) 
-               name:NSFileHandleReadToEndOfFileCompletionNotification 
-             object:handle];
-    [nc addObserver:self 
-           selector:@selector(taskTerminated:) 
-               name:NSTaskDidTerminateNotification 
-             object:task];
-    
-    [task launch];
-    [handle readInBackgroundAndNotify];
-    
-    */
-    /*
-    DebugLog(@"Checking task termination status");
-    int status = [task terminationStatus];
-    [task release];
-    if (status != 0) {
-        DebugLog(@"Motif alignment failed");
-        return;
-    }
-    
-    DebugLog(@"Parsing a motifset from the XMS");
-    NSError *error;
-    NSXMLDocument *alignedDoc = [[NSXMLDocument alloc] initWithData:data 
-                                options:0 
-                                  error:&error];
-    DebugLog (@"Got:\n%@", alignedDoc);
-    */
+    NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet: mset];
+    [alignOperation setMotifSetDocument: self];
+    alignOperation.outputType = NMAlignOutputTypeMetamotif;
+    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: alignOperation];
+    [alignOperation release];
 }
 
 - (IBAction) bestHitsWith: (id)sender {
@@ -1132,8 +1048,7 @@ provideDataForType:(NSString *)type {
 			DebugLog(@"First index: %d", curIndex);
 			while (curIndex != NSNotFound) {
 				DebugLog(@"curIndex: %d", curIndex);
-				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] 
-								  objectAtIndex: curIndex];
+				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] objectAtIndex: curIndex];
                 
                 //NSArray *bestHitPairs;
                 if ([action isEqual:@"bestHitsWith"]) {

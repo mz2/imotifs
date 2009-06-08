@@ -37,7 +37,11 @@ objectValueForTableColumn:(NSTableColumn*)aTableColumn
     if ([aTableColumn.identifier isEqual:@"motifcount"]) {
 		return [NSString stringWithFormat: @"%d",[motifSet count]];
     } else if ([[aTableColumn identifier] isEqual:@"name"]) {
-        return motifSet.name;
+        if (motifSet.name.length > 0) {
+            return motifSet.name;
+        } else {
+            return [motifSet.motifSetDocument displayName];
+        }
     } else {
         @throw [NSException exceptionWithName:@"IMUnexpectedTableColumnIdentifier" 
                                        reason:

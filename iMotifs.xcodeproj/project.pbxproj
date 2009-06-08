@@ -198,6 +198,8 @@
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
 		95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDDD530FC31AA600EB39C4 /* DebugLog.h */; };
 		95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDDD540FC31AA600EB39C4 /* DebugLog.m */; };
+		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
+		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -374,6 +376,7 @@
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
 		95BDDD530FC31AA600EB39C4 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
 		95BDDD540FC31AA600EB39C4 /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLog.m; sourceTree = "<group>"; };
+		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -473,6 +476,7 @@
 		2A37F4B8FDCFA73011CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				95E2EF530FDD1512001F14A2 /* dsa_pub.pem */,
 				953D82B80F2F64B800049823 /* icons */,
 				953D81110F2F40BA00049823 /* nib */,
 				5F61DFE60E2DF2C00091787E /* icon.icns */,
@@ -998,6 +1002,7 @@
 				951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */,
 				951FF3EB0F32563400A9175C /* NMTrainBGOperationConfigController.xib in Resources */,
 				9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */,
+				95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1005,6 +1010,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1013,7 +1019,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		95113FD00FDC02B9006823C4 /* Build NMICA */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1021,7 +1027,7 @@
 			name = "Build NMICA";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant";
 			showEnvVarsInLog = 0;
@@ -1041,7 +1047,7 @@
 		};
 		95F2D5AA0FDC07FD005124D3 /* Build NMICA-extra */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1049,14 +1055,14 @@
 			name = "Build NMICA-extra";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica-extra at ${NMICA_EXTRA_HOME}\"\ncd ${NMICA_EXTRA_HOME}\nant";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5AF0FDC0836005124D3 /* Create NMICA and NMICA-extra Directory Structure */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1064,14 +1070,14 @@
 			name = "Create NMICA and NMICA-extra Directory Structure";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "java_base_path=\"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}\"\nmkdir -p ${java_base_path}\nmkdir -p \"${java_base_path}/nmica\"\nmkdir -p \"${java_base_path}/nmica/bin\"\nmkdir -p \"${java_base_path}/nmica/lib\"\nmkdir -p \"${java_base_path}/nmica/native\"\nmkdir -p \"${java_base_path}/nmica-extra\"\nmkdir -p \"${java_base_path}/nmica-extra/lib\"";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5E00FDC0D75005124D3 /* Copy NMICA to Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1079,14 +1085,14 @@
 			name = "Copy NMICA to Bundle";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "cp ${NMICA_HOME}/bin/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/bin\"\ncp ${NMICA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/lib\"\ncp ${NMICA_HOME}/native/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/native\"";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5E40FDC0E57005124D3 /* Copy NMICA-extra to Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -1094,7 +1100,7 @@
 			name = "Copy NMICA-extra to Bundle";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "cp ${NMICA_EXTRA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica-extra/lib\"";
 			showEnvVarsInLog = 0;
