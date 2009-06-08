@@ -56,8 +56,23 @@
 }
 
 -(void) initializeTask {
-    setenv("NMICA_DEV_HOME", [[[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
-    setenv("NMICA_HOME", [[[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    
+    NSString *nmicaPath, *nmicaExtraPath;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IMUseBuiltInNMICA"]) {
+        nmicaPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica"];
+        nmicaExtraPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica-extra"];
+    } else {
+        nmicaPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath];
+        nmicaExtraPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] stringByExpandingTildeInPath];
+    }
+    
+    //NSLog(@"NMICA_PATH: %@\nNMICA_EXTRA_PATH: %@",nmicaPath,nmicaExtraPath);
+    setenv("NMICA_DEV_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    setenv("NMICA_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    setenv("NMICA_EXTRA_HOME", [nmicaExtraPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+
+    //
     //setenv("FOOBAR", "FOOBARRR!", YES);
     
     task = [[NSTask alloc] init];

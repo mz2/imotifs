@@ -61,6 +61,8 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [defaultValues setObject: [NSNumber numberWithFloat: IMDefaultColWidth] 
                       forKey: IMColumnWidth];
     
+    [defaultValues setObject: [NSNumber numberWithBool:YES] forKey:@"IMUseBuiltInNMICA"];
+    
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
     

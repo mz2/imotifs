@@ -52,11 +52,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.2</string>
+	<string>0.1.5</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
-    <key>SUFeedURL</key>
-    <string>http://imotifs.pearcomp.com/updates.xml</string>
+	<key>SUFeedURL</key>
+	<string>http://imotifs.pearcomp.com/updates.xml</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
 	<key>UTExportedTypeDeclarations</key>

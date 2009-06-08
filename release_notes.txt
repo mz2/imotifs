@@ -1,5 +1,9 @@
 h1. <span>2009-06-05</span> Release 0.1.0
 
-h2. First public development release of iMotifs
+h2. 0.1.5 - iMotifs with built-in NMICA
+
+NestedMICA is now built into the iMotifs application package. That is, you don't need a separate installation of NMICA to do motif discovery with iMotifs!
+
+h2. 0.1.0 - First public development release of iMotifs
 
 This is the first public release of iMotifs. Expect bugs, crashes and malfunction of all kind. Please report any bugs you find to <a>matias@piipari.net</a>.
