@@ -64,8 +64,6 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
                                       error:&error];
     
     if (msetDocument) {
-        [[NSDocumentController sharedDocumentController] addDocument: msetDocument];
-        [msetDocument makeWindowControllers];
         for (MotifPair *mp in bestHitPairs) {
             Motif *m1 = [[Motif alloc] initWithMotif: mp.m1];
             Motif *m2;
@@ -86,13 +84,23 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
              
             [[msetDocument motifSet] addMotif: m1]; 
             [[msetDocument motifSet] addMotif: m2];
-            DebugLog(@"%@ -> %@ : %d (%d)",
+            NSLog(@"%@ -> %@ : %d (%d)",
                   m1.name,
                   m2.name,
                   mp.offset,
                   mp.flipped);
         }
-        [msetDocument showWindows];
+        
+        //[[NSDocumentController sharedDocumentController] addDocument: msetDocument];
+        [[NSDocumentController sharedDocumentController] performSelectorOnMainThread: @selector(addDocument:) 
+                                                                          withObject: msetDocument 
+                                                                       waitUntilDone: YES];
+        [msetDocument performSelectorOnMainThread: @selector(makeWindowControllers) 
+                                       withObject: nil
+                                    waitUntilDone: YES];
+        [msetDocument performSelectorOnMainThread: @selector(showWindows) 
+                                       withObject: nil 
+                                    waitUntilDone: YES];
         
     } else {
         NSAlert *alert = [NSAlert alertWithError:error];

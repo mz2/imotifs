@@ -762,11 +762,12 @@ provideDataForType:(NSString *)type {
 
 - (IBAction) searchMotifs:(id) sender {
     
+    /*
     if (self.searchType != IMMotifSetSearchByConsensusScoring && 
         [motifSetController hiddenObjects].count > 0) {
-        [motifSetController showAll];
+        //[motifSetController showAll];
         [motifSetController rearrangeObjects];
-    }
+    }*/
     
     if ([searchField.stringValue isEqual:@""]) {
         DebugLog(@"clearing predicate and showing all");

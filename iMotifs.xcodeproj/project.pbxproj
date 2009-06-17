@@ -42,6 +42,8 @@
 		9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
 		950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */; };
 		950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */; };
+		950CCF220FE26C2200549134 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 950CCF210FE26C2200549134 /* BWToolkitFramework.framework */; };
+		950CCF2A0FE26C4B00549134 /* BWToolkitFramework.framework in Copy BWToolkit Framework */ = {isa = PBXBuildFile; fileRef = 950CCF210FE26C2200549134 /* BWToolkitFramework.framework */; };
 		95113DF40FD91631006823C4 /* IMConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 95113DF20FD91631006823C4 /* IMConstants.h */; };
 		95113DF50FD91631006823C4 /* IMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 95113DF30FD91631006823C4 /* IMConstants.m */; };
 		95113F480FD9685F006823C4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
@@ -69,6 +71,9 @@
 		954579B90EE725B20099ABA0 /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
 		95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */; };
 		9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */; };
+		95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */; };
+		95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */; };
+		95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */; };
 		9595AE980FB9780500CE2BFF /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */; };
 		9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE970FB9780500CE2BFF /* IMNSColorExtras.m */; };
 		9595B0EA0FB9B79400CE2BFF /* MetamotifTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B0E90FB9B79400CE2BFF /* MetamotifTests.m */; };
@@ -186,6 +191,8 @@
 		9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
 		9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */; };
 		9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
+		9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */; };
+		9595E5F70FE65BAE00FDD520 /* ActiveRecord.framework in Copy ActiveRecord Framework */ = {isa = PBXBuildFile; fileRef = 9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */; };
 		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
 		959E3CC50EE6812A00072A66 /* MotifPairWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */; };
 		959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
@@ -225,6 +232,17 @@
 			name = "Copy the Sparkle Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		950CCF5E0FE26C7300549134 /* Copy BWToolkit Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				950CCF2A0FE26C4B00549134 /* BWToolkitFramework.framework in Copy BWToolkit Framework */,
+			);
+			name = "Copy BWToolkit Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		95113E720FD9570F006823C4 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -233,6 +251,17 @@
 			files = (
 				95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95B70FD40FE440F10090E46A /* Copy ActiveRecord Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9595E5F70FE65BAE00FDD520 /* ActiveRecord.framework in Copy ActiveRecord Framework */,
+			);
+			name = "Copy ActiveRecord Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -307,6 +336,7 @@
 		8D15AC370486D014006FF6A4 /* iMotifs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMotifs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		950C1A030FD6E7C1002B8D33 /* NMAlignOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMAlignOperation.h; sourceTree = "<group>"; };
 		950C1A040FD6E7C1002B8D33 /* NMAlignOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMAlignOperation.m; sourceTree = "<group>"; };
+		950CCF210FE26C2200549134 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = /Library/Frameworks/BWToolkitFramework.framework; sourceTree = "<absolute>"; };
 		95113DF20FD91631006823C4 /* IMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConstants.h; sourceTree = "<group>"; };
 		95113DF30FD91631006823C4 /* IMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConstants.m; sourceTree = "<group>"; };
 		95113F470FD9685F006823C4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Library/Frameworks/Sparkle.framework; sourceTree = "<absolute>"; };
@@ -341,6 +371,11 @@
 		95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetDrawerTableDelegate.h; sourceTree = "<group>"; };
 		95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetDrawerTableDelegate.m; sourceTree = "<group>"; };
 		9545913E0FB06D8D00F0BEB5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MotifSetDocument.nib; sourceTree = "<group>"; };
+		95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesDialog.xib; sourceTree = "<group>"; };
+		95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesOperation.h; sourceTree = "<group>"; };
+		95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesOperation.m; sourceTree = "<group>"; };
+		95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesDialogController.h; sourceTree = "<group>"; };
+		95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesDialogController.m; sourceTree = "<group>"; };
 		9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSArrayExtras.h; path = ../libxms/IMNSArrayExtras.h; sourceTree = SOURCE_ROOT; };
 		9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMNSArrayExtras.m; path = ../libxms/IMNSArrayExtras.m; sourceTree = SOURCE_ROOT; };
 		9595AE960FB9780500CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSColorExtras.h; path = ../libxms/IMNSColorExtras.h; sourceTree = SOURCE_ROOT; };
@@ -355,6 +390,7 @@
 		9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolBounds.m; sourceTree = "<group>"; };
 		9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionBounds.h; sourceTree = "<group>"; };
 		9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionBounds.m; sourceTree = "<group>"; };
+		9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ActiveRecord.framework; sourceTree = "<group>"; };
 		959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifPairWindow.xib; sourceTree = "<group>"; };
 		959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairWindowController.h; sourceTree = "<group>"; };
 		959E3CC40EE6812A00072A66 /* MotifPairWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPairWindowController.m; sourceTree = "<group>"; };
@@ -388,6 +424,8 @@
 				8D15AC340486D014006FF6A4 /* Cocoa.framework in Frameworks */,
 				95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */,
 				95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */,
+				950CCF220FE26C2200549134 /* BWToolkitFramework.framework in Frameworks */,
+				9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +448,8 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */,
+				950CCF210FE26C2200549134 /* BWToolkitFramework.framework */,
 				95113F470FD9685F006823C4 /* Sparkle.framework */,
 				1058C7A7FEA54F5311CA2CBB /* Cocoa.framework */,
 			);
@@ -438,6 +478,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
+				953D80250F2F14BF00049823 /* libxms */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -499,6 +540,7 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
+				95800A8E0FE1538500D9068B /* retrieveseqs */,
 				95414FDA0F1245DB0083E72A /* app */,
 				95414FD90F1245CF0083E72A /* doc */,
 				953D81140F2F410700049823 /* nmica */,
@@ -569,7 +611,6 @@
 			isa = PBXGroup;
 			children = (
 				953D80260F2F14D400049823 /* operation */,
-				953D80250F2F14BF00049823 /* libxms */,
 			);
 			name = model;
 			sourceTree = "<group>";
@@ -677,6 +718,8 @@
 				953D80950F2F1B0400049823 /* NMOperation.m */,
 				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
 				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
+				95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */,
+				95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */,
 			);
 			name = operation;
 			sourceTree = "<group>";
@@ -716,6 +759,7 @@
 				951FF41C0F3258BF00A9175C /* nmmakebg */,
 				951FF41B0F3258B700A9175C /* nminfer */,
 				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
+				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
 			);
 			name = dialog;
 			sourceTree = "<group>";
@@ -767,6 +811,15 @@
 				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
 			);
 			name = preferences;
+			sourceTree = "<group>";
+		};
+		95800A8E0FE1538500D9068B /* retrieveseqs */ = {
+			isa = PBXGroup;
+			children = (
+				95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */,
+				95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */,
+			);
+			name = retrieveseqs;
 			sourceTree = "<group>";
 		};
 		9595B0930FB9B2B700CE2BFF /* test */ = {
@@ -927,6 +980,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iMotifs" */;
 			buildPhases = (
+				95B70FD40FE440F10090E46A /* Copy ActiveRecord Framework */,
+				950CCF5E0FE26C7300549134 /* Copy BWToolkit Framework */,
 				5FC3088C0E18C020006C4679 /* Copy the Sparkle Framework */,
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
@@ -1003,6 +1058,7 @@
 				951FF3EB0F32563400A9175C /* NMTrainBGOperationConfigController.xib in Resources */,
 				9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */,
 				95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */,
+				95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1019,7 +1075,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		95113FD00FDC02B9006823C4 /* Build NMICA */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1027,7 +1083,7 @@
 			name = "Build NMICA";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant";
 			showEnvVarsInLog = 0;
@@ -1047,7 +1103,7 @@
 		};
 		95F2D5AA0FDC07FD005124D3 /* Build NMICA-extra */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1055,14 +1111,14 @@
 			name = "Build NMICA-extra";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica-extra at ${NMICA_EXTRA_HOME}\"\ncd ${NMICA_EXTRA_HOME}\nant";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5AF0FDC0836005124D3 /* Create NMICA and NMICA-extra Directory Structure */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1070,14 +1126,14 @@
 			name = "Create NMICA and NMICA-extra Directory Structure";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = "java_base_path=\"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}\"\nmkdir -p ${java_base_path}\nmkdir -p \"${java_base_path}/nmica\"\nmkdir -p \"${java_base_path}/nmica/bin\"\nmkdir -p \"${java_base_path}/nmica/lib\"\nmkdir -p \"${java_base_path}/nmica/native\"\nmkdir -p \"${java_base_path}/nmica-extra\"\nmkdir -p \"${java_base_path}/nmica-extra/lib\"";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5E00FDC0D75005124D3 /* Copy NMICA to Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1085,14 +1141,14 @@
 			name = "Copy NMICA to Bundle";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = "cp ${NMICA_HOME}/bin/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/bin\"\ncp ${NMICA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/lib\"\ncp ${NMICA_HOME}/native/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/native\"";
 			showEnvVarsInLog = 0;
 		};
 		95F2D5E40FDC0E57005124D3 /* Copy NMICA-extra to Bundle */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
+			buildActionMask = 8;
 			files = (
 			);
 			inputPaths = (
@@ -1100,7 +1156,7 @@
 			name = "Copy NMICA-extra to Bundle";
 			outputPaths = (
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/bash;
 			shellScript = "cp ${NMICA_EXTRA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica-extra/lib\"";
 			showEnvVarsInLog = 0;
@@ -1166,6 +1222,8 @@
 				9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */,
 				9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */,
 				9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */,
+				95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */,
+				95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1342,6 +1400,7 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1352,6 +1411,10 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				JAVA_HOME = /System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
@@ -1369,12 +1432,17 @@
 					"$(inherited)",
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
+					"\"$(SRCROOT)\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";

@@ -14,5 +14,7 @@ ChocTop.new do |s|
   s.app_icon_position = [110, 110]
   s.applications_icon_position =  [330, 170]
   s.volume_icon = "Images/dmg128.png"
+
+  s.add_file("../imotifs-quicklook/build/Debug/MotifQuickLook.qlgenerator",:position=>[110,450])
   #s.applications_icon = "icon.icns" # or "appicon.png"
 end

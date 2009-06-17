@@ -230,7 +230,10 @@ NSString *IMLogoFontName = @"Arial Bold";
 			  rect: (NSRect)rect
             offset: (NSInteger) offset {
     
-    //NSLog(@"Column width: %.0f", self.columnWidth);
+    //NSLog(@"Drawing %@ in rect [%f,%f, %f,%f] with offset %d", 
+    //      m, 
+    //      rect.origin.x,rect.origin.y,
+    //      rect.size.width,rect.size.height,offset);
     NSRect insetRect = NSInsetRect(rect, IMMotifMargin, IMMotifMargin);
     if ([self drawingStyle] == IMConsensus) {
         [self drawConsensus: (Motif*) m 

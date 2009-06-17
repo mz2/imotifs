@@ -14,6 +14,7 @@
 #import "NMOperationStatusDialogController.h"
 #import "MotifSetDocumentController.h"
 #import "NMOperationConfigDialogController.h"
+#import "IMRetrieveSequencesDialogController.h"
 #import "MotifSetDocument.h"
 
 @implementation AppController
@@ -62,6 +63,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
                       forKey: IMColumnWidth];
     
     [defaultValues setObject: [NSNumber numberWithBool:YES] forKey:@"IMUseBuiltInNMICA"];
+    
+    [defaultValues setObject: @"anonymous" forKey:@"IMEnsemblUser"];
+    [defaultValues setObject: @"" forKey: @"IMEnsemblPassword"];
+    [defaultValues setObject: [NSNumber numberWithInt:5306] forKey: @"IMEnsemblDatabasePort"];
+    [defaultValues setObject: @"ensembldb.ensembl.org" forKey:@"IMEnsemblBaseURL"];
+    
     
     [[NSUserDefaults standardUserDefaults] registerDefaults:defaultValues];
 }
@@ -187,6 +194,15 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [configDialogController showWindow: self];
     
 }
+
+-(IBAction) retrieveSequences:(id) sender {
+    NSLog(@"Retrieve sequences");
+    IMRetrieveSequencesDialogController *retrieveSequencesController = 
+        [[IMRetrieveSequencesDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesDialog"];
+    
+    [retrieveSequencesController showWindow: self];
+}
+
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     //MotifSetDocumentController *msetDocController = [[MotifSetDocumentController alloc] init];

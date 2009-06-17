@@ -113,9 +113,12 @@
 -(void) showObject:(id)obj {
     [hiddenObjects removeObject: obj];
 }
+*/
+
+/*
 -(void) showAll {
     [hiddenObjects removeAllObjects];
-}
- */
+}*/
+
 
 @end

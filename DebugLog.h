@@ -7,6 +7,8 @@
  *
  */
 
+#import <Cocoa/Cocoa.h>
+
 #ifdef DEBUG
 
 #define DebugLog(args...) _DebugLog(__FILE__,__LINE__,__PRETTY_FUNCTION__,args);

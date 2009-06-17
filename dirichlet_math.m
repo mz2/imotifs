@@ -7,7 +7,9 @@
  *
  */
 
+#include <stdlib.h>
 #import <math.h>
+#import <Cocoa/Cocoa.h>
 #include "dirichlet_math.h"
 
 
@@ -20,7 +22,7 @@ double drandMax(double maxVal) {
 }
 
 double sampleGamma(double k, double theta) {
-    BOOL accept = false;
+    BOOL accept = NO;
     if (k < 1) {
         // Weibull algorithm
         double c = (1 / k);
@@ -33,7 +35,7 @@ double sampleGamma(double k, double theta) {
             e = -log(v);
             x = pow(z, c);
             if ((z + e) >= (d + x)) {
-                accept = true;
+                accept = YES;
             }
         } while (!accept);
         return (x * theta);

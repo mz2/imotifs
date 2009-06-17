@@ -81,4 +81,5 @@ extern NSString *IMConsensusSearchCutoff;
 - (IBAction) toggleFullScreenMode:(id) sender;
 - (IBAction) goAwayFromFullScreenMode:(id) sender;
 - (IBAction) runNMICA:(id) sender;
+- (IBAction) retrieveSequences:(id) sender;
 @end
