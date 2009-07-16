@@ -7,20 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-typedef enum IMRetrieveSequencesSearchType {
-    IMRetrieveSequencesSearchTypeStableID = 0,
-    IMRetrieveSequencesSearchTypeGeneName = 1
-} IMRetrieveSequencesSearchType;
+@class IMRetrieveSequencesOperation;
 
 @interface IMRetrieveSequencesDialogController : NSWindowController {
     IBOutlet NSSearchField *searchField;
     
     NSMutableArray *_foundGeneList;
-    NSMutableArray *_selectedGeneList;
+    //NSMutableArray *_selectedSchemas;
     NSArray *_organismList;
     NSArray *_schemaVersionList;
-    NSString *organism;
+    //NSString *_organism;
+    //NSString *_schemaVersion;
     NSDictionary *_schemaVersionsForOrganisms;
 
     IBOutlet NSArrayController *foundGeneListController;
@@ -28,21 +25,27 @@ typedef enum IMRetrieveSequencesSearchType {
     IBOutlet NSArrayController *organismListController;
     IBOutlet NSArrayController *schemaVersionListController;
     
-    IMRetrieveSequencesSearchType searchType;
+    IBOutlet NSPopUpButton *organismPopup;
+    IBOutlet NSPopUpButton *schemaVersionPopup;
+    
+    NSString *searchString;
     
     BOOL specifyGenesBySearching;
     BOOL specifyGenesFromFile;
+    
+    IBOutlet IMRetrieveSequencesOperation *retrieveSequencesOperation;
     
 }
 
 @property (readwrite, retain) NSSearchField *searchField;
 //@property (copy,readwrite) NSString *geneNamePatternString;
 
-@property (copy,readwrite) NSString *organism; 
+@property (copy,readonly) NSString *organism;
+@property (copy,readonly) NSString *schemaVersion;
 @property (retain,readonly) NSMutableArray *foundGeneList;
-@property (retain,readonly) NSMutableArray *selectedGeneList;
 @property (retain,readonly) NSArray *organismList;
 @property (retain,readonly) NSArray *schemaVersionList;
+//@property (retain,readwrite) NSMutableArray *selectedSchemas;
 @property (retain,readonly) NSDictionary *schemaVersionsForOrganisms;
 
 @property (retain,readonly) NSArrayController *foundGeneListController;
@@ -50,17 +53,26 @@ typedef enum IMRetrieveSequencesSearchType {
 @property (retain,readonly) NSArrayController *organismListController;
 @property (retain,readonly) NSArrayController *schemaVersionListController;
 
+@property (retain,readwrite) NSString *searchString;
+@property (retain,readwrite) NSPopUpButton *organismPopup;
+@property (retain,readwrite) NSPopUpButton *schemaVersionPopup;
+
 @property (readonly) BOOL enableGeneNameBySearchingCheckbox;
 @property (readonly) BOOL enableGeneNameFromInputFileCheckbox;
 
 @property (readwrite) BOOL specifyGenesBySearching;
 @property (readwrite) BOOL specifyGenesFromFile;
 
-@property (readwrite) IMRetrieveSequencesSearchType searchType;
+@property (retain, readwrite) IMRetrieveSequencesOperation *retrieveSequencesOperation;
+
+-(NSString*) activeEnsemblDatabaseName;
 
 -(IBAction) addToSelectedGenes:(id) sender;
 -(IBAction) removeFromSelectedGenes:(id) sender;
 
+-(IBAction) cancel:(id) sender;
+-(IBAction) submit:(id) sender;
 
+-(IBAction) browseForOutputFile:(id) sender;
 
 @end

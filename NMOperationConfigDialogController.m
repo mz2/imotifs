@@ -28,6 +28,12 @@
                              contextInfo: NULL];
 }
 
+-(void) browseForSequenceFileEnded: (NSOpenPanel*) sheet 
+                        returnCode: (int) returnCode
+                       contextInfo: (void*) contextInfo {
+    self.nminferOperation.sequenceFilePath = sheet.filename;
+}
+
 -(IBAction) browseForOutputFile:(id) sender {
     NSString *fileSugg = nil;
     NSString *dirSugg = nil;
@@ -51,6 +57,13 @@
     
 }
 
+-(void) browseForMotifSetDirectory: (NSOpenPanel*) sheet 
+                        returnCode: (int) returnCode
+                       contextInfo: (void*) contextInfo {
+    if (returnCode) {
+        self.nminferOperation.outputMotifSetPath = sheet.filename;                
+    }
+}
 
 -(IBAction) browseForBGModelFile:(id) sender {
     NSOpenPanel *seqFilePanel = [NSOpenPanel openPanel];
@@ -61,20 +74,6 @@
                            modalDelegate: self
                           didEndSelector: @selector(browseForBGModelFileEnded:returnCode:contextInfo:) 
                              contextInfo: NULL];
-}
-
--(void) browseForSequenceFileEnded: (NSOpenPanel*) sheet 
-                        returnCode: (int) returnCode
-                       contextInfo: (void*) contextInfo {
-    self.nminferOperation.sequenceFilePath = sheet.filename;
-}
-
--(void) browseForMotifSetDirectory: (NSOpenPanel*) sheet 
-                        returnCode: (int) returnCode
-                       contextInfo: (void*) contextInfo {
-    if (returnCode) {
-        self.nminferOperation.outputMotifSetPath = sheet.filename;                
-    }
 }
 
 -(void) browseForBGModelFileEnded: (NSOpenPanel*) sheet 

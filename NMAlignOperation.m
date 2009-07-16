@@ -29,8 +29,6 @@
 -(id) initWithMotifSet:(MotifSet*) mset {
     self = [super init];
     if (self != nil) {
-        self.launchPath = [[[[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] 
-                           stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
         self.addName = NO;
         self.maxPrecision = 0.0;
         self.minColWeight = 0.0;
@@ -66,6 +64,9 @@
         nmicaPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath];
         nmicaExtraPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] stringByExpandingTildeInPath];
     }
+    
+    self.launchPath = [[[nmicaExtraPath 
+                         stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
     
     //NSLog(@"NMICA_PATH: %@\nNMICA_EXTRA_PATH: %@",nmicaPath,nmicaExtraPath);
     setenv("NMICA_DEV_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);

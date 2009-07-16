@@ -7,11 +7,14 @@
 //
 
 #import "IMRetrieveSequencesDialogController.h"
+#import "IMRetrieveSequencesOperation.h"
 #import <ActiveRecord/ActiveRecord.h>
 
 
 @interface IMRetrieveSequencesDialogController (private) 
 -(void) setUpMySQLConnection;
+-(void) selectLatestSchemaVersion;
+-(void) connectToActiveEnsemblDatabase;
 @end
 
 
@@ -19,21 +22,153 @@
 //@synthesize geneNamePatternString;
 @synthesize specifyGenesBySearching, specifyGenesFromFile;
 
+@synthesize searchString;
 @synthesize searchField;
 @synthesize foundGeneListController;
 @synthesize selectedGeneListController;
 @synthesize organismListController;
 @synthesize schemaVersionListController;
-@synthesize searchType;
 
-@synthesize organism;
+//@synthesize selectedSchemas;
+
+@synthesize organismPopup, schemaVersionPopup;
+
+//@synthesize selectedSchemas = _selectedSchemas;
+@synthesize organism; // = _organism;
+@synthesize schemaVersion; // = _schemaVersion;
+
+@synthesize foundGeneList = _foundGeneList;
+@synthesize retrieveSequencesOperation;
+
+//This is read before 
+-(void) windowWillLoad {
+    //_selectedSchemas = [[NSMutableArray alloc] init];
+    [self setUpMySQLConnection];
+}
 
 - (void) awakeFromNib {
     NSLog(@"Awakening IMRetrieveSequencesDialogController from Nib");
     self.specifyGenesBySearching = NO;
     self.specifyGenesFromFile = NO;
     
-    [self setUpMySQLConnection];
+    //[self setUpMySQLConnection];
+    
+    
+    [self addObserver:self
+           forKeyPath:@"organismListController.selectionIndex"
+              options:(NSKeyValueObservingOptionNew)
+              context:NULL];
+    [self addObserver:self
+           forKeyPath:@"schemaVersionListController.selectionIndex"
+              options:(NSKeyValueObservingOptionNew)
+              context:NULL];
+    
+    
+    NSString *prevOrganism = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousEnsemblOrganism"];
+    NSString *prevSchemaVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousSchemaVersion"];
+    NSLog(@"Previous organism : %@", prevOrganism);
+    if (prevOrganism != nil) {
+        [organismListController setSelectionIndex:[organismListController.arrangedObjects indexOfObject:prevOrganism]];        
+    } else {
+        if ([organismListController.arrangedObjects count] > 0) {
+            [organismListController setSelectionIndex:0];
+        }
+    }
+    
+    if (prevSchemaVersion != nil) {
+        [schemaVersionListController setSelectionIndex:[schemaVersionListController.arrangedObjects indexOfObject:prevSchemaVersion]];
+    } else {
+        if ([schemaVersionListController.arrangedObjects count] > 0) {
+            [schemaVersionListController setSelectionIndex:0];
+        }
+    }
+    
+    //if ([self.organismPopup.itemArray indexOfObject: prevOrganism] != NSNotFound) {
+        //[self.organismPopup selected
+    //}
+    
+    [self selectLatestSchemaVersion];
+}
+
+-(void) selectLatestSchemaVersion {
+    /*
+    if (schemaVersionPopup.itemArray.count > 1) {
+        [schemaVersionPopup selectItemAtIndex: schemaVersionPopup.itemArray.count - 2];
+    }
+     */
+}
+
+-(NSString*) organism {
+    if (organismListController.selectedObjects.count > 0) {
+        return [[organismListController selectedObjects] objectAtIndex: 0];
+    }
+    
+    return nil;
+}
+
+-(NSString*) schemaVersion {
+    if (schemaVersionListController.selectedObjects.count > 0) {
+        return [[schemaVersionListController selectedObjects] objectAtIndex: 0];
+    }
+    
+    return nil;
+}
+
+- (void)observeValueForKeyPath: (NSString *)keyPath
+                      ofObject: (id)object
+                        change: (NSDictionary *)change
+                       context: (void *)context {
+    //NSLog(@"Selection index changed");
+    if ([keyPath isEqual:@"organismListController.selectionIndex"]) {
+        [self willChangeValueForKey:@"schemaVersionList"];
+        [_schemaVersionList release];
+        _schemaVersionList = nil;
+        [self didChangeValueForKey:@"schemaVersionList"];
+        
+        if ([organismListController selectedObjects].count > 0) {
+            NSString *selectedOrganism = [[organismListController selectedObjects] objectAtIndex:0];
+            
+            //NSLog(@"Saving IMPreviousEnsemblOrganism = %@", selectedOrganism);
+            [[NSUserDefaults standardUserDefaults] 
+             setObject: selectedOrganism 
+             forKey: @"IMPreviousEnsemblOrganism"];
+            [[NSUserDefaults standardUserDefaults] synchronize];            
+        } else {
+            //NSLog(@"No organism chosen");
+        }
+        
+        [self connectToActiveEnsemblDatabase];
+        
+    } 
+    else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
+        if ([schemaVersionListController selectedObjects].count > 0) {
+            NSString *selectedSchemaVersion = [[schemaVersionListController selectedObjects] objectAtIndex:0];
+            
+            //NSLog(@"Saving IMPreviousSchemaVersion = %@", selectedSchemaVersion);
+            [[NSUserDefaults standardUserDefaults]
+             setObject: selectedSchemaVersion forKey:@"IMPreviousSchemaVersion"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+        } else {
+            //NSLog(@"No schema chosen");
+        }
+        
+        [self connectToActiveEnsemblDatabase];
+    }
+    else {
+        [super observeValueForKeyPath: keyPath 
+                             ofObject: object 
+                               change: change 
+                              context: context];
+    }
+    
+}
+
+-(void) connectToActiveEnsemblDatabase {
+    [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",[self activeEnsemblDatabaseName]] 
+                             substitutions: nil];
+}
+-(NSString*) activeEnsemblDatabaseName {
+    return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.schemaVersion];
 }
 
 - (void) setUpMySQLConnection {
@@ -43,7 +178,7 @@
                [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblBaseURL"], @"host",
                [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"], @"user",
                [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"] , @"password",
-               [NSNumber numberWithInt:5306], @"port", nil]
+               [[NSUserDefaults standardUserDefaults] objectForKey:@"IMEnsemblPort"], @"port", nil]
                                             error:&err];
 	if(err != nil) {
         NSLog(@"There was an error connecting to MySQL: %@", [err description]);
@@ -53,43 +188,46 @@
     }
 	// See if it works
 	[ARBase setDefaultConnection:connection];
-    
-    
-    NSLog(@"Organism list: %@",[self organismList]);
-    if (self.organismList.count > 0) {
-        [self setOrganism:[[self organismList] objectAtIndex: 0]];
-        NSLog(@"Schema version list: %@",[self schemaVersionList]);
-    } else {
-        NSLog(@"No organisms");
-    }
-
 }
 
 -(NSArray*) organismList {
+    //NSLog(@"Getting organism list");
     if (_organismList == nil) {
-        _organismList = [[[self.schemaVersionsForOrganisms allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] retain];
+        //NSLog(@"Building organism list");
+        _organismList = [[[self.schemaVersionsForOrganisms allKeys] 
+                          sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)] retain];
+        //NSLog(@"Retrieved %d entries", _organismList.count);
+    } else {
+        //NSLog(@"Retrieving existing organism list");
     }
-    
+ 
     return _organismList;
 }
 
 -(NSArray*) schemaVersionList {
+    //NSLog(@"Getting schema version list");
     if (_schemaVersionList == nil) {
         if (self.organism == nil) {
-            
+            NSLog(@"Organism is nil. Will return an empty list of schema versions.");
             _schemaVersionList == [[NSArray alloc] init];
         }
         else {
-            _schemaVersionList = [[self.schemaVersionsForOrganisms objectForKey:self.organism] retain];
+            //NSLog(@"Retrieving schema versions");
+            _schemaVersionList = [[[self.schemaVersionsForOrganisms objectForKey:self.organism] 
+                                   sortedArrayUsingSelector:@selector(reverseCaseInsensitiveCompare:)] retain];
         }
+    } else {
+        //NSLog(@"Getting existing schema versions.");
     }
     
+    //NSLog(@"%d versions available", _schemaVersionList.count);
     return _schemaVersionList;
 }
 
 -(NSDictionary*) schemaVersionsForOrganisms  {
-    
+    //NSLog(@"Getting schema versions for all organisms");
     if (_schemaVersionsForOrganisms == nil) {
+        //NSLog(@"Retrieving schema versions from database");
         NSMutableDictionary *versions = [[NSMutableDictionary alloc] init];
         
         NSArray *results = [[ARBase defaultConnection] executeSQL:@"SHOW DATABASES;" substitutions:nil];
@@ -119,19 +257,16 @@
         } 
         
         _schemaVersionsForOrganisms = [versions retain];
+        
+        //NSLog(@"Retrieved schema versions for %d organisms", _schemaVersionsForOrganisms.allKeys.count);
+    } else {
+        //NSLog(@"Retrieving existing schema versions");
     }
         
     return _schemaVersionsForOrganisms;
 }
 
 
--(NSMutableArray*) foundGeneList {
-    
-} 
-
--(NSArray*) selectedGeneList {
-    
-} 
 
 -(IBAction) addToSelectedGenes:(id) sender {
     
@@ -177,12 +312,48 @@
     return NO;
 }
 
+-(IBAction) cancel:(id) sender {
+    NSLog(@"Closing");
+    [self.window close];
+}
+
+-(IBAction) submit:(id) sender {
+    NSLog(@"Submitting");
+}
+
+-(IBAction) browseForOutputFile:(id) sender {
+    NSString *fileSugg = nil;
+    NSString *dirSugg = nil;
+    if (retrieveSequencesOperation.outFilename != nil) {
+        fileSugg = [[self.retrieveSequencesOperation outFilename] lastPathComponent];
+        dirSugg = [[self.retrieveSequencesOperation outFilename] stringByDeletingLastPathComponent];
+    }
+    
+    NSSavePanel *seqFilePanel = [[NSSavePanel savePanel] retain];
+    
+    [seqFilePanel beginSheetForDirectory: nil
+                                    file: nil
+                          modalForWindow: self.window 
+                           modalDelegate: self 
+                          didEndSelector: @selector(browseForOutputFile:returnCode:contextInfo:) 
+                             contextInfo: nil];
+    
+}
+
+-(void) browseForOutputFile: (NSOpenPanel*) sheet 
+                 returnCode: (int) returnCode
+                contextInfo: (void*) contextInfo {
+    if (returnCode) {
+        self.retrieveSequencesOperation.outFilename = sheet.filename;                
+    }
+    [sheet release];
+}
+
 -(void) dealloc {
     [_foundGeneList release];
-    [_selectedGeneList release];
     [_organismList release];
     [_schemaVersionList release];
-    [organism release];
+    //[_organism release];
     [_schemaVersionsForOrganisms release];
     
     [super dealloc];

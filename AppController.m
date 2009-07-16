@@ -66,7 +66,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     
     [defaultValues setObject: @"anonymous" forKey:@"IMEnsemblUser"];
     [defaultValues setObject: @"" forKey: @"IMEnsemblPassword"];
-    [defaultValues setObject: [NSNumber numberWithInt:5306] forKey: @"IMEnsemblDatabasePort"];
+    [defaultValues setObject: [NSNumber numberWithInt:5306] forKey: @"IMEnsemblPort"];
     [defaultValues setObject: @"ensembldb.ensembl.org" forKey:@"IMEnsemblBaseURL"];
     
     
@@ -196,7 +196,6 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
 
 -(IBAction) retrieveSequences:(id) sender {
-    NSLog(@"Retrieve sequences");
     IMRetrieveSequencesDialogController *retrieveSequencesController = 
         [[IMRetrieveSequencesDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesDialog"];
     

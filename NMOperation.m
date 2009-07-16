@@ -92,7 +92,7 @@
 
 -(void) run {
     [dialogController performSelectorOnMainThread: @selector(setStatus:) 
-                                       withObject: @"Discover Sequence Motifs : Thinking..." 
+                                       withObject: @"Discovering sequence motifs..." 
                                     waitUntilDone: NO];    
     
     NSData *inData = nil;
@@ -109,16 +109,11 @@
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
         } else {
-            //NSUInteger i,cnt;
-            //for (i = 0,cnt=lines.count; i < cnt - 1;i++) {
-                //DebugLog(@"%@", [lines objectAtIndex:i]);
-            //}
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] initWithString:[lines objectAtIndex: lines.count - 1]];
             [buf release];
             buf = newBuf;
             [self parseNMInferLogLines: lines];
-            //DebugLog(@"Last, incomplete line: '%@'", [lines objectAtIndex:lines.count - 1]);
         }
     }
     
@@ -129,8 +124,7 @@
     [dialogController performSelectorOnMainThread: @selector(setStatus:) 
                                        withObject: @"Discover Sequence Motifs : Done." 
                                     waitUntilDone: NO];
-    
-    ddfprintf(stderr,@"NMOperation Done.\n");
+    ddfprintf(stderr,@"NMOperation done.\n");
 }
 
 -(void) parseNMInferLogLines:(NSArray*) lines {

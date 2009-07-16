@@ -7,9 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "IMTaskOperation.h"
+
+typedef enum IMRetrieveSequencesSearchType {
+    IMRetrieveSequencesSearchTypeStableID = 0,
+    IMRetrieveSequencesSearchTypeGeneName = 1
+} IMRetrieveSequencesSearchType;
 
 
-@interface IMRetrieveSequencesOperation : NSObject {
+@interface IMRetrieveSequencesOperation : IMTaskOperation {
     BOOL isRepeatMasked;
     BOOL excludeTranslations;
     NSInteger featherTranslationsBy;
@@ -24,6 +30,9 @@
     NSString *dbSchemaVersion;
     NSUInteger dbPort;
     
+    BOOL selectGeneList;
+    IMRetrieveSequencesSearchType searchType;
+    NSMutableArray *selectedGeneList;
     NSString *geneNameListFilename;
     
     NSInteger threePrimeUTRBeginCoord;
@@ -33,6 +42,14 @@
     NSInteger fivePrimeUTREndCoord;
     
     NSString *organismName;
+    
+    NSString *outFilename;
+    
+    @private 
+    //NSMutableString *buf;
+    NSFileHandle *readHandle;
+    NSFileHandle *errorReadHandle;
+    NSNumberFormatter *numFormatter;
 }
 
 @property (readwrite) BOOL isRepeatMasked;
@@ -49,6 +66,9 @@
 @property (readwrite,copy) NSString *dbSchemaVersion;
 @property (readwrite) NSUInteger dbPort;
 
+@property (readwrite) BOOL selectGeneList;
+@property (retain,readonly) NSMutableArray *selectedGeneList;
+@property (readwrite) IMRetrieveSequencesSearchType searchType;
 @property (readwrite,copy) NSString *geneNameListFilename;
 
 @property (readwrite) NSInteger threePrimeUTRBeginCoord;
@@ -58,5 +78,7 @@
 @property (readwrite) NSInteger fivePrimeUTREndCoord;
 
 @property (readwrite,copy) NSString *organismName;
+
+@property (readwrite,copy) NSString *outFilename;
 
 @end
