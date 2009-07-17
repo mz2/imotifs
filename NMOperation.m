@@ -13,7 +13,7 @@
 @interface NMOperation (private)
 
 -(void) parseNMInferLogLines:(NSArray*) lines;
-
+-(void) initializeArguments;
 @end
 
 
@@ -44,11 +44,7 @@
     return self;
 }
 
-
--(void) initializeTask {
-    task = [[NSTask alloc] init];
-    numFormatter = [[NSNumberFormatter alloc] init];
-    
+-(void) initializeArguments {
     [arguments setObject:sequenceFilePath forKey:@"-seqs"];
     if (outputMotifSetPath != nil) {[arguments setObject:outputMotifSetPath forKey:@"-out"];}
     [arguments setObject:[NSString stringWithFormat:@"%d",logInterval] forKey:@"-logInterval"];
@@ -65,6 +61,17 @@
         [arguments setObject:[NSString stringWithFormat:@"%d",backgroundOrder] forKey:@"-backgroundOrder"];
         [arguments setObject:[NSString stringWithFormat:@"%d",backgroundClasses] forKey:@"-backgroundClasses"];
     }
+}
+
+-(NSString*) argumentsString {
+    [self initializeArguments];
+    return [@"nminfer " stringByAppendingString:[[IMTaskOperation argumentArrayFromDictionary:arguments] componentsJoinedByString:@" "]];
+}
+
+-(void) initializeTask {
+    task = [[NSTask alloc] init];
+    numFormatter = [[NSNumberFormatter alloc] init];
+    [self initializeArguments];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
     //NSPipe *stdErrPipe = [NSPipe pipe];

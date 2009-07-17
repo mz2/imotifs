@@ -102,4 +102,11 @@
     
 }
 
+-(IBAction) copyToClipboard:(id) sender {
+    NSPasteboard *pb = [NSPasteboard generalPasteboard];
+    NSArray *types = [NSArray arrayWithObjects:NSStringPboardType, nil];
+    [pb declareTypes:types owner:self];
+    [pb setString: [self.nminferOperation argumentsString] forType:NSStringPboardType];
+}
+
 @end
