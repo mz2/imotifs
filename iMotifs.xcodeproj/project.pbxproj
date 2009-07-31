@@ -1133,15 +1133,17 @@
 /* Begin PBXShellScriptBuildPhase section */
 		95113FD00FDC02B9006823C4 /* Build NMICA */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
+				"$(NMICA_HOME)/src/*",
 			);
 			name = "Build NMICA";
 			outputPaths = (
+				"$(NMICA_HOME)/lib/nmica.jar",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant";
 			showEnvVarsInLog = 0;
@@ -1161,15 +1163,16 @@
 		};
 		95F2D5AA0FDC07FD005124D3 /* Build NMICA-extra */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
 			);
 			name = "Build NMICA-extra";
 			outputPaths = (
+				"$(NMICA_EXTRA_HOME)/lib/nmica-extra.jar",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
 			shellScript = "echo \"Building nmica-extra at ${NMICA_EXTRA_HOME}\"\ncd ${NMICA_EXTRA_HOME}\nant";
 			showEnvVarsInLog = 0;

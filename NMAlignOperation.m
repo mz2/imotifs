@@ -119,7 +119,6 @@
     NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
     
-    //NSLog(@"Initialised buffer");
     while (((inData = [readHandle availableData]) && inData.length) 
            ||
            ((errData = [errorReadHandle availableData]) && errData.length)) {
@@ -131,12 +130,9 @@
         
         NSLog(@"%@",str);
         NSLog(@"%@",errStr);
-        //DebugLog(@"inData: %@", str);
-        
         
         [buf appendString:str];
         [str release];
-        //[errStr release];
         
         NSArray *lines = [buf componentsSeparatedByString: @"\n"];
         if ([lines count] == 1) {
