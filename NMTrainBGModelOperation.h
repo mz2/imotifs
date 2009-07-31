@@ -17,7 +17,6 @@
     
     
     @private
-    NSNumberFormatter *numFormatter;
     NSFileHandle *readHandle;
     NSFileHandle *errorReadHandle;
 }

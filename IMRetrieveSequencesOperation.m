@@ -7,6 +7,8 @@
 //
 
 #import "IMRetrieveSequencesOperation.h"
+#import "IMRetrieveSequencesStatusDialogController.h"
+#import "NMOperation.h"
 
 
 @implementation IMRetrieveSequencesOperation
@@ -18,7 +20,7 @@
 @synthesize retrieveFivePrimeUTR;
 @synthesize dbUser;
 @synthesize dbPassword;
-@synthesize dbBaseURL;
+@synthesize dbName;
 @synthesize dbPort;
 @synthesize dbSchemaVersion;
 @synthesize geneNameListFilename;
@@ -27,84 +29,111 @@
 @synthesize fivePrimeUTRBeginCoord;
 @synthesize fivePrimeUTREndCoord;
 @synthesize organismName;
-@synthesize selectGeneList,selectedGeneList;
+@synthesize selectGeneList,selectGeneListFromFile,selectedGeneList;
 @synthesize searchType;
-
 @synthesize outFilename;
+
+@synthesize statusDialogController;
 
 - (id) init
 {
-    self = [super init];
-    if (self != nil) {
-        self.isRepeatMasked = YES;
-        self.excludeTranslations = YES;
-        self.featherTranslationsBy = 10;
-        self.featherDiscoveryRegionsBy = 0;
-        
-        self.retrieveThreePrimeUTR = NO;
-        self.threePrimeUTRBeginCoord = -200;
-        self.threePrimeUTREndCoord = 200;
-        
-        self.retrieveFivePrimeUTR = YES;
-        self.fivePrimeUTRBeginCoord = -200;
-        self.fivePrimeUTREndCoord = 200;
-        
-        self.dbUser = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"];
-        
-        NSString *pass = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"];
-        if (pass.length > 0) {
-            self.dbPassword = pass;
-        }
-        self.organismName = @"homo_sapiens";
-        self.dbSchemaVersion = nil;
-        
-        self.outFilename;
+    NSString *lp = 
+        [[[[NMOperation nmicaExtraPath] 
+           stringByAppendingPathComponent:@"bin/nmensemblseq"] 
+                stringByExpandingTildeInPath] retain];
+    
+    self = [super initWithLaunchPath: lp];
+    NSLog(@"Set the launch path to %@", self.launchPath);
+    if (self == nil) return nil;
+    
+    self.isRepeatMasked = YES;
+    self.excludeTranslations = YES;
+    self.featherTranslationsBy = 10;
+    self.featherDiscoveryRegionsBy = 0;
+    
+    self.retrieveThreePrimeUTR = NO;
+    self.threePrimeUTRBeginCoord = -200;
+    self.threePrimeUTREndCoord = 200;
+    
+    self.retrieveFivePrimeUTR = YES;
+    self.fivePrimeUTRBeginCoord = -200;
+    self.fivePrimeUTREndCoord = 200;
+    
+    self.selectedGeneList = [[NSMutableArray alloc] init];
+    
+    self.dbUser = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"];
+    
+    NSString *pass = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"];
+    if (pass.length > 0) {
+        self.dbPassword = pass;
     }
+    self.organismName = @"homo_sapiens";
+    self.dbSchemaVersion = nil;
+    
+    self.outFilename;
+    
     return self;
 }
 
 - (void) dealloc {
     [selectedGeneList release];
-    
     [super dealloc];
 }
 
--(void) initializetask {
-    task = [[NSTask alloc] init];
-    
-    [arguments setObject: self.isRepeatMasked ? @"true" : @"false" forKey:@"-repeatMask"];
+-(void) initializeArguments:(NSMutableDictionary*) args {
+    [args setObject: self.isRepeatMasked ? @"true" : @"false" forKey:@"-repeatMask"];
     if (self.excludeTranslations) {
-        [arguments setObject: [NSNull null] forKey:@"-excludeTranslations"];
+        [args setObject: [NSNull null] forKey:@"-excludeTranslations"];
     }
     if (self.excludeTranslations) {
-        [arguments setObject: [NSNull null] forKey:@"-featherTranslationsBy"];
+        [args setObject: [NSNull null] forKey:@"-featherTranslationsBy"];
     }
     if (self.featherTranslationsBy > 0) {
-        [arguments setObject: [NSNumber numberWithInt:self.featherDiscoveryRegionsBy] forKey:@"-featherTranslationsBy"];        
+        [args setObject: [[NSNumber numberWithInt:self.featherDiscoveryRegionsBy] stringValue] forKey:@"-featherTranslationsBy"];        
     }
     if (self.featherDiscoveryRegionsBy > 0) {
-        [arguments setObject: [NSNumber numberWithInt:self.featherDiscoveryRegionsBy] forKey:@"-featherRegionsBy"];        
+        [args setObject: [[NSNumber numberWithInt:self.featherDiscoveryRegionsBy] stringValue] forKey:@"-featherRegionsBy"];        
     }
     if (self.retrieveThreePrimeUTR) {
-        [arguments setObject: [NSString stringWithFormat:@"%d %d",self.threePrimeUTRBeginCoord,self.threePrimeUTREndCoord] 
-                      forKey: @"-threePrimeUTR"];
+        [args setObject: [NSString stringWithFormat:@"%d %d",-self.threePrimeUTRBeginCoord,self.threePrimeUTREndCoord] 
+                 forKey: @"-threePrimeUTR"];
     }
     if (self.retrieveFivePrimeUTR) {
-        [arguments setObject: [NSString stringWithFormat:@"%d %d",self.fivePrimeUTRBeginCoord,self.fivePrimeUTREndCoord] 
-                      forKey: @"-fivePrimeUTR"];
+        [args setObject: [NSString stringWithFormat:@"%d %d",-self.fivePrimeUTRBeginCoord,self.fivePrimeUTREndCoord] 
+                 forKey: @"-fivePrimeUTR"];
     }
     
+    if (self.selectedGeneList.count > 0) {
+        [args setObject: [self.selectedGeneList componentsJoinedByString:@" "] forKey: @"-filterByIds"];
+    }
+    
+    if (self.geneNameListFilename) {
+        [args setObject: self.geneNameListFilename forKey: @"-filterByIdsInFile"];
+    }
+    
+    if (self.dbName == nil) {
+        @throw [NSException exceptionWithName:@"IMNullPointerException" reason:@"Database name should not be nil! It needs to be specified." userInfo:nil];
+    } else {
+        [args setObject:self.dbName forKey:@"-database"];
+    }
+    
+    if (self.outFilename != nil) {
+        [args setObject:self.outFilename forKey:@"-out"];
+    }
+    
+}
+-(void) initializeTask:(NSTask*)t withArguments:(NSMutableDictionary*) args {
     NSPipe *stdOutPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
     
-    [task setStandardOutput: stdOutPipe];
+    [t setStandardOutput: stdOutPipe];
 }
 
 -(void) run {
     NSData *inData = nil;
-    NSData *errData = nil;
+    //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    
+    NSLog(@"Running");
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -119,19 +148,22 @@
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
+            NSLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
-            [self parseNMAlignLogLines: lines];
         }
         
     }
+    
+    NSLog(@"Done");
+    
+    [statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
+                                             withObject: self 
+                                          waitUntilDone: NO];
 }
 
--(void) cancel {
-    ddfprintf(stderr,@"Canceling alignment task...\n");
-    [task terminate];
-    ddfprintf(stderr,@"Alignment task terminated\n");
-    [super cancel];
+-(void) setStatusDialogController:(IMRetrieveSequencesStatusDialogController*) controller {
+    //[[controller lastEntryView] setString: 
 }
         
 @end

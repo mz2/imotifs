@@ -50,6 +50,8 @@
 		95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
 		95113F4E0FD96869006823C4 /* Sparkle.framework in Copy the Sparkle Framework */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
 		95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
+		9515BDE41022443700188C5A /* IMRetrieveSequencesStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */; };
+		9515BDE71022445800188C5A /* IMRetrieveSequencesStatusDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */; };
 		951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */; };
 		951FF3E60F32560E00A9175C /* NMTrainBGOperationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */; };
 		951FF3E90F32562300A9175C /* NMTrainBGOperationConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */; };
@@ -57,7 +59,6 @@
 		951FF3F60F32573E00A9175C /* NMTrainBGModelOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */; };
 		95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 95371B160FCD8BC900273BA9 /* dirichlet_math.h */; };
 		95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 95371B170FCD8BC900273BA9 /* dirichlet_math.m */; };
-		95371B4D0FCD8D0D00273BA9 /* dirichlet_math.h in Sources */ = {isa = PBXBuildFile; fileRef = 95371B160FCD8BC900273BA9 /* dirichlet_math.h */; };
 		95371B4E0FCD8D0D00273BA9 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 95371B170FCD8BC900273BA9 /* dirichlet_math.m */; };
 		953D80550F2F18B800049823 /* IMTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80540F2F18B800049823 /* IMTaskOperation.m */; };
 		953D80960F2F1B0400049823 /* NMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80950F2F1B0400049823 /* NMOperation.m */; };
@@ -211,6 +212,7 @@
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
+		95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -343,6 +345,9 @@
 		95113DF20FD91631006823C4 /* IMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConstants.h; sourceTree = "<group>"; };
 		95113DF30FD91631006823C4 /* IMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConstants.m; sourceTree = "<group>"; };
 		95113F470FD9685F006823C4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Library/Frameworks/Sparkle.framework; sourceTree = "<absolute>"; };
+		9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesStatusDialog.xib; sourceTree = "<group>"; };
+		9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesStatusDialogController.h; sourceTree = "<group>"; };
+		9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesStatusDialogController.m; sourceTree = "<group>"; };
 		951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMTrainBGOperationStatusDialog.xib; sourceTree = "<group>"; };
 		951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTrainBGOperationStatusController.h; sourceTree = "<group>"; };
 		951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTrainBGOperationStatusController.m; sourceTree = "<group>"; };
@@ -421,6 +426,8 @@
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
 		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UniqueObjects.h"; sourceTree = "<group>"; };
+		95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UniqueObjects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -502,7 +509,6 @@
 			children = (
 				5FB8976A0E3157F60084D9D8 /* util */,
 				9595B0930FB9B2B700CE2BFF /* test */,
-				5FB898990E31E8450084D9D8 /* matrix */,
 				5FA66A5F0E142A05009E5AFA /* control */,
 				5FFA09B90E1415A400E0F87D /* model */,
 				5FFA09930E1412DF00E0F87D /* ui */,
@@ -547,15 +553,13 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
-				95800A8E0FE1538500D9068B /* retrieveseqs */,
-				95414FDA0F1245DB0083E72A /* app */,
-				95414FD90F1245CF0083E72A /* doc */,
-				953D81140F2F410700049823 /* nmica */,
-				95B2C6740EED8EE3004605A6 /* motifsetpicker */,
-				95B2C6770EED8F40004605A6 /* motifnamepicker */,
-				95414FDB0F1245F00083E72A /* preferences */,
-				95B2C6760EED8F2C004605A6 /* pairs */,
-				95B2C6750EED8F11004605A6 /* drawer */,
+				95414FDA0F1245DB0083E72A /* App Controller */,
+				95B2C6750EED8F11004605A6 /* Drawer */,
+				9563E2C0101E0649006F067A /* Experimental */,
+				9563E2C1101E0651006F067A /* Integration */,
+				95414FD90F1245CF0083E72A /* Motif Set Document */,
+				9563E2C2101E065F006F067A /* Pickers */,
+				95414FDB0F1245F00083E72A /* Preferences */,
 			);
 			name = control;
 			sourceTree = "<group>";
@@ -563,6 +567,7 @@
 		5FB8976A0E3157F60084D9D8 /* util */ = {
 			isa = PBXGroup;
 			children = (
+				5FB898990E31E8450084D9D8 /* matrix */,
 				95BDDD520FC31A9C00EB39C4 /* debuglog */,
 				953D81A70F2F4B5100049823 /* ddcli */,
 				953D7F0F0F2E07D200049823 /* cocoa-extras */,
@@ -625,6 +630,8 @@
 		951FF3DB0F32558800A9175C /* nminfer */ = {
 			isa = PBXGroup;
 			children = (
+				953D80940F2F1B0400049823 /* NMOperation.h */,
+				953D80950F2F1B0400049823 /* NMOperation.m */,
 				953D81180F2F417700049823 /* NMOperationStatusDialogController.h */,
 				953D81190F2F417700049823 /* NMOperationStatusDialogController.m */,
 				953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */,
@@ -680,6 +687,8 @@
 				9595AE970FB9780500CE2BFF /* IMNSColorExtras.m */,
 				955C93900FEA7645005E6148 /* NSString+ReverseSearch.h */,
 				955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */,
+				95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */,
+				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
 			);
 			name = "cocoa-extras";
 			sourceTree = "<group>";
@@ -723,8 +732,6 @@
 				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 				953D80530F2F18B800049823 /* IMTaskOperation.h */,
 				953D80540F2F18B800049823 /* IMTaskOperation.m */,
-				953D80940F2F1B0400049823 /* NMOperation.h */,
-				953D80950F2F1B0400049823 /* NMOperation.m */,
 				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
 				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
 			);
@@ -742,14 +749,14 @@
 			name = nib;
 			sourceTree = "<group>";
 		};
-		953D81140F2F410700049823 /* nmica */ = {
+		953D81140F2F410700049823 /* NMICA Integration */ = {
 			isa = PBXGroup;
 			children = (
 				951FF3DD0F32559900A9175C /* nmalign */,
 				951FF3DC0F32559000A9175C /* nmmakebg */,
 				951FF3DB0F32558800A9175C /* nminfer */,
 			);
-			name = nmica;
+			name = "NMICA Integration";
 			sourceTree = "<group>";
 		};
 		953D811B0F2F418A00049823 /* doc */ = {
@@ -763,10 +770,10 @@
 		953D811C0F2F41AB00049823 /* dialog */ = {
 			isa = PBXGroup;
 			children = (
-				951FF41C0F3258BF00A9175C /* nmmakebg */,
+				9563E2BB101E0370006F067A /* ensembl */,
 				951FF41B0F3258B700A9175C /* nminfer */,
+				951FF41C0F3258BF00A9175C /* nmmakebg */,
 				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
-				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
 				95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */,
 				95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */,
 			);
@@ -789,7 +796,7 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
-		95414FD90F1245CF0083E72A /* doc */ = {
+		95414FD90F1245CF0083E72A /* Motif Set Document */ = {
 			isa = PBXGroup;
 			children = (
 				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
@@ -801,36 +808,73 @@
 				953D84900F2F9A1900049823 /* MotifSetDocumentController.h */,
 				953D84910F2F9A1900049823 /* MotifSetDocumentController.m */,
 			);
-			name = doc;
+			name = "Motif Set Document";
 			sourceTree = "<group>";
 		};
-		95414FDA0F1245DB0083E72A /* app */ = {
+		95414FDA0F1245DB0083E72A /* App Controller */ = {
 			isa = PBXGroup;
 			children = (
 				5FA66A600E142A12009E5AFA /* AppController.h */,
 				5FA66A610E142A12009E5AFA /* AppController.m */,
 			);
-			name = app;
+			name = "App Controller";
 			sourceTree = "<group>";
 		};
-		95414FDB0F1245F00083E72A /* preferences */ = {
+		95414FDB0F1245F00083E72A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
 				5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */,
 				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
 			);
-			name = preferences;
+			name = Preferences;
 			sourceTree = "<group>";
 		};
-		95800A8E0FE1538500D9068B /* retrieveseqs */ = {
+		9563E2BB101E0370006F067A /* ensembl */ = {
+			isa = PBXGroup;
+			children = (
+				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
+				9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */,
+			);
+			name = ensembl;
+			sourceTree = "<group>";
+		};
+		9563E2C0101E0649006F067A /* Experimental */ = {
+			isa = PBXGroup;
+			children = (
+				95B2C6760EED8F2C004605A6 /* Motif Pairs */,
+			);
+			name = Experimental;
+			sourceTree = "<group>";
+		};
+		9563E2C1101E0651006F067A /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
+				953D81140F2F410700049823 /* NMICA Integration */,
+			);
+			name = Integration;
+			sourceTree = "<group>";
+		};
+		9563E2C2101E065F006F067A /* Pickers */ = {
+			isa = PBXGroup;
+			children = (
+				95B2C6770EED8F40004605A6 /* Motif Name Picker */,
+				95B2C6740EED8EE3004605A6 /* Motif Set Picker */,
+			);
+			name = Pickers;
+			sourceTree = "<group>";
+		};
+		95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */ = {
 			isa = PBXGroup;
 			children = (
 				95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */,
 				95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */,
 				95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */,
 				95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */,
+				9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */,
+				9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */,
 			);
-			name = retrieveseqs;
+			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";
 		};
 		9595B0930FB9B2B700CE2BFF /* test */ = {
@@ -863,7 +907,7 @@
 			name = motifcomparison;
 			sourceTree = "<group>";
 		};
-		95B2C6740EED8EE3004605A6 /* motifsetpicker */ = {
+		95B2C6740EED8EE3004605A6 /* Motif Set Picker */ = {
 			isa = PBXGroup;
 			children = (
 				959E3D390EE6941100072A66 /* MotifSetPickerWindow.h */,
@@ -871,19 +915,19 @@
 				959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */,
 				959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */,
 			);
-			name = motifsetpicker;
+			name = "Motif Set Picker";
 			sourceTree = "<group>";
 		};
-		95B2C6750EED8F11004605A6 /* drawer */ = {
+		95B2C6750EED8F11004605A6 /* Drawer */ = {
 			isa = PBXGroup;
 			children = (
 				95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */,
 				95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */,
 			);
-			name = drawer;
+			name = Drawer;
 			sourceTree = "<group>";
 		};
-		95B2C6760EED8F2C004605A6 /* pairs */ = {
+		95B2C6760EED8F2C004605A6 /* Motif Pairs */ = {
 			isa = PBXGroup;
 			children = (
 				959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */,
@@ -891,10 +935,10 @@
 				959E3CC60EE681A600072A66 /* MotifPairArrayController.h */,
 				959E3CC70EE681A600072A66 /* MotifPairArrayController.m */,
 			);
-			name = pairs;
+			name = "Motif Pairs";
 			sourceTree = "<group>";
 		};
-		95B2C6770EED8F40004605A6 /* motifnamepicker */ = {
+		95B2C6770EED8F40004605A6 /* Motif Name Picker */ = {
 			isa = PBXGroup;
 			children = (
 				95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */,
@@ -902,7 +946,7 @@
 				95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */,
 				95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */,
 			);
-			name = motifnamepicker;
+			name = "Motif Name Picker";
 			sourceTree = "<group>";
 		};
 		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
@@ -1072,6 +1116,7 @@
 				95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */,
 				95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */,
 				95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */,
+				9515BDE41022443700188C5A /* IMRetrieveSequencesStatusDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1181,7 +1226,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95371B4D0FCD8D0D00273BA9 /* dirichlet_math.h in Sources */,
 				95371B4E0FCD8D0D00273BA9 /* dirichlet_math.m in Sources */,
 				8D15AC310486D014006FF6A4 /* MotifSetDocument.m in Sources */,
 				8D15AC320486D014006FF6A4 /* main.m in Sources */,
@@ -1238,6 +1282,8 @@
 				95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */,
 				95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */,
 				955C93920FEA7645005E6148 /* NSString+ReverseSearch.m in Sources */,
+				95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */,
+				9515BDE71022445800188C5A /* IMRetrieveSequencesStatusDialogController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

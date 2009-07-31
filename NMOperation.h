@@ -61,5 +61,7 @@
 @property (readwrite) BOOL reverseComplement;
 //@property (readwrite) BOOL needsRepeatMasking;
 
--(NSString*) argumentsString;
++(NSString*) nmicaPath;
++(NSString*) nmicaExtraPath;
+
 @end

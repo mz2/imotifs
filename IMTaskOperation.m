@@ -13,9 +13,15 @@
 @synthesize task, arguments, launchPath;
 
 -(id) init {
+    return [self initWithLaunchPath: nil];
+}
+
+-(id) initWithLaunchPath:(NSString*) lp {
     self = [super init];
     if (self) {
         arguments = [[NSMutableDictionary alloc] init];
+        self.launchPath = lp;
+        task = [[NSTask alloc] init];
     }
     
     return self;
@@ -32,7 +38,8 @@
 }
 
 //this method here needs to initialize  the task
-- (void) initializeTask {
+- (void) initializeTask: (NSTask*) task 
+          withArguments: (NSMutableDictionary*) args {
     @throw [NSException exceptionWithName:@"IMInitializeTaskNotOverridenException" 
                                    reason:@"-initializeTask should be overridden in the subclasses of IMTaskOperation" 
                                  userInfo:nil];
@@ -45,7 +52,9 @@
     
     //[[[NSApplication sharedApplication] delegate] registerNotifications];
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [self initializeTask];
+    [self initializeTask: self.task 
+           withArguments: arguments];
+    [self initializeArguments: arguments];
     [task setArguments:[IMTaskOperation argumentArrayFromDictionary:arguments]];
     [task setLaunchPath:launchPath];
     
@@ -114,4 +123,24 @@
     ddfprintf(stderr, @"%@",args);
     return args;
 }
+
+-(void) initializeArguments:(NSDictionary*) args {
+    //this should be where the arguments given to the application are initialised
+}
+
+-(NSString*) argumentsString {
+    [self initializeArguments: arguments];
+    return [NSString stringWithFormat:@"%@ %@",
+             [self.launchPath lastPathComponent],
+             [[IMTaskOperation argumentArrayFromDictionary: arguments] componentsJoinedByString: @" "]];
+}
+
+
+-(void) cancel {
+    ddfprintf(stderr,@"About to terminate %@...\n",self.launchPath);
+    [task terminate];
+    ddfprintf(stderr,@"Terminated %@\n",self.launchPath);
+    [super cancel];
+}
+
 @end

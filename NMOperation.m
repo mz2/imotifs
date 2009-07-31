@@ -24,61 +24,87 @@
 @synthesize sequenceFilePath, outputMotifSetPath;
 @synthesize backgroundModelPath,backgroundClasses,backgroundOrder;
 
++(NSString*) nmicaPath {
+    NSString *nmicaPath;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IMUseBuiltInNMICA"]) {
+        nmicaPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica"];
+    } else {
+        nmicaPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath];
+    }
+    setenv("NMICA_DEV_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    setenv("NMICA_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    
+    return nmicaPath;
+}
+
++(NSString*) nmicaExtraPath {
+    NSString *nmicaExtraPath;
+    
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IMUseBuiltInNMICA"]) {
+        nmicaExtraPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica"];
+    } else {
+        nmicaExtraPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] stringByExpandingTildeInPath];
+    }
+    setenv("NMICA_EXTRA_HOME", [nmicaExtraPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    
+    return nmicaExtraPath;
+}
+
 - (id) init
 {
-    self = [super init];
-    if (self != nil) {
-        logInterval = 100;
-        maxCycles = 100000;
-        launchPath = [[[[[NSUserDefaults standardUserDefaults] 
-                        stringForKey:NMBinPath] stringByExpandingTildeInPath] stringByAppendingPathComponent: @"bin/nminfer"] retain];
-        NSLog(@"nminfer is at %@", launchPath);
-        numMotifs = 1;
-        minMotifLength = 6;
-        maxMotifLength = 14;
-        expectedUsageFraction = 0.5;
-        reverseComplement = YES;
-        backgroundClasses = 4;
-        backgroundOrder = 1;
-    }
+    NSString *lp = 
+        [[[[NMOperation nmicaPath] stringByAppendingPathComponent:@"bin/nminfer"] 
+          stringByExpandingTildeInPath] retain];
+    
+    self = [super initWithLaunchPath: lp];
+    if (self == nil) return nil;
+    
+    logInterval = 100;
+    maxCycles = 100000;
+    NSLog(@"nminfer is at %@", launchPath);
+    numMotifs = 1;
+    minMotifLength = 6;
+    maxMotifLength = 14;
+    expectedUsageFraction = 0.5;
+    reverseComplement = YES;
+    backgroundClasses = 4;
+    backgroundOrder = 1;
+    
     return self;
 }
 
--(void) initializeArguments {
-    [arguments setObject:sequenceFilePath forKey:@"-seqs"];
-    if (outputMotifSetPath != nil) {[arguments setObject:outputMotifSetPath forKey:@"-out"];}
-    [arguments setObject:[NSString stringWithFormat:@"%d",logInterval] forKey:@"-logInterval"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",maxCycles] forKey:@"-maxCycles"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",numMotifs] forKey:@"-numMotifs"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",minMotifLength] forKey:@"-minLength"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",maxMotifLength] forKey:@"-maxLength"];
-    [arguments setObject:[NSString stringWithFormat:@"%f",expectedUsageFraction] forKey:@"-expectedUsageFraction"];
-    if (reverseComplement) {[arguments setObject:[NSNull null] forKey:@"-revComp"];}
+-(void) initializeArguments:(NSMutableDictionary*) args {
+    [args setObject:sequenceFilePath forKey:@"-seqs"];
+    if (outputMotifSetPath != nil) {[args setObject:outputMotifSetPath forKey:@"-out"];}
+    [args setObject:[NSString stringWithFormat:@"%d",logInterval] forKey:@"-logInterval"];
+    [args setObject:[NSString stringWithFormat:@"%d",maxCycles] forKey:@"-maxCycles"];
+    [args setObject:[NSString stringWithFormat:@"%d",numMotifs] forKey:@"-numMotifs"];
+    [args setObject:[NSString stringWithFormat:@"%d",minMotifLength] forKey:@"-minLength"];
+    [args setObject:[NSString stringWithFormat:@"%d",maxMotifLength] forKey:@"-maxLength"];
+    [args setObject:[NSString stringWithFormat:@"%f",expectedUsageFraction] forKey:@"-expectedUsageFraction"];
+    if (reverseComplement) {[args setObject:[NSNull null] forKey:@"-revComp"];}
     
     if (backgroundModelPath != nil) {
-        [arguments setObject:self.backgroundModelPath forKey:@"-backgroundModel"];
+        [args setObject:self.backgroundModelPath forKey:@"-backgroundModel"];
     } else {
-        [arguments setObject:[NSString stringWithFormat:@"%d",backgroundOrder] forKey:@"-backgroundOrder"];
-        [arguments setObject:[NSString stringWithFormat:@"%d",backgroundClasses] forKey:@"-backgroundClasses"];
+        [args setObject:[NSString stringWithFormat:@"%d",backgroundOrder] forKey:@"-backgroundOrder"];
+        [args setObject:[NSString stringWithFormat:@"%d",backgroundClasses] forKey:@"-backgroundClasses"];
     }
 }
 
--(NSString*) argumentsString {
-    [self initializeArguments];
-    return [@"nminfer " stringByAppendingString:[[IMTaskOperation argumentArrayFromDictionary:arguments] componentsJoinedByString:@" "]];
-}
 
--(void) initializeTask {
-    task = [[NSTask alloc] init];
+-(void) initializeTask:(NSTask*) t withArguments:(NSDictionary*) args {
+    //task = [[NSTask alloc] init];
     numFormatter = [[NSNumberFormatter alloc] init];
-    [self initializeArguments];
+    [self initializeArguments:self.arguments];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
     //NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
     //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
-    [task setStandardOutput: stdOutPipe];
+    [t setStandardOutput: stdOutPipe];
     //[task setStandardError: stdErrPipe];
     //[self setLaunchPath:launchPath];
 }
@@ -175,12 +201,6 @@
     minMotifLength = i;
 }
 
--(void) cancel {
-    ddfprintf(stderr,@"About to terminate NMICA...\n");
-    [task terminate];
-    ddfprintf(stderr,@"NMICA terminated\n");
-    [super cancel];
-}
 
 - (void) dealloc {
     [readHandle release];

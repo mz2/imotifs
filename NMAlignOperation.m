@@ -10,6 +10,7 @@
 #import "MotifSet.h"
 #import "AppController.h"
 #import "MotifSetDocument.h"
+#import "NMOperation.h"
 
 @interface NMAlignOperation (private)
 -(void) parseNMAlignLogLines:(NSArray*) lines;
@@ -27,8 +28,13 @@
 @synthesize readHandle, errorReadHandle;
 
 -(id) initWithMotifSet:(MotifSet*) mset {
-    self = [super init];
+    NSString *lp = 
+        [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
+
+    self = [super initWithLaunchPath: lp];
     if (self != nil) {
+
+        
         self.addName = NO;
         self.maxPrecision = 0.0;
         self.minColWeight = 0.0;
@@ -53,77 +59,53 @@
     return self;    
 }
 
--(void) initializeTask {
-    
-    NSString *nmicaPath, *nmicaExtraPath;
-    
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IMUseBuiltInNMICA"]) {
-        nmicaPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica"];
-        nmicaExtraPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica-extra"];
-    } else {
-        nmicaPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath];
-        nmicaExtraPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] stringByExpandingTildeInPath];
-    }
-    
-    self.launchPath = [[[nmicaExtraPath 
-                         stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
-    
-    //NSLog(@"NMICA_PATH: %@\nNMICA_EXTRA_PATH: %@",nmicaPath,nmicaExtraPath);
-    setenv("NMICA_DEV_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
-    setenv("NMICA_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
-    setenv("NMICA_EXTRA_HOME", [nmicaExtraPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
-
-    //
-    //setenv("FOOBAR", "FOOBARRR!", YES);
-    
-    task = [[NSTask alloc] init];
-    //[[task environment] setValue:[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] forKey:@"NMICA_DEV_HOME"];
-    //[[task environment] setValue:[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] forKey:@"NMICA_HOME"];
-    //[[task environment] setValue:[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] forKey:@"NMICA_EXTRA_HOME"];
-    
-    
+-(void) initializeArguments:(NSMutableDictionary*) args {
     if (inputTempPath == nil) {
         for (NSString *inPath in inputPaths) {
-            [arguments setObject:[NSNull null] forKey: inPath];
+            [args setObject:[NSNull null] forKey: inPath];
         }
     } else {
-        [arguments setObject:[NSNull null] forKey: inputTempPath]; 
+        [args setObject:[NSNull null] forKey: inputTempPath]; 
     }
     
     if (outputTempPath == nil) {
         if (outputPath != nil) {
-            [arguments setObject:self.outputPath forKey:@"-out"];
+            [args setObject:self.outputPath forKey:@"-out"];
         }        
     } else {
-        [arguments setObject:outputTempPath forKey:@"-out"];
+        [args setObject:outputTempPath forKey:@"-out"];
     }
-
+    
     if (self.maxPrecision > 0.0) {
-        [arguments setObject:[NSString stringWithFormat:@"%f",maxPrecision] forKey:@"-maxPrecision"];        
+        [args setObject:[NSString stringWithFormat:@"%f",maxPrecision] forKey:@"-maxPrecision"];        
     }
     
     if (self.minColWeight > 0.0) {
-        [arguments setObject:[NSString stringWithFormat:@"%f",minColWeight] forKey:@"-minColWeight"];
+        [args setObject:[NSString stringWithFormat:@"%f",minColWeight] forKey:@"-minColWeight"];
     }
     
     if (self.minCols > 0) {
-        [arguments setObject:[NSString stringWithFormat:@"%d",minCols] forKey:@"-minCols"];        
+        [args setObject:[NSString stringWithFormat:@"%d",minCols] forKey:@"-minCols"];        
     }
     
     if (self.outputType == NMAlignOutputTypeAll) {
-        [arguments setObject:@"all" forKey:@"-outputType"];
+        [args setObject:@"all" forKey:@"-outputType"];
     } else if (self.outputType == NMAlignOutputTypeAverage) {
-        [arguments setObject:@"avg" forKey:@"-outputType"];
+        [args setObject:@"avg" forKey:@"-outputType"];
     } else if (self.outputType == NMAlignOutputTypeMetamotif) {
-        [arguments setObject:@"metamotif" forKey:@"-outputType"];
+        [args setObject:@"metamotif" forKey:@"-outputType"];
     }
+}
+
+-(void) initializeTask:(NSTask*) t
+         withArguments:(NSMutableDictionary*) args {
     
     NSPipe *stdOutPipe = [NSPipe pipe];
     NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];    
     errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
-    [task setStandardOutput: stdOutPipe];
-    [task setStandardError: stdErrPipe];
+    [t setStandardOutput: stdOutPipe];
+    [t setStandardError: stdErrPipe];
 }
 
 -(void) run {
@@ -207,13 +189,6 @@
     //then do something with the lines
 }
 
--(void) cancel {
-    ddfprintf(stderr,@"Canceling alignment task...\n");
-    [task terminate];
-    ddfprintf(stderr,@"Alignment task terminated\n");
-    [super cancel];
-}
-
 - (void) dealloc {
     NSLog(@"Deallocating NMAlignOperation");
     [readHandle release];
@@ -222,7 +197,6 @@
     [inputPaths release];
     [outputPath release];
     [namePrefix release];
-    [task release];
     [super dealloc];
 }
 

@@ -121,7 +121,7 @@
 						<object class="BWTransparentButton" id="559510153">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{278, -2}, {107, 28}}</string>
+							<string key="NSFrame">{{184, -2}, {97, 28}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="BWTransparentButtonCell" key="NSCell" id="105612765">
@@ -166,7 +166,7 @@
 						<object class="BWTransparentButton" id="7480588">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{160, -2}, {107, 28}}</string>
+							<string key="NSFrame">{{288, -2}, {97, 28}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="BWTransparentButtonCell" key="NSCell" id="88670084">
@@ -917,13 +917,14 @@
 															<object class="NSMutableArray" key="NSTableColumns">
 																<bool key="EncodedWithXMLCoder">YES</bool>
 																<object class="NSTableColumn" id="191075668">
+																	<string key="NSIdentifier">gene_name</string>
 																	<double key="NSWidth">1.300000e+02</double>
 																	<double key="NSMinWidth">4.000000e+01</double>
 																	<double key="NSMaxWidth">1.000000e+03</double>
 																	<object class="NSTableHeaderCell" key="NSHeaderCell">
 																		<int key="NSCellFlags">75628032</int>
 																		<int key="NSCellFlags2">0</int>
-																		<string key="NSContents"/>
+																		<string key="NSContents">Gene name</string>
 																		<reference key="NSSupport" ref="26"/>
 																		<object class="NSColor" key="NSBackgroundColor">
 																			<int key="NSColorSpace">3</int>
@@ -974,7 +975,7 @@
 																</object>
 															</object>
 															<double key="NSRowHeight">1.700000e+01</double>
-															<int key="NSTvFlags">-700448768</int>
+															<int key="NSTvFlags">-633339904</int>
 															<int key="NSColumnAutoresizingStyle">4</int>
 															<int key="NSDraggingSourceMaskForLocal">15</int>
 															<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -1054,7 +1055,7 @@
 										<object class="BWTransparentButton" id="711945274">
 											<reference key="NSNextResponder" ref="406322606"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{174, 113}, {35, 27}}</string>
+											<string key="NSFrame">{{175, 113}, {35, 27}}</string>
 											<reference key="NSSuperview" ref="406322606"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="BWTransparentButtonCell" key="NSCell" id="574143450">
@@ -1157,7 +1158,7 @@
 															<reference key="NSBackgroundColor" ref="217641359"/>
 															<reference key="NSGridColor" ref="983285917"/>
 															<double key="NSRowHeight">1.700000e+01</double>
-															<int key="NSTvFlags">-700448768</int>
+															<int key="NSTvFlags">-633339904</int>
 															<int key="NSColumnAutoresizingStyle">4</int>
 															<int key="NSDraggingSourceMaskForLocal">15</int>
 															<int key="NSDraggingSourceMaskForNonLocal">0</int>
@@ -1283,7 +1284,7 @@
 										<object class="BWTransparentButton" id="490128364">
 											<reference key="NSNextResponder" ref="406322606"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{174, 91}, {35, 27}}</string>
+											<string key="NSFrame">{{175, 91}, {35, 27}}</string>
 											<reference key="NSSuperview" ref="406322606"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="BWTransparentButtonCell" key="NSCell" id="1064270814">
@@ -1386,23 +1387,22 @@
 												<string key="NSKeyEquivalent"/>
 												<int key="NSPeriodicDelay">400</int>
 												<int key="NSPeriodicInterval">75</int>
-												<object class="NSMenuItem" key="NSMenuItem" id="949227005">
+												<object class="NSMenuItem" key="NSMenuItem" id="923485631">
 													<reference key="NSMenu" ref="1000991305"/>
-													<string key="NSTitle">Stable id</string>
+													<string key="NSTitle">primary accession</string>
 													<string key="NSKeyEquiv"/>
-													<int key="NSKeyEquivModMask">1048576</int>
 													<int key="NSMnemonicLoc">2147483647</int>
 													<int key="NSState">1</int>
-													<object class="NSCustomResource" key="NSOnImage" id="404881948">
+													<object class="NSCustomResource" key="NSOnImage" id="289426959">
 														<string key="NSClassName">NSImage</string>
 														<string key="NSResourceName">NSMenuCheckmark</string>
 													</object>
-													<object class="NSCustomResource" key="NSMixedImage" id="88629496">
+													<object class="NSCustomResource" key="NSMixedImage" id="1035169607">
 														<string key="NSClassName">NSImage</string>
 														<string key="NSResourceName">NSMenuMixedState</string>
 													</object>
 													<string key="NSAction">_popUpItemAction:</string>
-													<int key="NSTag">1</int>
+													<int key="NSTag">2</int>
 													<reference key="NSTarget" ref="1032524474"/>
 												</object>
 												<bool key="NSMenuItemRespectAlignment">YES</bool>
@@ -1412,19 +1412,31 @@
 														<bool key="EncodedWithXMLCoder">YES</bool>
 														<object class="NSMenuItem" id="535701049">
 															<reference key="NSMenu" ref="1000991305"/>
-															<string key="NSTitle">Ensembl gene name</string>
+															<string key="NSTitle">stable ID</string>
 															<string key="NSKeyEquiv"/>
 															<int key="NSKeyEquivModMask">1048576</int>
 															<int key="NSMnemonicLoc">2147483647</int>
-															<reference key="NSOnImage" ref="404881948"/>
-															<reference key="NSMixedImage" ref="88629496"/>
+															<reference key="NSOnImage" ref="289426959"/>
+															<reference key="NSMixedImage" ref="1035169607"/>
 															<string key="NSAction">_popUpItemAction:</string>
 															<reference key="NSTarget" ref="1032524474"/>
 														</object>
-														<reference ref="949227005"/>
+														<object class="NSMenuItem" id="949227005">
+															<reference key="NSMenu" ref="1000991305"/>
+															<string key="NSTitle">display label</string>
+															<string key="NSKeyEquiv"/>
+															<int key="NSKeyEquivModMask">1048576</int>
+															<int key="NSMnemonicLoc">2147483647</int>
+															<reference key="NSOnImage" ref="289426959"/>
+															<reference key="NSMixedImage" ref="1035169607"/>
+															<string key="NSAction">_popUpItemAction:</string>
+															<int key="NSTag">1</int>
+															<reference key="NSTarget" ref="1032524474"/>
+														</object>
+														<reference ref="923485631"/>
 													</object>
 												</object>
-												<int key="NSSelectedIndex">1</int>
+												<int key="NSSelectedIndex">2</int>
 												<int key="NSPreferredEdge">1</int>
 												<bool key="NSUsesItemFromMenu">YES</bool>
 												<bool key="NSAltersState">YES</bool>
@@ -1676,8 +1688,8 @@
 													<int key="NSKeyEquivModMask">1048576</int>
 													<int key="NSMnemonicLoc">2147483647</int>
 													<int key="NSState">1</int>
-													<reference key="NSOnImage" ref="404881948"/>
-													<reference key="NSMixedImage" ref="88629496"/>
+													<reference key="NSOnImage" ref="289426959"/>
+													<reference key="NSMixedImage" ref="1035169607"/>
 													<string key="NSAction">_popUpItemAction:</string>
 													<reference key="NSTarget" ref="888639735"/>
 												</object>
@@ -1833,8 +1845,8 @@
 													<int key="NSKeyEquivModMask">1048576</int>
 													<int key="NSMnemonicLoc">2147483647</int>
 													<int key="NSState">1</int>
-													<reference key="NSOnImage" ref="404881948"/>
-													<reference key="NSMixedImage" ref="88629496"/>
+													<reference key="NSOnImage" ref="289426959"/>
+													<reference key="NSMixedImage" ref="1035169607"/>
 													<string key="NSAction">_popUpItemAction:</string>
 													<reference key="NSTarget" ref="141082393"/>
 												</object>
@@ -1849,8 +1861,8 @@
 															<string key="NSKeyEquiv"/>
 															<int key="NSKeyEquivModMask">1048576</int>
 															<int key="NSMnemonicLoc">2147483647</int>
-															<reference key="NSOnImage" ref="404881948"/>
-															<reference key="NSMixedImage" ref="88629496"/>
+															<reference key="NSOnImage" ref="289426959"/>
+															<reference key="NSMixedImage" ref="1035169607"/>
 															<string key="NSAction">_popUpItemAction:</string>
 															<reference key="NSTarget" ref="141082393"/>
 														</object>
@@ -1861,8 +1873,8 @@
 															<string key="NSKeyEquiv"/>
 															<int key="NSKeyEquivModMask">1048576</int>
 															<int key="NSMnemonicLoc">2147483647</int>
-															<reference key="NSOnImage" ref="404881948"/>
-															<reference key="NSMixedImage" ref="88629496"/>
+															<reference key="NSOnImage" ref="289426959"/>
+															<reference key="NSMixedImage" ref="1035169607"/>
 															<string key="NSAction">_popUpItemAction:</string>
 															<reference key="NSTarget" ref="141082393"/>
 														</object>
@@ -1956,6 +1968,29 @@
 							<int key="NSTitlePosition">2</int>
 							<bool key="NSTransparent">NO</bool>
 						</object>
+						<object class="BWTransparentButton" id="339231625">
+							<reference key="NSNextResponder" ref="1006"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{13, -2}, {121, 28}}</string>
+							<reference key="NSSuperview" ref="1006"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="BWTransparentButtonCell" key="NSCell" id="601364336">
+								<int key="NSCellFlags">67239424</int>
+								<int key="NSCellFlags2">134348800</int>
+								<object class="NSAttributedString" key="NSContents">
+									<string key="NSString">Copy to clipboard</string>
+									<reference key="NSAttributes" ref="567897990"/>
+								</object>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="339231625"/>
+								<int key="NSButtonFlags">-2038284033</int>
+								<int key="NSButtonFlags2">129</int>
+								<string key="NSAlternateContents"/>
+								<string key="NSKeyEquivalent"/>
+								<int key="NSPeriodicDelay">200</int>
+								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
 					</object>
 					<string key="NSFrameSize">{404, 699}</string>
 					<reference key="NSSuperview"/>
@@ -1977,6 +2012,8 @@
 					<string>featherTranslationsBy</string>
 					<string>IMGeneSearchType</string>
 					<string>threePrimeUTREndCoord</string>
+					<string>sefl</string>
+					<string>selectGeneListFromFile</string>
 				</object>
 				<bool key="NSEditable">YES</bool>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
@@ -2030,22 +2067,6 @@
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
 				<bool key="EncodedWithXMLCoder">YES</bool>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">addToSelectedGenes:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="711945274"/>
-					</object>
-					<int key="connectionID">322</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">removeFromSelectedGenes:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="490128364"/>
-					</object>
-					<int key="connectionID">323</int>
-				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
 						<string key="label">delegate</string>
@@ -2874,22 +2895,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBBindingConnection" key="connection">
-						<string key="label">enabled: selectGeneList</string>
-						<reference key="source" ref="75393634"/>
-						<reference key="destination" ref="914281450"/>
-						<object class="NSNibBindingConnector" key="connector">
-							<reference key="NSSource" ref="75393634"/>
-							<reference key="NSDestination" ref="914281450"/>
-							<string key="NSLabel">enabled: selectGeneList</string>
-							<string key="NSBinding">enabled</string>
-							<string key="NSKeyPath">selectGeneList</string>
-							<int key="NSNibBindingConnectorVersion">2</int>
-						</object>
-					</object>
-					<int key="connectionID">574</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBBindingConnection" key="connection">
 						<string key="label">value: searchString</string>
 						<reference key="source" ref="998811382"/>
 						<reference key="destination" ref="1001"/>
@@ -2935,6 +2940,278 @@
 						<reference key="destination" ref="914281450"/>
 					</object>
 					<int key="connectionID">593</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="75393634"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="75393634"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">608</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">selectedTag: selectedGeneIDType</string>
+						<reference key="source" ref="75393634"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="75393634"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">selectedTag: selectedGeneIDType</string>
+							<string key="NSBinding">selectedTag</string>
+							<string key="NSKeyPath">selectedGeneIDType</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">612</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">contentArray: foundGeneList</string>
+						<reference key="source" ref="721043563"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="721043563"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">contentArray: foundGeneList</string>
+							<string key="NSBinding">contentArray</string>
+							<string key="NSKeyPath">foundGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">617</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="814176842"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="814176842"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">620</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="737200900"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="737200900"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">623</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="490128364"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="490128364"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">629</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.self</string>
+						<reference key="source" ref="191075668"/>
+						<reference key="destination" ref="721043563"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="191075668"/>
+							<reference key="NSDestination" ref="721043563"/>
+							<string key="NSLabel">value: arrangedObjects.self</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.self</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">635</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="191075668"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="191075668"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">637</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: arrangedObjects.self</string>
+						<reference key="source" ref="737200900"/>
+						<reference key="destination" ref="937989440"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="737200900"/>
+							<reference key="NSDestination" ref="937989440"/>
+							<string key="NSLabel">value: arrangedObjects.self</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">arrangedObjects.self</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">660</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="1021463478"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="1021463478"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">663</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneList</string>
+						<reference key="source" ref="711945274"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="711945274"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneList</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneList</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">665</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">addToSelectedGenes:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="711945274"/>
+					</object>
+					<int key="connectionID">668</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">removeFromSelectedGenes:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="490128364"/>
+					</object>
+					<int key="connectionID">669</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneListFromFile</string>
+						<reference key="source" ref="525232696"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="525232696"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneListFromFile</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneListFromFile</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">672</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: selectGeneListFromFile</string>
+						<reference key="source" ref="190681438"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="190681438"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">enabled: selectGeneListFromFile</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">selectGeneListFromFile</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">675</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: geneNameListFilename</string>
+						<reference key="source" ref="525232696"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="525232696"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">value: geneNameListFilename</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">geneNameListFilename</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">677</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">browseForGeneNameFile:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="190681438"/>
+					</object>
+					<int key="connectionID">678</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selectGeneListFromFile</string>
+						<reference key="source" ref="475152373"/>
+						<reference key="destination" ref="914281450"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="475152373"/>
+							<reference key="NSDestination" ref="914281450"/>
+							<string key="NSLabel">value: selectGeneListFromFile</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selectGeneListFromFile</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">681</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">copyToClipboard:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="339231625"/>
+					</object>
+					<int key="connectionID">684</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -2982,12 +3259,13 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="765456005"/>
 							<reference ref="596173187"/>
-							<reference ref="559510153"/>
-							<reference ref="7480588"/>
 							<reference ref="1035566262"/>
-							<reference ref="11174922"/>
 							<reference ref="571992012"/>
 							<reference ref="47860452"/>
+							<reference ref="11174922"/>
+							<reference ref="339231625"/>
+							<reference ref="7480588"/>
+							<reference ref="559510153"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -3048,18 +3326,18 @@
 						<reference key="object" ref="11174922"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="475152373"/>
 							<reference ref="490128364"/>
 							<reference ref="939522962"/>
 							<reference ref="42040391"/>
-							<reference ref="896449970"/>
-							<reference ref="461954324"/>
 							<reference ref="75393634"/>
 							<reference ref="190681438"/>
-							<reference ref="646451902"/>
-							<reference ref="711945274"/>
 							<reference ref="525232696"/>
 							<reference ref="998811382"/>
+							<reference ref="646451902"/>
+							<reference ref="711945274"/>
+							<reference ref="475152373"/>
+							<reference ref="461954324"/>
+							<reference ref="896449970"/>
 						</object>
 						<reference key="parent" ref="1006"/>
 						<string key="objectName">Filter Gene Box</string>
@@ -3986,6 +4264,7 @@
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="949227005"/>
 							<reference ref="535701049"/>
+							<reference ref="923485631"/>
 						</object>
 						<reference key="parent" ref="1032524474"/>
 					</object>
@@ -4054,6 +4333,25 @@
 						<int key="objectID">16</int>
 						<reference key="object" ref="625986032"/>
 						<reference key="parent" ref="679555413"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">606</int>
+						<reference key="object" ref="923485631"/>
+						<reference key="parent" ref="1000991305"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">682</int>
+						<reference key="object" ref="339231625"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="601364336"/>
+						</object>
+						<reference key="parent" ref="1006"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">683</int>
+						<reference key="object" ref="601364336"/>
+						<reference key="parent" ref="339231625"/>
 					</object>
 				</object>
 			</object>
@@ -4189,8 +4487,11 @@
 					<string>59.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
 					<string>60.IBPluginDependency</string>
+					<string>606.IBPluginDependency</string>
 					<string>61.IBPluginDependency</string>
 					<string>62.IBPluginDependency</string>
+					<string>682.IBPluginDependency</string>
+					<string>683.IBPluginDependency</string>
 					<string>7.IBPluginDependency</string>
 					<string>8.IBPluginDependency</string>
 					<string>82.IBPluginDependency</string>
@@ -4218,9 +4519,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilderKit</string>
-					<string>{{403, 60}, {404, 699}}</string>
+					<string>{{-885, 460}, {404, 699}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{403, 60}, {404, 699}}</string>
+					<string>{{-885, 460}, {404, 699}}</string>
 					<reference ref="9"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -4318,7 +4619,7 @@
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
-					<string>{{1311, 750}, {170, 37}}</string>
+					<string>{{312, 463}, {160, 54}}</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
@@ -4345,6 +4646,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.brandonwalkin.BWToolkit</string>
+					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
@@ -4388,7 +4692,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">593</int>
+			<int key="maxID">684</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4409,13 +4713,17 @@
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<string>addToSelectedGenes:</string>
+							<string>browseForGeneNameFile:</string>
 							<string>browseForOutputFile:</string>
 							<string>cancel:</string>
+							<string>copyToClipboard:</string>
 							<string>removeFromSelectedGenes:</string>
 							<string>submit:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

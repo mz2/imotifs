@@ -8,10 +8,12 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+@class IMRetrieveSequencesStatusDialogController;
 
 typedef enum IMRetrieveSequencesSearchType {
     IMRetrieveSequencesSearchTypeStableID = 0,
-    IMRetrieveSequencesSearchTypeGeneName = 1
+    IMRetrieveSequencesSearchTypeDisplayLabel = 1,
+    IMRetrieveSequencesSearchTypePrimaryAccession = 2
 } IMRetrieveSequencesSearchType;
 
 
@@ -26,11 +28,12 @@ typedef enum IMRetrieveSequencesSearchType {
     
     NSString *dbUser;
     NSString *dbPassword;
-    NSString *dbBaseURL;
+    NSString *dbName;
     NSString *dbSchemaVersion;
     NSUInteger dbPort;
     
     BOOL selectGeneList;
+    BOOL selectGeneListFromFile;
     IMRetrieveSequencesSearchType searchType;
     NSMutableArray *selectedGeneList;
     NSString *geneNameListFilename;
@@ -45,6 +48,7 @@ typedef enum IMRetrieveSequencesSearchType {
     
     NSString *outFilename;
     
+    IMRetrieveSequencesStatusDialogController *statusDialogController;
     @private 
     //NSMutableString *buf;
     NSFileHandle *readHandle;
@@ -62,12 +66,14 @@ typedef enum IMRetrieveSequencesSearchType {
 
 @property (readwrite,copy) NSString *dbUser;
 @property (readwrite,copy) NSString *dbPassword;
-@property (readwrite,copy) NSString *dbBaseURL;
+@property (readwrite,copy) NSString *dbName;
 @property (readwrite,copy) NSString *dbSchemaVersion;
 @property (readwrite) NSUInteger dbPort;
 
 @property (readwrite) BOOL selectGeneList;
-@property (retain,readonly) NSMutableArray *selectedGeneList;
+@property (readwrite) BOOL selectGeneListFromFile;
+
+@property (retain,readwrite) NSMutableArray *selectedGeneList;
 @property (readwrite) IMRetrieveSequencesSearchType searchType;
 @property (readwrite,copy) NSString *geneNameListFilename;
 
@@ -81,4 +87,5 @@ typedef enum IMRetrieveSequencesSearchType {
 
 @property (readwrite,copy) NSString *outFilename;
 
+@property (assign, readwrite) IMRetrieveSequencesStatusDialogController *statusDialogController;
 @end

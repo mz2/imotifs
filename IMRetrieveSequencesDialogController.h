@@ -7,12 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
 @class IMRetrieveSequencesOperation;
 
 @interface IMRetrieveSequencesDialogController : NSWindowController {
     IBOutlet NSSearchField *searchField;
     
-    NSMutableArray *_foundGeneList;
+    NSArray *_foundGeneList;
     //NSMutableArray *_selectedSchemas;
     NSArray *_organismList;
     NSArray *_schemaVersionList;
@@ -35,6 +36,13 @@
     
     IBOutlet IMRetrieveSequencesOperation *retrieveSequencesOperation;
     
+    NSMutableArray *geneStableIDs;
+    NSMutableArray *genePrimaryAccs;
+    NSMutableArray *geneDisplayLabels;
+    NSArray *selectedGeneIDList;
+    NSUInteger selectedGeneIDType;
+    
+
 }
 
 @property (readwrite, retain) NSSearchField *searchField;
@@ -42,7 +50,7 @@
 
 @property (copy,readonly) NSString *organism;
 @property (copy,readonly) NSString *schemaVersion;
-@property (retain,readonly) NSMutableArray *foundGeneList;
+@property (retain,readonly) NSArray *foundGeneList;
 @property (retain,readonly) NSArray *organismList;
 @property (retain,readonly) NSArray *schemaVersionList;
 //@property (retain,readwrite) NSMutableArray *selectedSchemas;
@@ -63,6 +71,9 @@
 @property (readwrite) BOOL specifyGenesBySearching;
 @property (readwrite) BOOL specifyGenesFromFile;
 
+@property (retain,readwrite) NSArray* selectedGeneIDList;
+@property (readwrite) NSUInteger selectedGeneIDType;
+
 @property (retain, readwrite) IMRetrieveSequencesOperation *retrieveSequencesOperation;
 
 -(NSString*) activeEnsemblDatabaseName;
@@ -74,5 +85,6 @@
 -(IBAction) submit:(id) sender;
 
 -(IBAction) browseForOutputFile:(id) sender;
-
+-(IBAction) browseForGeneNameFile:(id) sender;
+-(IBAction) copyToClipboard: (id) sender;
 @end

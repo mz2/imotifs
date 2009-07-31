@@ -339,19 +339,15 @@
 							<object class="NSButtonCell" key="NSCell" id="1036124387">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134217728</int>
-								<string key="NSContents"/>
+								<string key="NSContents">Cancel</string>
 								<object class="NSFont" key="NSSupport" id="921655562">
 									<string key="NSName">LucidaGrande</string>
 									<double key="NSSize">1.300000e+01</double>
 									<int key="NSfFlags">1044</int>
 								</object>
 								<reference key="NSControlView" ref="397859229"/>
-								<int key="NSButtonFlags">-2033958657</int>
+								<int key="NSButtonFlags">-2033434369</int>
 								<int key="NSButtonFlags2">160</int>
-								<object class="NSCustomResource" key="NSNormalImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">NSStopProgressFreestandingTemplate</string>
-								</object>
 								<string key="NSAlternateContents"/>
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">400</int>
@@ -531,8 +527,8 @@
 							<reference ref="247519199"/>
 							<reference ref="496741902"/>
 							<reference ref="575970744"/>
-							<reference ref="409290783"/>
 							<reference ref="48149080"/>
+							<reference ref="409290783"/>
 						</object>
 						<reference key="parent" ref="1013639462"/>
 					</object>

@@ -10,20 +10,32 @@
 #import "IMOperation.h"
 
 @interface IMTaskOperation : IMOperation {
-    @protected
+    NSString *launchPath;    
+@private
     NSTask* task;
-    
     NSMutableDictionary *arguments;
     
-    NSString *launchPath;
 }
 
-@property (retain, readwrite) NSTask *task;
+@property (retain, readonly) NSTask *task;
 @property (retain, readwrite) NSMutableDictionary *arguments;
-@property (retain, readwrite) NSString *launchPath;
+@property (copy, readwrite) NSString *launchPath;
 
--(void) initializeTask; //the task is allocated and initialised here, and input/output pipes connected
+
+-(id) initWithLaunchPath:(NSString*)launchPath;
+
+-(void) initializeArguments:(NSDictionary*) args;
+//the task is allocated and initialised here, and input/output pipes connected
+-(void) initializeTask:(NSTask*) task
+         withArguments:(NSMutableDictionary*) args;
+
 - (void)handleTaskExitedNotification:(NSNotification*)aNotification;
 
+
 +(NSArray*) argumentArrayFromDictionary:(NSMutableDictionary*) dict;
+
+
+
+-(NSString*) argumentsString;
+
 @end

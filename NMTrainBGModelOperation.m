@@ -30,21 +30,23 @@
     [super dealloc];
 }
 
--(void) initializeTask {
-    task = [[NSTask alloc] init];
-    numFormatter = [[NSNumberFormatter alloc] init];
-    
-    [arguments setObject:inputSequencePath forKey:@"-seqs"];
-    [arguments setObject:outputBackgroundModelFilePath forKey:@"-out"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",classes] forKey:@"-classes"];
-    [arguments setObject:[NSString stringWithFormat:@"%d",order] forKey:@"-order"];
+-(void) initializeArguments:(NSMutableDictionary*)args {
+    [args setObject:inputSequencePath forKey:@"-seqs"];
+    [args setObject:outputBackgroundModelFilePath forKey:@"-out"];
+    [args setObject:[NSString stringWithFormat:@"%d",classes] forKey:@"-classes"];
+    [args setObject:[NSString stringWithFormat:@"%d",order] forKey:@"-order"];
+}
+
+-(void) initializeTask:(NSTask*) t 
+         withArguments:(NSMutableDictionary*)args {
+    t = [[NSTask alloc] init];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
     //NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
     //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
-    [task setStandardOutput: stdOutPipe];
+    [t setStandardOutput: stdOutPipe];
     //[task setStandardError: stdErrPipe];
     //[self setLaunchPath:launchPath];
 }

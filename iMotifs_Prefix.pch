@@ -13,3 +13,4 @@
 #endif
 
 #import "NSString+ReverseSearch.h"
+#import "NSArray+UniqueObjects.h"
