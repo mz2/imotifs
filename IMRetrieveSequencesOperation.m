@@ -122,7 +122,7 @@
     }
     
 }
--(void) initializeTask:(NSTask*)t withArguments:(NSMutableDictionary*) args {
+-(void) initializeTask:(NSTask*)t {
     NSPipe *stdOutPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
     

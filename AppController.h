@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import <PreferencesDialogController.h>
+#import <IMPrefsWindowController.h>
 
 #ifndef IMOpenUntitledDoc
 #define IMOpenUntitledDoc @"IMOpenUntitledDoc"
@@ -53,10 +53,12 @@
 #define IMMotifColumnPrecisionDrawingStyleKey (NSString*)@"IMMotifColumnPrecisionDrawingStyle"
 #endif
 
+#import "IMPrefsWindowController.h"
+
 extern NSString *IMConsensusSearchCutoff;
 
 @interface AppController : NSObject {
-    PreferencesDialogController *preferenceController;
+    IMPrefsWindowController *preferenceController;
     NSOperationQueue *sharedOperationQueue;
     
     double consensusSearchCutoff;
@@ -68,7 +70,7 @@ extern NSString *IMConsensusSearchCutoff;
     CGDirectDisplayID displayID;
 }
 
-@property (readonly) PreferencesDialogController *preferenceController;
+@property (readonly) IMPrefsWindowController *preferenceController;
 @property (retain,readonly) NSOperationQueue *sharedOperationQueue;
 @property (readwrite) double consensusSearchCutoff;
 
@@ -77,7 +79,7 @@ extern NSString *IMConsensusSearchCutoff;
 //@property (retain, readwrite) NSView *mainWindowBeforeGoingFullScreenView;
 //@property (readwrite) NSRect mainWindowBeforeGoingFullScreenRect;
 
-- (IBAction) showPreferencePanel:(id)sender;
+- (IBAction) openPreferencesWindow:(id)sender;
 - (IBAction) toggleFullScreenMode:(id) sender;
 - (IBAction) goAwayFromFullScreenMode:(id) sender;
 - (IBAction) runNMICA:(id) sender;

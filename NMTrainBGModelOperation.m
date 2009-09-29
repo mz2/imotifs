@@ -37,8 +37,7 @@
     [args setObject:[NSString stringWithFormat:@"%d",order] forKey:@"-order"];
 }
 
--(void) initializeTask:(NSTask*) t 
-         withArguments:(NSMutableDictionary*)args {
+-(void) initializeTask:(NSTask*) t {
     t = [[NSTask alloc] init];
     
     NSPipe *stdOutPipe = [NSPipe pipe];

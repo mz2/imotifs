@@ -22,8 +22,6 @@
 		5FB899E40E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB899E30E32214D0084D9D8 /* IMDoubleMatrix2DTranspose.m */; };
 		5FC3084D0E185802006C4679 /* MotifViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC3084C0E185802006C4679 /* MotifViewCell.m */; };
 		5FC350C20EBBDA5C00404E38 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FC350C10EBBDA5C00404E38 /* Metamotif.m */; };
-		5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */; };
-		5FE93A9A0E2EAC3D00FAC7A3 /* PreferencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */; };
 		5FF1CB2E0E333BC9001966B7 /* IMIntMatrix2DTranspose.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */; };
 		5FFA099F0E14133900E0F87D /* MotifView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA099E0E14133900E0F87D /* MotifView.m */; };
 		5FFA09D10E1415BC00E0F87D /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C40E1415BC00E0F87D /* MotifSet.m */; };
@@ -107,7 +105,6 @@
 		9595B1320FB9BC0400CE2BFF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */; };
 		9595B1340FB9BC0C00CE2BFF /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
 		9595B1350FB9BC1000CE2BFF /* IMTaskOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 953D80540F2F18B800049823 /* IMTaskOperation.m */; };
-		9595B1390FB9BC1900CE2BFF /* PreferencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */; };
 		9595B13A0FB9BC1900CE2BFF /* NMTrainBGOperationStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */; };
 		9595B13B0FB9BC1900CE2BFF /* NMTrainBGOperationConfigController.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */; };
 		9595B13C0FB9BC1A00CE2BFF /* NMTrainBGModelOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */; };
@@ -182,7 +179,6 @@
 		9595B2290FB9C02200CE2BFF /* NMTrainBGModelOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */; };
 		9595B22A0FB9C02200CE2BFF /* NMTrainBGOperationConfigController.h in Headers */ = {isa = PBXBuildFile; fileRef = 951FF3E70F32562300A9175C /* NMTrainBGOperationConfigController.h */; };
 		9595B22B0FB9C02200CE2BFF /* NMTrainBGOperationStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = 951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */; };
-		9595B22C0FB9C02200CE2BFF /* PreferencesDialogController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */; };
 		9595B22D0FB9C02200CE2BFF /* ScoreOffsetPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */; };
 		9595B22E0FB9C02200CE2BFF /* Symbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA09C50E1415BC00E0F87D /* Symbol.h */; };
 		9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595B29E0FB9C59F00CE2BFF /* incomplete_beta.h */; };
@@ -205,8 +201,15 @@
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
 		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
+		95B3502410232EC500F0E0BF /* IMPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B3502310232EC500F0E0BF /* IMPreferences.xib */; };
+		95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */; };
+		95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */; };
+		95B3507F10233A1600F0E0BF /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B3507E10233A1600F0E0BF /* General.png */; };
 		95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDDD530FC31AA600EB39C4 /* DebugLog.h */; };
 		95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDDD540FC31AA600EB39C4 /* DebugLog.m */; };
+		95D764E21023156C009703AA /* Visualisation.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E11023156C009703AA /* Visualisation.png */; };
+		95D764E6102315EF009703AA /* NMICA.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E5102315EF009703AA /* NMICA.png */; };
+		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
 		95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */; };
 		95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */; };
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
@@ -315,9 +318,6 @@
 		5FC3094B0E18DF5A006C4679 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotable.h; path = ../libxms/Annotable.h; sourceTree = SOURCE_ROOT; };
 		5FC350C00EBBDA5C00404E38 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metamotif.h; sourceTree = "<group>"; };
 		5FC350C10EBBDA5C00404E38 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metamotif.m; sourceTree = "<group>"; };
-		5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferencesDialog.xib; sourceTree = "<group>"; };
-		5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreferencesDialogController.h; sourceTree = "<group>"; };
-		5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PreferencesDialogController.m; sourceTree = "<group>"; };
 		5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DIface.h; sourceTree = "<group>"; };
 		5FF1CB2C0E333BC9001966B7 /* IMIntMatrix2DTranspose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DTranspose.h; sourceTree = "<group>"; };
 		5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMIntMatrix2DTranspose.m; sourceTree = "<group>"; };
@@ -420,8 +420,17 @@
 		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
 		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
+		95B3502310232EC500F0E0BF /* IMPreferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMPreferences.xib; sourceTree = "<group>"; };
+		95B3505B1023321B00F0E0BF /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
+		95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
+		95B3505E1023326B00F0E0BF /* IMPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrefsWindowController.h; sourceTree = "<group>"; };
+		95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrefsWindowController.m; sourceTree = "<group>"; };
+		95B3507E10233A1600F0E0BF /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
 		95BDDD530FC31AA600EB39C4 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
 		95BDDD540FC31AA600EB39C4 /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLog.m; sourceTree = "<group>"; };
+		95D764E11023156C009703AA /* Visualisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Visualisation.png; sourceTree = "<group>"; };
+		95D764E5102315EF009703AA /* NMICA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NMICA.png; sourceTree = "<group>"; };
+		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
 		95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMScoreCutoffDialog.xib; sourceTree = "<group>"; };
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
 		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
@@ -492,7 +501,7 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
-				953D80250F2F14BF00049823 /* libxms */,
+				95D7652D10231D99009703AA /* external */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -773,9 +782,9 @@
 				9563E2BB101E0370006F067A /* ensembl */,
 				951FF41B0F3258B700A9175C /* nminfer */,
 				951FF41C0F3258BF00A9175C /* nmmakebg */,
-				5FE93A950E2EAC1900FAC7A3 /* PreferencesDialog.xib */,
 				95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */,
 				95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */,
+				95B3502310232EC500F0E0BF /* IMPreferences.xib */,
 			);
 			name = dialog;
 			sourceTree = "<group>";
@@ -792,6 +801,10 @@
 		953D82B80F2F64B800049823 /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				95B3507E10233A1600F0E0BF /* General.png */,
+				95D764E810231AEB009703AA /* Ensembl.gif */,
+				95D764E5102315EF009703AA /* NMICA.png */,
+				95D764E11023156C009703AA /* Visualisation.png */,
 			);
 			name = icons;
 			sourceTree = "<group>";
@@ -823,8 +836,6 @@
 		95414FDB0F1245F00083E72A /* Preferences */ = {
 			isa = PBXGroup;
 			children = (
-				5FE93A980E2EAC3D00FAC7A3 /* PreferencesDialogController.h */,
-				5FE93A990E2EAC3D00FAC7A3 /* PreferencesDialogController.m */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -949,6 +960,17 @@
 			name = "Motif Name Picker";
 			sourceTree = "<group>";
 		};
+		95B3505A1023320600F0E0BF /* preferences */ = {
+			isa = PBXGroup;
+			children = (
+				95B3505B1023321B00F0E0BF /* DBPrefsWindowController.h */,
+				95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */,
+				95B3505E1023326B00F0E0BF /* IMPrefsWindowController.h */,
+				95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */,
+			);
+			name = preferences;
+			sourceTree = "<group>";
+		};
 		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,6 +978,31 @@
 				95BDDD540FC31AA600EB39C4 /* DebugLog.m */,
 			);
 			name = debuglog;
+			sourceTree = "<group>";
+		};
+		95D7652B10231D80009703AA /* nmica */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = nmica;
+			sourceTree = "<group>";
+		};
+		95D7652C10231D94009703AA /* nmica-extra */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "nmica-extra";
+			sourceTree = "<group>";
+		};
+		95D7652D10231D99009703AA /* external */ = {
+			isa = PBXGroup;
+			children = (
+				95B3505A1023320600F0E0BF /* preferences */,
+				953D80250F2F14BF00049823 /* libxms */,
+				95D7652B10231D80009703AA /* nmica */,
+				95D7652C10231D94009703AA /* nmica-extra */,
+			);
+			name = external;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1015,7 +1062,6 @@
 				9595B2290FB9C02200CE2BFF /* NMTrainBGModelOperation.h in Headers */,
 				9595B22A0FB9C02200CE2BFF /* NMTrainBGOperationConfigController.h in Headers */,
 				9595B22B0FB9C02200CE2BFF /* NMTrainBGOperationStatusController.h in Headers */,
-				9595B22C0FB9C02200CE2BFF /* PreferencesDialogController.h in Headers */,
 				9595B22D0FB9C02200CE2BFF /* ScoreOffsetPair.h in Headers */,
 				9595B22E0FB9C02200CE2BFF /* Symbol.h in Headers */,
 				9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */,
@@ -1105,7 +1151,6 @@
 				8D15AC2D0486D014006FF6A4 /* MainMenu.nib in Resources */,
 				8D15AC2F0486D014006FF6A4 /* InfoPlist.strings in Resources */,
 				5F61DFE70E2DF2C00091787E /* icon.icns in Resources */,
-				5FE93A960E2EAC1900FAC7A3 /* PreferencesDialog.xib in Resources */,
 				959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */,
 				953D81130F2F40F800049823 /* NMOperationStatusDialog.xib in Resources */,
 				953D84290F2F896800049823 /* NMOperationConfigDialog.xib in Resources */,
@@ -1117,6 +1162,11 @@
 				95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */,
 				95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */,
 				9515BDE41022443700188C5A /* IMRetrieveSequencesStatusDialog.xib in Resources */,
+				95D764E21023156C009703AA /* Visualisation.png in Resources */,
+				95D764E6102315EF009703AA /* NMICA.png in Resources */,
+				95D764E910231AEB009703AA /* Ensembl.gif in Resources */,
+				95B3502410232EC500F0E0BF /* IMPreferences.xib in Resources */,
+				95B3507F10233A1600F0E0BF /* General.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1137,15 +1187,13 @@
 			files = (
 			);
 			inputPaths = (
-				"$(NMICA_HOME)/src/*",
 			);
 			name = "Build NMICA";
 			outputPaths = (
-				"$(NMICA_HOME)/lib/nmica.jar",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant";
+			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant osx";
 			showEnvVarsInLog = 0;
 		};
 		9595B07C0FB9B1C600CE2BFF /* ShellScript */ = {
@@ -1170,7 +1218,6 @@
 			);
 			name = "Build NMICA-extra";
 			outputPaths = (
-				"$(NMICA_EXTRA_HOME)/lib/nmica-extra.jar",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
@@ -1243,7 +1290,6 @@
 				5FA66A620E142A12009E5AFA /* AppController.m in Sources */,
 				5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */,
 				5FC3084D0E185802006C4679 /* MotifViewCell.m in Sources */,
-				5FE93A9A0E2EAC3D00FAC7A3 /* PreferencesDialogController.m in Sources */,
 				5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */,
 				5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */,
 				5FB897830E315C2D0084D9D8 /* MotifPair.m in Sources */,
@@ -1287,6 +1333,8 @@
 				955C93920FEA7645005E6148 /* NSString+ReverseSearch.m in Sources */,
 				95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */,
 				9515BDE71022445800188C5A /* IMRetrieveSequencesStatusDialogController.m in Sources */,
+				95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */,
+				95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1318,7 +1366,6 @@
 				9595B1310FB9BC0300CE2BFF /* DDCliUtil.m in Sources */,
 				9595B1340FB9BC0C00CE2BFF /* IMOperation.m in Sources */,
 				9595B1350FB9BC1000CE2BFF /* IMTaskOperation.m in Sources */,
-				9595B1390FB9BC1900CE2BFF /* PreferencesDialogController.m in Sources */,
 				9595B13A0FB9BC1900CE2BFF /* NMTrainBGOperationStatusController.m in Sources */,
 				9595B13B0FB9BC1900CE2BFF /* NMTrainBGOperationConfigController.m in Sources */,
 				9595B13C0FB9BC1A00CE2BFF /* NMTrainBGModelOperation.m in Sources */,

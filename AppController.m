@@ -110,12 +110,16 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 
 - (IBAction) showPreferencePanel:(id)sender {
     if (!preferenceController) {
-        preferenceController = [[PreferencesDialogController alloc] init];
+        preferenceController = [[IMPrefsWindowController alloc] init];
     }
     DebugLog(@"AppController: showing %@", preferenceController);
     [preferenceController showWindow:self];
 }
 
+- (IBAction)openPreferencesWindow:(id)sender {
+    
+    [[IMPrefsWindowController sharedPrefsWindowController] showWindow:nil];
+}
 
 - (IBAction) toggleFullScreenMode:(id) sender {
     if (fullScreenMainWindow != nil) {

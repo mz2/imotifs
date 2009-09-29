@@ -63,5 +63,6 @@
 
 +(NSString*) nmicaPath;
 +(NSString*) nmicaExtraPath;
++(void) setupNMICAEnvVars;
 
 @end

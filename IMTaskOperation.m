@@ -38,12 +38,17 @@
 }
 
 //this method here needs to initialize  the task
-- (void) initializeTask: (NSTask*) task 
-          withArguments: (NSMutableDictionary*) args {
+- (void) initializeTask: (NSTask*) task {
     @throw [NSException exceptionWithName:@"IMInitializeTaskNotOverridenException" 
-                                   reason:@"-initializeTask should be overridden in the subclasses of IMTaskOperation" 
+                                   reason:@"-initializeTask: should be overridden in subclasses of IMTaskOperation" 
                                  userInfo:nil];
     
+}
+
+-(void) initializeArguments:(NSDictionary*) args {
+    @throw [NSException exceptionWithName:@"IMInitializeArgumentsNotOverridenException" 
+                                   reason:@"-initializeArguments: should be overridden in subclasses of IMTaskOperation" 
+                                 userInfo:nil];
 }
 
 - (void)start {
@@ -52,10 +57,12 @@
     
     //[[[NSApplication sharedApplication] delegate] registerNotifications];
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    [self initializeTask: self.task 
-           withArguments: arguments];
+    [self initializeTask: self.task];
     [self initializeArguments: arguments];
-    [task setArguments:[IMTaskOperation argumentArrayFromDictionary:arguments]];
+    NSArray *args = [IMTaskOperation argumentArrayFromDictionary:arguments];
+    [task setArguments:args];
+    
+    NSLog(@"Starting task:\n%@ %@", launchPath, [args componentsJoinedByString:@" "]);
     [task setLaunchPath:launchPath];
     
     
@@ -124,9 +131,7 @@
     return args;
 }
 
--(void) initializeArguments:(NSDictionary*) args {
-    //this should be where the arguments given to the application are initialised
-}
+
 
 -(NSString*) argumentsString {
     [self initializeArguments: arguments];

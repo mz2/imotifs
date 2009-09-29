@@ -26,8 +26,7 @@
 
 -(void) initializeArguments:(NSDictionary*) args;
 //the task is allocated and initialised here, and input/output pipes connected
--(void) initializeTask:(NSTask*) task
-         withArguments:(NSMutableDictionary*) args;
+-(void) initializeTask:(NSTask*) task;
 
 - (void)handleTaskExitedNotification:(NSNotification*)aNotification;
 

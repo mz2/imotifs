@@ -32,8 +32,6 @@
     } else {
         nmicaPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMBinPath] stringByExpandingTildeInPath];
     }
-    setenv("NMICA_DEV_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
-    setenv("NMICA_HOME", [nmicaPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
     
     return nmicaPath;
 }
@@ -41,14 +39,20 @@
 +(NSString*) nmicaExtraPath {
     NSString *nmicaExtraPath;
     
+    [self nmicaPath]; //both need to be set for nmica-extra tools to work
     if ([[NSUserDefaults standardUserDefaults] boolForKey:@"IMUseBuiltInNMICA"]) {
         nmicaExtraPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"Java/nmica"];
     } else {
         nmicaExtraPath = [[[NSUserDefaults standardUserDefaults] stringForKey:NMExtraBinPath] stringByExpandingTildeInPath];
     }
-    setenv("NMICA_EXTRA_HOME", [nmicaExtraPath cStringUsingEncoding:NSUTF8StringEncoding], YES);
     
     return nmicaExtraPath;
+}
+
++(void) setupNMICAEnvVars {/*
+    setenv("NMICA_DEV_HOME", [[self nmicaPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    setenv("NMICA_HOME", [[self nmicaPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    setenv("NMICA_EXTRA_HOME", [[self nmicaExtraPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);*/
 }
 
 - (id) init
@@ -56,6 +60,7 @@
     NSString *lp = 
         [[[[NMOperation nmicaPath] stringByAppendingPathComponent:@"bin/nminfer"] 
           stringByExpandingTildeInPath] retain];
+    [NMOperation setupNMICAEnvVars];
     
     self = [super initWithLaunchPath: lp];
     if (self == nil) return nil;
@@ -94,19 +99,14 @@
 }
 
 
--(void) initializeTask:(NSTask*) t withArguments:(NSDictionary*) args {
-    //task = [[NSTask alloc] init];
+-(void) initializeTask:(NSTask*) t {
     numFormatter = [[NSNumberFormatter alloc] init];
     [self initializeArguments:self.arguments];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
-    //NSPipe *stdErrPipe = [NSPipe pipe];
     readHandle = [[stdOutPipe fileHandleForReading] retain];
-    //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
     
     [t setStandardOutput: stdOutPipe];
-    //[task setStandardError: stdErrPipe];
-    //[self setLaunchPath:launchPath];
 }
 
 -(void) setSequenceFilePath:(NSString*) str {
