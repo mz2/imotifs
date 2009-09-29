@@ -223,7 +223,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 
 -(BOOL)readFromURL:(NSURL*) url 
             ofType:(NSString*)type 
-             error:(NSError*) outError {
+             error:(NSError**) outError {
     if ([type isEqual:@"Motif set"]) {
         [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
         

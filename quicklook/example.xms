@@ -1,0 +1,50 @@
+<motifset xmlns="http://biotiffin.org/XMS/">
+  <motif>
+    <name>motif0 (HAP1-like)</name>
+    <weightmatrix alphabet="DNA" columns="3">
+      <column pos="0">
+        <weight symbol="thymine">0.2780182345202061</weight>
+        <weight symbol="guanine">0.1236996367323795</weight>
+        <weight symbol="adenine">0.5770545975421781</weight>
+        <weight symbol="cytosine">0.021227531205236218</weight>
+      </column>
+      <column pos="1">
+        <weight symbol="thymine">0.3780182345202061</weight>
+        <weight symbol="guanine">0.5236996367323795</weight>
+        <weight symbol="adenine">0.0770545975421781</weight>
+        <weight symbol="cytosine">0.021227531205236218</weight>
+      </column>
+      <column pos="2">
+        <weight symbol="thymine">0.1780182345202061</weight>
+        <weight symbol="guanine">0.3236996367323795</weight>
+        <weight symbol="adenine">0.3770545975421781</weight>
+        <weight symbol="cytosine">0.121227531205236218</weight>
+      </column>
+    </weightmatrix>
+    <threshold>0.0</threshold>
+    <prop>
+      <key>nmica.history_thread</key>
+      <value>3675</value>
+    </prop>
+    <prop>
+      <key>offset</key>
+      <value>0</value>
+    </prop>
+    <prop>
+      <key>isSelected</key>
+      <value>false</value>
+    </prop>
+    <prop>
+      <key>isHighlighted</key>
+      <value>false</value>
+    </prop>
+    <prop>
+      <key>color</key>
+      <value>#00b100</value>
+    </prop>
+    <prop>
+      <key>setId</key>
+      <value>sp.10m.3900seq.4classes.minnonn100_sample.111000.xms</value>
+    </prop>
+  </motif>
+</motifset>

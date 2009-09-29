@@ -1,0 +1,1308 @@
+TMotifQuickLook
+v7
+r0
+t275933742.946617
+cCheck dependencies
+cProcessInfoPlistFile /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Info.plist Info.plist
+cCopyStringsFile /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/main.o /Users/mz2/Projects/imotifs-quicklook/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GeneratePreviewForURL.o /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GenerateThumbnailForURL.o /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifViewCell.o /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifPainter.o /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Symbol.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Multinomial.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSetParser.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Motif.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Alphabet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/WeightMatrix.o /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Dirichlet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DistributionBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/SymbolBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Metamotif.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/dirichlet_math.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m normal ppc objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/main.o /Users/mz2/Projects/imotifs-quicklook/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook normal ppc
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GeneratePreviewForURL.o /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GenerateThumbnailForURL.o /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifViewCell.o /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifPainter.o /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Symbol.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Multinomial.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSetParser.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Motif.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Alphabet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/WeightMatrix.o /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Dirichlet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DistributionBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/SymbolBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Metamotif.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/dirichlet_math.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m normal i386 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook normal i386
+
+N/Developer/SDKs/MacOSX10.5.sdk
+c000000004A49A9E400000000000000EE
+t1246341604
+s238
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CFPlugInCOM.h
+c00000000486499680000000000000EA8
+t1214552424
+s3752
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreFoundation.framework/Headers/CoreFoundation.h
+c00000000486499690000000000000942
+t1214552425
+s2370
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/CoreServices.framework/Headers/CoreServices.h
+c0000000047BAD4120000000000000400
+t1203426322
+s1024
+
+N/Developer/SDKs/MacOSX10.5.sdk/System/Library/Frameworks/QuickLook.framework/Headers/QuickLook.h
+c000000004864BE010000000000000166
+t1214561793
+s358
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/math.h
+c0000000047BA987000000000000004B7
+t1203411056
+s1207
+
+N/Developer/SDKs/MacOSX10.5.sdk/usr/include/stdlib.h
+c0000000047BA99310000000000002A79
+t1203411249
+s10873
+
+N/Library/QuickLook/MotifQuickLook.qlgenerator
+t1254240909
+s102
+
+N/System/Library/Frameworks/ApplicationServices.framework/ApplicationServices
+c000000004A12050E0000000000022140
+t1242694926
+s139584
+
+N/System/Library/Frameworks/Carbon.framework/Carbon
+c000000004A7680C1000000000000A5F0
+t1249280193
+s42480
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/System/Library/Frameworks/CoreFoundation.framework/CoreFoundation
+c000000004A5D68960000000000776D30
+t1247635606
+s7826736
+
+N/System/Library/Frameworks/CoreServices.framework/CoreServices
+c000000004A11F09A0000000000021710
+t1242689690
+s136976
+
+N/System/Library/Frameworks/QuickLook.framework/QuickLook
+c000000004A6942F3000000000012F040
+t1248412403
+s1241152
+
+N/Users/mz2/Projects/iMotifs/AppController.h
+c000000004AC227B300000000000009C0
+t1254238131
+s2496
+i<Cocoa/Cocoa.h>
+i<IMPrefsWindowController.h>
+i"IMPrefsWindowController.h"
+
+N/Users/mz2/Projects/iMotifs/DBPrefsWindowController.h
+c000000004AC227B30000000000000B11
+t1254238131
+s2833
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/iMotifs/DistributionBounds.h
+c000000004AC2259D000000000000031A
+t1254237597
+s794
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/iMotifs/IMPrefsWindowController.h
+c000000004AC227B30000000000000296
+t1254238131
+s662
+i<Cocoa/Cocoa.h>
+i"DBPrefsWindowController.h"
+
+N/Users/mz2/Projects/iMotifs/Metamotif.h
+c000000004AC2259D00000000000001B3
+t1254237597
+s435
+i<Cocoa/Cocoa.h>
+i"Alphabet.h"
+i"Motif.h"
+
+N/Users/mz2/Projects/iMotifs/SymbolBounds.h
+c000000004AC2259D0000000000000246
+t1254237597
+s582
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../iMotifs/IMPrefsWindowController.h
+c000000004AC227B30000000000000296
+t1254238131
+s662
+i<Cocoa/Cocoa.h>
+i"DBPrefsWindowController.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.h
+c000000004AC2259D0000000000000D69
+t1254237597
+s3433
+i<Cocoa/Cocoa.h>
+i<Motif.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m
+c000000004AC2327900000000000088DC
+t1254240889
+s35036
+i<MotifViewCell.h>
+i"AppController.h"
+i"Metamotif.h"
+i"Dirichlet.h"
+i"DistributionBounds.h"
+i"SymbolBounds.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../iMotifs/dirichlet_math.h
+c000000004AC2259D0000000000000363
+t1254237597
+s867
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.h
+c000000004AC2259D0000000000000182
+t1254237597
+s386
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m
+c000000004AC2259D000000000000038E
+t1254237597
+s910
+i"DebugLog.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.h
+c000000004AC2259D000000000000031A
+t1254237597
+s794
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m
+c000000004AC2259D000000000000054E
+t1254237597
+s1358
+i"DistributionBounds.h"
+i"SymbolBounds.h"
+i"Alphabet.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/IMPrefsWindowController.h
+c000000004AC227B30000000000000296
+t1254238131
+s662
+i<Cocoa/Cocoa.h>
+i"DBPrefsWindowController.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.h
+c000000004AC2259D00000000000001B3
+t1254237597
+s435
+i<Cocoa/Cocoa.h>
+i"Alphabet.h"
+i"Motif.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m
+c000000004AC2259D0000000000000724
+t1254237597
+s1828
+i"Metamotif.h"
+i"Motif.h"
+i"Alphabet.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/MotifViewCell.h
+c000000004AC2259D0000000000000D69
+t1254237597
+s3433
+i<Cocoa/Cocoa.h>
+i<Motif.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.h
+c000000004AC2259D0000000000000246
+t1254237597
+s582
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m
+c000000004AC2259D000000000000025C
+t1254237597
+s604
+i"SymbolBounds.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.h
+c000000004AC2259D0000000000000363
+t1254237597
+s867
+
+N/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m
+c000000004AC2259D000000000000143E
+t1254237597
+s5182
+i<stdlib.h>
+i<math.h>
+i<Cocoa/Cocoa.h>
+i"dirichlet_math.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.h
+c000000004AC22C140000000000000268
+t1254239252
+s616
+i<Cocoa/Cocoa.h>
+i<Symbol.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m
+c000000004AC22C1400000000000015AD
+t1254239252
+s5549
+i<Alphabet.h>
+i<Symbol.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Annotable.h
+c000000004AC22C140000000000000108
+t1254239252
+s264
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.h
+c000000004AC22C14000000000000035A
+t1254239252
+s858
+i"Cocoa/Cocoa.h"
+i"Multinomial.h"
+i"dirichlet_math.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m
+c000000004AC22C14000000000000154F
+t1254239252
+s5455
+i<Dirichlet.h>
+i<Multinomial.h>
+i<stdlib.h>
+i<math.h>
+i"DistributionBounds.h"
+i"SymbolBounds.h"
+i"dirichlet_math.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.h
+c000000004AC22C140000000000000604
+t1254239252
+s1540
+i<Cocoa/Cocoa.h>
+i<Multinomial.h>
+i<Alphabet.h>
+i<Annotable.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m
+c000000004AC230C8000000000000285C
+t1254240456
+s10332
+i<Motif.h>
+i<IMNSColorExtras.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.h
+c000000004AC22C140000000000000512
+t1254239252
+s1298
+i<Cocoa/Cocoa.h>
+i<Annotable.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m
+c000000004AC22D2D0000000000001B01
+t1254239533
+s6913
+i<MotifSet.h>
+i<Motif.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.h
+c000000004AC22C1400000000000001C9
+t1254239252
+s457
+i<Cocoa/Cocoa.h>
+i<MotifSet.h>
+i<Alphabet.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m
+c000000004AC22C140000000000002DD7
+t1254239252
+s11735
+i"MotifSetParser.h"
+i"MotifSet.h"
+i"Motif.h"
+i"Alphabet.h"
+i"Dirichlet.h"
+i"IMNSColorExtras.h"
+i"Metamotif.h"
+i"DistributionBounds.h"
+i"SymbolBounds.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.h
+c000000004AC22C14000000000000044F
+t1254239252
+s1103
+i<Cocoa/Cocoa.h>
+i<Alphabet.h>
+i<Symbol.h>
+i<math.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m
+c000000004AC22C1400000000000023D2
+t1254239252
+s9170
+i<Multinomial.h>
+i<Symbol.h>
+i<math.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.h
+c000000004AC22C140000000000000307
+t1254239252
+s775
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m
+c000000004AC22C140000000000001279
+t1254239252
+s4729
+i<Symbol.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m
+c000000004AC22C14000000000000031E
+t1254239252
+s798
+i"WeightMatrix.h"
+
+N/Users/mz2/Projects/imotifs-quicklook/English.lproj/InfoPlist.strings
+c000000004AC22708000000000000019E
+t1254237960
+s414
+
+N/Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m
+c000000004AC2270800000000000009F4
+t1254237960
+s2548
+i<CoreFoundation/CoreFoundation.h>
+i<CoreServices/CoreServices.h>
+i<QuickLook/QuickLook.h>
+i<Cocoa/Cocoa.h>
+i<math.h>
+i<MotifViewCell.h>
+i<MotifSetParser.h>
+i<MotifPainter.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m
+c000000004AC227080000000000000909
+t1254237960
+s2313
+i<CoreFoundation/CoreFoundation.h>
+i<CoreServices/CoreServices.h>
+i<QuickLook/QuickLook.h>
+i<Cocoa/Cocoa.h>
+i<math.h>
+i<MotifSet.h>
+i<Motif.h>
+i<MotifPainter.h>
+i<MotifSetParser.h>
+i<MotifViewCell.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/MotifPainter.h
+c000000004AC227080000000000000240
+t1254237960
+s576
+i<Cocoa/Cocoa.h>
+i<MotifViewCell.h>
+i<MotifSet.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/MotifPainter.m
+c000000004AC227080000000000000B6B
+t1254237960
+s2923
+i<MotifPainter.h>
+i<MotifSet.h>
+i<MotifViewCell.h>
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Alphabet.o
+t1254240939
+s27824
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DebugLog.o
+t1254240521
+s8592
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Dirichlet.o
+t1254240940
+s24960
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DistributionBounds.o
+t1254240941
+s12404
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GeneratePreviewForURL.o
+t1254240933
+s12104
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GenerateThumbnailForURL.o
+t1254240934
+s12096
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Metamotif.o
+t1254240942
+s13996
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Motif.o
+t1254240938
+s41464
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifPainter.o
+t1254240935
+s15008
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook
+t2
+s0
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook.LinkFileList
+c000000004AC2329A000000000000088C
+t1254240922
+s2188
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSet.o
+t1254240938
+s32268
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSetParser.o
+t1254240937
+s28820
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifViewCell.o
+t1254240935
+s70816
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Multinomial.o
+t1254240936
+s37356
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Symbol.o
+t1254240936
+s19712
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/SymbolBounds.o
+t1254240941
+s9844
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/WeightMatrix.o
+t1254240939
+s8852
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/dirichlet_math.o
+t1254240942
+s14684
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/main.o
+t1254240933
+s11588
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Alphabet.o
+t1254240929
+s28248
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DebugLog.o
+t1254240510
+s8748
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Dirichlet.o
+t1254240930
+s25740
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DistributionBounds.o
+t1254240931
+s12848
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GeneratePreviewForURL.o
+t1254240923
+s12476
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GenerateThumbnailForURL.o
+t1254240924
+s12440
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Metamotif.o
+t1254240932
+s14672
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Motif.o
+t1254240929
+s42196
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifPainter.o
+t1254240925
+s16044
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook
+t2
+s0
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook.LinkFileList
+c000000004AC2329A000000000000087B
+t1254240922
+s2171
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSet.o
+t1254240928
+s33868
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSetParser.o
+t1254240927
+s30828
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifViewCell.o
+t1254240925
+s74616
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Multinomial.o
+t1254240927
+s36596
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Symbol.o
+t1254240926
+s20404
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/SymbolBounds.o
+t1254240931
+s9592
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/WeightMatrix.o
+t1254240930
+s9020
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/dirichlet_math.o
+t1254240932
+s14468
+
+N/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/main.o
+t1254240923
+s11832
+
+N/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator
+t1254240922
+s102
+
+N/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator.dSYM
+t2
+s0
+
+N/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Info.plist
+t1254240922
+s1685
+
+N/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/MacOS/MotifQuickLook
+t2
+s0
+
+N/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Resources/English.lproj/InfoPlist.strings
+t1254240922
+s414
+
+N/Users/mz2/Projects/imotifs-quicklook/main.m
+c000000004AC231A5000000000000249C
+t1254240677
+s9372
+i<CoreFoundation/CoreFoundation.h>
+i<CoreFoundation/CFPlugInCOM.h>
+i<CoreServices/CoreServices.h>
+i<QuickLook/QuickLook.h>
+
+N/Users/mz2/Projects/imotifs/DBPrefsWindowController.h
+c000000004AC227B30000000000000B11
+t1254238131
+s2833
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs/DebugLog.h
+c000000004AC2259D0000000000000182
+t1254237597
+s386
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs/DistributionBounds.h
+c000000004AC2259D000000000000031A
+t1254237597
+s794
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs/Metamotif.h
+c000000004AC2259D00000000000001B3
+t1254237597
+s435
+i<Cocoa/Cocoa.h>
+i"Alphabet.h"
+i"Motif.h"
+
+N/Users/mz2/Projects/imotifs/SymbolBounds.h
+c000000004AC2259D0000000000000246
+t1254237597
+s582
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/imotifs/dirichlet_math.h
+c000000004AC2259D0000000000000363
+t1254237597
+s867
+
+N/Users/mz2/Projects/libxms/Alphabet.h
+c000000004AC22C140000000000000268
+t1254239252
+s616
+i<Cocoa/Cocoa.h>
+i<Symbol.h>
+
+N/Users/mz2/Projects/libxms/Dirichlet.h
+c000000004AC22C14000000000000035A
+t1254239252
+s858
+i"Cocoa/Cocoa.h"
+i"Multinomial.h"
+i"dirichlet_math.h"
+
+N/Users/mz2/Projects/libxms/IMNSColorExtras.h
+c000000004AC22C140000000000000137
+t1254239252
+s311
+i<Cocoa/Cocoa.h>
+
+N/Users/mz2/Projects/libxms/Motif.h
+c000000004AC22C140000000000000604
+t1254239252
+s1540
+i<Cocoa/Cocoa.h>
+i<Multinomial.h>
+i<Alphabet.h>
+i<Annotable.h>
+
+N/Users/mz2/Projects/libxms/MotifSet.h
+c000000004AC22C140000000000000512
+t1254239252
+s1298
+i<Cocoa/Cocoa.h>
+i<Annotable.h>
+
+N/Users/mz2/Projects/libxms/MotifSetParser.h
+c000000004AC22C1400000000000001C9
+t1254239252
+s457
+i<Cocoa/Cocoa.h>
+i<MotifSet.h>
+i<Alphabet.h>
+
+N/Users/mz2/Projects/libxms/Multinomial.h
+c000000004AC22C14000000000000044F
+t1254239252
+s1103
+i<Cocoa/Cocoa.h>
+i<Alphabet.h>
+i<Symbol.h>
+i<math.h>
+
+N/Users/mz2/Projects/libxms/WeightMatrix.h
+c000000004AC22C140000000000000116
+t1254239252
+s278
+i<Cocoa/Cocoa.h>
+
+NInfo.plist
+c000000004AC2270800000000000006CA
+t1254237960
+s1738
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies275933722#275933722#0(0"0(0#1#0"4300882208#0"0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Alphabet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933738.209577
+e275933739.373884
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Alphabet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m275933738#275933739#0(0"0(0#0#58"/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m4300882208#965"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Alphabet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DebugLog.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933320.886746
+e275933321.828640
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DebugLog.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m275933320#275933321#0(0"0(0#0#59"/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m4300882208#966"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DebugLog.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Dirichlet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933739.374022
+e275933740.946929
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Dirichlet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m275933739#275933740#0(0"0(0#0#59"/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m4300882208#967"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Dirichlet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DistributionBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933739.888803
+e275933741.339566
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DistributionBounds.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m275933739#275933741#0(0"0(0#0#69"/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m4300882208#986"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/DistributionBounds.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GeneratePreviewForURL.o /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933732.621869
+e275933733.767226
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GeneratePreviewForURL.o
+x/Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m275933732#275933733#0(0"0(0#0#61"/Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m4300882208#981"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GeneratePreviewForURL.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GenerateThumbnailForURL.o /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933733.028916
+e275933734.165508
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GenerateThumbnailForURL.o
+x/Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m275933733#275933734#0(0"0(0#0#63"/Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m4300882208#985"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/GenerateThumbnailForURL.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Metamotif.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933741.339690
+e275933742.363779
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Metamotif.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m275933741#275933742#0(0"0(0#0#60"/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m4300882208#968"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Metamotif.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Motif.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933737.445282
+e275933738.885547
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Motif.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m275933737#275933738#0(0"0(0#0#55"/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m4300882208#959"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Motif.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifPainter.o /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933734.165746
+e275933735.057911
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifPainter.o
+x/Users/mz2/Projects/imotifs-quicklook/MotifPainter.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m275933734#275933735#0(0"0(0#0#52"/Users/mz2/Projects/imotifs-quicklook/MotifPainter.m4300882208#963"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifPainter.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933736.907009
+e275933738.209283
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m275933736#275933738#0(0"0(0#0#58"/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m4300882208#965"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSetParser.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933736.210949
+e275933737.445175
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSetParser.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m275933736#275933737#0(0"0(0#0#64"/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m4300882208#977"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifSetParser.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifViewCell.o /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933733.767336
+e275933735.403353
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifViewCell.o
+x/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m275933733#275933735#0(0"0(0#0#64"/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m4300882208#976"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifViewCell.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Multinomial.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933735.403471
+e275933736.906900
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Multinomial.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m275933735#275933736#0(0"0(0#0#61"/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m4300882208#971"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Multinomial.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Symbol.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933735.058194
+e275933736.210702
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Symbol.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m275933735#275933736#0(0"0(0#0#56"/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m4300882208#961"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/Symbol.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/SymbolBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933740.947042
+e275933741.966544
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/SymbolBounds.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m275933740#275933741#0(0"0(0#0#63"/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m4300882208#974"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/SymbolBounds.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/WeightMatrix.o /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933738.885655
+e275933739.888554
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/WeightMatrix.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m275933738#275933739#0(0"0(0#0#62"/Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m4300882208#973"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/WeightMatrix.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/dirichlet_math.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933741.967087
+e275933742.891258
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/dirichlet_math.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m275933741#275933742#0(0"0(0#0#65"/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m4300882208#978"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/dirichlet_math.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/main.o /Users/mz2/Projects/imotifs-quicklook/main.m normal i386 objective-c com.apple.compilers.gcc.4_2
+s275933732.340847
+e275933733.028801
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/main.o
+x/Users/mz2/Projects/imotifs-quicklook/main.m
+xnormal
+xi386
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@52"Compile /Users/mz2/Projects/imotifs-quicklook/main.m275933732#275933733#0(0"0(0#0#44"/Users/mz2/Projects/imotifs-quicklook/main.m4300882208#947"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch i386 -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -fasm-blocks -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/i386 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/main.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/main.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Alphabet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933728.291966
+e275933729.348008
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Alphabet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m275933728#275933729#0(0"0(0#0#58"/Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m4300882208#959"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Alphabet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Alphabet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DebugLog.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933310.063135
+e275933310.954692
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DebugLog.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m275933310#275933310#0(0"0(0#0#59"/Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m4300882208#960"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/DebugLog.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DebugLog.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Dirichlet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933729.348245
+e275933730.673243
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Dirichlet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@67"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m275933729#275933730#0(0"0(0#0#59"/Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m4300882208#961"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Dirichlet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Dirichlet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DistributionBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933730.300990
+e275933731.243925
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DistributionBounds.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m275933730#275933731#0(0"0(0#0#69"/Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m4300882208#980"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/DistributionBounds.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/DistributionBounds.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GeneratePreviewForURL.o /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933722.861782
+e275933723.882849
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GeneratePreviewForURL.o
+x/Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m275933722#275933723#0(0"0(0#0#61"/Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m4300882208#975"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/GeneratePreviewForURL.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GeneratePreviewForURL.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GenerateThumbnailForURL.o /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933723.601700
+e275933724.541836
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GenerateThumbnailForURL.o
+x/Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m275933723#275933724#0(0"0(0#0#63"/Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m4300882208#979"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/GenerateThumbnailForURL.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/GenerateThumbnailForURL.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Metamotif.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933731.244042
+e275933732.340584
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Metamotif.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@68"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m275933731#275933732#0(0"0(0#0#60"/Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m4300882208#962"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/Metamotif.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Metamotif.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Motif.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933727.875598
+e275933729.229312
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Motif.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@63"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m275933727#275933729#0(0"0(0#0#55"/Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m4300882208#953"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Motif.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Motif.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifPainter.o /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933724.542091
+e275933725.565702
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifPainter.o
+x/Users/mz2/Projects/imotifs-quicklook/MotifPainter.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@60"Compile /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m275933724#275933725#0(0"0(0#0#52"/Users/mz2/Projects/imotifs-quicklook/MotifPainter.m4300882208#957"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/MotifPainter.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifPainter.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSet.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933727.029949
+e275933728.291711
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSet.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@66"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m275933727#275933728#0(0"0(0#0#58"/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m4300882208#959"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSet.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSet.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSetParser.o /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933726.594955
+e275933727.875483
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSetParser.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m275933726#275933727#0(0"0(0#0#64"/Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m4300882208#971"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/MotifSetParser.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifSetParser.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifViewCell.o /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933723.883059
+e275933725.658477
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifViewCell.o
+x/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@72"Compile /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m275933723#275933725#0(0"0(0#0#64"/Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m4300882208#970"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../iMotifs/MotifViewCell.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifViewCell.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Multinomial.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933725.658598
+e275933727.029828
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Multinomial.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@69"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m275933725#275933727#0(0"0(0#0#61"/Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m4300882208#965"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Multinomial.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Multinomial.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Symbol.o /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933725.565817
+e275933726.594701
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Symbol.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@64"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m275933725#275933726#0(0"0(0#0#56"/Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m4300882208#955"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/Symbol.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/Symbol.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/SymbolBounds.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933730.673358
+e275933731.577936
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/SymbolBounds.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m275933730#275933731#0(0"0(0#0#63"/Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m4300882208#968"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/SymbolBounds.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/SymbolBounds.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/WeightMatrix.o /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933729.229580
+e275933730.300741
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/WeightMatrix.o
+x/Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@70"Compile /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m275933729#275933730#0(0"0(0#0#62"/Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m4300882208#967"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../libxms/WeightMatrix.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/WeightMatrix.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/dirichlet_math.o /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933731.578058
+e275933732.535235
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/dirichlet_math.o
+x/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@73"Compile /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m275933731#275933732#0(0"0(0#0#65"/Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m4300882208#972"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/../imotifs/dirichlet_math.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/dirichlet_math.o0#
+
+CCompileC build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/main.o /Users/mz2/Projects/imotifs-quicklook/main.m normal ppc objective-c com.apple.compilers.gcc.4_2
+s275933722.858930
+e275933723.601573
+r1
+xCompileC
+xbuild/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/main.o
+x/Users/mz2/Projects/imotifs-quicklook/main.m
+xnormal
+xppc
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@52"Compile /Users/mz2/Projects/imotifs-quicklook/main.m275933722#275933723#0(0"0(0#0#44"/Users/mz2/Projects/imotifs-quicklook/main.m4300882208#941"    cd /Users/mz2/Projects/imotifs-quicklook    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch ppc -fmessage-length=0 -pipe -Wno-trigraphs -fpascal-strings -Os -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.5.sdk -mtune=G5 -mmacosx-version-min=10.5 -gdwarf-2 -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/MotifQuickLook.hmap -F/Users/mz2/Projects/imotifs-quicklook/build/Release -I/Users/mz2/Projects/imotifs-quicklook/build/Release/include -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources/ppc -I/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/DerivedSources -c /Users/mz2/Projects/imotifs-quicklook/main.m -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/main.o0#
+
+CCopyStringsFile /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s275933722.777513
+e275933722.858804
+r1
+xCopyStringsFile
+x/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings275933722#275933722#0(0"0(0#0#69"/Users/mz2/Projects/imotifs-quicklook/English.lproj/InfoPlist.strings4300882208#381"    cd /Users/mz2/Projects/imotifs-quicklook    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Resources/English.lproj0#
+
+CCreateUniversalBinary /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/MacOS/MotifQuickLook normal "ppc i386"
+r0
+
+CGenerateDSYMFile /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator.dSYM /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/MacOS/MotifQuickLook
+r0
+
+CLd /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook normal i386
+s275933742.891378
+e275933742.946512
+r0
+xLd
+x/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook
+xnormal
+xi386
+oUndefined symbols:
+o  "_DebugLog", referenced from:
+o      -[MotifViewCell awakeFromNib] in MotifViewCell.o
+o      -[MotifViewCell initTextCell:] in MotifViewCell.o
+o      -[MotifViewCell encodeWithCoder:] in MotifViewCell.o
+o      -[MotifViewCell initWithCoder:] in MotifViewCell.o
+o      -[Symbol encodeWithCoder:] in Symbol.o
+o      -[Symbol initWithCoder:] in Symbol.o
+o      -[Symbol initWithNameSet:primaryName:] in Symbol.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromURL:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromData:] in MotifSetParser.o
+o      -[MotifSet setNilValueForKey:] in MotifSet.o
+o      -[MotifSet encodeWithCoder:] in MotifSet.o
+o      -[MotifSet initWithCoder:] in MotifSet.o
+o      -[Motif setNilValueForKey:] in Motif.o
+o      -[Motif initWithCoder:] in Motif.o
+o      -[Alphabet encodeWithCoder:] in Alphabet.o
+o      -[Alphabet initWithCoder:] in Alphabet.o
+old: symbol(s) not found
+ocollect2: ld returned 1 exit status
+lSLF07#2@133"Link /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook275933742#275933742#0(1118"Undefined symbols:  "_DebugLog", referenced from:      -[MotifViewCell awakeFromNib] in MotifViewCell.o      -[MotifViewCell initTextCell:] in MotifViewCell.o      -[MotifViewCell encodeWithCoder:] in MotifViewCell.o      -[MotifViewCell initWithCoder:] in MotifViewCell.o      -[Symbol encodeWithCoder:] in Symbol.o      -[Symbol initWithCoder:] in Symbol.o      -[Symbol initWithNameSet:primaryName:] in Symbol.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromURL:] in MotifSetParser.o      +[MotifSetParser motifSetFromData:] in MotifSetParser.o      -[MotifSet setNilValueForKey:] in MotifSet.o      -[MotifSet encodeWithCoder:] in MotifSet.o      -[MotifSet initWithCoder:] in MotifSet.o      -[Motif setNilValueForKey:] in Motif.o      -[Motif initWithCoder:] in Motif.o      -[Alphabet encodeWithCoder:] in Alphabet.o      -[Alphabet initWithCoder:] in Alphabet.old: symbol(s) not foundcollect2: ld returned 1 exit status22(4@29""_DebugLog", referenced from:275933742#19#32#0(6@0"275933742#0#0#0#0#0"0(13@48"-[MotifViewCell awakeFromNib] in MotifViewCell.o275933742#51#55#0(6@0"275933742#0#0#0#0#0"0(13@49"-[MotifViewCell initTextCell:] in MotifViewCell.o275933742#106#56#0(6@0"275933742#0#0#0#0#0"0(13@52"-[MotifViewCell encodeWithCoder:] in MotifViewCell.o275933742#162#59#0(6@0"275933742#0#0#0#0#0"0(13@50"-[MotifViewCell initWithCoder:] in MotifViewCell.o275933742#221#57#0(6@0"275933742#0#0#0#0#0"0(13@38"-[Symbol encodeWithCoder:] in Symbol.o275933742#278#45#0(6@0"275933742#0#0#0#0#0"0(13@36"-[Symbol initWithCoder:] in Symbol.o275933742#323#43#0(6@0"275933742#0#0#0#0#0"0(13@50"-[Symbol initWithNameSet:primaryName:] in Symbol.o275933742#366#57#0(6@0"275933742#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933742#423#61#0(6@0"275933742#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933742#484#61#0(6@0"275933742#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933742#545#61#0(6@0"275933742#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromURL:] in MotifSetParser.o275933742#606#61#0(6@0"275933742#0#0#0#0#0"0(13@55"+[MotifSetParser motifSetFromData:] in MotifSetParser.o275933742#667#62#0(6@0"275933742#0#0#0#0#0"0(13@44"-[MotifSet setNilValueForKey:] in MotifSet.o275933742#729#51#0(6@0"275933742#0#0#0#0#0"0(13@42"-[MotifSet encodeWithCoder:] in MotifSet.o275933742#780#49#0(6@0"275933742#0#0#0#0#0"0(13@40"-[MotifSet initWithCoder:] in MotifSet.o275933742#829#47#0(6@0"275933742#0#0#0#0#0"0(13@38"-[Motif setNilValueForKey:] in Motif.o275933742#876#45#0(6@0"275933742#0#0#0#0#0"0(13@34"-[Motif initWithCoder:] in Motif.o275933742#921#41#0(6@0"275933742#0#0#0#0#0"0(13@42"-[Alphabet encodeWithCoder:] in Alphabet.o275933742#962#49#0(6@0"275933742#0#0#0#0#0"0(13@40"-[Alphabet initWithCoder:] in Alphabet.o275933742#1011#47#0(6@0"275933742#0#0#0#0#0"0(13@19"Symbol(s) not found275933742#1058#24#0(6@0"275933742#0#0#0#0#0"0(13@35"Collect2: ld returned 1 exit status275933742#1082#36#0(6@0"275933742#0#0#0#0#0"0(0#0#0"4300882208#732"    cd /Users/mz2/Projects/imotifs-quicklook    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/gcc-4.2 -arch i386 -bundle -isysroot /Developer/SDKs/MacOSX10.5.sdk -L/Users/mz2/Projects/imotifs-quicklook/build/Release -F/Users/mz2/Projects/imotifs-quicklook/build/Release -filelist /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook.LinkFileList -mmacosx-version-min=10.5 -framework CoreFoundation -framework CoreServices -framework ApplicationServices -framework QuickLook -framework Carbon -framework Cocoa -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/i386/MotifQuickLook1#
+
+CLd /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook normal ppc
+s275933732.535350
+e275933732.621759
+r0
+xLd
+x/Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook
+xnormal
+xppc
+oUndefined symbols:
+o  "_DebugLog", referenced from:
+o      -[MotifViewCell awakeFromNib] in MotifViewCell.o
+o      -[MotifViewCell encodeWithCoder:] in MotifViewCell.o
+o      -[MotifViewCell initWithCoder:] in MotifViewCell.o
+o      -[MotifViewCell initTextCell:] in MotifViewCell.o
+o      -[Symbol encodeWithCoder:] in Symbol.o
+o      -[Symbol initWithCoder:] in Symbol.o
+o      -[Symbol initWithNameSet:primaryName:] in Symbol.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromURL:] in MotifSetParser.o
+o      +[MotifSetParser motifSetFromData:] in MotifSetParser.o
+o      -[MotifSet setNilValueForKey:] in MotifSet.o
+o      -[MotifSet encodeWithCoder:] in MotifSet.o
+o      -[MotifSet initWithCoder:] in MotifSet.o
+o      -[Motif setNilValueForKey:] in Motif.o
+o      -[Motif initWithCoder:] in Motif.o
+o      -[Alphabet encodeWithCoder:] in Alphabet.o
+o      -[Alphabet initWithCoder:] in Alphabet.o
+old: symbol(s) not found
+ocollect2: ld returned 1 exit status
+lSLF07#2@132"Link /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook275933732#275933732#0(1118"Undefined symbols:  "_DebugLog", referenced from:      -[MotifViewCell awakeFromNib] in MotifViewCell.o      -[MotifViewCell encodeWithCoder:] in MotifViewCell.o      -[MotifViewCell initWithCoder:] in MotifViewCell.o      -[MotifViewCell initTextCell:] in MotifViewCell.o      -[Symbol encodeWithCoder:] in Symbol.o      -[Symbol initWithCoder:] in Symbol.o      -[Symbol initWithNameSet:primaryName:] in Symbol.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromXML:] in MotifSetParser.o      +[MotifSetParser motifSetFromURL:] in MotifSetParser.o      +[MotifSetParser motifSetFromData:] in MotifSetParser.o      -[MotifSet setNilValueForKey:] in MotifSet.o      -[MotifSet encodeWithCoder:] in MotifSet.o      -[MotifSet initWithCoder:] in MotifSet.o      -[Motif setNilValueForKey:] in Motif.o      -[Motif initWithCoder:] in Motif.o      -[Alphabet encodeWithCoder:] in Alphabet.o      -[Alphabet initWithCoder:] in Alphabet.old: symbol(s) not foundcollect2: ld returned 1 exit status22(4@29""_DebugLog", referenced from:275933732#19#32#0(6@0"275933732#0#0#0#0#0"0(13@48"-[MotifViewCell awakeFromNib] in MotifViewCell.o275933732#51#55#0(6@0"275933732#0#0#0#0#0"0(13@52"-[MotifViewCell encodeWithCoder:] in MotifViewCell.o275933732#106#59#0(6@0"275933732#0#0#0#0#0"0(13@50"-[MotifViewCell initWithCoder:] in MotifViewCell.o275933732#165#57#0(6@0"275933732#0#0#0#0#0"0(13@49"-[MotifViewCell initTextCell:] in MotifViewCell.o275933732#222#56#0(6@0"275933732#0#0#0#0#0"0(13@38"-[Symbol encodeWithCoder:] in Symbol.o275933732#278#45#0(6@0"275933732#0#0#0#0#0"0(13@36"-[Symbol initWithCoder:] in Symbol.o275933732#323#43#0(6@0"275933732#0#0#0#0#0"0(13@50"-[Symbol initWithNameSet:primaryName:] in Symbol.o275933732#366#57#0(6@0"275933732#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933732#423#61#0(6@0"275933732#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933732#484#61#0(6@0"275933732#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromXML:] in MotifSetParser.o275933732#545#61#0(6@0"275933732#0#0#0#0#0"0(13@54"+[MotifSetParser motifSetFromURL:] in MotifSetParser.o275933732#606#61#0(6@0"275933732#0#0#0#0#0"0(13@55"+[MotifSetParser motifSetFromData:] in MotifSetParser.o275933732#667#62#0(6@0"275933732#0#0#0#0#0"0(13@44"-[MotifSet setNilValueForKey:] in MotifSet.o275933732#729#51#0(6@0"275933732#0#0#0#0#0"0(13@42"-[MotifSet encodeWithCoder:] in MotifSet.o275933732#780#49#0(6@0"275933732#0#0#0#0#0"0(13@40"-[MotifSet initWithCoder:] in MotifSet.o275933732#829#47#0(6@0"275933732#0#0#0#0#0"0(13@38"-[Motif setNilValueForKey:] in Motif.o275933732#876#45#0(6@0"275933732#0#0#0#0#0"0(13@34"-[Motif initWithCoder:] in Motif.o275933732#921#41#0(6@0"275933732#0#0#0#0#0"0(13@42"-[Alphabet encodeWithCoder:] in Alphabet.o275933732#962#49#0(6@0"275933732#0#0#0#0#0"0(13@40"-[Alphabet initWithCoder:] in Alphabet.o275933732#1011#47#0(6@0"275933732#0#0#0#0#0"0(13@19"Symbol(s) not found275933732#1058#24#0(6@0"275933732#0#0#0#0#0"0(13@35"Collect2: ld returned 1 exit status275933732#1082#36#0(6@0"275933732#0#0#0#0#0"0(0#0#0"4300882208#729"    cd /Users/mz2/Projects/imotifs-quicklook    setenv MACOSX_DEPLOYMENT_TARGET 10.5    /Developer/usr/bin/gcc-4.2 -arch ppc -bundle -isysroot /Developer/SDKs/MacOSX10.5.sdk -L/Users/mz2/Projects/imotifs-quicklook/build/Release -F/Users/mz2/Projects/imotifs-quicklook/build/Release -filelist /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook.LinkFileList -mmacosx-version-min=10.5 -framework CoreFoundation -framework CoreServices -framework ApplicationServices -framework QuickLook -framework Carbon -framework Cocoa -o /Users/mz2/Projects/imotifs-quicklook/build/MotifQuickLook.build/Release/MotifQuickLook.build/Objects-normal/ppc/MotifQuickLook1#
+
+CPBXCp /Library/QuickLook/MotifQuickLook.qlgenerator build/Release/MotifQuickLook.qlgenerator
+r0
+
+CProcessInfoPlistFile /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Info.plist Info.plist
+s275933722.773640
+e275933722.777429
+r1
+xProcessInfoPlistFile
+x/Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Info.plist
+xInfo.plist
+lSLF07#2@18"Process Info.plist275933722#275933722#0(0"0(0#0#48"/Users/mz2/Projects/imotifs-quicklook/Info.plist4300882208#225"    cd /Users/mz2/Projects/imotifs-quicklook    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator/Contents/Info.plist0#
+
+CTouch /Users/mz2/Projects/imotifs-quicklook/build/Release/MotifQuickLook.qlgenerator
+r0
+
