@@ -37,7 +37,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 @implementation MotifSetDocument
 @synthesize motifTable;
 @synthesize motifNameCell,motifViewCell;
-@synthesize nameColumn,motifColumn;
+@synthesize nameColumn;
 @synthesize motifComparitor;
 @synthesize motifColumn;
 @synthesize motifSetController;

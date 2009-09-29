@@ -205,8 +205,6 @@
 		95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */; };
 		95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */; };
 		95B3507F10233A1600F0E0BF /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B3507E10233A1600F0E0BF /* General.png */; };
-		95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 95BDDD530FC31AA600EB39C4 /* DebugLog.h */; };
-		95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BDDD540FC31AA600EB39C4 /* DebugLog.m */; };
 		95D764E21023156C009703AA /* Visualisation.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E11023156C009703AA /* Visualisation.png */; };
 		95D764E6102315EF009703AA /* NMICA.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E5102315EF009703AA /* NMICA.png */; };
 		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
@@ -426,8 +424,6 @@
 		95B3505E1023326B00F0E0BF /* IMPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrefsWindowController.h; sourceTree = "<group>"; };
 		95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrefsWindowController.m; sourceTree = "<group>"; };
 		95B3507E10233A1600F0E0BF /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
-		95BDDD530FC31AA600EB39C4 /* DebugLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DebugLog.h; sourceTree = "<group>"; };
-		95BDDD540FC31AA600EB39C4 /* DebugLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DebugLog.m; sourceTree = "<group>"; };
 		95D764E11023156C009703AA /* Visualisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Visualisation.png; sourceTree = "<group>"; };
 		95D764E5102315EF009703AA /* NMICA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NMICA.png; sourceTree = "<group>"; };
 		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
@@ -974,8 +970,6 @@
 		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
 			isa = PBXGroup;
 			children = (
-				95BDDD530FC31AA600EB39C4 /* DebugLog.h */,
-				95BDDD540FC31AA600EB39C4 /* DebugLog.m */,
 			);
 			name = debuglog;
 			sourceTree = "<group>";
@@ -1067,7 +1061,6 @@
 				9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */,
 				9595B4000FB9D47700CE2BFF /* SymbolBounds.h in Headers */,
 				9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */,
-				95BDDD550FC31AA600EB39C4 /* DebugLog.h in Headers */,
 				95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */,
 				950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */,
 				95113DF40FD91631006823C4 /* IMConstants.h in Headers */,
@@ -1393,7 +1386,6 @@
 				9595B2A10FB9C59F00CE2BFF /* incomplete_beta.m in Sources */,
 				9595B4010FB9D47700CE2BFF /* SymbolBounds.m in Sources */,
 				9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */,
-				95BDDD560FC31AA600EB39C4 /* DebugLog.m in Sources */,
 				95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */,
 				950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */,
 				95113DF50FD91631006823C4 /* IMConstants.m in Sources */,
@@ -1525,6 +1517,8 @@
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 				);
+				NMICA_EXTRA_HOME = "${HOME}/workspace/nmica-extra";
+				NMICA_HOME = "${HOME}/workspace/nmica-dev";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";

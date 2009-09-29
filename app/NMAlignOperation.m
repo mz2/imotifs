@@ -127,8 +127,8 @@
         NSString *errStr = [[NSString alloc] initWithData: errData 
                                               encoding: NSUTF8StringEncoding];
         
-        NSLog(@"%@",str);
-        NSLog(@"%@",errStr);
+        NSLog(@"Align input: %@",str);
+        NSLog(@"Align error: %@",errStr);
         
         [buf appendString:str];
         [str release];

@@ -38,8 +38,8 @@
 @synthesize organismPopup, schemaVersionPopup;
 
 //@synthesize selectedSchemas = _selectedSchemas;
-@synthesize organism; // = _organism;
-@synthesize schemaVersion; // = _schemaVersion;
+//@synthesize organism; // = _organism;
+//@synthesize schemaVersion; // = _schemaVersion;
 
 @synthesize foundGeneList = _foundGeneList;
 @synthesize retrieveSequencesOperation;
@@ -51,7 +51,7 @@
 }
 
 - (void) awakeFromNib {
-    NSLog(@"Awakening IMRetrieveSequencesDialogController from Nib");
+    //NSLog(@"Awakening IMRetrieveSequencesDialogController from Nib");
     self.specifyGenesBySearching = NO;
     self.specifyGenesFromFile = NO;
         
@@ -134,7 +134,7 @@
                         change: (NSDictionary *)change
                        context: (void *)context {
     //NSLog(@"Selection index changed");
-    NSLog(@"%@ %@",change, keyPath);
+    NSLog(@"Observed value changed (%@) for key %@",change, keyPath);
     if ([keyPath isEqual:@"organismListController.selectionIndex"]) {
         [self willChangeValueForKey:@"schemaVersionList"];
         [_schemaVersionList release];
@@ -197,7 +197,7 @@
     [geneDisplayLabels removeAllObjects];
     [genePrimaryAccs removeAllObjects];
     
-    NSLog(@"Purged existing ones");
+    //NSLog(@"Purged existing ones");
     NSArray *results = [[ARBase defaultConnection] executeSQL:
      @"SELECT gene_stable_id.stable_id,xref.display_label,xref.dbprimary_acc \
 FROM gene,xref,gene_stable_id \
@@ -214,11 +214,11 @@ ORDER BY stable_id;" substitutions:nil];
     [geneDisplayLabels sortUsingSelector:@selector(compare:)];
     [genePrimaryAccs sortUsingSelector:@selector(compare:)];
     
-    
+	/*
     NSLog(@"stable ids: %i\n\n\ndisplay labels: %i\n\n\nprimary accs: %i",
           [geneStableIDs count],
           [geneDisplayLabels count],
-          [genePrimaryAccs count]);
+          [genePrimaryAccs count]);*/
 }
 
 - (void) refreshFoundGeneNameList {
@@ -411,7 +411,7 @@ ORDER BY stable_id;" substitutions:nil];
 }
 
 -(IBAction) submit:(id) sender {
-    NSLog(@"Submitting");
+    NSLog(@"Submitting sequence retrieval task");
     IMRetrieveSequencesStatusDialogController *operationDialogController = 
     [[IMRetrieveSequencesStatusDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesStatusDialog"];
     [operationDialogController showWindow: self];

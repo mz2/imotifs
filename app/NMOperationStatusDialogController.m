@@ -11,7 +11,7 @@
 #import "NMOperation.h"
 
 @implementation NMOperationStatusDialogController
-@synthesize iterationNumberLabel,evidenceLabel,iterationNumberLabel,likelihoodLabel, spinner,level;
+@synthesize iterationNumberLabel,evidenceLabel,likelihoodLabel, spinner,level;
 @synthesize operation;
 @synthesize closeButton, showResultsButton;
 //@synthesize outputMotifSetPath;

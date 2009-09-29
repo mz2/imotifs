@@ -745,7 +745,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
                                                           bytesPerRow:4*(NSInteger)round(offscreenRect.size.width) * 2
                                                          bitsPerPixel:32] autorelease];
     
-    NSLog(@"Bitmap rep created");
+    //NSLog(@"Bitmap rep created");
     //NSImage *offscreenImage = [[NSImage alloc] initWithSize:offscreenRect.size];
     //[offscreenImage addRepresentation: offscreenRep];
     
@@ -753,7 +753,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
         //NSLog(@"Off screen rep created");
         [NSGraphicsContext saveGraphicsState];
         [NSGraphicsContext setCurrentContext:[NSGraphicsContext graphicsContextWithBitmapImageRep: offscreenRep]];
-        NSGraphicsContext *context = [NSGraphicsContext currentContext];
+        //NSGraphicsContext *context = [NSGraphicsContext currentContext];
         
         //[NSGraphicsContext saveGraphicsState];
         
@@ -771,7 +771,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
         //[xform concat];
         //yTrans = rect.size.height;
         
-        NSLog(@"Making Bitmap Rep. Context: %@ (%d)", context,[context isFlipped]);
+        //NSLog(@"Making Bitmap Rep. Context: %@ (%d)", context,[context isFlipped]);
         
         
         //[offscreenImage lockFocus];
@@ -795,7 +795,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
         //[pngData writeToFile:@"/Users/mp4/Desktop/foo.png" atomically:NO];
 
     } else {
-        NSLog(@"ERROR: could not create offscreen rep for drawing the motif");
+        //NSLog(@"ERROR: could not create offscreen rep for drawing the motif");
     }
     
     return offscreenRep;
