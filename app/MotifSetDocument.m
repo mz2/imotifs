@@ -772,7 +772,7 @@ provideDataForType:(NSString *)type {
     if ([searchField.stringValue isEqual:@""]) {
         DebugLog(@"clearing predicate and showing all");
         [motifSetController setFilterPredicate:nil];
-        [motifSetController showAll];
+        //[motifSetController showAll];
         [motifSetController rearrangeObjects];
     } else {
         NSString *str = [[self searchField] stringValue];
