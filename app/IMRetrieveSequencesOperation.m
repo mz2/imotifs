@@ -37,6 +37,8 @@
 
 - (id) init
 {
+    [NMOperation setupNMICAEnvVars];
+    
     NSString *lp = 
         [[[[NMOperation nmicaExtraPath] 
            stringByAppendingPathComponent:@"bin/nmensemblseq"] 
@@ -95,16 +97,20 @@
         [args setObject: [[NSNumber numberWithInt:self.featherDiscoveryRegionsBy] stringValue] forKey:@"-featherRegionsBy"];        
     }
     if (self.retrieveThreePrimeUTR) {
-        [args setObject: [NSString stringWithFormat:@"%d %d",-self.threePrimeUTRBeginCoord,self.threePrimeUTREndCoord] 
+        [args setObject: [NSArray arrayWithObjects:
+                          [NSString stringWithFormat:@"%d",-self.threePrimeUTRBeginCoord],
+                          [NSString stringWithFormat:@"%d",self.threePrimeUTREndCoord], nil] 
                  forKey: @"-threePrimeUTR"];
     }
     if (self.retrieveFivePrimeUTR) {
-        [args setObject: [NSString stringWithFormat:@"%d %d",-self.fivePrimeUTRBeginCoord,self.fivePrimeUTREndCoord] 
+        [args setObject: [NSArray arrayWithObjects:
+                          [NSString stringWithFormat:@"%d",-self.fivePrimeUTRBeginCoord],
+                          [NSString stringWithFormat:@"%d",self.fivePrimeUTREndCoord], nil] 
                  forKey: @"-fivePrimeUTR"];
     }
     
     if (self.selectedGeneList.count > 0) {
-        [args setObject: [self.selectedGeneList componentsJoinedByString:@" "] forKey: @"-filterByIds"];
+        [args setObject: self.selectedGeneList forKey: @"-filterByIds"];
     }
     
     if (self.geneNameListFilename) {
@@ -133,7 +139,7 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    NSLog(@"Running");
+    DebugLog(@"Running");
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -144,19 +150,19 @@
         if ([lines count] == 1) {
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
+            DebugLog(@"Line count : %@", lines);
         } else {
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
-            NSLog(@"Buffer: %@", buf);
+            DebugLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
         }
         
     }
     
-    NSLog(@"Done");
-    
+    DebugLog(@"Done.");
     [statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                              withObject: self 
                                           waitUntilDone: NO];
@@ -164,6 +170,8 @@
 
 -(void) setStatusDialogController:(IMRetrieveSequencesStatusDialogController*) controller {
     //[[controller lastEntryView] setString: 
+    statusDialogController = controller;
+    [statusDialogController.spinner startAnimation:self];
 }
         
 @end

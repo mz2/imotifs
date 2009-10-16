@@ -120,17 +120,23 @@
     NSMutableArray *args = [NSMutableArray array];
     
     //TODO: Make valueless keys be output in the end
-    for (NSString *key in [dict allKeys]) {
-        NSString *value = [dict objectForKey:key];
+    for (id key in [dict allKeys]) {
+        id value = [dict objectForKey:key];
         [args addObject: key];
-        if ((id)value != [NSNull null]) {
-            [args addObject:value];
+        if (value != [NSNull null]) {
+            if ([value isKindOfClass:[NSArray class]]) {
+                DebugLog(@"Value: %@ Class:%@",value, [value class]);
+                for (id v in (NSArray*)value) {
+                    [args addObject: v];
+                }
+            } else {
+                [args addObject:value];                
+            }
         }
     }
     ddfprintf(stderr, @"%@",args);
     return args;
 }
-
 
 
 -(NSString*) argumentsString {

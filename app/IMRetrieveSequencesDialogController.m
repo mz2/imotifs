@@ -197,6 +197,10 @@
     [geneDisplayLabels removeAllObjects];
     [genePrimaryAccs removeAllObjects];
     
+    NSMutableArray *gids = [NSMutableArray array];
+    NSMutableArray *gdls = [NSMutableArray array];
+    NSMutableArray *gpaccs = [NSMutableArray array];
+    
     //NSLog(@"Purged existing ones");
     NSArray *results = [[ARBase defaultConnection] executeSQL:
      @"SELECT gene_stable_id.stable_id,xref.display_label,xref.dbprimary_acc \
@@ -206,14 +210,15 @@ AND gene_stable_id.gene_id = gene.gene_id \
 ORDER BY stable_id;" substitutions:nil];
     for (NSDictionary *res in results) {
         //NSLog(@"%@",res);
-        [geneStableIDs addObject: [res objectForKey:@"stable_id"]];
-        [geneDisplayLabels addObject: [res objectForKey:@"display_label"]];
-        [genePrimaryAccs addObject: [res objectForKey:@"dbprimary_acc"]];
+        [gids addObject: [res objectForKey:@"stable_id"]];
+        [gdls addObject: [res objectForKey:@"display_label"]];
+        [gpaccs addObject: [res objectForKey:@"dbprimary_acc"]];
     }
-    [geneStableIDs sortUsingSelector:@selector(compare:)];
-    [geneDisplayLabels sortUsingSelector:@selector(compare:)];
-    [genePrimaryAccs sortUsingSelector:@selector(compare:)];
     
+    geneStableIDs = [[[gids uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
+    geneDisplayLabels = [[[gdls uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
+    genePrimaryAccs = [[[gpaccs uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
+        
 	/*
     NSLog(@"stable ids: %i\n\n\ndisplay labels: %i\n\n\nprimary accs: %i",
           [geneStableIDs count],
@@ -358,7 +363,8 @@ ORDER BY stable_id;" substitutions:nil];
     [retrieveSequencesOperation.selectedGeneList addObjectsFromArray:[foundGeneListController selectedObjects]];
     NSMutableSet *set = [[NSMutableSet alloc] init];
     [set addObjectsFromArray: retrieveSequencesOperation.selectedGeneList];
-    [retrieveSequencesOperation setSelectedGeneList: [[[set allObjects] sortedArrayUsingSelector:@selector(compare:)] mutableCopy]];
+    [retrieveSequencesOperation setSelectedGeneList: 
+        [[[set allObjects] sortedArrayUsingSelector:@selector(compare:)] mutableCopy]];
     [set release];
 }
 
@@ -402,12 +408,13 @@ ORDER BY stable_id;" substitutions:nil];
     } else if (!self.specifyGenesBySearching &! self.specifyGenesFromFile) {
         return YES;
     }
-    
     return NO;
 }
 
 -(IBAction) cancel:(id) sender {
+    DebugLog(@"Cancelling sequence retrieval");
     [self close];
+    [self release];
 }
 
 -(IBAction) submit:(id) sender {
@@ -419,8 +426,9 @@ ORDER BY stable_id;" substitutions:nil];
     [operationDialogController setOperation: self.retrieveSequencesOperation];
     [self.retrieveSequencesOperation setStatusDialogController: operationDialogController];
     
-    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
-            addOperation: self.retrieveSequencesOperation];
+    [[[[NSApplication sharedApplication] delegate] 
+      sharedOperationQueue] 
+        addOperation: self.retrieveSequencesOperation];
     [self.retrieveSequencesOperation release];
     [self close];
     [self release];
@@ -442,7 +450,6 @@ ORDER BY stable_id;" substitutions:nil];
                            modalDelegate: self 
                           didEndSelector: @selector(browseForOutputFile:returnCode:contextInfo:) 
                              contextInfo: nil];
-    
 }
 
 -(void) browseForOutputFile: (NSOpenPanel*) sheet 

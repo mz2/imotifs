@@ -29,7 +29,8 @@
 
 -(id) initWithMotifSet:(MotifSet*) mset {
     NSString *lp = 
-        [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] stringByExpandingTildeInPath] retain];
+        [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] 
+          stringByExpandingTildeInPath] retain];
     [NMOperation setupNMICAEnvVars];
     self = [super initWithLaunchPath: lp];
     if (self != nil) {
