@@ -31,7 +31,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 
 @interface MotifSetDocument (private)
 -(void) initializeUI;
--(MotifSet*) motifSetWithSelectedOrAllMotifs;
+
 @end
 
 @implementation MotifSetDocument
@@ -865,15 +865,6 @@ provideDataForType:(NSString *)type {
     //[motifSetController rearrangeObjects];
 }
 
-- (void)changeColor:(id) sender {
-    NSColor *color = [[NSColorPanel sharedColorPanel] color];
-    for (Motif *m in [motifSetController selectedObjects]) {
-        [m setColor: color];
-        DebugLog(@"Color for %@ = %@",[m name],[m color]);
-    }
-    
-    [motifTable setNeedsDisplay:YES];
-}
 
 - (IBAction) find: (id) sender {
     [searchField selectText: self];
@@ -884,16 +875,19 @@ provideDataForType:(NSString *)type {
 -(MotifSet*) motifSetWithSelectedOrAllMotifs {
     MotifSet *mset = [MotifSet motifSet];
     if ([motifSetController selectedObjects].count > 0) {
+        DebugLog(@"%d motifs selected", [motifSetController selectedObjects].count);
         for (Motif *m in [motifSetController selectedObjects]) {
             [mset addMotif: m];
         }        
     } else {
+        DebugLog(@"No motifs selected, will output all arranged objects (%d)", [motifSetController arrangedObjects].count);
         for (Motif *m in [motifSetController arrangedObjects]) {
             [mset addMotif: m];
         }
     }
     return mset;
 }
+
 
 - (IBAction) alignMotifs: (id) sender {
     DebugLog(@"MotifSetDocument: aligning motifs");
@@ -905,8 +899,19 @@ provideDataForType:(NSString *)type {
     [alignOperation release];
 }
 
--(IBAction) alignAndRepresentAsMLEMetamotif: (id) sender {
+-(IBAction) mergeMotifs: (id) sender {
+    DebugLog(@"Merging motifs");
     
+    MotifSet*mset = [self motifSetWithSelectedOrAllMotifs];
+    NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet: mset];
+    [alignOperation setMotifSetDocument: self];
+    [alignOperation setOutputType: NMAlignOutputTypeAverage];
+    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: alignOperation];
+    [alignOperation release];
+}
+
+-(IBAction) mleMetamotif: (id) sender {
+    DebugLog(@"MLE metamotif");
     MotifSet *mset = [self motifSetWithSelectedOrAllMotifs];
     
     NMAlignOperation *alignOperation = [[NMAlignOperation alloc] initWithMotifSet: mset];
@@ -915,6 +920,17 @@ provideDataForType:(NSString *)type {
     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: alignOperation];
     [alignOperation release];
 }
+
+- (void)changeColor:(id) sender {
+    NSColor *color = [[NSColorPanel sharedColorPanel] color];
+    for (Motif *m in [motifSetController selectedObjects]) {
+        [m setColor: color];
+        DebugLog(@"Color for %@ = %@",[m name],[m color]);
+    }
+    
+    [motifTable setNeedsDisplay:YES];
+}
+
 
 - (IBAction) bestHitsWith: (id)sender {
     if (!motifSetPickerSheet) {
@@ -951,6 +967,7 @@ provideDataForType:(NSString *)type {
 	   didEndSelector: @selector(didEndMotifPickerSheet:returnCode:contextInfo:)
 		  contextInfo: dict];
 }
+
 
 - (IBAction) addPrefixToMotifNames: (id) sender {
     if (!motifNamePickerSheet) {

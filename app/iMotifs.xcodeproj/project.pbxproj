@@ -196,6 +196,89 @@
 		959E3CC80EE681A600072A66 /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
 		959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */; };
 		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
+		95AA6BDF108731250000A8BD /* libnmica.jnilib in Copy NestedMICA Native Library */ = {isa = PBXBuildFile; fileRef = 95AA6BB1108730DD0000A8BD /* libnmica.jnilib */; };
+		95AA6BF4108731AA0000A8BD /* biojava.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB3108730ED0000A8BD /* biojava.jar */; };
+		95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */; };
+		95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB5108730F30000A8BD /* blog.jar */; };
+		95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB6108730F50000A8BD /* bytecode.jar */; };
+		95AA6BF8108731AA0000A8BD /* colt.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB7108730F50000A8BD /* colt.jar */; };
+		95AA6BF9108731AA0000A8BD /* Jama-1.0.2.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */; };
+		95AA6BFA108731AA0000A8BD /* nmica.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB9108730F70000A8BD /* nmica.jar */; };
+		95AA6BFB108731AA0000A8BD /* stax-api-1.0.1.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BBA108730F80000A8BD /* stax-api-1.0.1.jar */; };
+		95AA6BFC108731AA0000A8BD /* wstx-lgpl-3.0.2.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BBB108730F80000A8BD /* wstx-lgpl-3.0.2.jar */; };
+		95AA6BFD108731AA0000A8BD /* changeless.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BBC108730F90000A8BD /* changeless.jar */; };
+		95AA6C16108732460000A8BD /* nmcompare in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BC7108730FE0000A8BD /* nmcompare */; };
+		95AA6C17108732460000A8BD /* nmconsensus in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BC8108730FE0000A8BD /* nmconsensus */; };
+		95AA6C18108732460000A8BD /* nmconvertbg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BC9108730FE0000A8BD /* nmconvertbg */; };
+		95AA6C19108732460000A8BD /* nmevaluatebg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCA108730FE0000A8BD /* nmevaluatebg */; };
+		95AA6C1A108732460000A8BD /* nminfer in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCB108730FE0000A8BD /* nminfer */; };
+		95AA6C1B108732460000A8BD /* nmmakebg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCC108730FE0000A8BD /* nmmakebg */; };
+		95AA6C1C108732460000A8BD /* nmmetabg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCD108730FE0000A8BD /* nmmetabg */; };
+		95AA6C1D108732460000A8BD /* nmmetainfer in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCE108730FE0000A8BD /* nmmetainfer */; };
+		95AA6C1E108732460000A8BD /* nmmotifsum in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCF108730FE0000A8BD /* nmmotifsum */; };
+		95AA6C1F108732460000A8BD /* nmscan in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BD0108730FE0000A8BD /* nmscan */; };
+		95AA6C20108732460000A8BD /* nmworker in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BD1108730FE0000A8BD /* nmworker */; };
+		95AA6C71108732CC0000A8BD /* ngconservation in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C391087327D0000A8BD /* ngconservation */; };
+		95AA6C72108732CC0000A8BD /* ngcount in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3A1087327D0000A8BD /* ngcount */; };
+		95AA6C73108732CC0000A8BD /* ngdepth in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3B1087327D0000A8BD /* ngdepth */; };
+		95AA6C74108732CC0000A8BD /* ngextend in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3C1087327D0000A8BD /* ngextend */; };
+		95AA6C75108732CC0000A8BD /* ngfiltermap in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3D1087327D0000A8BD /* ngfiltermap */; };
+		95AA6C76108732CC0000A8BD /* ngmkdepthdb in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3E1087327D0000A8BD /* ngmkdepthdb */; };
+		95AA6C77108732CC0000A8BD /* ngpeak2gff in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C3F1087327D0000A8BD /* ngpeak2gff */; };
+		95AA6C78108732CC0000A8BD /* ngpeaks in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C401087327D0000A8BD /* ngpeaks */; };
+		95AA6C79108732CC0000A8BD /* nmalign in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C411087327D0000A8BD /* nmalign */; };
+		95AA6C7A108732CC0000A8BD /* nmbgsample in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C421087327D0000A8BD /* nmbgsample */; };
+		95AA6C7B108732CC0000A8BD /* nmcanonicalizegenes in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C431087327D0000A8BD /* nmcanonicalizegenes */; };
+		95AA6C7C108732CC0000A8BD /* nmconcatenate in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C441087327D0000A8BD /* nmconcatenate */; };
+		95AA6C7D108732CC0000A8BD /* nmconvert in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C451087327D0000A8BD /* nmconvert */; };
+		95AA6C7E108732CC0000A8BD /* nmconvertxms in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C461087327D0000A8BD /* nmconvertxms */; };
+		95AA6C7F108732CC0000A8BD /* nmcoveredseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C471087327D0000A8BD /* nmcoveredseq */; };
+		95AA6C80108732CC0000A8BD /* nmcutoff in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C481087327D0000A8BD /* nmcutoff */; };
+		95AA6C81108732CC0000A8BD /* nmempeval in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C491087327D0000A8BD /* nmempeval */; };
+		95AA6C82108732CC0000A8BD /* nmensemblchromosomes in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4A1087327D0000A8BD /* nmensemblchromosomes */; };
+		95AA6C83108732CC0000A8BD /* nmensemblfeat in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4B1087327D0000A8BD /* nmensemblfeat */; };
+		95AA6C84108732CC0000A8BD /* nmensemblpeakseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4C1087327D0000A8BD /* nmensemblpeakseq */; };
+		95AA6C85108732CC0000A8BD /* nmensemblregfeat in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4D1087327D0000A8BD /* nmensemblregfeat */; };
+		95AA6C86108732CC0000A8BD /* nmensemblseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4E1087327D0000A8BD /* nmensemblseq */; };
+		95AA6C87108732CC0000A8BD /* nmentropycutoff in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C4F1087327D0000A8BD /* nmentropycutoff */; };
+		95AA6C88108732CC0000A8BD /* nmenummatches in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C501087327E0000A8BD /* nmenummatches */; };
+		95AA6C89108732CC0000A8BD /* nmeval in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C511087327E0000A8BD /* nmeval */; };
+		95AA6C8A108732CC0000A8BD /* nmfilterseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C521087327E0000A8BD /* nmfilterseq */; };
+		95AA6C8B108732CC0000A8BD /* nmgccontent in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C531087327E0000A8BD /* nmgccontent */; };
+		95AA6C8C108732CC0000A8BD /* nmgrep in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C541087327E0000A8BD /* nmgrep */; };
+		95AA6C8D108732CC0000A8BD /* nmhistcomp in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C551087327E0000A8BD /* nmhistcomp */; };
+		95AA6C8E108732CC0000A8BD /* nmintersectseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C561087327E0000A8BD /* nmintersectseq */; };
+		95AA6C8F108732CC0000A8BD /* nmmerge in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C571087327E0000A8BD /* nmmerge */; };
+		95AA6C90108732CC0000A8BD /* nmmergeoverlapseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C581087327E0000A8BD /* nmmergeoverlapseq */; };
+		95AA6C91108732CC0000A8BD /* nmmetasim in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C591087327E0000A8BD /* nmmetasim */; };
+		95AA6C92108732CC0000A8BD /* nmmostool in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5A1087327E0000A8BD /* nmmostool */; };
+		95AA6C93108732CC0000A8BD /* nmmotifsum in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5B1087327E0000A8BD /* nmmotifsum */; };
+		95AA6C94108732CC0000A8BD /* nmnoise in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5C1087327E0000A8BD /* nmnoise */; };
+		95AA6C95108732CC0000A8BD /* nmoverlapseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5D1087327E0000A8BD /* nmoverlapseq */; };
+		95AA6C96108732CC0000A8BD /* nmrandomseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5E1087327E0000A8BD /* nmrandomseq */; };
+		95AA6C97108732CC0000A8BD /* nmregularise in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C5F1087327E0000A8BD /* nmregularise */; };
+		95AA6C98108732CC0000A8BD /* nmreportcutoff in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C601087327E0000A8BD /* nmreportcutoff */; };
+		95AA6C99108732CC0000A8BD /* nmrocauc in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C611087327E0000A8BD /* nmrocauc */; };
+		95AA6C9A108732CC0000A8BD /* nmsampleregions in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C621087327E0000A8BD /* nmsampleregions */; };
+		95AA6C9B108732CC0000A8BD /* nmseparate in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C631087327E0000A8BD /* nmseparate */; };
+		95AA6C9C108732CC0000A8BD /* nmseqlen in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C641087327E0000A8BD /* nmseqlen */; };
+		95AA6C9D108732CC0000A8BD /* nmshuffle in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C651087327E0000A8BD /* nmshuffle */; };
+		95AA6C9E108732CC0000A8BD /* nmspikeseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C661087327E0000A8BD /* nmspikeseq */; };
+		95AA6C9F108732CC0000A8BD /* nmsplit in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C671087327E0000A8BD /* nmsplit */; };
+		95AA6CA0108732CC0000A8BD /* nmsplitseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C681087327E0000A8BD /* nmsplitseq */; };
+		95AA6CA1108732CC0000A8BD /* nmthreshold in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C691087327E0000A8BD /* nmthreshold */; };
+		95AA6CA2108732CC0000A8BD /* nmuniqregions in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C6A1087327E0000A8BD /* nmuniqregions */; };
+		95AA6CA3108732CC0000A8BD /* nmweightwords in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C6B1087327E0000A8BD /* nmweightwords */; };
+		95AA6CA4108732DA0000A8BD /* biojava-ensembl.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C251087326C0000A8BD /* biojava-ensembl.jar */; };
+		95AA6CA5108732DA0000A8BD /* commons-collections-2.1.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */; };
+		95AA6CA6108732DA0000A8BD /* commons-dbcp-1.2.2.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */; };
+		95AA6CA7108732DA0000A8BD /* commons-pool-1.1.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */; };
+		95AA6CA8108732DA0000A8BD /* hsqldb.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C291087326D0000A8BD /* hsqldb.jar */; };
+		95AA6CA9108732DA0000A8BD /* mysql-connector-java-3.1.14-bin.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */; };
+		95AA6CAA108732DA0000A8BD /* nmica-extra.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2B108732700000A8BD /* nmica-extra.jar */; };
+		95AA6CAB108732DA0000A8BD /* picard-1.03.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2C108732710000A8BD /* picard-1.03.jar */; };
+		95AA6CAC108732DA0000A8BD /* sam-1.03.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2D108732710000A8BD /* sam-1.03.jar */; };
+		95AA6CAD108732DA0000A8BD /* sqlitejdbc-v056-pure.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */; };
 		95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
 		95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
@@ -257,6 +340,139 @@
 			files = (
 				95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */,
 			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA6B8510872EF40000A8BD /* Copy NestedMICA Native Library */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 12;
+			dstPath = nmica/native;
+			dstSubfolderSpec = 15;
+			files = (
+				95AA6BDF108731250000A8BD /* libnmica.jnilib in Copy NestedMICA Native Library */,
+			);
+			name = "Copy NestedMICA Native Library";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA6BE9108731810000A8BD /* Copy NestedMICA JARs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = nmica/lib;
+			dstSubfolderSpec = 15;
+			files = (
+				95AA6BF4108731AA0000A8BD /* biojava.jar in Copy NestedMICA JARs */,
+				95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */,
+				95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */,
+				95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */,
+				95AA6BF8108731AA0000A8BD /* colt.jar in Copy NestedMICA JARs */,
+				95AA6BF9108731AA0000A8BD /* Jama-1.0.2.jar in Copy NestedMICA JARs */,
+				95AA6BFA108731AA0000A8BD /* nmica.jar in Copy NestedMICA JARs */,
+				95AA6BFB108731AA0000A8BD /* stax-api-1.0.1.jar in Copy NestedMICA JARs */,
+				95AA6BFC108731AA0000A8BD /* wstx-lgpl-3.0.2.jar in Copy NestedMICA JARs */,
+				95AA6BFD108731AA0000A8BD /* changeless.jar in Copy NestedMICA JARs */,
+			);
+			name = "Copy NestedMICA JARs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA6C01108731C40000A8BD /* Copy NestedMICA Scripts */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = nmica/bin;
+			dstSubfolderSpec = 15;
+			files = (
+				95AA6C16108732460000A8BD /* nmcompare in Copy NestedMICA Scripts */,
+				95AA6C17108732460000A8BD /* nmconsensus in Copy NestedMICA Scripts */,
+				95AA6C18108732460000A8BD /* nmconvertbg in Copy NestedMICA Scripts */,
+				95AA6C19108732460000A8BD /* nmevaluatebg in Copy NestedMICA Scripts */,
+				95AA6C1A108732460000A8BD /* nminfer in Copy NestedMICA Scripts */,
+				95AA6C1B108732460000A8BD /* nmmakebg in Copy NestedMICA Scripts */,
+				95AA6C1C108732460000A8BD /* nmmetabg in Copy NestedMICA Scripts */,
+				95AA6C1D108732460000A8BD /* nmmetainfer in Copy NestedMICA Scripts */,
+				95AA6C1E108732460000A8BD /* nmmotifsum in Copy NestedMICA Scripts */,
+				95AA6C1F108732460000A8BD /* nmscan in Copy NestedMICA Scripts */,
+				95AA6C20108732460000A8BD /* nmworker in Copy NestedMICA Scripts */,
+			);
+			name = "Copy NestedMICA Scripts";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA6C6F108732C90000A8BD /* Copy NestedMICA-extra JARs */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "nmica-extra/lib";
+			dstSubfolderSpec = 15;
+			files = (
+				95AA6CA4108732DA0000A8BD /* biojava-ensembl.jar in Copy NestedMICA-extra JARs */,
+				95AA6CA5108732DA0000A8BD /* commons-collections-2.1.jar in Copy NestedMICA-extra JARs */,
+				95AA6CA6108732DA0000A8BD /* commons-dbcp-1.2.2.jar in Copy NestedMICA-extra JARs */,
+				95AA6CA7108732DA0000A8BD /* commons-pool-1.1.jar in Copy NestedMICA-extra JARs */,
+				95AA6CA8108732DA0000A8BD /* hsqldb.jar in Copy NestedMICA-extra JARs */,
+				95AA6CA9108732DA0000A8BD /* mysql-connector-java-3.1.14-bin.jar in Copy NestedMICA-extra JARs */,
+				95AA6CAA108732DA0000A8BD /* nmica-extra.jar in Copy NestedMICA-extra JARs */,
+				95AA6CAB108732DA0000A8BD /* picard-1.03.jar in Copy NestedMICA-extra JARs */,
+				95AA6CAC108732DA0000A8BD /* sam-1.03.jar in Copy NestedMICA-extra JARs */,
+				95AA6CAD108732DA0000A8BD /* sqlitejdbc-v056-pure.jar in Copy NestedMICA-extra JARs */,
+			);
+			name = "Copy NestedMICA-extra JARs";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95AA6C70108732C90000A8BD /* Copy NestedMICA-extra Scripts */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "nmica-extra/bin";
+			dstSubfolderSpec = 15;
+			files = (
+				95AA6C71108732CC0000A8BD /* ngconservation in Copy NestedMICA-extra Scripts */,
+				95AA6C72108732CC0000A8BD /* ngcount in Copy NestedMICA-extra Scripts */,
+				95AA6C73108732CC0000A8BD /* ngdepth in Copy NestedMICA-extra Scripts */,
+				95AA6C74108732CC0000A8BD /* ngextend in Copy NestedMICA-extra Scripts */,
+				95AA6C75108732CC0000A8BD /* ngfiltermap in Copy NestedMICA-extra Scripts */,
+				95AA6C76108732CC0000A8BD /* ngmkdepthdb in Copy NestedMICA-extra Scripts */,
+				95AA6C77108732CC0000A8BD /* ngpeak2gff in Copy NestedMICA-extra Scripts */,
+				95AA6C78108732CC0000A8BD /* ngpeaks in Copy NestedMICA-extra Scripts */,
+				95AA6C79108732CC0000A8BD /* nmalign in Copy NestedMICA-extra Scripts */,
+				95AA6C7A108732CC0000A8BD /* nmbgsample in Copy NestedMICA-extra Scripts */,
+				95AA6C7B108732CC0000A8BD /* nmcanonicalizegenes in Copy NestedMICA-extra Scripts */,
+				95AA6C7C108732CC0000A8BD /* nmconcatenate in Copy NestedMICA-extra Scripts */,
+				95AA6C7D108732CC0000A8BD /* nmconvert in Copy NestedMICA-extra Scripts */,
+				95AA6C7E108732CC0000A8BD /* nmconvertxms in Copy NestedMICA-extra Scripts */,
+				95AA6C7F108732CC0000A8BD /* nmcoveredseq in Copy NestedMICA-extra Scripts */,
+				95AA6C80108732CC0000A8BD /* nmcutoff in Copy NestedMICA-extra Scripts */,
+				95AA6C81108732CC0000A8BD /* nmempeval in Copy NestedMICA-extra Scripts */,
+				95AA6C82108732CC0000A8BD /* nmensemblchromosomes in Copy NestedMICA-extra Scripts */,
+				95AA6C83108732CC0000A8BD /* nmensemblfeat in Copy NestedMICA-extra Scripts */,
+				95AA6C84108732CC0000A8BD /* nmensemblpeakseq in Copy NestedMICA-extra Scripts */,
+				95AA6C85108732CC0000A8BD /* nmensemblregfeat in Copy NestedMICA-extra Scripts */,
+				95AA6C86108732CC0000A8BD /* nmensemblseq in Copy NestedMICA-extra Scripts */,
+				95AA6C87108732CC0000A8BD /* nmentropycutoff in Copy NestedMICA-extra Scripts */,
+				95AA6C88108732CC0000A8BD /* nmenummatches in Copy NestedMICA-extra Scripts */,
+				95AA6C89108732CC0000A8BD /* nmeval in Copy NestedMICA-extra Scripts */,
+				95AA6C8A108732CC0000A8BD /* nmfilterseq in Copy NestedMICA-extra Scripts */,
+				95AA6C8B108732CC0000A8BD /* nmgccontent in Copy NestedMICA-extra Scripts */,
+				95AA6C8C108732CC0000A8BD /* nmgrep in Copy NestedMICA-extra Scripts */,
+				95AA6C8D108732CC0000A8BD /* nmhistcomp in Copy NestedMICA-extra Scripts */,
+				95AA6C8E108732CC0000A8BD /* nmintersectseq in Copy NestedMICA-extra Scripts */,
+				95AA6C8F108732CC0000A8BD /* nmmerge in Copy NestedMICA-extra Scripts */,
+				95AA6C90108732CC0000A8BD /* nmmergeoverlapseq in Copy NestedMICA-extra Scripts */,
+				95AA6C91108732CC0000A8BD /* nmmetasim in Copy NestedMICA-extra Scripts */,
+				95AA6C92108732CC0000A8BD /* nmmostool in Copy NestedMICA-extra Scripts */,
+				95AA6C93108732CC0000A8BD /* nmmotifsum in Copy NestedMICA-extra Scripts */,
+				95AA6C94108732CC0000A8BD /* nmnoise in Copy NestedMICA-extra Scripts */,
+				95AA6C95108732CC0000A8BD /* nmoverlapseq in Copy NestedMICA-extra Scripts */,
+				95AA6C96108732CC0000A8BD /* nmrandomseq in Copy NestedMICA-extra Scripts */,
+				95AA6C97108732CC0000A8BD /* nmregularise in Copy NestedMICA-extra Scripts */,
+				95AA6C98108732CC0000A8BD /* nmreportcutoff in Copy NestedMICA-extra Scripts */,
+				95AA6C99108732CC0000A8BD /* nmrocauc in Copy NestedMICA-extra Scripts */,
+				95AA6C9A108732CC0000A8BD /* nmsampleregions in Copy NestedMICA-extra Scripts */,
+				95AA6C9B108732CC0000A8BD /* nmseparate in Copy NestedMICA-extra Scripts */,
+				95AA6C9C108732CC0000A8BD /* nmseqlen in Copy NestedMICA-extra Scripts */,
+				95AA6C9D108732CC0000A8BD /* nmshuffle in Copy NestedMICA-extra Scripts */,
+				95AA6C9E108732CC0000A8BD /* nmspikeseq in Copy NestedMICA-extra Scripts */,
+				95AA6C9F108732CC0000A8BD /* nmsplit in Copy NestedMICA-extra Scripts */,
+				95AA6CA0108732CC0000A8BD /* nmsplitseq in Copy NestedMICA-extra Scripts */,
+				95AA6CA1108732CC0000A8BD /* nmthreshold in Copy NestedMICA-extra Scripts */,
+				95AA6CA2108732CC0000A8BD /* nmuniqregions in Copy NestedMICA-extra Scripts */,
+				95AA6CA3108732CC0000A8BD /* nmweightwords in Copy NestedMICA-extra Scripts */,
+			);
+			name = "Copy NestedMICA-extra Scripts";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		95B70FD40FE440F10090E46A /* Copy ActiveRecord Framework */ = {
@@ -408,6 +624,89 @@
 		959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerWindow.m; sourceTree = "<group>"; };
 		959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerTableDelegate.h; sourceTree = "<group>"; };
 		959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerTableDelegate.m; sourceTree = "<group>"; };
+		95AA6BB1108730DD0000A8BD /* libnmica.jnilib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnmica.jnilib; path = "../../../workspace/nmica-dev/native/libnmica.jnilib"; sourceTree = SOURCE_ROOT; };
+		95AA6BB3108730ED0000A8BD /* biojava.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = biojava.jar; path = "../../../workspace/nmica-dev/lib/biojava.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "bjv2-core-0.1.jar"; path = "../../../workspace/nmica-dev/lib/bjv2-core-0.1.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB5108730F30000A8BD /* blog.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = blog.jar; path = "../../../workspace/nmica-dev/lib/blog.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB6108730F50000A8BD /* bytecode.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = bytecode.jar; path = "../../../workspace/nmica-dev/lib/bytecode.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB7108730F50000A8BD /* colt.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = colt.jar; path = "../../../workspace/nmica-dev/lib/colt.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "Jama-1.0.2.jar"; path = "../../../workspace/nmica-dev/lib/Jama-1.0.2.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BB9108730F70000A8BD /* nmica.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = nmica.jar; path = "../../../workspace/nmica-dev/lib/nmica.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BBA108730F80000A8BD /* stax-api-1.0.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "stax-api-1.0.1.jar"; path = "../../../workspace/nmica-dev/lib/stax-api-1.0.1.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BBB108730F80000A8BD /* wstx-lgpl-3.0.2.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "wstx-lgpl-3.0.2.jar"; path = "../../../workspace/nmica-dev/lib/wstx-lgpl-3.0.2.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BBC108730F90000A8BD /* changeless.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = changeless.jar; path = "../../../workspace/nmica-dev/lib/changeless.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6BC7108730FE0000A8BD /* nmcompare */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcompare; path = "../../../workspace/nmica-dev/bin/nmcompare"; sourceTree = SOURCE_ROOT; };
+		95AA6BC8108730FE0000A8BD /* nmconsensus */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconsensus; path = "../../../workspace/nmica-dev/bin/nmconsensus"; sourceTree = SOURCE_ROOT; };
+		95AA6BC9108730FE0000A8BD /* nmconvertbg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconvertbg; path = "../../../workspace/nmica-dev/bin/nmconvertbg"; sourceTree = SOURCE_ROOT; };
+		95AA6BCA108730FE0000A8BD /* nmevaluatebg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmevaluatebg; path = "../../../workspace/nmica-dev/bin/nmevaluatebg"; sourceTree = SOURCE_ROOT; };
+		95AA6BCB108730FE0000A8BD /* nminfer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nminfer; path = "../../../workspace/nmica-dev/bin/nminfer"; sourceTree = SOURCE_ROOT; };
+		95AA6BCC108730FE0000A8BD /* nmmakebg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmakebg; path = "../../../workspace/nmica-dev/bin/nmmakebg"; sourceTree = SOURCE_ROOT; };
+		95AA6BCD108730FE0000A8BD /* nmmetabg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmetabg; path = "../../../workspace/nmica-dev/bin/nmmetabg"; sourceTree = SOURCE_ROOT; };
+		95AA6BCE108730FE0000A8BD /* nmmetainfer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmetainfer; path = "../../../workspace/nmica-dev/bin/nmmetainfer"; sourceTree = SOURCE_ROOT; };
+		95AA6BCF108730FE0000A8BD /* nmmotifsum */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmotifsum; path = "../../../workspace/nmica-dev/bin/nmmotifsum"; sourceTree = SOURCE_ROOT; };
+		95AA6BD0108730FE0000A8BD /* nmscan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmscan; path = "../../../workspace/nmica-dev/bin/nmscan"; sourceTree = SOURCE_ROOT; };
+		95AA6BD1108730FE0000A8BD /* nmworker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmworker; path = "../../../workspace/nmica-dev/bin/nmworker"; sourceTree = SOURCE_ROOT; };
+		95AA6C251087326C0000A8BD /* biojava-ensembl.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "biojava-ensembl.jar"; path = "../../../workspace/nmica-extra/lib/biojava-ensembl.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-collections-2.1.jar"; path = "../../../workspace/nmica-extra/lib/commons-collections-2.1.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-dbcp-1.2.2.jar"; path = "../../../workspace/nmica-extra/lib/commons-dbcp-1.2.2.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-pool-1.1.jar"; path = "../../../workspace/nmica-extra/lib/commons-pool-1.1.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C291087326D0000A8BD /* hsqldb.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = hsqldb.jar; path = "../../../workspace/nmica-extra/lib/hsqldb.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "mysql-connector-java-3.1.14-bin.jar"; path = "../../../workspace/nmica-extra/lib/mysql-connector-java-3.1.14-bin.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C2B108732700000A8BD /* nmica-extra.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "nmica-extra.jar"; path = "../../../workspace/nmica-extra/lib/nmica-extra.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C2C108732710000A8BD /* picard-1.03.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "picard-1.03.jar"; path = "../../../workspace/nmica-extra/lib/picard-1.03.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C2D108732710000A8BD /* sam-1.03.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "sam-1.03.jar"; path = "../../../workspace/nmica-extra/lib/sam-1.03.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "sqlitejdbc-v056-pure.jar"; path = "../../../workspace/nmica-extra/lib/sqlitejdbc-v056-pure.jar"; sourceTree = SOURCE_ROOT; };
+		95AA6C391087327D0000A8BD /* ngconservation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngconservation; path = "../../../workspace/nmica-extra/bin/ngconservation"; sourceTree = SOURCE_ROOT; };
+		95AA6C3A1087327D0000A8BD /* ngcount */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngcount; path = "../../../workspace/nmica-extra/bin/ngcount"; sourceTree = SOURCE_ROOT; };
+		95AA6C3B1087327D0000A8BD /* ngdepth */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngdepth; path = "../../../workspace/nmica-extra/bin/ngdepth"; sourceTree = SOURCE_ROOT; };
+		95AA6C3C1087327D0000A8BD /* ngextend */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngextend; path = "../../../workspace/nmica-extra/bin/ngextend"; sourceTree = SOURCE_ROOT; };
+		95AA6C3D1087327D0000A8BD /* ngfiltermap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngfiltermap; path = "../../../workspace/nmica-extra/bin/ngfiltermap"; sourceTree = SOURCE_ROOT; };
+		95AA6C3E1087327D0000A8BD /* ngmkdepthdb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngmkdepthdb; path = "../../../workspace/nmica-extra/bin/ngmkdepthdb"; sourceTree = SOURCE_ROOT; };
+		95AA6C3F1087327D0000A8BD /* ngpeak2gff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngpeak2gff; path = "../../../workspace/nmica-extra/bin/ngpeak2gff"; sourceTree = SOURCE_ROOT; };
+		95AA6C401087327D0000A8BD /* ngpeaks */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngpeaks; path = "../../../workspace/nmica-extra/bin/ngpeaks"; sourceTree = SOURCE_ROOT; };
+		95AA6C411087327D0000A8BD /* nmalign */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmalign; path = "../../../workspace/nmica-extra/bin/nmalign"; sourceTree = SOURCE_ROOT; };
+		95AA6C421087327D0000A8BD /* nmbgsample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmbgsample; path = "../../../workspace/nmica-extra/bin/nmbgsample"; sourceTree = SOURCE_ROOT; };
+		95AA6C431087327D0000A8BD /* nmcanonicalizegenes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcanonicalizegenes; path = "../../../workspace/nmica-extra/bin/nmcanonicalizegenes"; sourceTree = SOURCE_ROOT; };
+		95AA6C441087327D0000A8BD /* nmconcatenate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconcatenate; path = "../../../workspace/nmica-extra/bin/nmconcatenate"; sourceTree = SOURCE_ROOT; };
+		95AA6C451087327D0000A8BD /* nmconvert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconvert; path = "../../../workspace/nmica-extra/bin/nmconvert"; sourceTree = SOURCE_ROOT; };
+		95AA6C461087327D0000A8BD /* nmconvertxms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconvertxms; path = "../../../workspace/nmica-extra/bin/nmconvertxms"; sourceTree = SOURCE_ROOT; };
+		95AA6C471087327D0000A8BD /* nmcoveredseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcoveredseq; path = "../../../workspace/nmica-extra/bin/nmcoveredseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C481087327D0000A8BD /* nmcutoff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcutoff; path = "../../../workspace/nmica-extra/bin/nmcutoff"; sourceTree = SOURCE_ROOT; };
+		95AA6C491087327D0000A8BD /* nmempeval */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmempeval; path = "../../../workspace/nmica-extra/bin/nmempeval"; sourceTree = SOURCE_ROOT; };
+		95AA6C4A1087327D0000A8BD /* nmensemblchromosomes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmensemblchromosomes; path = "../../../workspace/nmica-extra/bin/nmensemblchromosomes"; sourceTree = SOURCE_ROOT; };
+		95AA6C4B1087327D0000A8BD /* nmensemblfeat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmensemblfeat; path = "../../../workspace/nmica-extra/bin/nmensemblfeat"; sourceTree = SOURCE_ROOT; };
+		95AA6C4C1087327D0000A8BD /* nmensemblpeakseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmensemblpeakseq; path = "../../../workspace/nmica-extra/bin/nmensemblpeakseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C4D1087327D0000A8BD /* nmensemblregfeat */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmensemblregfeat; path = "../../../workspace/nmica-extra/bin/nmensemblregfeat"; sourceTree = SOURCE_ROOT; };
+		95AA6C4E1087327D0000A8BD /* nmensemblseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmensemblseq; path = "../../../workspace/nmica-extra/bin/nmensemblseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C4F1087327D0000A8BD /* nmentropycutoff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmentropycutoff; path = "../../../workspace/nmica-extra/bin/nmentropycutoff"; sourceTree = SOURCE_ROOT; };
+		95AA6C501087327E0000A8BD /* nmenummatches */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmenummatches; path = "../../../workspace/nmica-extra/bin/nmenummatches"; sourceTree = SOURCE_ROOT; };
+		95AA6C511087327E0000A8BD /* nmeval */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmeval; path = "../../../workspace/nmica-extra/bin/nmeval"; sourceTree = SOURCE_ROOT; };
+		95AA6C521087327E0000A8BD /* nmfilterseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmfilterseq; path = "../../../workspace/nmica-extra/bin/nmfilterseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C531087327E0000A8BD /* nmgccontent */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmgccontent; path = "../../../workspace/nmica-extra/bin/nmgccontent"; sourceTree = SOURCE_ROOT; };
+		95AA6C541087327E0000A8BD /* nmgrep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmgrep; path = "../../../workspace/nmica-extra/bin/nmgrep"; sourceTree = SOURCE_ROOT; };
+		95AA6C551087327E0000A8BD /* nmhistcomp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmhistcomp; path = "../../../workspace/nmica-extra/bin/nmhistcomp"; sourceTree = SOURCE_ROOT; };
+		95AA6C561087327E0000A8BD /* nmintersectseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmintersectseq; path = "../../../workspace/nmica-extra/bin/nmintersectseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C571087327E0000A8BD /* nmmerge */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmerge; path = "../../../workspace/nmica-extra/bin/nmmerge"; sourceTree = SOURCE_ROOT; };
+		95AA6C581087327E0000A8BD /* nmmergeoverlapseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmergeoverlapseq; path = "../../../workspace/nmica-extra/bin/nmmergeoverlapseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C591087327E0000A8BD /* nmmetasim */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmetasim; path = "../../../workspace/nmica-extra/bin/nmmetasim"; sourceTree = SOURCE_ROOT; };
+		95AA6C5A1087327E0000A8BD /* nmmostool */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmostool; path = "../../../workspace/nmica-extra/bin/nmmostool"; sourceTree = SOURCE_ROOT; };
+		95AA6C5B1087327E0000A8BD /* nmmotifsum */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmotifsum; path = "../../../workspace/nmica-extra/bin/nmmotifsum"; sourceTree = SOURCE_ROOT; };
+		95AA6C5C1087327E0000A8BD /* nmnoise */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmnoise; path = "../../../workspace/nmica-extra/bin/nmnoise"; sourceTree = SOURCE_ROOT; };
+		95AA6C5D1087327E0000A8BD /* nmoverlapseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmoverlapseq; path = "../../../workspace/nmica-extra/bin/nmoverlapseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C5E1087327E0000A8BD /* nmrandomseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmrandomseq; path = "../../../workspace/nmica-extra/bin/nmrandomseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C5F1087327E0000A8BD /* nmregularise */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmregularise; path = "../../../workspace/nmica-extra/bin/nmregularise"; sourceTree = SOURCE_ROOT; };
+		95AA6C601087327E0000A8BD /* nmreportcutoff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmreportcutoff; path = "../../../workspace/nmica-extra/bin/nmreportcutoff"; sourceTree = SOURCE_ROOT; };
+		95AA6C611087327E0000A8BD /* nmrocauc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmrocauc; path = "../../../workspace/nmica-extra/bin/nmrocauc"; sourceTree = SOURCE_ROOT; };
+		95AA6C621087327E0000A8BD /* nmsampleregions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmsampleregions; path = "../../../workspace/nmica-extra/bin/nmsampleregions"; sourceTree = SOURCE_ROOT; };
+		95AA6C631087327E0000A8BD /* nmseparate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmseparate; path = "../../../workspace/nmica-extra/bin/nmseparate"; sourceTree = SOURCE_ROOT; };
+		95AA6C641087327E0000A8BD /* nmseqlen */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmseqlen; path = "../../../workspace/nmica-extra/bin/nmseqlen"; sourceTree = SOURCE_ROOT; };
+		95AA6C651087327E0000A8BD /* nmshuffle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmshuffle; path = "../../../workspace/nmica-extra/bin/nmshuffle"; sourceTree = SOURCE_ROOT; };
+		95AA6C661087327E0000A8BD /* nmspikeseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmspikeseq; path = "../../../workspace/nmica-extra/bin/nmspikeseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C671087327E0000A8BD /* nmsplit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmsplit; path = "../../../workspace/nmica-extra/bin/nmsplit"; sourceTree = SOURCE_ROOT; };
+		95AA6C681087327E0000A8BD /* nmsplitseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmsplitseq; path = "../../../workspace/nmica-extra/bin/nmsplitseq"; sourceTree = SOURCE_ROOT; };
+		95AA6C691087327E0000A8BD /* nmthreshold */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmthreshold; path = "../../../workspace/nmica-extra/bin/nmthreshold"; sourceTree = SOURCE_ROOT; };
+		95AA6C6A1087327E0000A8BD /* nmuniqregions */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmuniqregions; path = "../../../workspace/nmica-extra/bin/nmuniqregions"; sourceTree = SOURCE_ROOT; };
+		95AA6C6B1087327E0000A8BD /* nmweightwords */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmweightwords; path = "../../../workspace/nmica-extra/bin/nmweightwords"; sourceTree = SOURCE_ROOT; };
 		95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifComparisonOperation.h; sourceTree = "<group>"; };
 		95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifComparisonOperation.m; sourceTree = "<group>"; };
 		95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestHitsOperation.h; sourceTree = "<group>"; };
@@ -497,6 +796,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
+				95AA6BDE108731060000A8BD /* nmica-extra */,
+				95AA5B9510872DF60000A8BD /* nmica */,
 				95D7652D10231D99009703AA /* external */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
@@ -808,6 +1109,7 @@
 		95414FD90F1245CF0083E72A /* Motif Set Document */ = {
 			isa = PBXGroup;
 			children = (
+				95AA6CE2108736F50000A8BD /* Actions */,
 				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
 				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
@@ -895,6 +1197,150 @@
 			name = test;
 			sourceTree = "<group>";
 		};
+		95AA5B9510872DF60000A8BD /* nmica */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6BAB108730AA0000A8BD /* native */,
+				95AA6BA9108730960000A8BD /* scripts */,
+				95AA6BA8108730910000A8BD /* libraries */,
+			);
+			name = nmica;
+			sourceTree = "<group>";
+		};
+		95AA6BA8108730910000A8BD /* libraries */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6BB3108730ED0000A8BD /* biojava.jar */,
+				95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */,
+				95AA6BB5108730F30000A8BD /* blog.jar */,
+				95AA6BB6108730F50000A8BD /* bytecode.jar */,
+				95AA6BB7108730F50000A8BD /* colt.jar */,
+				95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */,
+				95AA6BB9108730F70000A8BD /* nmica.jar */,
+				95AA6BBA108730F80000A8BD /* stax-api-1.0.1.jar */,
+				95AA6BBB108730F80000A8BD /* wstx-lgpl-3.0.2.jar */,
+				95AA6BBC108730F90000A8BD /* changeless.jar */,
+			);
+			name = libraries;
+			sourceTree = "<group>";
+		};
+		95AA6BA9108730960000A8BD /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6BC7108730FE0000A8BD /* nmcompare */,
+				95AA6BC8108730FE0000A8BD /* nmconsensus */,
+				95AA6BC9108730FE0000A8BD /* nmconvertbg */,
+				95AA6BCA108730FE0000A8BD /* nmevaluatebg */,
+				95AA6BCB108730FE0000A8BD /* nminfer */,
+				95AA6BCC108730FE0000A8BD /* nmmakebg */,
+				95AA6BCD108730FE0000A8BD /* nmmetabg */,
+				95AA6BCE108730FE0000A8BD /* nmmetainfer */,
+				95AA6BCF108730FE0000A8BD /* nmmotifsum */,
+				95AA6BD0108730FE0000A8BD /* nmscan */,
+				95AA6BD1108730FE0000A8BD /* nmworker */,
+			);
+			name = scripts;
+			sourceTree = "<group>";
+		};
+		95AA6BAB108730AA0000A8BD /* native */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6BB1108730DD0000A8BD /* libnmica.jnilib */,
+			);
+			name = native;
+			sourceTree = "<group>";
+		};
+		95AA6BDE108731060000A8BD /* nmica-extra */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6C22108732550000A8BD /* libraries */,
+				95AA6C21108732500000A8BD /* scripts */,
+			);
+			name = "nmica-extra";
+			sourceTree = "<group>";
+		};
+		95AA6C21108732500000A8BD /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6C391087327D0000A8BD /* ngconservation */,
+				95AA6C3A1087327D0000A8BD /* ngcount */,
+				95AA6C3B1087327D0000A8BD /* ngdepth */,
+				95AA6C3C1087327D0000A8BD /* ngextend */,
+				95AA6C3D1087327D0000A8BD /* ngfiltermap */,
+				95AA6C3E1087327D0000A8BD /* ngmkdepthdb */,
+				95AA6C3F1087327D0000A8BD /* ngpeak2gff */,
+				95AA6C401087327D0000A8BD /* ngpeaks */,
+				95AA6C411087327D0000A8BD /* nmalign */,
+				95AA6C421087327D0000A8BD /* nmbgsample */,
+				95AA6C431087327D0000A8BD /* nmcanonicalizegenes */,
+				95AA6C441087327D0000A8BD /* nmconcatenate */,
+				95AA6C451087327D0000A8BD /* nmconvert */,
+				95AA6C461087327D0000A8BD /* nmconvertxms */,
+				95AA6C471087327D0000A8BD /* nmcoveredseq */,
+				95AA6C481087327D0000A8BD /* nmcutoff */,
+				95AA6C491087327D0000A8BD /* nmempeval */,
+				95AA6C4A1087327D0000A8BD /* nmensemblchromosomes */,
+				95AA6C4B1087327D0000A8BD /* nmensemblfeat */,
+				95AA6C4C1087327D0000A8BD /* nmensemblpeakseq */,
+				95AA6C4D1087327D0000A8BD /* nmensemblregfeat */,
+				95AA6C4E1087327D0000A8BD /* nmensemblseq */,
+				95AA6C4F1087327D0000A8BD /* nmentropycutoff */,
+				95AA6C501087327E0000A8BD /* nmenummatches */,
+				95AA6C511087327E0000A8BD /* nmeval */,
+				95AA6C521087327E0000A8BD /* nmfilterseq */,
+				95AA6C531087327E0000A8BD /* nmgccontent */,
+				95AA6C541087327E0000A8BD /* nmgrep */,
+				95AA6C551087327E0000A8BD /* nmhistcomp */,
+				95AA6C561087327E0000A8BD /* nmintersectseq */,
+				95AA6C571087327E0000A8BD /* nmmerge */,
+				95AA6C581087327E0000A8BD /* nmmergeoverlapseq */,
+				95AA6C591087327E0000A8BD /* nmmetasim */,
+				95AA6C5A1087327E0000A8BD /* nmmostool */,
+				95AA6C5B1087327E0000A8BD /* nmmotifsum */,
+				95AA6C5C1087327E0000A8BD /* nmnoise */,
+				95AA6C5D1087327E0000A8BD /* nmoverlapseq */,
+				95AA6C5E1087327E0000A8BD /* nmrandomseq */,
+				95AA6C5F1087327E0000A8BD /* nmregularise */,
+				95AA6C601087327E0000A8BD /* nmreportcutoff */,
+				95AA6C611087327E0000A8BD /* nmrocauc */,
+				95AA6C621087327E0000A8BD /* nmsampleregions */,
+				95AA6C631087327E0000A8BD /* nmseparate */,
+				95AA6C641087327E0000A8BD /* nmseqlen */,
+				95AA6C651087327E0000A8BD /* nmshuffle */,
+				95AA6C661087327E0000A8BD /* nmspikeseq */,
+				95AA6C671087327E0000A8BD /* nmsplit */,
+				95AA6C681087327E0000A8BD /* nmsplitseq */,
+				95AA6C691087327E0000A8BD /* nmthreshold */,
+				95AA6C6A1087327E0000A8BD /* nmuniqregions */,
+				95AA6C6B1087327E0000A8BD /* nmweightwords */,
+			);
+			name = scripts;
+			sourceTree = "<group>";
+		};
+		95AA6C22108732550000A8BD /* libraries */ = {
+			isa = PBXGroup;
+			children = (
+				95AA6C251087326C0000A8BD /* biojava-ensembl.jar */,
+				95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */,
+				95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */,
+				95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */,
+				95AA6C291087326D0000A8BD /* hsqldb.jar */,
+				95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */,
+				95AA6C2B108732700000A8BD /* nmica-extra.jar */,
+				95AA6C2C108732710000A8BD /* picard-1.03.jar */,
+				95AA6C2D108732710000A8BD /* sam-1.03.jar */,
+				95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */,
+			);
+			name = libraries;
+			sourceTree = "<group>";
+		};
+		95AA6CE2108736F50000A8BD /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
 		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
 			isa = PBXGroup;
 			children = (
@@ -974,27 +1420,11 @@
 			name = debuglog;
 			sourceTree = "<group>";
 		};
-		95D7652B10231D80009703AA /* nmica */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = nmica;
-			sourceTree = "<group>";
-		};
-		95D7652C10231D94009703AA /* nmica-extra */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "nmica-extra";
-			sourceTree = "<group>";
-		};
 		95D7652D10231D99009703AA /* external */ = {
 			isa = PBXGroup;
 			children = (
 				95B3505A1023320600F0E0BF /* preferences */,
 				953D80250F2F14BF00049823 /* libxms */,
-				95D7652B10231D80009703AA /* nmica */,
-				95D7652C10231D94009703AA /* nmica-extra */,
 			);
 			name = external;
 			sourceTree = "<group>";
@@ -1080,11 +1510,11 @@
 				8D15AC2B0486D014006FF6A4 /* Resources */,
 				8D15AC300486D014006FF6A4 /* Sources */,
 				8D15AC330486D014006FF6A4 /* Frameworks */,
-				95113FD00FDC02B9006823C4 /* Build NMICA */,
-				95F2D5AA0FDC07FD005124D3 /* Build NMICA-extra */,
-				95F2D5AF0FDC0836005124D3 /* Create NMICA and NMICA-extra Directory Structure */,
-				95F2D5E00FDC0D75005124D3 /* Copy NMICA to Bundle */,
-				95F2D5E40FDC0E57005124D3 /* Copy NMICA-extra to Bundle */,
+				95AA6B8510872EF40000A8BD /* Copy NestedMICA Native Library */,
+				95AA6BE9108731810000A8BD /* Copy NestedMICA JARs */,
+				95AA6C01108731C40000A8BD /* Copy NestedMICA Scripts */,
+				95AA6C6F108732C90000A8BD /* Copy NestedMICA-extra JARs */,
+				95AA6C70108732C90000A8BD /* Copy NestedMICA-extra Scripts */,
 			);
 			buildRules = (
 			);
@@ -1174,21 +1604,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		95113FD00FDC02B9006823C4 /* Build NMICA */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build NMICA";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "echo \"Building nmica at ${NMICA_HOME}...\"\ncd ${NMICA_HOME}\nant osx";
-			showEnvVarsInLog = 0;
-		};
 		9595B07C0FB9B1C600CE2BFF /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1201,66 +1616,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
-		};
-		95F2D5AA0FDC07FD005124D3 /* Build NMICA-extra */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Build NMICA-extra";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "echo \"Building nmica-extra at ${NMICA_EXTRA_HOME}\"\ncd ${NMICA_EXTRA_HOME}\nant";
-			showEnvVarsInLog = 0;
-		};
-		95F2D5AF0FDC0836005124D3 /* Create NMICA and NMICA-extra Directory Structure */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Create NMICA and NMICA-extra Directory Structure";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "java_base_path=\"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}\"\nmkdir -p ${java_base_path}\nmkdir -p \"${java_base_path}/nmica\"\nmkdir -p \"${java_base_path}/nmica/bin\"\nmkdir -p \"${java_base_path}/nmica/lib\"\nmkdir -p \"${java_base_path}/nmica/native\"\nmkdir -p \"${java_base_path}/nmica-extra\"\nmkdir -p \"${java_base_path}/nmica-extra/lib\"";
-			showEnvVarsInLog = 0;
-		};
-		95F2D5E00FDC0D75005124D3 /* Copy NMICA to Bundle */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy NMICA to Bundle";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "cp ${NMICA_HOME}/bin/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/bin\"\ncp ${NMICA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/lib\"\ncp ${NMICA_HOME}/native/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica/native\"";
-			showEnvVarsInLog = 0;
-		};
-		95F2D5E40FDC0E57005124D3 /* Copy NMICA-extra to Bundle */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 12;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy NMICA-extra to Bundle";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/bash;
-			shellScript = "cp ${NMICA_EXTRA_HOME}/lib/* \"${BUILT_PRODUCTS_DIR}/${JAVA_FOLDER_PATH}/nmica-extra/lib\"";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1516,6 +1871,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../workspace/nmica-dev/native\"",
 				);
 				NMICA_EXTRA_HOME = "${HOME}/workspace/nmica-extra";
 				NMICA_HOME = "${HOME}/workspace/nmica-dev";
@@ -1546,6 +1902,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../../../workspace/nmica-dev/native\"",
 				);
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;

@@ -169,7 +169,7 @@
         [[NSFileManager defaultManager] removeFileAtPath:outputTempPath handler: nil];
     }
 
-    ddfprintf(stderr,@"NMOperation Done.\n");
+    ddfprintf(stderr,@"NMAlignOperation done.\n");
 }
 
 -(void) parseNMAlignLogLines:(NSArray*) lines {

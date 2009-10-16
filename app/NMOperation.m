@@ -49,10 +49,14 @@
     return nmicaExtraPath;
 }
 
-+(void) setupNMICAEnvVars {/*
++(void) setupNMICAEnvVars {
     setenv("NMICA_DEV_HOME", [[self nmicaPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
     setenv("NMICA_HOME", [[self nmicaPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
-    setenv("NMICA_EXTRA_HOME", [[self nmicaExtraPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);*/
+    setenv("NMICA_EXTRA_HOME", [[self nmicaExtraPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
+    
+    DebugLog(@"NMICA_DEV_HOME=%@",[self nmicaPath]);
+    DebugLog(@"NMICA_HOME=%@",[self nmicaPath]);
+    DebugLog(@"NMICA_EXTRA_HOME=%@",[self nmicaExtraPath]);
 }
 
 - (id) init
