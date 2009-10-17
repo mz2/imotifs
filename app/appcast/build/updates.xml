@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>app</title>
+    <description>app updates</description>
+    <link>http://2pii@imotifs.pearcomp.com</link>
+    <language>en</language>
+    <pubDate>Fri, 16 Oct 2009 21:36:21 +0100</pubDate>
+    <atom:link type="application/rss+xml" href="http://2pii@imotifs.pearcomp.com/updates.xml" rel="self"/>
+    <item>
+      <title>iMotifs 0.1.8</title>
+      <sparkle:releaseNotesLink>http://2pii@imotifs.pearcomp.com/release_notes.html</sparkle:releaseNotesLink>
+      <pubDate>Fri, 16 Oct 2009 21:36:21 +0100</pubDate>
+      <guid isPermaLink="false">iMotifs-0.1.8</guid>
+      <enclosure type="application/dmg" length="14548234" sparkle:version="0.1.8" url="http://2pii@imotifs.pearcomp.com/iMotifs-0.1.8.dmg" sparkle:dsaSignature="MCwCFHWP2TtUzTspknKneJ0Wkef3ww/PAhQJT+1Cj/y91bD0qUNneF6i4O+jOA==
+"/>
+    </item>
+  </channel>
+</rss>

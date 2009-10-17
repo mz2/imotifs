@@ -109,15 +109,15 @@ extern NSString *IMMotifSetIndicesPboardType;
 -(IBAction) bestReciprocalHitsWith: (id) sender;
 
 
--(IBAction) searchMotifs:(id) sender;
--(IBAction) searchTypeToggled:(id) sender;
--(IBAction) selectNone:(id) sender;
--(IBAction) find:(id) sender;
+- (IBAction) searchMotifs:(id) sender;
+- (IBAction) searchTypeToggled:(id) sender;
+- (IBAction) selectNone:(id) sender;
+- (IBAction) find:(id) sender;
 
--(IBAction) closeMotifSetPickerSheet: (id) sender;
+- (IBAction) closeMotifSetPickerSheet: (id) sender;
 - (IBAction) addPrefixToMotifNames: (id) sender;
 - (IBAction) addSuffixToMotifNames: (id) sender;
--(IBAction) closeMotifNamePickerSheet: (id) sender;
+- (IBAction) closeMotifNamePickerSheet: (id) sender;
 
 -(IBAction) toggleDrawer: (id) sender;
 //-(IBAction) newAnnotation: (id) sender;
@@ -129,8 +129,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 
 -(IBAction) exportToPDF:(id) sender;
 
-//-(IBAction) openMotifSet:(id)sender;
-//-(void) 
 @property (retain,readwrite) MotifSet *motifSet;
 @property (readonly) MotifViewCell *motifViewCell;
 @property (readonly) MotifNameCell *motifNameCell;
@@ -167,7 +165,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 
 @property (retain,readwrite) NSDrawer *drawer;
 @property (readwrite) BOOL annotationsEditable;
-
 
 -(IBAction) closePseudocountSheet: (id) sender;
 -(IBAction) toggleAnnotationsEditable: (id) sender;

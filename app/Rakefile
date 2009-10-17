@@ -11,10 +11,11 @@ ChocTop.new do |s|
 
   # Custom DMG
   s.background_file = "Images/background.png"
-  s.app_icon_position = [110, 110]
-  s.applications_icon_position =  [330, 170]
+  s.app_icon_position = [100, 110]
+  s.applications_icon_position =  [420, 110]
   s.volume_icon = "Images/dmg128.png"
 
-  s.add_file("../imotifs-quicklook/build/Debug/MotifQuickLook.qlgenerator",:position=>[110,450])
   #s.applications_icon = "icon.icns" # or "appicon.png"
+  s.add_file("../quicklook/build/Debug/MotifQuickLook.qlgenerator",:position=>[100,400])
+  s.add_file("./example.xms",:position=>[420,400])
 end

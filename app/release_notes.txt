@@ -1,3 +1,9 @@
+h2. 0.1.8 - Sequence retrieval, motif alignment + merging, flexible motif column width/height
+
+Some new features such as Ensembl based sequence retrieval, motif alignment and merging, and flexible motif column width/height assignment, plus some of the old bugs too.
+
+Sorry for the long delay in updating the build! The build process has been streamlined and you should therefore expect more frequent updates from now on.
+
 h2. 0.1.7 - Motif alignment works with selected motifs / all motifs
 
 Motif alignments can be now done either for only selected motifs or all motifs (when none are selected). 

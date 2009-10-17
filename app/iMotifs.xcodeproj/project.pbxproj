@@ -984,6 +984,20 @@
 			name = nmmakebg;
 			sourceTree = "<group>";
 		};
+		952B24BA10890FF60051DACA /* nmcutoff */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = nmcutoff;
+			sourceTree = "<group>";
+		};
+		952B24BB10890FFC0051DACA /* nmrocauc */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = nmrocauc;
+			sourceTree = "<group>";
+		};
 		953D7F0F0F2E07D200049823 /* cocoa-extras */ = {
 			isa = PBXGroup;
 			children = (
@@ -1058,6 +1072,8 @@
 		953D81140F2F410700049823 /* NMICA Integration */ = {
 			isa = PBXGroup;
 			children = (
+				952B24BB10890FFC0051DACA /* nmrocauc */,
+				952B24BA10890FF60051DACA /* nmcutoff */,
 				951FF3DD0F32559900A9175C /* nmalign */,
 				951FF3DC0F32559000A9175C /* nmmakebg */,
 				951FF3DB0F32558800A9175C /* nminfer */,
