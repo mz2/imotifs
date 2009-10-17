@@ -1,1 +1,0 @@
-<?php header("Location: /iMotifs-0.1.8.dmg"); ?>
