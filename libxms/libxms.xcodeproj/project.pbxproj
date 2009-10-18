@@ -15,6 +15,10 @@
 		5F44CCB10E13E21200C04050 /* gen_beta.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB00E13E21200C04050 /* gen_beta.c */; };
 		5F44CCB50E13E49500C04050 /* gen_dirch_mix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB40E13E49500C04050 /* gen_dirch_mix.c */; };
 		5F44CCB80E13E9AB00C04050 /* gen_norm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB70E13E9AB00C04050 /* gen_norm.c */; };
+		5F66DDCD1089DEBC001159D8 /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDCB1089DEBC001159D8 /* SymbolBounds.m */; };
+		5F66DDD21089DECB001159D8 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDD01089DECB001159D8 /* dirichlet_math.m */; };
+		5F66DDD81089DED5001159D8 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDD61089DED5001159D8 /* Metamotif.m */; };
+		5F66DDF21089DF1D001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDF01089DF1D001159D8 /* DistributionBounds.m */; };
 		5FBA37D00E12DF6600EA3AAD /* MotifSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA37CF0E12DF6600EA3AAD /* MotifSetParser.m */; };
 		5FBA37D30E12DF9100EA3AAD /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA37D10E12DF9100EA3AAD /* MotifSet.m */; };
 		5FBA3A6B0E13294900EA3AAD /* Dirichlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA3A6A0E13294900EA3AAD /* Dirichlet.m */; };
@@ -59,6 +63,14 @@
 		5F44CCB40E13E49500C04050 /* gen_dirch_mix.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gen_dirch_mix.c; sourceTree = "<group>"; };
 		5F44CCB60E13E9AB00C04050 /* gen_norm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gen_norm.h; sourceTree = "<group>"; };
 		5F44CCB70E13E9AB00C04050 /* gen_norm.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = gen_norm.c; sourceTree = "<group>"; };
+		5F66DDCB1089DEBC001159D8 /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolBounds.m; sourceTree = "<group>"; };
+		5F66DDCC1089DEBC001159D8 /* SymbolBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolBounds.h; sourceTree = "<group>"; };
+		5F66DDD01089DECB001159D8 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dirichlet_math.m; sourceTree = "<group>"; };
+		5F66DDD11089DECB001159D8 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dirichlet_math.h; sourceTree = "<group>"; };
+		5F66DDD61089DED5001159D8 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metamotif.m; sourceTree = "<group>"; };
+		5F66DDD71089DED5001159D8 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metamotif.h; sourceTree = "<group>"; };
+		5F66DDF01089DF1D001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionBounds.m; sourceTree = "<group>"; };
+		5F66DDF11089DF1D001159D8 /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionBounds.h; sourceTree = "<group>"; };
 		5FBA37CE0E12DF6600EA3AAD /* MotifSetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetParser.h; sourceTree = "<group>"; };
 		5FBA37CF0E12DF6600EA3AAD /* MotifSetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetParser.m; sourceTree = "<group>"; };
 		5FBA37D10E12DF9100EA3AAD /* MotifSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSet.m; sourceTree = "<group>"; };
@@ -67,7 +79,7 @@
 		5FBA3A6A0E13294900EA3AAD /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dirichlet.m; sourceTree = "<group>"; };
 		5FC309480E18DF2D006C4679 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotable.h; sourceTree = "<group>"; };
 		5FC3095C0E18E1F0006C4679 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		8DD76FA10486AA7600D96B5E /* xmsparser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xmsparser; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76FA10486AA7600D96B5E /* XMSParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XMSParser; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595AE8C0FB977F700CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSArrayExtras.h; sourceTree = "<group>"; };
 		9595AE8D0FB977F700CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNSArrayExtras.m; sourceTree = "<group>"; };
 		9595AE8E0FB977F700CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSColorExtras.h; sourceTree = "<group>"; };
@@ -122,7 +134,7 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FA10486AA7600D96B5E /* xmsparser */,
+				8DD76FA10486AA7600D96B5E /* XMSParser */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +194,14 @@
 		9595AE9D0FB9783000CE2BFF /* motif */ = {
 			isa = PBXGroup;
 			children = (
+				5F66DDD61089DED5001159D8 /* Metamotif.m */,
+				5F66DDD71089DED5001159D8 /* Metamotif.h */,
+				5F66DDCB1089DEBC001159D8 /* SymbolBounds.m */,
+				5F66DDCC1089DEBC001159D8 /* SymbolBounds.h */,
+				5F66DDF01089DF1D001159D8 /* DistributionBounds.m */,
+				5F66DDF11089DF1D001159D8 /* DistributionBounds.h */,
+				5F66DDD01089DECB001159D8 /* dirichlet_math.m */,
+				5F66DDD11089DECB001159D8 /* dirichlet_math.h */,
 				5FBA37D20E12DF9100EA3AAD /* MotifSet.h */,
 				5FBA37D10E12DF9100EA3AAD /* MotifSet.m */,
 				5F02CE560E104F530066AD72 /* Motif.h */,
@@ -218,7 +238,7 @@
 			name = "xmsparser-cli";
 			productInstallPath = "$(HOME)/bin";
 			productName = XMSParser;
-			productReference = 8DD76FA10486AA7600D96B5E /* xmsparser */;
+			productReference = 8DD76FA10486AA7600D96B5E /* XMSParser */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -257,6 +277,10 @@
 				5F44CCB80E13E9AB00C04050 /* gen_norm.c in Sources */,
 				9595AE900FB977F700CE2BFF /* IMNSArrayExtras.m in Sources */,
 				9595AE910FB977F700CE2BFF /* IMNSColorExtras.m in Sources */,
+				5F66DDCD1089DEBC001159D8 /* SymbolBounds.m in Sources */,
+				5F66DDD21089DECB001159D8 /* dirichlet_math.m in Sources */,
+				5F66DDD81089DED5001159D8 /* Metamotif.m in Sources */,
+				5F66DDF21089DF1D001159D8 /* DistributionBounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

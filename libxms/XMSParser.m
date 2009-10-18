@@ -15,7 +15,7 @@ int main (int argc, const char * argv[]) {
     }
     int i;
     for (i = 1; i < argc; i++) {
-        NSString *fname = [NSString stringWithCString: argv[i]];
+        NSString *fname = [NSString stringWithUTF8String: argv[i]];
         NSURL *url = [NSURL fileURLWithPath:fname];
         MotifSet* mset = [MotifSetParser motifSetFromURL:url];
         NSLog(@"Motif set:%@",mset);
