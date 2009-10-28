@@ -77,10 +77,28 @@
     return self;
 }
 
-- (void) dealloc {
-    [selectedGeneList release];
+//=========================================================== 
+// dealloc
+//=========================================================== 
+- (void)dealloc
+{
+    [dbUser release], dbUser = nil;
+    [dbPassword release], dbPassword = nil;
+    [dbName release], dbName = nil;
+    [dbSchemaVersion release], dbSchemaVersion = nil;
+    [selectedGeneList release], selectedGeneList = nil;
+    [geneNameListFilename release], geneNameListFilename = nil;
+    [organismName release], organismName = nil;
+    [outFilename release], outFilename = nil;
+    statusDialogController = nil; /* weak ref */
+    [readHandle release], readHandle = nil;
+    [errorReadHandle release], errorReadHandle = nil;
+    [numFormatter release], numFormatter = nil;
+	
     [super dealloc];
 }
+
+
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
     [args setObject: self.isRepeatMasked ? @"true" : @"false" forKey:@"-repeatMask"];
@@ -116,7 +134,12 @@
     if (self.geneNameListFilename) {
         [args setObject: self.geneNameListFilename forKey: @"-filterByIdsInFile"];
     }
-    
+	
+	if (self.searchType == IMRetrieveSequencesSearchTypeStableID) {
+		[args setObject: @"stable_id" forKey:@"-idType"];
+	} else if (self.searchType == IMRetrieveSequencesSearchTypeDisplayLabel) {
+		[args setObject: @"display_label" forKey:@"-idType"];
+	}     
     if (self.dbName == nil) {
         @throw [NSException exceptionWithName:@"IMNullPointerException" reason:@"Database name should not be nil! It needs to be specified." userInfo:nil];
     } else {
