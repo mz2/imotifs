@@ -291,7 +291,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>43</integer>
+									<integer>47</integer>
 									<integer>41</integer>
 									<integer>39</integer>
 									<integer>31</integer>
@@ -338,7 +338,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>IMRetrievePeakSequencesController.m</string>
+								<string>IMRetrieveSequencesStatusDialogController.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -346,11 +346,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>IMRetrievePeakSequencesController.m</string>
+										<string>IMRetrieveSequencesStatusDialogController.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>5F10F1481097D5A900C05CD7</string>
+										<string>5F10F1671097DDF400C05CD7</string>
 										<key>history</key>
 										<array>
 											<string>5FA66A4A0E1429B6009E5AFA</string>
@@ -399,17 +399,17 @@
 											<string>5F8437250EFED4C900FCC205</string>
 											<string>5F554DFA1072CAB40094F846</string>
 											<string>5F2BC729108B87A800A634F4</string>
-											<string>5F2BC72A108B87A800A634F4</string>
 											<string>5F2BC72B108B87A800A634F4</string>
-											<string>5F2BC72C108B87A800A634F4</string>
-											<string>5F10F12C1097D4D000C05CD7</string>
-											<string>5F10F12D1097D4D000C05CD7</string>
-											<string>5F10F12E1097D4D000C05CD7</string>
 											<string>5F10F1301097D4D000C05CD7</string>
-											<string>5F10F1341097D51600C05CD7</string>
-											<string>5F10F1451097D5A900C05CD7</string>
 											<string>5F10F1461097D5A900C05CD7</string>
-											<string>5F10F1471097D5A900C05CD7</string>
+											<string>5F10F1511097DB8C00C05CD7</string>
+											<string>5F10F1521097DB8C00C05CD7</string>
+											<string>5F10F1531097DB8C00C05CD7</string>
+											<string>5F10F1621097DDF400C05CD7</string>
+											<string>5F10F1631097DDF400C05CD7</string>
+											<string>5F10F1641097DDF400C05CD7</string>
+											<string>5F10F1651097DDF400C05CD7</string>
+											<string>5F10F1661097DDF400C05CD7</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -626,12 +626,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>IMRetrievePeakSequencesController.m</string>
+								<string>IMRetrieveSequencesStatusDialogController.h</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -648,8 +650,6 @@
 							<string>608pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>

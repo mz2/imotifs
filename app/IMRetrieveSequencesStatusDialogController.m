@@ -7,7 +7,6 @@
 //
 
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "IMRetrieveSequencesOperation.h"
 
 @interface IMRetrieveSequencesStatusDialogController (private)
 -(void) _stop:(id) sender;
@@ -20,8 +19,8 @@
 
 -(void) _stop:(id) sender {
     ddfprintf(stderr, @"Stopping sequence retrieval...\n");
-    if ([self.operation isExecuting]) {
-        [self.operation cancel];
+    if ([[self operation] isExecuting]) {
+        [[self operation] cancel];
     }
     [self.spinner stopAnimation: self];    
     ddfprintf(stderr, @"Sequence retrieval stopped.\n");
@@ -42,7 +41,7 @@
 
 -(IBAction) showResults:(id) sender {
     DebugLog(@"Showing results");
-    [[NSWorkspace sharedWorkspace] selectFile:self.operation.outFilename 
+    [[NSWorkspace sharedWorkspace] selectFile:[self.operation outFilename] 
                      inFileViewerRootedAtPath: nil];}
 
 @end

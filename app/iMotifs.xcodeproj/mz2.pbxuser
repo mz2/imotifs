@@ -154,6 +154,23 @@
 			5F10F1461097D5A900C05CD7 /* PBXTextBookmark */ = 5F10F1461097D5A900C05CD7 /* PBXTextBookmark */;
 			5F10F1471097D5A900C05CD7 /* PBXTextBookmark */ = 5F10F1471097D5A900C05CD7 /* PBXTextBookmark */;
 			5F10F1481097D5A900C05CD7 /* PBXTextBookmark */ = 5F10F1481097D5A900C05CD7 /* PBXTextBookmark */;
+			5F10F1511097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1511097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1521097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1521097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1531097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1531097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1541097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1541097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1551097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1551097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1561097DB8C00C05CD7 /* PBXTextBookmark */ = 5F10F1561097DB8C00C05CD7 /* PBXTextBookmark */;
+			5F10F1571097DDD100C05CD7 /* PBXTextBookmark */ = 5F10F1571097DDD100C05CD7 /* PBXTextBookmark */;
+			5F10F1581097DDD100C05CD7 /* PBXTextBookmark */ = 5F10F1581097DDD100C05CD7 /* PBXTextBookmark */;
+			5F10F1591097DDD100C05CD7 /* PBXTextBookmark */ = 5F10F1591097DDD100C05CD7 /* PBXTextBookmark */;
+			5F10F15A1097DDD100C05CD7 /* XCBuildMessageTextBookmark */ = 5F10F15A1097DDD100C05CD7 /* XCBuildMessageTextBookmark */;
+			5F10F15B1097DDD100C05CD7 /* PBXTextBookmark */ = 5F10F15B1097DDD100C05CD7 /* PBXTextBookmark */;
+			5F10F1621097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1621097DDF400C05CD7 /* PBXTextBookmark */;
+			5F10F1631097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1631097DDF400C05CD7 /* PBXTextBookmark */;
+			5F10F1641097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1641097DDF400C05CD7 /* PBXTextBookmark */;
+			5F10F1651097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1651097DDF400C05CD7 /* PBXTextBookmark */;
+			5F10F1661097DDF400C05CD7 /* XCBuildMessageTextBookmark */ = 5F10F1661097DDF400C05CD7 /* XCBuildMessageTextBookmark */;
+			5F10F1671097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1671097DDF400C05CD7 /* PBXTextBookmark */;
 			5F2BC6EB108B652900A634F4 = 5F2BC6EB108B652900A634F4 /* PBXTextBookmark */;
 			5F2BC6EC108B652900A634F4 = 5F2BC6EC108B652900A634F4 /* PBXTextBookmark */;
 			5F2BC723108B86C900A634F4 = 5F2BC723108B86C900A634F4 /* PBXTextBookmark */;
@@ -440,7 +457,7 @@
 		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
 		name = "IMRetrieveSequencesStatusDialogController.m: 45";
 		rLen = 11;
-		rLoc = 1178;
+		rLoc = 1142;
 		rType = 0;
 		vrLen = 1251;
 		vrLoc = 0;
@@ -565,6 +582,174 @@
 		vrLen = 1819;
 		vrLoc = 0;
 	};
+	5F10F1511097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */;
+		name = "IMRetrievePeakSequencesController.m: 10";
+		rLen = 0;
+		rLoc = 249;
+		rType = 0;
+		vrLen = 1819;
+		vrLoc = 0;
+	};
+	5F10F1521097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */;
+		name = "IMRetrieveSequencesDialogController.h: 26";
+		rLen = 116;
+		rLoc = 705;
+		rType = 0;
+		vrLen = 2037;
+		vrLoc = 168;
+	};
+	5F10F1531097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */;
+		name = "IMRetrievePeakSequencesOperation.h: 13";
+		rLen = 28;
+		rLoc = 358;
+		rType = 0;
+		vrLen = 1647;
+		vrLoc = 0;
+	};
+	5F10F1541097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */;
+		name = "IMSequenceRetrievalOperation.h: 10";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	5F10F1551097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */;
+		name = "IMRetrieveSequencesStatusDialogController.h: 26";
+		rLen = 0;
+		rLoc = 778;
+		rType = 0;
+		vrLen = 971;
+		vrLoc = 0;
+	};
+	5F10F1561097DB8C00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		name = "IMRetrieveSequencesStatusDialogController.m: 44";
+		rLen = 11;
+		rLoc = 1142;
+		rType = 0;
+		vrLen = 1212;
+		vrLoc = 0;
+	};
+	5F10F1571097DDD100C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */;
+		name = "IMRetrievePeakSequencesController.h: 28";
+		rLen = 26;
+		rLoc = 735;
+		rType = 0;
+		vrLen = 1188;
+		vrLoc = 0;
+	};
+	5F10F1581097DDD100C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */;
+		name = "IMRetrievePeakSequencesController.m: 279";
+		rLen = 0;
+		rLoc = 10843;
+		rType = 0;
+		vrLen = 1566;
+		vrLoc = 9842;
+	};
+	5F10F1591097DDD100C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */;
+		name = "IMRetrieveSequencesStatusDialogController.h: 18";
+		rLen = 0;
+		rLoc = 516;
+		rType = 0;
+		vrLen = 971;
+		vrLoc = 0;
+	};
+	5F10F15A1097DDD100C05CD7 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Invalid receiver type ‘id <IMSequenceRetrievalOperation>*’";
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 43;
+		rType = 1;
+	};
+	5F10F15B1097DDD100C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		name = "IMRetrieveSequencesStatusDialogController.m: 44";
+		rLen = 0;
+		rLoc = 1080;
+		rType = 0;
+		vrLen = 1149;
+		vrLoc = 63;
+	};
+	5F10F1621097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */;
+		name = "IMRetrievePeakSequencesOperation.m: 40";
+		rLen = 0;
+		rLoc = 1228;
+		rType = 0;
+		vrLen = 1643;
+		vrLoc = 0;
+	};
+	5F10F1631097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */;
+		name = "IMSequenceRetrievalOperation.h: 10";
+		rLen = 0;
+		rLoc = 226;
+		rType = 0;
+		vrLen = 349;
+		vrLoc = 0;
+	};
+	5F10F1641097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */;
+		name = "IMRetrieveSequencesStatusDialogController.h: 26";
+		rLen = 0;
+		rLoc = 778;
+		rType = 0;
+		vrLen = 971;
+		vrLoc = 0;
+	};
+	5F10F1651097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */;
+		name = "IMRetrieveSequencesOperation.m: 118";
+		rLen = 0;
+		rLoc = 3810;
+		rType = 0;
+		vrLen = 2406;
+		vrLoc = 2288;
+	};
+	5F10F1661097DDF400C05CD7 /* XCBuildMessageTextBookmark */ = {
+		isa = PBXTextBookmark;
+		comments = "Invalid receiver type ‘id <IMSequenceRetrievalOperation>*’";
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		fallbackIsa = XCBuildMessageTextBookmark;
+		rLen = 1;
+		rLoc = 21;
+		rType = 1;
+	};
+	5F10F1671097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		name = "IMRetrieveSequencesStatusDialogController.m: 22";
+		rLen = 0;
+		rLoc = 574;
+		rType = 0;
+		vrLen = 1216;
+		vrLoc = 0;
+	};
 	5F2BC6EB108B652900A634F4 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */;
@@ -594,29 +779,29 @@
 	};
 	5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1013, 4602}}";
-			sepNavSelRange = "{249, 0}";
-			sepNavVisRange = "{0, 1819}";
+			sepNavIntBoundsRect = "{{0, 0}, {1089, 4550}}";
+			sepNavSelRange = "{10843, 0}";
+			sepNavVisRange = "{9842, 1566}";
 		};
 	};
 	5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1013, 845}}";
-			sepNavSelRange = "{387, 0}";
-			sepNavVisRange = "{179, 1676}";
+			sepNavSelRange = "{358, 28}";
+			sepNavVisRange = "{0, 1647}";
 		};
 	};
 	5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1097, 2119}}";
-			sepNavSelRange = "{711, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1013, 2223}}";
+			sepNavSelRange = "{1228, 0}";
 			sepNavVisRange = "{0, 1643}";
 		};
 	};
 	5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1089, 576}}";
-			sepNavSelRange = "{299, 0}";
+			sepNavIntBoundsRect = "{{0, 0}, {1013, 739}}";
+			sepNavSelRange = "{226, 0}";
 			sepNavVisRange = "{0, 349}";
 		};
 	};
@@ -723,7 +908,7 @@
 		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
 		name = "IMRetrieveSequencesStatusDialogController.m: 45";
 		rLen = 11;
-		rLoc = 1178;
+		rLoc = 1142;
 		rType = 0;
 		vrLen = 982;
 		vrLoc = 269;
@@ -1670,16 +1855,16 @@
 	};
 	9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {783, 507}}";
-			sepNavSelRange = "{0, 0}";
-			sepNavVisRange = "{0, 959}";
+			sepNavIntBoundsRect = "{{0, 0}, {1089, 576}}";
+			sepNavSelRange = "{780, 0}";
+			sepNavVisRange = "{0, 970}";
 		};
 	};
 	9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1013, 739}}";
-			sepNavSelRange = "{1178, 11}";
-			sepNavVisRange = "{0, 1251}";
+			sepNavSelRange = "{574, 0}";
+			sepNavVisRange = "{0, 1216}";
 		};
 	};
 	953D81190F2F417700049823 /* NMOperationStatusDialogController.m */ = {
@@ -1699,15 +1884,15 @@
 	95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1097, 2613}}";
-			sepNavSelRange = "{6380, 0}";
-			sepNavVisRange = "{2288, 2458}";
+			sepNavSelRange = "{3810, 0}";
+			sepNavVisRange = "{2288, 2406}";
 		};
 	};
 	95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1013, 1183}}";
 			sepNavSelRange = "{705, 116}";
-			sepNavVisRange = "{168, 2101}";
+			sepNavVisRange = "{168, 2037}";
 		};
 	};
 	95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */ = {
