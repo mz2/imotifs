@@ -171,6 +171,10 @@
 			5F10F1651097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1651097DDF400C05CD7 /* PBXTextBookmark */;
 			5F10F1661097DDF400C05CD7 /* XCBuildMessageTextBookmark */ = 5F10F1661097DDF400C05CD7 /* XCBuildMessageTextBookmark */;
 			5F10F1671097DDF400C05CD7 /* PBXTextBookmark */ = 5F10F1671097DDF400C05CD7 /* PBXTextBookmark */;
+			5F10F1681097DE1F00C05CD7 /* PBXTextBookmark */ = 5F10F1681097DE1F00C05CD7 /* PBXTextBookmark */;
+			5F10F1691097DE1F00C05CD7 /* PBXTextBookmark */ = 5F10F1691097DE1F00C05CD7 /* PBXTextBookmark */;
+			5F10F16A1097DE1F00C05CD7 /* PBXTextBookmark */ = 5F10F16A1097DE1F00C05CD7 /* PBXTextBookmark */;
+			5F10F16B1097DE2000C05CD7 /* PBXTextBookmark */ = 5F10F16B1097DE2000C05CD7 /* PBXTextBookmark */;
 			5F2BC6EB108B652900A634F4 = 5F2BC6EB108B652900A634F4 /* PBXTextBookmark */;
 			5F2BC6EC108B652900A634F4 = 5F2BC6EC108B652900A634F4 /* PBXTextBookmark */;
 			5F2BC723108B86C900A634F4 = 5F2BC723108B86C900A634F4 /* PBXTextBookmark */;
@@ -741,6 +745,46 @@
 		rType = 1;
 	};
 	5F10F1671097DDF400C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		name = "IMRetrieveSequencesStatusDialogController.m: 22";
+		rLen = 0;
+		rLoc = 574;
+		rType = 0;
+		vrLen = 1216;
+		vrLoc = 0;
+	};
+	5F10F1681097DE1F00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
+		name = "IMRetrieveSequencesStatusDialogController.m: 17";
+		rLen = 0;
+		rLoc = 435;
+		rType = 0;
+		vrLen = 1165;
+		vrLoc = 51;
+	};
+	5F10F1691097DE1F00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */;
+		name = "IMRetrieveSequencesStatusDialogController.h: 26";
+		rLen = 0;
+		rLoc = 779;
+		rType = 0;
+		vrLen = 970;
+		vrLoc = 0;
+	};
+	5F10F16A1097DE1F00C05CD7 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */;
+		name = "IMRetrieveSequencesStatusDialogController.h: 18";
+		rLen = 0;
+		rLoc = 516;
+		rType = 0;
+		vrLen = 969;
+		vrLoc = 0;
+	};
+	5F10F16B1097DE2000C05CD7 /* PBXTextBookmark */ = {
 		isa = PBXTextBookmark;
 		fRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */;
 		name = "IMRetrieveSequencesStatusDialogController.m: 22";
@@ -1856,8 +1900,8 @@
 	9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {1089, 576}}";
-			sepNavSelRange = "{780, 0}";
-			sepNavVisRange = "{0, 970}";
+			sepNavSelRange = "{516, 0}";
+			sepNavVisRange = "{0, 969}";
 		};
 	};
 	9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */ = {

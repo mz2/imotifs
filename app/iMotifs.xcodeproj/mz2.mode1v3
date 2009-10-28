@@ -350,7 +350,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>5F10F1671097DDF400C05CD7</string>
+										<string>5F10F16B1097DE2000C05CD7</string>
 										<key>history</key>
 										<array>
 											<string>5FA66A4A0E1429B6009E5AFA</string>
@@ -606,8 +606,8 @@
 	<key>WindowOrderList</key>
 	<array>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/mz2/Projects/imotifs/app/iMotifs.xcodeproj</string>
 		<string>5F0D9D290E140A1800F9655D</string>
+		<string>/Users/mz2/Projects/imotifs/app/iMotifs.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
 	<string>246 164 1502 978 0 0 1920 1178 </string>
@@ -700,7 +700,7 @@
 			<key>WindowToolGUID</key>
 			<string>5F0D9D290E140A1800F9655D</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
