@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F2BC6FF108B666000A634F4 /* IMRetrievePeakSequencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */; };
+		5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */; };
+		5F2BC706108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */; };
 		5F61DFE70E2DF2C00091787E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5F61DFE60E2DF2C00091787E /* icon.icns */; };
+		5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */; };
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
 		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
 		5FA66A620E142A12009E5AFA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* AppController.m */; };
@@ -183,12 +187,10 @@
 		9595B22E0FB9C02200CE2BFF /* Symbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA09C50E1415BC00E0F87D /* Symbol.h */; };
 		9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595B29E0FB9C59F00CE2BFF /* incomplete_beta.h */; };
 		9595B2A10FB9C59F00CE2BFF /* incomplete_beta.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B29F0FB9C59F00CE2BFF /* incomplete_beta.m */; };
-		9595B4000FB9D47700CE2BFF /* SymbolBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595B3FE0FB9D47700CE2BFF /* SymbolBounds.h */; };
+		9595B4000FB9D47700CE2BFF /* SymbolBounds.m in Headers */ = {isa = PBXBuildFile; fileRef = 9595B3FE0FB9D47700CE2BFF /* SymbolBounds.m */; };
 		9595B4010FB9D47700CE2BFF /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */; };
 		9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */; };
-		9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
 		9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */; };
-		9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */; };
 		9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */; };
 		9595E5F70FE65BAE00FDD520 /* ActiveRecord.framework in Copy ActiveRecord Framework */ = {isa = PBXBuildFile; fileRef = 9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */; };
 		959E3CC10EE680DF00072A66 /* MotifPairWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */; };
@@ -215,7 +217,6 @@
 		95AA6C1B108732460000A8BD /* nmmakebg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCC108730FE0000A8BD /* nmmakebg */; };
 		95AA6C1C108732460000A8BD /* nmmetabg in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCD108730FE0000A8BD /* nmmetabg */; };
 		95AA6C1D108732460000A8BD /* nmmetainfer in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCE108730FE0000A8BD /* nmmetainfer */; };
-		95AA6C1E108732460000A8BD /* nmmotifsum in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BCF108730FE0000A8BD /* nmmotifsum */; };
 		95AA6C1F108732460000A8BD /* nmscan in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BD0108730FE0000A8BD /* nmscan */; };
 		95AA6C20108732460000A8BD /* nmworker in Copy NestedMICA Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6BD1108730FE0000A8BD /* nmworker */; };
 		95AA6C71108732CC0000A8BD /* ngconservation in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C391087327D0000A8BD /* ngconservation */; };
@@ -387,7 +388,6 @@
 				95AA6C1B108732460000A8BD /* nmmakebg in Copy NestedMICA Scripts */,
 				95AA6C1C108732460000A8BD /* nmmetabg in Copy NestedMICA Scripts */,
 				95AA6C1D108732460000A8BD /* nmmetainfer in Copy NestedMICA Scripts */,
-				95AA6C1E108732460000A8BD /* nmmotifsum in Copy NestedMICA Scripts */,
 				95AA6C1F108732460000A8BD /* nmscan in Copy NestedMICA Scripts */,
 				95AA6C20108732460000A8BD /* nmworker in Copy NestedMICA Scripts */,
 			);
@@ -500,7 +500,14 @@
 		2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		2A37F4C5FDCFA73011CA2CEA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		32DBCF750370BD2300C91783 /* iMotifs_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iMotifs_Prefix.pch; sourceTree = "<group>"; };
+		5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrievePeakSequencesController.h; sourceTree = "<group>"; };
+		5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrievePeakSequencesController.m; sourceTree = "<group>"; };
+		5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrievePeakSequencesDialog.xib; sourceTree = "<group>"; };
+		5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrievePeakSequencesOperation.h; sourceTree = "<group>"; };
+		5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrievePeakSequencesOperation.m; sourceTree = "<group>"; };
+		5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceRetrievalOperation.h; sourceTree = "<group>"; };
 		5F61DFE60E2DF2C00091787E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
+		5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
 		5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetWindowController.h; sourceTree = "<group>"; };
 		5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetWindowController.m; sourceTree = "<group>"; };
 		5F83C9B70E363C4900369591 /* MotifNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNameCell.h; sourceTree = "<group>"; };
@@ -530,8 +537,8 @@
 		5FC3084B0E185802006C4679 /* MotifViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifViewCell.h; sourceTree = "<group>"; };
 		5FC3084C0E185802006C4679 /* MotifViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifViewCell.m; sourceTree = "<group>"; };
 		5FC3094B0E18DF5A006C4679 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotable.h; path = ../libxms/Annotable.h; sourceTree = SOURCE_ROOT; };
-		5FC350C00EBBDA5C00404E38 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Metamotif.h; sourceTree = "<group>"; };
-		5FC350C10EBBDA5C00404E38 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Metamotif.m; sourceTree = "<group>"; };
+		5FC350C00EBBDA5C00404E38 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metamotif.h; path = ../libxms/Metamotif.h; sourceTree = "<group>"; };
+		5FC350C10EBBDA5C00404E38 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metamotif.m; path = ../libxms/Metamotif.m; sourceTree = "<group>"; };
 		5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DIface.h; sourceTree = "<group>"; };
 		5FF1CB2C0E333BC9001966B7 /* IMIntMatrix2DTranspose.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMIntMatrix2DTranspose.h; sourceTree = "<group>"; };
 		5FF1CB2D0E333BC9001966B7 /* IMIntMatrix2DTranspose.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMIntMatrix2DTranspose.m; sourceTree = "<group>"; };
@@ -570,8 +577,8 @@
 		951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMTrainBGOperationConfigController.xib; sourceTree = "<group>"; };
 		951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMTrainBGModelOperation.h; sourceTree = "<group>"; };
 		951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMTrainBGModelOperation.m; sourceTree = "<group>"; };
-		95371B160FCD8BC900273BA9 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dirichlet_math.h; sourceTree = "<group>"; };
-		95371B170FCD8BC900273BA9 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = dirichlet_math.m; sourceTree = "<group>"; };
+		95371B160FCD8BC900273BA9 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dirichlet_math.h; path = ../libxms/dirichlet_math.h; sourceTree = "<group>"; };
+		95371B170FCD8BC900273BA9 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dirichlet_math.m; path = ../libxms/dirichlet_math.m; sourceTree = "<group>"; };
 		953D80530F2F18B800049823 /* IMTaskOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMTaskOperation.h; sourceTree = "<group>"; };
 		953D80540F2F18B800049823 /* IMTaskOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMTaskOperation.m; sourceTree = "<group>"; };
 		953D80940F2F1B0400049823 /* NMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMOperation.h; sourceTree = "<group>"; };
@@ -610,10 +617,9 @@
 		9595B0E90FB9B79400CE2BFF /* MetamotifTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MetamotifTests.m; sourceTree = "<group>"; };
 		9595B29E0FB9C59F00CE2BFF /* incomplete_beta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = incomplete_beta.h; sourceTree = "<group>"; };
 		9595B29F0FB9C59F00CE2BFF /* incomplete_beta.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = incomplete_beta.m; sourceTree = "<group>"; };
-		9595B3FE0FB9D47700CE2BFF /* SymbolBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SymbolBounds.h; sourceTree = "<group>"; };
-		9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SymbolBounds.m; sourceTree = "<group>"; };
-		9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistributionBounds.h; sourceTree = "<group>"; };
-		9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistributionBounds.m; sourceTree = "<group>"; };
+		9595B3FE0FB9D47700CE2BFF /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolBounds.m; path = ../libxms/SymbolBounds.m; sourceTree = "<group>"; };
+		9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolBounds.m; path = ../libxms/SymbolBounds.m; sourceTree = "<group>"; };
+		9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistributionBounds.h; path = ../libxms/DistributionBounds.h; sourceTree = "<group>"; };
 		9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ActiveRecord.framework; sourceTree = "<group>"; };
 		959E3CC00EE680DF00072A66 /* MotifPairWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MotifPairWindow.xib; sourceTree = "<group>"; };
 		959E3CC30EE6812A00072A66 /* MotifPairWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPairWindowController.h; sourceTree = "<group>"; };
@@ -643,7 +649,6 @@
 		95AA6BCC108730FE0000A8BD /* nmmakebg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmakebg; path = "../../../workspace/nmica-dev/bin/nmmakebg"; sourceTree = SOURCE_ROOT; };
 		95AA6BCD108730FE0000A8BD /* nmmetabg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmetabg; path = "../../../workspace/nmica-dev/bin/nmmetabg"; sourceTree = SOURCE_ROOT; };
 		95AA6BCE108730FE0000A8BD /* nmmetainfer */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmetainfer; path = "../../../workspace/nmica-dev/bin/nmmetainfer"; sourceTree = SOURCE_ROOT; };
-		95AA6BCF108730FE0000A8BD /* nmmotifsum */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmmotifsum; path = "../../../workspace/nmica-dev/bin/nmmotifsum"; sourceTree = SOURCE_ROOT; };
 		95AA6BD0108730FE0000A8BD /* nmscan */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmscan; path = "../../../workspace/nmica-dev/bin/nmscan"; sourceTree = SOURCE_ROOT; };
 		95AA6BD1108730FE0000A8BD /* nmworker */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmworker; path = "../../../workspace/nmica-dev/bin/nmworker"; sourceTree = SOURCE_ROOT; };
 		95AA6C251087326C0000A8BD /* biojava-ensembl.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "biojava-ensembl.jar"; path = "../../../workspace/nmica-extra/lib/biojava-ensembl.jar"; sourceTree = SOURCE_ROOT; };
@@ -859,10 +864,11 @@
 		5FA66A5F0E142A05009E5AFA /* control */ = {
 			isa = PBXGroup;
 			children = (
+				953D81140F2F410700049823 /* NMICA Integration */,
+				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
 				95414FDA0F1245DB0083E72A /* App Controller */,
 				95B2C6750EED8F11004605A6 /* Drawer */,
 				9563E2C0101E0649006F067A /* Experimental */,
-				9563E2C1101E0651006F067A /* Integration */,
 				95414FD90F1245CF0083E72A /* Motif Set Document */,
 				9563E2C2101E065F006F067A /* Pickers */,
 				95414FDB0F1245F00083E72A /* Preferences */,
@@ -1035,10 +1041,10 @@
 				5FB897820E315C2D0084D9D8 /* MotifPair.m */,
 				5FC350C00EBBDA5C00404E38 /* Metamotif.h */,
 				5FC350C10EBBDA5C00404E38 /* Metamotif.m */,
-				9595B3FE0FB9D47700CE2BFF /* SymbolBounds.h */,
+				9595B3FE0FB9D47700CE2BFF /* SymbolBounds.m */,
 				9595B3FF0FB9D47700CE2BFF /* SymbolBounds.m */,
+				5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */,
 				9595B4070FB9D4E200CE2BFF /* DistributionBounds.h */,
-				9595B4080FB9D4E200CE2BFF /* DistributionBounds.m */,
 				95371B160FCD8BC900273BA9 /* dirichlet_math.h */,
 				95371B170FCD8BC900273BA9 /* dirichlet_math.m */,
 			);
@@ -1157,6 +1163,7 @@
 		9563E2BB101E0370006F067A /* ensembl */ = {
 			isa = PBXGroup;
 			children = (
+				5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */,
 				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
 				9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */,
 			);
@@ -1171,15 +1178,6 @@
 			name = Experimental;
 			sourceTree = "<group>";
 		};
-		9563E2C1101E0651006F067A /* Integration */ = {
-			isa = PBXGroup;
-			children = (
-				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
-				953D81140F2F410700049823 /* NMICA Integration */,
-			);
-			name = Integration;
-			sourceTree = "<group>";
-		};
 		9563E2C2101E065F006F067A /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1192,12 +1190,17 @@
 		95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */ = {
 			isa = PBXGroup;
 			children = (
+				5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */,
+				5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */,
 				95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */,
 				95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */,
 				95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */,
 				95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */,
 				9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */,
 				9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */,
+				5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */,
+				5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */,
+				5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */,
 			);
 			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";
@@ -1251,7 +1254,6 @@
 				95AA6BCC108730FE0000A8BD /* nmmakebg */,
 				95AA6BCD108730FE0000A8BD /* nmmetabg */,
 				95AA6BCE108730FE0000A8BD /* nmmetainfer */,
-				95AA6BCF108730FE0000A8BD /* nmmotifsum */,
 				95AA6BD0108730FE0000A8BD /* nmscan */,
 				95AA6BD1108730FE0000A8BD /* nmworker */,
 			);
@@ -1505,7 +1507,7 @@
 				9595B22D0FB9C02200CE2BFF /* ScoreOffsetPair.h in Headers */,
 				9595B22E0FB9C02200CE2BFF /* Symbol.h in Headers */,
 				9595B2A00FB9C59F00CE2BFF /* incomplete_beta.h in Headers */,
-				9595B4000FB9D47700CE2BFF /* SymbolBounds.h in Headers */,
+				9595B4000FB9D47700CE2BFF /* SymbolBounds.m in Headers */,
 				9595B4090FB9D4E200CE2BFF /* DistributionBounds.h in Headers */,
 				95371B180FCD8BC900273BA9 /* dirichlet_math.h in Headers */,
 				950C1A050FD6E7C1002B8D33 /* NMAlignOperation.h in Headers */,
@@ -1606,6 +1608,7 @@
 				95D764E910231AEB009703AA /* Ensembl.gif in Resources */,
 				95B3502410232EC500F0E0BF /* IMPreferences.xib in Resources */,
 				95B3507F10233A1600F0E0BF /* General.png in Resources */,
+				5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1690,7 +1693,6 @@
 				9595AE980FB9780500CE2BFF /* IMNSArrayExtras.m in Sources */,
 				9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */,
 				9595B4A50FB9DD8400CE2BFF /* SymbolBounds.m in Sources */,
-				9595B5080FB9E06100CE2BFF /* DistributionBounds.m in Sources */,
 				9506690D0FD7EE37006CD398 /* NMAlignOperation.m in Sources */,
 				95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */,
 				95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */,
@@ -1699,6 +1701,9 @@
 				9515BDE71022445800188C5A /* IMRetrieveSequencesStatusDialogController.m in Sources */,
 				95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */,
 				95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */,
+				5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */,
+				5F2BC6FF108B666000A634F4 /* IMRetrievePeakSequencesController.m in Sources */,
+				5F2BC706108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1756,7 +1761,6 @@
 				9595B1520FB9BC2600CE2BFF /* MotifComparisonOperation.m in Sources */,
 				9595B2A10FB9C59F00CE2BFF /* incomplete_beta.m in Sources */,
 				9595B4010FB9D47700CE2BFF /* SymbolBounds.m in Sources */,
-				9595B40A0FB9D4E200CE2BFF /* DistributionBounds.m in Sources */,
 				95371B190FCD8BC900273BA9 /* dirichlet_math.m in Sources */,
 				950C1A060FD6E7C1002B8D33 /* NMAlignOperation.m in Sources */,
 				95113DF50FD91631006823C4 /* IMConstants.m in Sources */,

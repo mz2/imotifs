@@ -8,10 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */; };
-		5F61E03F0E2DFD640091787E /* MotifViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F61E03D0E2DFD640091787E /* MotifViewCell.h */; };
-		5F61E0400E2DFD640091787E /* MotifViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F61E03E0E2DFD640091787E /* MotifViewCell.m */; };
 		5F61E1940E2E18110091787E /* MotifPainter.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F61E1920E2E18110091787E /* MotifPainter.h */; };
 		5F61E1950E2E18110091787E /* MotifPainter.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F61E1930E2E18110091787E /* MotifPainter.m */; };
+		5F66DDDE1089DEE9001159D8 /* MotifViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */; };
+		5F66DDDF1089DEE9001159D8 /* MotifViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */; };
+		5F66DDE21089DEF8001159D8 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE01089DEF8001159D8 /* Metamotif.m */; };
+		5F66DDE31089DEF8001159D8 /* Metamotif.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE11089DEF8001159D8 /* Metamotif.h */; };
+		5F66DDE61089DEFE001159D8 /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE41089DEFE001159D8 /* SymbolBounds.m */; };
+		5F66DDE71089DEFE001159D8 /* SymbolBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE51089DEFE001159D8 /* SymbolBounds.h */; };
+		5F66DDEA1089DF03001159D8 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE81089DF03001159D8 /* dirichlet_math.m */; };
+		5F66DDEB1089DF03001159D8 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE91089DF03001159D8 /* dirichlet_math.h */; };
+		5F66DDF51089DF21001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDF31089DF21001159D8 /* DistributionBounds.m */; };
+		5F66DDF61089DF21001159D8 /* DistributionBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDF41089DF21001159D8 /* DistributionBounds.h */; };
 		5FAE5BF70ED0CB2300A0B053 /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BE80ED0CB2300A0B053 /* Symbol.m */; };
 		5FAE5BF80ED0CB2300A0B053 /* Symbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BE90ED0CB2300A0B053 /* Symbol.h */; };
 		5FAE5BF90ED0CB2300A0B053 /* Multinomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BEA0ED0CB2300A0B053 /* Multinomial.m */; };
@@ -36,14 +44,6 @@
 		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
 		95D910510FDD7407006298B2 /* Dirichlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D9104F0FDD7407006298B2 /* Dirichlet.m */; };
 		95D910520FDD7407006298B2 /* Dirichlet.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D910500FDD7407006298B2 /* Dirichlet.h */; };
-		95D910560FDD7440006298B2 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D910540FDD7440006298B2 /* DistributionBounds.m */; };
-		95D910570FDD7440006298B2 /* DistributionBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D910550FDD7440006298B2 /* DistributionBounds.h */; };
-		95D910690FDD7459006298B2 /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D910670FDD7458006298B2 /* SymbolBounds.m */; };
-		95D9106A0FDD7459006298B2 /* SymbolBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D910680FDD7458006298B2 /* SymbolBounds.h */; };
-		95D910700FDD7464006298B2 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D9106E0FDD7464006298B2 /* Metamotif.m */; };
-		95D910710FDD7464006298B2 /* Metamotif.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D9106F0FDD7464006298B2 /* Metamotif.h */; };
-		95D910750FDD7473006298B2 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D910730FDD7473006298B2 /* dirichlet_math.m */; };
-		95D910760FDD7473006298B2 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D910740FDD7473006298B2 /* dirichlet_math.h */; };
 		95F8FBCA0FDE5B3D00FAD7C4 /* MotifQuickLook_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 95F8FBC80FDE5B3D00FAD7C4 /* MotifQuickLook_Prefix.pch */; };
 		C86B05270671AA6E00DD9006 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86B05260671AA6E00DD9006 /* CoreServices.framework */; };
 		F28CFBFD0A3EC0AF000ABFF5 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */; };
@@ -68,10 +68,18 @@
 		08FB77B6FE84183AC02AAC07 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
 		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
-		5F61E03D0E2DFD640091787E /* MotifViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifViewCell.h; path = ../iMotifs/MotifViewCell.h; sourceTree = SOURCE_ROOT; };
-		5F61E03E0E2DFD640091787E /* MotifViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifViewCell.m; path = ../iMotifs/MotifViewCell.m; sourceTree = SOURCE_ROOT; };
 		5F61E1920E2E18110091787E /* MotifPainter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifPainter.h; sourceTree = "<group>"; };
 		5F61E1930E2E18110091787E /* MotifPainter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifPainter.m; sourceTree = "<group>"; };
+		5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifViewCell.m; path = ../app/MotifViewCell.m; sourceTree = SOURCE_ROOT; };
+		5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifViewCell.h; path = ../app/MotifViewCell.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE01089DEF8001159D8 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metamotif.m; path = ../libxms/Metamotif.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE11089DEF8001159D8 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metamotif.h; path = ../libxms/Metamotif.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE41089DEFE001159D8 /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolBounds.m; path = ../libxms/SymbolBounds.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE51089DEFE001159D8 /* SymbolBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolBounds.h; path = ../libxms/SymbolBounds.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE81089DF03001159D8 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dirichlet_math.m; path = ../libxms/dirichlet_math.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE91089DF03001159D8 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dirichlet_math.h; path = ../libxms/dirichlet_math.h; sourceTree = SOURCE_ROOT; };
+		5F66DDF31089DF21001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
+		5F66DDF41089DF21001159D8 /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistributionBounds.h; path = ../libxms/DistributionBounds.h; sourceTree = SOURCE_ROOT; };
 		5FAE5BE80ED0CB2300A0B053 /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = ../libxms/Symbol.m; sourceTree = SOURCE_ROOT; };
 		5FAE5BE90ED0CB2300A0B053 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = ../libxms/Symbol.h; sourceTree = SOURCE_ROOT; };
 		5FAE5BEA0ED0CB2300A0B053 /* Multinomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Multinomial.m; path = ../libxms/Multinomial.m; sourceTree = SOURCE_ROOT; };
@@ -95,14 +103,6 @@
 		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		95D9104F0FDD7407006298B2 /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
 		95D910500FDD7407006298B2 /* Dirichlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dirichlet.h; path = ../libxms/Dirichlet.h; sourceTree = SOURCE_ROOT; };
-		95D910540FDD7440006298B2 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../imotifs/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
-		95D910550FDD7440006298B2 /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistributionBounds.h; path = ../imotifs/DistributionBounds.h; sourceTree = SOURCE_ROOT; };
-		95D910670FDD7458006298B2 /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolBounds.m; path = ../imotifs/SymbolBounds.m; sourceTree = SOURCE_ROOT; };
-		95D910680FDD7458006298B2 /* SymbolBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolBounds.h; path = ../imotifs/SymbolBounds.h; sourceTree = SOURCE_ROOT; };
-		95D9106E0FDD7464006298B2 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metamotif.m; path = ../imotifs/Metamotif.m; sourceTree = SOURCE_ROOT; };
-		95D9106F0FDD7464006298B2 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metamotif.h; path = ../imotifs/Metamotif.h; sourceTree = SOURCE_ROOT; };
-		95D910730FDD7473006298B2 /* dirichlet_math.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = dirichlet_math.m; path = ../imotifs/dirichlet_math.m; sourceTree = SOURCE_ROOT; };
-		95D910740FDD7473006298B2 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dirichlet_math.h; path = ../imotifs/dirichlet_math.h; sourceTree = SOURCE_ROOT; };
 		95F8FBC80FDE5B3D00FAD7C4 /* MotifQuickLook_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifQuickLook_Prefix.pch; sourceTree = "<group>"; };
 		C86B05260671AA6E00DD9006 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
 		F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
@@ -163,16 +163,18 @@
 		08FB77AFFE84173DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				95D910730FDD7473006298B2 /* dirichlet_math.m */,
-				95D910740FDD7473006298B2 /* dirichlet_math.h */,
-				95D9106E0FDD7464006298B2 /* Metamotif.m */,
-				95D9106F0FDD7464006298B2 /* Metamotif.h */,
-				95D910670FDD7458006298B2 /* SymbolBounds.m */,
-				95D910680FDD7458006298B2 /* SymbolBounds.h */,
+				5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */,
+				5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */,
+				5F66DDE81089DF03001159D8 /* dirichlet_math.m */,
+				5F66DDE91089DF03001159D8 /* dirichlet_math.h */,
+				5F66DDE01089DEF8001159D8 /* Metamotif.m */,
+				5F66DDE11089DEF8001159D8 /* Metamotif.h */,
+				5F66DDE41089DEFE001159D8 /* SymbolBounds.m */,
+				5F66DDE51089DEFE001159D8 /* SymbolBounds.h */,
 				95D9104F0FDD7407006298B2 /* Dirichlet.m */,
 				95D910500FDD7407006298B2 /* Dirichlet.h */,
-				95D910540FDD7440006298B2 /* DistributionBounds.m */,
-				95D910550FDD7440006298B2 /* DistributionBounds.h */,
+				5F66DDF31089DF21001159D8 /* DistributionBounds.m */,
+				5F66DDF41089DF21001159D8 /* DistributionBounds.h */,
 				5FAE5BE90ED0CB2300A0B053 /* Symbol.h */,
 				5FAE5BE80ED0CB2300A0B053 /* Symbol.m */,
 				5FAE5BEB0ED0CB2300A0B053 /* Multinomial.h */,
@@ -188,8 +190,6 @@
 				5FAE5BF40ED0CB2300A0B053 /* Annotable.h */,
 				5FAE5BF60ED0CB2300A0B053 /* WeightMatrix.h */,
 				5FAE5BF50ED0CB2300A0B053 /* WeightMatrix.m */,
-				5F61E03D0E2DFD640091787E /* MotifViewCell.h */,
-				5F61E03E0E2DFD640091787E /* MotifViewCell.m */,
 				61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */,
 				2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */,
 				08FB77B6FE84183AC02AAC07 /* main.m */,
@@ -215,7 +215,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F61E03F0E2DFD640091787E /* MotifViewCell.h in Headers */,
 				5F61E1940E2E18110091787E /* MotifPainter.h in Headers */,
 				5FAE5BF80ED0CB2300A0B053 /* Symbol.h in Headers */,
 				5FAE5BFA0ED0CB2300A0B053 /* Multinomial.h in Headers */,
@@ -226,11 +225,12 @@
 				5FAE5C030ED0CB2300A0B053 /* Annotable.h in Headers */,
 				5FAE5C050ED0CB2300A0B053 /* WeightMatrix.h in Headers */,
 				95D910520FDD7407006298B2 /* Dirichlet.h in Headers */,
-				95D910570FDD7440006298B2 /* DistributionBounds.h in Headers */,
-				95D9106A0FDD7459006298B2 /* SymbolBounds.h in Headers */,
-				95D910710FDD7464006298B2 /* Metamotif.h in Headers */,
-				95D910760FDD7473006298B2 /* dirichlet_math.h in Headers */,
 				95F8FBCA0FDE5B3D00FAD7C4 /* MotifQuickLook_Prefix.pch in Headers */,
+				5F66DDDF1089DEE9001159D8 /* MotifViewCell.h in Headers */,
+				5F66DDE31089DEF8001159D8 /* Metamotif.h in Headers */,
+				5F66DDE71089DEFE001159D8 /* SymbolBounds.h in Headers */,
+				5F66DDEB1089DF03001159D8 /* dirichlet_math.h in Headers */,
+				5F66DDF61089DF21001159D8 /* DistributionBounds.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +304,6 @@
 				8D576312048677EA00EA77CD /* main.m in Sources */,
 				2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */,
 				61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.m in Sources */,
-				5F61E0400E2DFD640091787E /* MotifViewCell.m in Sources */,
 				5F61E1950E2E18110091787E /* MotifPainter.m in Sources */,
 				5FAE5BF70ED0CB2300A0B053 /* Symbol.m in Sources */,
 				5FAE5BF90ED0CB2300A0B053 /* Multinomial.m in Sources */,
@@ -314,10 +313,11 @@
 				5FAE5C020ED0CB2300A0B053 /* Alphabet.m in Sources */,
 				5FAE5C040ED0CB2300A0B053 /* WeightMatrix.m in Sources */,
 				95D910510FDD7407006298B2 /* Dirichlet.m in Sources */,
-				95D910560FDD7440006298B2 /* DistributionBounds.m in Sources */,
-				95D910690FDD7459006298B2 /* SymbolBounds.m in Sources */,
-				95D910700FDD7464006298B2 /* Metamotif.m in Sources */,
-				95D910750FDD7473006298B2 /* dirichlet_math.m in Sources */,
+				5F66DDDE1089DEE9001159D8 /* MotifViewCell.m in Sources */,
+				5F66DDE21089DEF8001159D8 /* Metamotif.m in Sources */,
+				5F66DDE61089DEFE001159D8 /* SymbolBounds.m in Sources */,
+				5F66DDEA1089DF03001159D8 /* dirichlet_math.m in Sources */,
+				5F66DDF51089DF21001159D8 /* DistributionBounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
