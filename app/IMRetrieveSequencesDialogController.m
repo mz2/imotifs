@@ -68,6 +68,16 @@
            forKeyPath:@"schemaVersionListController.selectionIndex"
               options:(NSKeyValueObservingOptionNew)
               context:NULL];
+	[self addObserver:self
+			forKeyPath:@"retrieveSequencesOperation.selectGeneList"
+				options:(NSKeyValueObservingOptionNew)
+				context:NULL];
+	
+	[self addObserver:self
+			forKeyPath:@"retrieveSequencesOperation.selectGeneListFromFile"
+			options:(NSKeyValueObservingOptionNew)
+				context:NULL];
+	 
       
     NSString *prevOrganism = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousEnsemblOrganism"];
     NSString *prevSchemaVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousSchemaVersion"];
@@ -170,9 +180,15 @@
         [self refreshGeneNameLists];
     }
     else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneList"]) {
-        NSLog(@"Changing %i", retrieveSequencesOperation.selectGeneList);
+		if (self.retrieveSequencesOperation.selectGeneList) {
+			self.retrieveSequencesOperation.selectGeneListFromFile = NO;
+		}
+        NSLog(@"Changing %i (selectGeneList)", retrieveSequencesOperation.selectGeneList);
     } else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneListFromFile"]) {
-        NSLog(@"Changing %i", retrieveSequencesOperation.selectGeneListFromFile);
+        NSLog(@"Changing %i (selectGeneListFromFile)", retrieveSequencesOperation.selectGeneListFromFile);
+		if (self.retrieveSequencesOperation.selectGeneListFromFile) {
+			self.retrieveSequencesOperation.selectGeneList = NO;
+		}
     }
     else {
         [super observeValueForKeyPath: keyPath 

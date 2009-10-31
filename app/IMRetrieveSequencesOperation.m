@@ -213,26 +213,31 @@
     }
 }
 
+/*
 -(void) setSelectGeneList:(BOOL) b {
+
     [self willChangeValueForKey:@"selectGeneList"];
-    [self willChangeValueForKey:@"selectGeneListFromFile"];
     selectGeneList = b;
-    if (selectGeneList) {
-        [self setSelectGeneListFromFile: NO];
-    }
     [self didChangeValueForKey:@"selectGeneList"];
-    [self didChangeValueForKey:@"selectGeneListFromFile"];
+    
+    
+	if (selectGeneList) {
+		[self willChangeValueForKey:@"selectGeneListFromFile"];
+		[self setSelectGeneListFromFile: NO];
+		[self didChangeValueForKey:@"selectGeneListFromFile"];	
+    }
 }
 
 -(void) selectGeneListFromFile:(BOOL) b {
-    [self willChangeValueForKey:@"selectGeneList"];
     [self willChangeValueForKey:@"selectGeneListFromFile"];
     selectGeneListFromFile = b;
-    if (selectGeneListFromFile) {
-        [self setSelectGeneList: NO];
-    }
-    [self didChangeValueForKey:@"selectGeneList"];
     [self didChangeValueForKey:@"selectGeneListFromFile"];
-}
+    
+	if (selectGeneListFromFile) {
+		[self willChangeValueForKey:@"selectGeneList"];
+        [self setSelectGeneList: NO];
+		[self didChangeValueForKey:@"selectGeneList"];
+    }
+}*/
 
 @end
