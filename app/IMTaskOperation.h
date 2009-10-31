@@ -33,7 +33,7 @@
 
 +(NSArray*) argumentArrayFromDictionary:(NSMutableDictionary*) dict;
 
-
+-(IBAction) copyToClipboard:(id) sender;
 
 -(NSString*) argumentsString;
 
