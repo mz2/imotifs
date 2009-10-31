@@ -37,13 +37,26 @@
     [super dealloc];
 }
 
+-(void) initializeTask:(NSTask*) t {
+    
+    /*
+    NSPipe *stdOutPipe = [NSPipe pipe];
+    NSPipe *stdErrPipe = [NSPipe pipe];
+    readHandle = [[stdOutPipe fileHandleForReading] retain];    
+    errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
+    [t setStandardOutput: stdOutPipe];
+    [t setStandardError: stdErrPipe];*/
+}
+
 -(void) initializeArguments:(NSMutableDictionary*) args {
     [args setObject:self.outputFile forKey:@"-motifs"];        
     [args setObject:self.outputFile forKey:@"-seqs"];        
     [args setObject:self.outputFile forKey:@"-backgroundModel"];        
     [args setObject:self.outputFile forKey:@"-out"];
     
-    
+    [args setObject:[NSNumber numberWithDouble:_significanceThreshold] forKey:@"-confThreshold"];
+    [args setObject:[NSNumber numberWithDouble:_binSize] forKey:@"-binSize"];
+    [args setObject:[NSNumber numberWithDouble:_defaultScoreCutoff] forKey:@"-defaultScoreCutoff"];
 }
 
 -(BOOL) motifsFileExists {

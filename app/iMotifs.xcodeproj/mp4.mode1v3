@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -296,14 +294,16 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>81</integer>
-									<integer>79</integer>
-									<integer>72</integer>
+									<integer>36</integer>
+									<integer>34</integer>
+									<integer>21</integer>
+									<integer>20</integer>
+									<integer>4</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 251}, {399, 636}}</string>
+							<string>{{0, 397}, {399, 636}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -333,12 +333,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>NMROCAUCController.m</string>
+								<string>NMAlignOperation.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -346,11 +348,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>NMROCAUCController.m</string>
+										<string>NMAlignOperation.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>95D3CAE2109CB39F008659EB</string>
+										<string>95D3CB3E109CC650008659EB</string>
 										<key>history</key>
 										<array>
 											<string>959E3D600EE695C100072A66</string>
@@ -481,25 +483,25 @@
 											<string>95F6D3A2109C5A72003C327C</string>
 											<string>95F6D3A4109C5A72003C327C</string>
 											<string>95C1C2FA109C9028000E4224</string>
-											<string>95C1C2FB109C9028000E4224</string>
-											<string>95C1C2FD109C9028000E4224</string>
 											<string>95C1C2FE109C9028000E4224</string>
 											<string>95C1C2FF109C9028000E4224</string>
 											<string>95C1C300109C9028000E4224</string>
 											<string>95C1C301109C9028000E4224</string>
 											<string>95C1C302109C9028000E4224</string>
-											<string>95C1C303109C9028000E4224</string>
 											<string>95C1C304109C9028000E4224</string>
 											<string>95C1C306109C9028000E4224</string>
 											<string>95BACE50109CA8D600FAA974</string>
 											<string>95BACE66109CA9EF00FAA974</string>
-											<string>95BACEBF109CB0B600FAA974</string>
-											<string>95BACEC1109CB0B600FAA974</string>
-											<string>95BACEC2109CB0B600FAA974</string>
-											<string>95BACEC3109CB0B600FAA974</string>
-											<string>95BACECE109CB0E500FAA974</string>
-											<string>95BACED4109CB12000FAA974</string>
-											<string>95BACEF5109CB2B700FAA974</string>
+											<string>95D3CB05109CC650008659EB</string>
+											<string>95D3CB06109CC650008659EB</string>
+											<string>95D3CB07109CC650008659EB</string>
+											<string>95D3CB08109CC650008659EB</string>
+											<string>95D3CB09109CC650008659EB</string>
+											<string>95D3CB0A109CC650008659EB</string>
+											<string>95D3CB0B109CC650008659EB</string>
+											<string>95D3CB0C109CC650008659EB</string>
+											<string>95D3CB0D109CC650008659EB</string>
+											<string>95D3CB0E109CC650008659EB</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -651,6 +653,53 @@
 											<string>95BACE6F109CAA9A00FAA974</string>
 											<string>95BACE72109CAA9A00FAA974</string>
 											<string>95BACE7E109CAAD200FAA974</string>
+											<string>95D3CB0F109CC650008659EB</string>
+											<string>95D3CB10109CC650008659EB</string>
+											<string>95D3CB11109CC650008659EB</string>
+											<string>95D3CB12109CC650008659EB</string>
+											<string>95D3CB13109CC650008659EB</string>
+											<string>95D3CB14109CC650008659EB</string>
+											<string>95D3CB15109CC650008659EB</string>
+											<string>95D3CB16109CC650008659EB</string>
+											<string>95D3CB17109CC650008659EB</string>
+											<string>95D3CB18109CC650008659EB</string>
+											<string>95D3CB19109CC650008659EB</string>
+											<string>95D3CB1A109CC650008659EB</string>
+											<string>95D3CB1B109CC650008659EB</string>
+											<string>95D3CB1C109CC650008659EB</string>
+											<string>95D3CB1D109CC650008659EB</string>
+											<string>95D3CB1E109CC650008659EB</string>
+											<string>95D3CB1F109CC650008659EB</string>
+											<string>95D3CB20109CC650008659EB</string>
+											<string>95D3CB21109CC650008659EB</string>
+											<string>95D3CB22109CC650008659EB</string>
+											<string>95D3CB23109CC650008659EB</string>
+											<string>95D3CB24109CC650008659EB</string>
+											<string>95D3CB25109CC650008659EB</string>
+											<string>95D3CB26109CC650008659EB</string>
+											<string>95D3CB27109CC650008659EB</string>
+											<string>95D3CB28109CC650008659EB</string>
+											<string>95D3CB29109CC650008659EB</string>
+											<string>95D3CB2A109CC650008659EB</string>
+											<string>95D3CB2B109CC650008659EB</string>
+											<string>95D3CB2C109CC650008659EB</string>
+											<string>95D3CB2D109CC650008659EB</string>
+											<string>95D3CB2E109CC650008659EB</string>
+											<string>95D3CB2F109CC650008659EB</string>
+											<string>95D3CB30109CC650008659EB</string>
+											<string>95D3CB31109CC650008659EB</string>
+											<string>95D3CB32109CC650008659EB</string>
+											<string>95D3CB33109CC650008659EB</string>
+											<string>95D3CB34109CC650008659EB</string>
+											<string>95D3CB35109CC650008659EB</string>
+											<string>95D3CB36109CC650008659EB</string>
+											<string>95D3CB37109CC650008659EB</string>
+											<string>95D3CB38109CC650008659EB</string>
+											<string>95D3CB39109CC650008659EB</string>
+											<string>95D3CB3A109CC650008659EB</string>
+											<string>95D3CB3B109CC650008659EB</string>
+											<string>95D3CB3C109CC650008659EB</string>
+											<string>95D3CB3D109CC650008659EB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -844,12 +893,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>95D3CB3F109CC650008659EB</string>
 		<string>95D3CADE109CB371008659EB</string>
 		<string>95D3CADF109CB371008659EB</string>
 		<string>9564E6FE0EC86C5E002A4206</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/mp4/Projects/imotifs/app/iMotifs.xcodeproj</string>
 		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 	</array>
 	<key>WindowString</key>
 	<string>21 72 1220 695 0 0 1280 778 </string>
