@@ -156,13 +156,6 @@
     
 }
 
--(void) connectToActiveEnsemblDatabase {
-    [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",[self activeEnsemblDatabaseName]] 
-                             substitutions: nil];
-    
-    [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
-}
-
 -(NSString*) activeEnsemblDatabaseName {
     return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.schemaVersion];
 }

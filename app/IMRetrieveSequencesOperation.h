@@ -89,5 +89,8 @@ typedef enum IMRetrieveSequencesSearchType {
 
 @property (readwrite,copy) NSString *outFilename;
 
+@property (readonly) BOOL enableChoosingGeneIDListBySearching;
+@property (readonly) BOOL enableRetrievingGeneIDListFromFile;
+
 @property (assign, readwrite) IMRetrieveSequencesStatusDialogController *statusDialogController;
 @end

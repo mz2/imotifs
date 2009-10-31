@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+@class IMEnsemblConnection;
 
 @class IMRetrieveSequencesOperation;
 
@@ -42,7 +43,7 @@
     NSArray *selectedGeneIDList;
     NSUInteger selectedGeneIDType;
     
-
+    IMEnsemblConnection *ensemblConnection;
 }
 
 @property (readwrite, retain) NSSearchField *searchField;

@@ -196,5 +196,43 @@
     statusDialogController = controller;
     [statusDialogController.spinner startAnimation:self];
 }
-        
+
+-(BOOL) enableChoosingGeneIDListBySearching {
+    if (!self.selectGeneList &! self.selectGeneListFromFile) {
+        return YES;
+    } else {
+        return !self.selectGeneListFromFile;
+    }
+}
+
+-(BOOL) enableRetrievingGeneIDListFromFile {
+    if (!self.selectGeneList &! self.selectGeneListFromFile) {
+        return YES;
+    } else {
+        return !self.selectGeneList;
+    }
+}
+
+-(void) setSelectGeneList:(BOOL) b {
+    [self willChangeValueForKey:@"selectGeneList"];
+    [self willChangeValueForKey:@"selectGeneListFromFile"];
+    selectGeneList = b;
+    if (selectGeneList) {
+        [self setSelectGeneListFromFile: NO];
+    }
+    [self didChangeValueForKey:@"selectGeneList"];
+    [self didChangeValueForKey:@"selectGeneListFromFile"];
+}
+
+-(void) selectGeneListFromFile:(BOOL) b {
+    [self willChangeValueForKey:@"selectGeneList"];
+    [self willChangeValueForKey:@"selectGeneListFromFile"];
+    selectGeneListFromFile = b;
+    if (selectGeneListFromFile) {
+        [self setSelectGeneList: NO];
+    }
+    [self didChangeValueForKey:@"selectGeneList"];
+    [self didChangeValueForKey:@"selectGeneListFromFile"];
+}
+
 @end

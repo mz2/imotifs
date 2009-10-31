@@ -297,6 +297,7 @@
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
+		95F6D2F9109B5E43003C327C /* IMEnsemblConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */; };
 		95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */; };
 /* End PBXBuildFile section */
 
@@ -735,6 +736,8 @@
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
 		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEnsemblConnection.h; sourceTree = "<group>"; };
+		95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEnsemblConnection.m; sourceTree = "<group>"; };
 		95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UniqueObjects.h"; sourceTree = "<group>"; };
 		95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UniqueObjects.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1201,6 +1204,8 @@
 				5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */,
 				5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */,
 				5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */,
+				95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */,
+				95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */,
 			);
 			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";
@@ -1704,6 +1709,7 @@
 				5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */,
 				5F2BC6FF108B666000A634F4 /* IMRetrievePeakSequencesController.m in Sources */,
 				5F2BC706108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m in Sources */,
+				95F6D2F9109B5E43003C327C /* IMEnsemblConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

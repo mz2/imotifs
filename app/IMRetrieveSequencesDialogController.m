@@ -8,14 +8,13 @@
 
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrieveSequencesOperation.h"
-#import <ActiveRecord/ActiveRecord.h>
 #import "IMRetrieveSequencesStatusDialogController.h"
 #import "AppController.h"
+#import "IMEnsemblConnection.h"
 
 @interface IMRetrieveSequencesDialogController (private) 
-- (void) setUpMySQLConnection;
+
 - (void) selectLatestSchemaVersion;
-- (void) connectToActiveEnsemblDatabase;
 - (void) refreshGeneNameLists;
 - (void) refreshFoundGeneNameList;
 @end
@@ -47,7 +46,7 @@
 //This is read before 
 -(void) windowWillLoad {
     //_selectedSchemas = [[NSMutableArray alloc] init];
-    [self setUpMySQLConnection];
+    ensemblConnection = [[IMEnsemblConnection alloc] init];
 }
 
 - (void) awakeFromNib {
@@ -69,11 +68,7 @@
            forKeyPath:@"schemaVersionListController.selectionIndex"
               options:(NSKeyValueObservingOptionNew)
               context:NULL];
-    [self addObserver:self
-           forKeyPath:@"retrieveSequencesOperation.selectGeneList"
-              options:(NSKeyValueObservingOptionNew)
-              context:NULL];
-    
+      
     NSString *prevOrganism = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousEnsemblOrganism"];
     NSString *prevSchemaVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousSchemaVersion"];
     NSLog(@"Previous organism : %@", prevOrganism);
@@ -153,8 +148,10 @@
             //NSLog(@"No organism chosen");
         }
         
-        [self connectToActiveEnsemblDatabase];
         
+        [ensemblConnection useDatabase:[self activeEnsemblDatabaseName]];
+        [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
+        [self refreshGeneNameLists];
     } 
     else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
         if ([schemaVersionListController selectedObjects].count > 0) {
@@ -168,10 +165,14 @@
             //NSLog(@"No schema chosen");
         }
         
-        [self connectToActiveEnsemblDatabase];
+        [ensemblConnection useDatabase:[self activeEnsemblDatabaseName]];
+        [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
+        [self refreshGeneNameLists];
     }
     else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneList"]) {
         NSLog(@"Changing %i", retrieveSequencesOperation.selectGeneList);
+    } else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneListFromFile"]) {
+        NSLog(@"Changing %i", retrieveSequencesOperation.selectGeneListFromFile);
     }
     else {
         [super observeValueForKeyPath: keyPath 
@@ -180,14 +181,6 @@
                               context: context];
     }
     
-}
-
--(void) connectToActiveEnsemblDatabase {
-    [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",[self activeEnsemblDatabaseName]] 
-                             substitutions: nil];
-    
-    [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
-    [self refreshGeneNameLists];
 }
 
 - (void) refreshGeneNameLists {
@@ -202,12 +195,8 @@
     NSMutableArray *gpaccs = [NSMutableArray array];
     
     //NSLog(@"Purged existing ones");
-    NSArray *results = [[ARBase defaultConnection] executeSQL:
-     @"SELECT gene_stable_id.stable_id,xref.display_label,xref.dbprimary_acc \
-FROM gene,xref,gene_stable_id \
-WHERE gene.display_xref_id = xref.xref_id \
-AND gene_stable_id.gene_id = gene.gene_id \
-ORDER BY stable_id;" substitutions:nil];
+    NSArray *results = [ensemblConnection stableIDDisplayLabelDBPrimaryAccessionTuples];
+    
     for (NSDictionary *res in results) {
         //NSLog(@"%@",res);
         [gids addObject: [res objectForKey:@"stable_id"]];
@@ -243,25 +232,6 @@ ORDER BY stable_id;" substitutions:nil];
 
 -(NSString*) activeEnsemblDatabaseName {
     return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.schemaVersion];
-}
-
-- (void) setUpMySQLConnection {
-    NSError *err = nil;
-    ARMySQLConnection *connection = 
-        [ARMySQLConnection openConnectionWithInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-               [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblBaseURL"], @"host",
-               [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"], @"user",
-               [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"] , @"password",
-               [[NSUserDefaults standardUserDefaults] objectForKey:@"IMEnsemblPort"], @"port", nil]
-                                            error:&err];
-	if(err != nil) {
-        NSLog(@"There was an error connecting to MySQL: %@", [err description]);
-        return;        
-    } else {
-        NSLog(@"Connected to MySQL database at %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblBaseURL"]);
-    }
-	// See if it works
-	[ARBase setDefaultConnection:connection];
 }
 
 -(NSArray*) organismList {
@@ -304,7 +274,7 @@ ORDER BY stable_id;" substitutions:nil];
         //NSLog(@"Retrieving schema versions from database");
         NSMutableDictionary *versions = [[NSMutableDictionary alloc] init];
         
-        NSArray *results = [[ARBase defaultConnection] executeSQL:@"SHOW DATABASES;" substitutions:nil];
+        NSArray *results = [ensemblConnection databases];
         for (NSDictionary *dict in results) {
             NSString *dbName = [dict objectForKey: @"Database"];
             NSRange rangeToCore = [dbName rangeOfString: @"_core_"];
