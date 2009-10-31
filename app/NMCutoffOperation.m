@@ -13,6 +13,7 @@
 @synthesize motifsFile = _motifsFile;
 @synthesize seqsFile = _seqsFile;
 @synthesize bgFile = _bgFile;
+@synthesize outputFile = _outputFile;
 @synthesize significanceThreshold = _significanceThreshold;
 @synthesize binSize = _binSize;
 @synthesize defaultScoreCutoff = _defaultScoreCutoff;

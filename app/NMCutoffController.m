@@ -53,7 +53,7 @@
                                     file: nil
                           modalForWindow: self.window
                            modalDelegate: self
-                          didEndSelector: @selector(browseForMotifsFileEnded:returnCode:contextInfo:) 
+                          didEndSelector: @selector(browseForBackgroundModelFileEnded:returnCode:contextInfo:) 
                              contextInfo: NULL];
 }
 

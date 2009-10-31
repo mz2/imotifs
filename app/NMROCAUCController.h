@@ -15,6 +15,12 @@
 
 @property (retain, readwrite) IBOutlet NMROCAUCOperation *operation;
 
+
+-(IBAction) browseForPositiveSeqsFile:(id) sender;
+-(IBAction) browseForNegativeSeqsFile:(id) sender;
+-(IBAction) browseForMotifsFile:(id) sender;
+-(IBAction) browseForOutputFile:(id) sender;
+
 -(IBAction) cancel:(id) sender;
 -(IBAction) ok:(id) sender;
 @end

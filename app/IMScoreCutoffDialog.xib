@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="63"/>
+			<integer value="43"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -484,6 +484,7 @@
 															<string>formatterBehavior</string>
 															<string>maximum</string>
 															<string>minimum</string>
+															<string>minimumFractionDigits</string>
 															<string>numberStyle</string>
 															<string>positiveFormat</string>
 														</object>
@@ -494,11 +495,12 @@
 															<real value="5.000000e+00" id="8301402"/>
 															<real value="1.000000e-01" id="811924235"/>
 															<reference ref="9"/>
+															<reference ref="9"/>
 															<string>#</string>
 														</object>
 													</object>
 													<string key="NS.positiveformat">#</string>
-													<string key="NS.negativeformat">#</string>
+													<string key="NS.negativeformat">#.0</string>
 													<nil key="NS.positiveattrs"/>
 													<nil key="NS.negativeattrs"/>
 													<object class="NSAttributedString" key="NS.zero">
@@ -556,22 +558,30 @@
 														<object class="NSMutableArray" key="dict.sortedKeys">
 															<bool key="EncodedWithXMLCoder">YES</bool>
 															<string>allowsFloats</string>
+															<string>formatWidth</string>
 															<string>formatterBehavior</string>
 															<string>maximum</string>
+															<string>maximumFractionDigits</string>
 															<string>minimum</string>
+															<string>minimumFractionDigits</string>
+															<string>minimumIntegerDigits</string>
 															<string>roundingIncrement</string>
 														</object>
 														<object class="NSMutableArray" key="dict.values">
 															<bool key="EncodedWithXMLCoder">YES</bool>
 															<reference ref="9"/>
+															<integer value="3" id="11"/>
 															<integer value="1040"/>
 															<real value="5.000000e-01" id="476453843"/>
+															<reference ref="11"/>
 															<real value="1.000000e-04" id="252127417"/>
+															<integer value="2"/>
+															<reference ref="9"/>
 															<real value="1.000000e-02"/>
 														</object>
 													</object>
-													<string key="NS.positiveformat">#</string>
-													<string key="NS.negativeformat">#</string>
+													<string key="NS.positiveformat">**#0.00#</string>
+													<string key="NS.negativeformat">**#0.00#</string>
 													<nil key="NS.positiveattrs"/>
 													<nil key="NS.negativeattrs"/>
 													<object class="NSAttributedString" key="NS.zero">
@@ -656,6 +666,7 @@
 															<string>formatterBehavior</string>
 															<string>maximum</string>
 															<string>minimum</string>
+															<string>minimumFractionDigits</string>
 														</object>
 														<object class="NSMutableArray" key="dict.values">
 															<bool key="EncodedWithXMLCoder">YES</bool>
@@ -663,10 +674,11 @@
 															<integer value="1040"/>
 															<real value="0.000000e+00" id="501464227"/>
 															<real value="-1.000000e+01" id="243653134"/>
+															<reference ref="9"/>
 														</object>
 													</object>
-													<string key="NS.positiveformat">#</string>
-													<string key="NS.negativeformat">#</string>
+													<string key="NS.positiveformat">#.0</string>
+													<string key="NS.negativeformat">#.0</string>
 													<nil key="NS.positiveattrs"/>
 													<nil key="NS.negativeattrs"/>
 													<object class="NSAttributedString" key="NS.zero">
