@@ -998,14 +998,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
-						<string key="label">browseForBackgroundModelFile:</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="868908017"/>
-					</object>
-					<int key="connectionID">128</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
 						<string key="label">browseForOutputFile:</string>
 						<reference key="source" ref="1001"/>
 						<reference key="destination" ref="828773237"/>
@@ -1196,6 +1188,14 @@
 					</object>
 					<int key="connectionID">145</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">browseForBackgroundModelFile:</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="868908017"/>
+					</object>
+					<int key="connectionID">146</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -1302,12 +1302,12 @@
 							<reference ref="1052676952"/>
 							<reference ref="868908017"/>
 							<reference ref="777535540"/>
-							<reference ref="828773237"/>
 							<reference ref="386195747"/>
 							<reference ref="263248595"/>
 							<reference ref="103104272"/>
 							<reference ref="984932360"/>
 							<reference ref="239837324"/>
+							<reference ref="828773237"/>
 						</object>
 						<reference key="parent" ref="1006"/>
 					</object>
@@ -1870,7 +1870,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">145</int>
+			<int key="maxID">146</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
