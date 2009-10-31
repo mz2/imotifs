@@ -13,7 +13,7 @@
     NMCutoffOperation *_operation;
 }
 
-@property (retain, readwrite) NMCutoffOperation *operation;
+@property (retain, readwrite) IBOutlet NMCutoffOperation *operation;
 
 -(IBAction) browseForMotifsFile:(id) sender;
 -(IBAction) browseForSeqsFile:(id) sender;

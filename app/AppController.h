@@ -84,4 +84,7 @@ extern NSString *IMConsensusSearchCutoff;
 - (IBAction) goAwayFromFullScreenMode:(id) sender;
 - (IBAction) runNMICA:(id) sender;
 - (IBAction) retrieveSequences:(id) sender;
+
+- (IBAction) scoreCutoff:(id) sender;
+- (IBAction) overrepresentationScore:(id) sender;
 @end

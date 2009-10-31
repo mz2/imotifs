@@ -14,6 +14,8 @@
 #import "NMOperationStatusDialogController.h"
 #import "MotifSetDocumentController.h"
 #import "NMOperationConfigDialogController.h"
+#import "NMCutoffController.h"
+#import "NMROCAUCController.h"
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrievePeakSequencesController.h"
 #import "MotifSetDocument.h"
@@ -116,7 +118,6 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     DebugLog(@"AppController: showing %@", preferenceController);
     [preferenceController showWindow:self];
 }
-
 - (IBAction)openPreferencesWindow:(id)sender {
     
     [[IMPrefsWindowController sharedPrefsWindowController] showWindow:nil];
@@ -215,6 +216,19 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [retrieveSequencesController showWindow: self];
 }
 
+- (IBAction) scoreCutoff:(id) sender {
+	NSLog(@"Peak sequences");
+    NMCutoffController *controller = 
+	[[NMCutoffController alloc] initWithWindowNibName:@"IMScoreCutoffDialog"];
+    [controller showWindow: self];
+}
+
+- (IBAction) overrepresentationScore:(id) sender {
+	NSLog(@"Overrepresentation scores");
+    NMROCAUCController *controller = 
+	[[NMROCAUCController alloc] initWithWindowNibName:@"IMOverRepDialog"];
+    [controller showWindow: self];    
+}
 
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     //MotifSetDocumentController *msetDocController = [[MotifSetDocumentController alloc] init];
