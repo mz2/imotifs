@@ -1313,14 +1313,14 @@
 										<object class="BWTransparentCheckbox" id="475152373">
 											<reference key="NSNextResponder" ref="406322606"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{16, 37}, {374, 18}}</string>
+											<string key="NSFrame">{{16, 37}, {377, 18}}</string>
 											<reference key="NSSuperview" ref="406322606"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="BWTransparentCheckboxCell" key="NSCell" id="448509539">
 												<int key="NSCellFlags">67239424</int>
 												<int key="NSCellFlags2">131072</int>
 												<object class="NSAttributedString" key="NSContents">
-													<string key="NSString">Get gene                            from input file (one name per row)</string>
+													<string key="NSString">Get gene                              from input file (one name per row)</string>
 													<reference key="NSAttributes" ref="207942551"/>
 												</object>
 												<reference key="NSSupport" ref="576226005"/>

@@ -144,6 +144,7 @@
         [self willChangeValueForKey:@"schemaVersionList"];
         [_schemaVersionList release];
         _schemaVersionList = nil;
+		[self schemaVersionList]; 
         [self didChangeValueForKey:@"schemaVersionList"];
         
         if ([organismListController selectedObjects].count > 0) {
@@ -158,10 +159,10 @@
             //NSLog(@"No organism chosen");
         }
         
-        
-        [ensemblConnection useDatabase:[self activeEnsemblDatabaseName]];
-        [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
-        [self refreshGeneNameLists];
+        ensemblConnection.organism = [self organism];
+		self.retrieveSequencesOperation.dbName = [ensemblConnection activeEnsemblDatabaseName];
+		
+		[self refreshGeneNameLists];
     } 
     else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
         if ([schemaVersionListController selectedObjects].count > 0) {
@@ -175,8 +176,9 @@
             //NSLog(@"No schema chosen");
         }
         
-        [ensemblConnection useDatabase:[self activeEnsemblDatabaseName]];
-        [self.retrieveSequencesOperation setDbName: [self activeEnsemblDatabaseName]];
+		ensemblConnection.version = [self schemaVersion];
+		self.retrieveSequencesOperation.dbName = ensemblConnection.version;
+
         [self refreshGeneNameLists];
     }
     else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneList"]) {
@@ -246,9 +248,6 @@
     //NSLog(@"Found genes: %@ (%@)",_foundGeneList,[foundGeneListController arrangedObjects]);
 }
 
--(NSString*) activeEnsemblDatabaseName {
-    return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.schemaVersion];
-}
 
 -(NSArray*) organismList {
     //NSLog(@"Getting organism list");
@@ -272,6 +271,7 @@
             _schemaVersionList == [[NSArray alloc] init];
         }
         else {
+			NSLog(@"Organism is set to %@. Will return schema versions.", self.organism);
             //NSLog(@"Retrieving schema versions");
             _schemaVersionList = [[[self.schemaVersionsForOrganisms objectForKey:self.organism] 
                                    sortedArrayUsingSelector:@selector(reverseCaseInsensitiveCompare:)] retain];

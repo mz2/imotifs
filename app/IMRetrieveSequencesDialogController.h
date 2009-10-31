@@ -77,8 +77,6 @@
 
 @property (retain, readwrite) IMRetrieveSequencesOperation *retrieveSequencesOperation;
 
--(NSString*) activeEnsemblDatabaseName;
-
 -(IBAction) addToSelectedGenes:(id) sender;
 -(IBAction) removeFromSelectedGenes:(id) sender;
 

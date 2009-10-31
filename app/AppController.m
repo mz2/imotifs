@@ -15,6 +15,7 @@
 #import "MotifSetDocumentController.h"
 #import "NMOperationConfigDialogController.h"
 #import "IMRetrieveSequencesDialogController.h"
+#import "IMRetrievePeakSequencesController.h"
 #import "MotifSetDocument.h"
 
 @implementation AppController
@@ -202,6 +203,14 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 -(IBAction) retrieveSequences:(id) sender {
     IMRetrieveSequencesDialogController *retrieveSequencesController = 
         [[IMRetrieveSequencesDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesDialog"];
+    
+    [retrieveSequencesController showWindow: self];
+}
+
+-(IBAction) retrievePeakSequences:(id) sender {
+	NSLog(@"Retrieving peak sequences");
+    IMRetrievePeakSequencesController *retrieveSequencesController = 
+	[[IMRetrievePeakSequencesController alloc] initWithWindowNibName:@"IMRetrievePeakSequencesDialog"];
     
     [retrieveSequencesController showWindow: self];
 }

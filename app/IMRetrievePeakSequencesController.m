@@ -11,12 +11,9 @@
 #import <ActiveRecord/ActiveRecord.h>
 #import "IMRetrieveSequencesStatusDialogController.h"
 #import "AppController.h"
-
+#import "IMEnsemblConnection.h"
 
 @interface IMRetrievePeakSequencesController (private) 
-- (void) setUpMySQLConnection;
-- (void) selectLatestSchemaVersion;
-- (void) connectToActiveEnsemblDatabase;
 @end
 
 
@@ -41,7 +38,7 @@
 }
 -(void) windowWillLoad {
     //_selectedSchemas = [[NSMutableArray alloc] init];
-    [self setUpMySQLConnection];
+    ensemblConnection = [[IMEnsemblConnection alloc] init];
 }
 
 - (void) awakeFromNib {
@@ -77,18 +74,9 @@
             [schemaVersionListController setSelectionIndex:0];
         }
     }
-    
-    [self selectLatestSchemaVersion];
-    
+        
 }
 
--(void) selectLatestSchemaVersion {
-    /*
-	 if (schemaVersionPopup.itemArray.count > 1) {
-	 [schemaVersionPopup selectItemAtIndex: schemaVersionPopup.itemArray.count - 2];
-	 }
-     */
-}
 
 -(NSString*) organism {
     if (organismListController.selectedObjects.count > 0) {
@@ -116,6 +104,7 @@
         [self willChangeValueForKey:@"schemaVersionList"];
         [_schemaVersionList release];
         _schemaVersionList = nil;
+		[self schemaVersionList];
         [self didChangeValueForKey:@"schemaVersionList"];
         
         if ([organismListController selectedObjects].count > 0) {
@@ -130,7 +119,9 @@
             //NSLog(@"No organism chosen");
         }
         
-        [self connectToActiveEnsemblDatabase];
+		ensemblConnection.organism = [self organism];
+        
+		[self.retrieveSequencesOperation setDbName: [ensemblConnection activeEnsemblDatabaseName]];
         
     } 
     else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
@@ -145,7 +136,6 @@
             //NSLog(@"No schema chosen");
         }
         
-        [self connectToActiveEnsemblDatabase];
     }
     else {
         [super observeValueForKeyPath: keyPath 
@@ -160,24 +150,6 @@
     return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.schemaVersion];
 }
 
-- (void) setUpMySQLConnection {
-    NSError *err = nil;
-    ARMySQLConnection *connection = 
-	[ARMySQLConnection openConnectionWithInfo:[NSDictionary dictionaryWithObjectsAndKeys:
-											   [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblBaseURL"], @"host",
-											   [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"], @"user",
-											   [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"] , @"password",
-											   [[NSUserDefaults standardUserDefaults] objectForKey:@"IMEnsemblPort"], @"port", nil]
-										error:&err];
-	if(err != nil) {
-        NSLog(@"There was an error connecting to MySQL: %@", [err description]);
-        return;        
-    } else {
-        NSLog(@"Connected to MySQL database at %@", [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblBaseURL"]);
-    }
-	// See if it works
-	[ARBase setDefaultConnection:connection];
-}
 
 -(NSArray*) organismList {
     //NSLog(@"Getting organism list");

@@ -23,10 +23,11 @@
 	IBOutlet NSArrayController *organismListController;
     IBOutlet NSArrayController *schemaVersionListController;
 	
-	
-	
     IBOutlet IMRetrievePeakSequencesOperation *retrieveSequencesOperation;
     
+	
+	@protected
+	IMEnsemblConnection *ensemblConnection;
 	
 }
 

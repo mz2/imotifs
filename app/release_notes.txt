@@ -1,3 +1,12 @@
+h2. 0.2.0 - Usability fix to sequence retrieval dialog 
+
+Searching / specifying a gene ID list in the sequence retrieval dialog are now mutually exclusive
+
+
+h2. 0.1.9 - Bug fixes in the sequence retrieval process handling
+
+Bug fix: Sequence retrieval from Ensembl caused a crash.
+
 h2. 0.1.8 - Sequence retrieval, motif alignment + merging, flexible motif column width/height
 
 Some new features such as Ensembl based sequence retrieval, motif alignment and merging, and flexible motif column width/height assignment, plus some of the old bugs too.

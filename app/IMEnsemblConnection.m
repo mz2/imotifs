@@ -15,7 +15,7 @@
 
 
 @implementation IMEnsemblConnection
-@synthesize databaseName;
+@synthesize organism,version;
 
 -(id) init {
     self = [super init];
@@ -45,9 +45,8 @@
 	[ARBase setDefaultConnection:connection];
 }
 
--(void) useDatabase:(NSString*) dbName {
-    self.databaseName = dbName;
-    [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",dbName] 
+-(void) updateActiveOrganismAndVersion {
+    [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",[self activeEnsemblDatabaseName]] 
                              substitutions: nil];
 }
 
@@ -66,4 +65,28 @@
     return results;
 }
 
+-(void) setVersion:(NSString *) str {
+	NSString *newVal = [str copy];
+	[version release];
+	version = newVal;
+	
+	if ((version != nil) && (organism != nil)) {
+		[self updateActiveOrganismAndVersion];
+	}
+}
+
+-(void) setOrganism:(NSString *) str {
+	NSString *newVal = [str copy];
+	[version release];
+	version = newVal;
+	
+	if ((version != nil) && (organism != nil)) {
+		[self updateActiveOrganismAndVersion];
+	}
+}
+
+
+-(NSString*) activeEnsemblDatabaseName {
+	return [NSString stringWithFormat:@"%@_core_%@",self.organism,self.version];
+}
 @end

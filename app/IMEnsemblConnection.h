@@ -10,12 +10,16 @@
 
 
 @interface IMEnsemblConnection : NSObject {
-    NSString *databaseName;
+    NSString *organism;
+	NSString *version;
 }
-@property (copy, readwrite) NSString *databaseName;
+@property (copy, readwrite) NSString *organism;
+@property (copy, readwrite) NSString *version;
 
-- (void) useDatabase:(NSString*)dbName;
+-(void) updateActiveOrganismAndVersion;
 
 -(NSArray*) databases;
 - (NSArray*) stableIDDisplayLabelDBPrimaryAccessionTuples;
+
+-(NSString*) activeEnsemblDatabaseName;
 @end
