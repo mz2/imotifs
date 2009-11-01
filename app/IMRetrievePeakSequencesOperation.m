@@ -22,6 +22,8 @@
 @synthesize dbPort = _dbPort;
 @synthesize outFilename = _outFilename;
 @synthesize peakRegionFilename = _peakRegionFilename;
+@synthesize format = _format;
+
 @synthesize retrieveTopRankedPeaks = _retrieveTopRankedPeaks;
 @synthesize retrieveAroundPeakMax = _retrieveAroundPeakMax;
 @synthesize statusDialogController = _statusDialogController;
@@ -89,7 +91,7 @@
 	}
 	
 	if (self.retrieveAroundPeakMax && (self.aroundPeak > 0)) {
-		[args setObject:[NSNumber numberWithInt:self.retrieveAroundPeakMax] forKey:@"-aroundPeak"];
+		[args setObject:[NSNumber numberWithInt:self.aroundPeak] forKey:@"-aroundPeak"];
 	}
     
     if (self.dbName == nil) {
@@ -97,11 +99,26 @@
     } else {
         [args setObject:self.dbName forKey:@"-database"];
     }
+
+    if (self.peakRegionFilename != nil) {
+        [args setObject:self.peakRegionFilename forKey:@"-peaks"];
+    }
     
     if (self.outFilename != nil) {
         [args setObject:self.outFilename forKey:@"-out"];
     }
     
+    if (self.format == IMPeakFileFormatSWEMBL) {
+        [args setObject:@"swembl" forKey:@"-inputFormat"];
+    } else if (self.format == IMPeakFileFormatMACS) {
+        [args setObject:@"macs" forKey:@"-inputFormat"];        
+    } else if (self.format == IMPeakFileFormatFindPeaks) {
+        [args setObject:@"findpeaks" forKey:@"-inputFormat"];
+    }
+}
+
+-(BOOL) formatIsDefined {
+    return self.format != 0;
 }
 
 -(void) initializeTask:(NSTask*)t {

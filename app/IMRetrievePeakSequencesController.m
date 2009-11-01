@@ -138,6 +138,8 @@
             //NSLog(@"No schema chosen");
         }
         
+        
+        ensemblConnection.version = [self schemaVersion];
     }
     else {
         [super observeValueForKeyPath: keyPath 
@@ -276,30 +278,20 @@
 }
 
 -(IBAction) browseForPeakRegionFile:(id) sender {
-    NSString *fileSugg = nil;
-    NSString *dirSugg = nil;
-    if (retrieveSequencesOperation.peakRegionFilename != nil) {
-        fileSugg = [[self.retrieveSequencesOperation peakRegionFilename] lastPathComponent];
-        dirSugg = [[self.retrieveSequencesOperation peakRegionFilename] stringByDeletingLastPathComponent];
-    }
-    
-    NSSavePanel *seqFilePanel = [[NSSavePanel savePanel] retain];
-    
+    NSOpenPanel *seqFilePanel = [NSOpenPanel openPanel];
+    [seqFilePanel setAllowsMultipleSelection: NO];
     [seqFilePanel beginSheetForDirectory: nil
                                     file: nil
-                          modalForWindow: self.window 
-                           modalDelegate: self 
-                          didEndSelector: @selector(browseForOutputFile:returnCode:contextInfo:) 
-                             contextInfo: nil];
+                          modalForWindow: self.window
+                           modalDelegate: self
+                          didEndSelector: @selector(browseForPeakRegionFileEnded:returnCode:contextInfo:) 
+                             contextInfo: NULL];
 }
 
--(void) browseForPeakRegionFile: (NSOpenPanel*) sheet 
-                 returnCode: (int) returnCode
-                contextInfo: (void*) contextInfo {
-    if (returnCode) {
-        self.retrieveSequencesOperation.peakRegionFilename = sheet.filename;                
-    }
-    [sheet release];
+-(void) browseForPeakRegionFileEnded: (NSOpenPanel*) sheet 
+                    returnCode: (int) returnCode
+                   contextInfo: (void*) contextInfo {
+    self.retrieveSequencesOperation.peakRegionFilename = sheet.filename;
 }
 
 -(IBAction) copyToClipboard:(id) sender{

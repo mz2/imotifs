@@ -139,13 +139,14 @@
 		[args setObject: @"stable_id" forKey:@"-idType"];
 	} else if (self.searchType == IMRetrieveSequencesSearchTypeDisplayLabel) {
 		[args setObject: @"display_label" forKey:@"-idType"];
-	}     
+	}
+    
     if (self.dbName == nil) {
         @throw [NSException exceptionWithName:@"IMNullPointerException" reason:@"Database name should not be nil! It needs to be specified." userInfo:nil];
     } else {
         [args setObject:self.dbName forKey:@"-database"];
     }
-    
+        
     if (self.outFilename != nil) {
         [args setObject:self.outFilename forKey:@"-out"];
     }

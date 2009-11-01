@@ -10,6 +10,12 @@
 #import "IMOutputFileProducingOperation.h"
 @class IMRetrieveSequencesStatusDialogController;
 
+typedef enum IMPeakFileFormat {
+    IMPeakFileFormatSWEMBL = 1,
+    IMPeakFileFormatMACS = 2,
+    IMPeakFileFormatFindPeaks = 3
+} IMPeakFileFormat;
+
 @interface IMRetrievePeakSequencesOperation : IMTaskOperation <IMOutputFileProducingOperation> {
 	BOOL _isRepeatMasked;
     BOOL _excludeTranslations;
@@ -29,6 +35,8 @@
 	
 	NSInteger _maxCount;
 	NSInteger _aroundPeak;
+    
+    IMPeakFileFormat _format;
 	
 	IMRetrieveSequencesStatusDialogController *_statusDialogController;
 	
@@ -53,11 +61,12 @@
 @property(nonatomic,assign)BOOL retrieveTopRankedPeaks;
 @property(nonatomic,assign)BOOL retrieveAroundPeakMax;
 @property(nonatomic,readonly)BOOL canSubmitOperation;
+@property(assign) IMPeakFileFormat format;
 
 @property(nonatomic,assign)NSInteger maxCount;
 @property(nonatomic,assign)NSInteger aroundPeak;
 
 @property(nonatomic,retain) IBOutlet IMRetrieveSequencesStatusDialogController *statusDialogController;
 
-
+-(BOOL) formatIsDefined;
 @end

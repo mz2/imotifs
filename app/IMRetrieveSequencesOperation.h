@@ -13,9 +13,9 @@
 @class IMRetrieveSequencesStatusDialogController;
 
 typedef enum IMRetrieveSequencesSearchType {
-    IMRetrieveSequencesSearchTypeStableID = 0,
-    IMRetrieveSequencesSearchTypeDisplayLabel = 1,
-    IMRetrieveSequencesSearchTypePrimaryAccession = 2
+    IMRetrieveSequencesSearchTypeStableID = 1,
+    IMRetrieveSequencesSearchTypeDisplayLabel = 2,
+    IMRetrieveSequencesSearchTypePrimaryAccession = 3
 } IMRetrieveSequencesSearchType;
 
 
