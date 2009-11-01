@@ -28,10 +28,11 @@
 @synthesize readHandle, errorReadHandle;
 
 -(id) initWithMotifSet:(MotifSet*) mset {
+    //[NMOperation setupNMICAEnvVars]; // this is now done in IMTaskOperation
     NSString *lp = 
-        [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] 
-          stringByExpandingTildeInPath] retain];
-    [NMOperation setupNMICAEnvVars];
+    [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] 
+      stringByExpandingTildeInPath] retain];
+    
     self = [super initWithLaunchPath: lp];
     if (self != nil) {
 

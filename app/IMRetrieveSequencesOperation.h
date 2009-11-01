@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
-#import "IMSequenceRetrievalOperation.h"
+#import "IMOutputFileProducingOperation.h"
 
 @class IMRetrieveSequencesStatusDialogController;
 
@@ -19,7 +19,7 @@ typedef enum IMRetrieveSequencesSearchType {
 } IMRetrieveSequencesSearchType;
 
 
-@interface IMRetrieveSequencesOperation : IMTaskOperation <IMSequenceRetrievalOperation> {
+@interface IMRetrieveSequencesOperation : IMTaskOperation <IMOutputFileProducingOperation> {
     BOOL isRepeatMasked;
     BOOL excludeTranslations;
     NSInteger featherTranslationsBy;

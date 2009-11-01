@@ -6,6 +6,7 @@
 //  Copyright 2009 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
+#import "NMOperation.h"
 #import "IMRetrievePeakSequencesOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
 
@@ -32,7 +33,12 @@
 // init
 - (id)init
 {
-    if (self = [super init]) {
+    NSString *lp = 
+    [[[[NMOperation nmicaExtraPath] 
+       stringByAppendingPathComponent:@"bin/nmensemblpeakseq"] 
+      stringByExpandingTildeInPath] retain];
+    
+    if (self = [super initWithLaunchPath:lp]) {
         [self setIsRepeatMasked: NO];
         [self setExcludeTranslations: YES];
 		

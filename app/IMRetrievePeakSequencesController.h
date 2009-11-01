@@ -24,7 +24,6 @@
     IBOutlet NSArrayController *schemaVersionListController;
 	
     IBOutlet IMRetrievePeakSequencesOperation *retrieveSequencesOperation;
-    
 	
 	@protected
 	IMEnsemblConnection *ensemblConnection;
@@ -37,5 +36,12 @@
 @property(nonatomic,retain)IBOutlet NSPopUpButton *organismPopup;
 @property(nonatomic,retain)IBOutlet NSPopUpButton *schemaVersionPopup;
 @property(nonatomic,retain)IBOutlet IMRetrievePeakSequencesOperation *retrieveSequencesOperation;
+
+-(IBAction) browseForOutputFile:(id) sender;
+-(IBAction) browseForPeakRegionFile:(id) sender;
+-(IBAction) copyToClipboard: (id) sender;
+
+-(IBAction) cancel:(id) sender;
+-(IBAction) submit:(id) sender;
 
 @end

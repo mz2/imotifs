@@ -9,11 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
 
-@protocol IMSequenceRetrievalOperation <NSObject>
+@protocol IMOutputFileProducingOperation <NSObject>
 
 -(BOOL) isExecuting;
 -(void) cancel;
-
 -(NSString*) outFilename;
 
 @end

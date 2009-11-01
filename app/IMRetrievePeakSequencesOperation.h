@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "IMSequenceRetrievalOperation.h"
+#import "IMOutputFileProducingOperation.h"
 @class IMRetrieveSequencesStatusDialogController;
 
-@interface IMRetrievePeakSequencesOperation : IMTaskOperation <IMSequenceRetrievalOperation> {
+@interface IMRetrievePeakSequencesOperation : IMTaskOperation <IMOutputFileProducingOperation> {
 	BOOL _isRepeatMasked;
     BOOL _excludeTranslations;
     
@@ -29,7 +29,6 @@
 	
 	NSInteger _maxCount;
 	NSInteger _aroundPeak;
-	
 	
 	IMRetrieveSequencesStatusDialogController *_statusDialogController;
 	

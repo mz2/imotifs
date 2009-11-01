@@ -83,7 +83,8 @@
     NSString *prevSchemaVersion = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMPreviousSchemaVersion"];
     NSLog(@"Previous organism : %@", prevOrganism);
     if (prevOrganism != nil) {
-        [organismListController setSelectionIndex:[organismListController.arrangedObjects indexOfObject:prevOrganism]];        
+        [organismListController setSelectionIndex:[organismListController.arrangedObjects indexOfObject:prevOrganism]];  
+        ensemblConnection.organism = prevOrganism;
     } else {
         if ([organismListController.arrangedObjects count] > 0) {
             [organismListController setSelectionIndex:0];
@@ -92,6 +93,7 @@
     
     if (prevSchemaVersion != nil) {
         [schemaVersionListController setSelectionIndex:[schemaVersionListController.arrangedObjects indexOfObject:prevSchemaVersion]];
+        ensemblConnection.version = prevSchemaVersion;
     } else {
         if ([schemaVersionListController.arrangedObjects count] > 0) {
             [schemaVersionListController setSelectionIndex:0];
@@ -177,7 +179,7 @@
         }
         
 		ensemblConnection.version = [self schemaVersion];
-		self.retrieveSequencesOperation.dbName = ensemblConnection.version;
+		self.retrieveSequencesOperation.dbName = [ensemblConnection activeEnsemblDatabaseName];
 
         [self refreshGeneNameLists];
     }

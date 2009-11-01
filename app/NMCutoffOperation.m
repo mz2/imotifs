@@ -6,6 +6,7 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import "NMOperation.h"
 #import "NMCutoffOperation.h"
 
 
@@ -19,12 +20,17 @@
 @synthesize defaultScoreCutoff = _defaultScoreCutoff;
 
 -(id) init {
-    self = [super init];
+    NSString *lp = 
+    [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmcutoff"] 
+      stringByExpandingTildeInPath] retain];
+    
+    self = [super initWithLaunchPath: lp];
     if (self == nil) return nil;
     
     self.significanceThreshold = 0.05;
     self.binSize = 1.0;
     self.defaultScoreCutoff = -1.0;
+    self.launchPath = @"nmcutoff";
     
     return self;
 }

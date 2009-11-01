@@ -10,8 +10,8 @@
 
 
 @interface IMEnsemblConnection : NSObject {
-    NSString *organism;
-	NSString *version;
+    NSString *_organism;
+	NSString *_version;
 }
 @property (copy, readwrite) NSString *organism;
 @property (copy, readwrite) NSString *version;

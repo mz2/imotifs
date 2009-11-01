@@ -6,6 +6,7 @@
 //  Copyright 2009 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
+#import "NMOperation.h"
 #import "IMTaskOperation.h"
 #import "IMOperation.h"
 
@@ -18,6 +19,7 @@
 
 -(id) initWithLaunchPath:(NSString*) lp {
     self = [super init];
+    [NMOperation setupNMICAEnvVars];
     if (self) {
         arguments = [[NSMutableDictionary alloc] init];
         self.launchPath = lp;

@@ -510,7 +510,7 @@
 		5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrievePeakSequencesDialog.xib; sourceTree = "<group>"; };
 		5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrievePeakSequencesOperation.h; sourceTree = "<group>"; };
 		5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrievePeakSequencesOperation.m; sourceTree = "<group>"; };
-		5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceRetrievalOperation.h; sourceTree = "<group>"; };
+		5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOutputFileProducingOperation.h; sourceTree = "<group>"; };
 		5F61DFE60E2DF2C00091787E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
 		5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetWindowController.h; sourceTree = "<group>"; };
@@ -954,6 +954,33 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		951A7299109E07610085EB87 /* Peaks */ = {
+			isa = PBXGroup;
+			children = (
+				5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */,
+				5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */,
+				5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */,
+				5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */,
+				5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */,
+			);
+			name = Peaks;
+			sourceTree = "<group>";
+		};
+		951A72D4109E0CF80085EB87 /* Promoters */ = {
+			isa = PBXGroup;
+			children = (
+				95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */,
+				95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */,
+				9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */,
+				9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */,
+				95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */,
+				95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */,
+				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
+				9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */,
+			);
+			name = Promoters;
+			sourceTree = "<group>";
+		};
 		951FF3DB0F32558800A9175C /* nminfer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1186,9 +1213,6 @@
 		9563E2BB101E0370006F067A /* ensembl */ = {
 			isa = PBXGroup;
 			children = (
-				5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */,
-				95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */,
-				9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */,
 			);
 			name = ensembl;
 			sourceTree = "<group>";
@@ -1213,19 +1237,11 @@
 		95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */ = {
 			isa = PBXGroup;
 			children = (
-				5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */,
-				5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */,
-				95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */,
-				95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */,
-				95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */,
-				95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */,
-				9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */,
-				9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */,
-				5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */,
-				5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */,
-				5F2BC707108B780A00A634F4 /* IMSequenceRetrievalOperation.h */,
 				95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */,
 				95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */,
+				951A72D4109E0CF80085EB87 /* Promoters */,
+				951A7299109E07610085EB87 /* Peaks */,
+				5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */,
 			);
 			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";

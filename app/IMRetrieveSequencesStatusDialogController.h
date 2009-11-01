@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "IMSequenceRetrievalOperation.h"
+#import "IMOutputFileProducingOperation.h"
 
 @interface IMRetrieveSequencesStatusDialogController : NSWindowController {
     IBOutlet NSButton *showResultsButton;
@@ -15,7 +15,7 @@
     IBOutlet NSProgressIndicator *spinner;
     IBOutlet NSTextView *lastEntryView;
 
-    id<IMSequenceRetrievalOperation> operation;
+    id<IMOutputFileProducingOperation> operation;
 }
 
 @property (retain, readwrite) NSProgressIndicator *spinner;
@@ -23,7 +23,7 @@
 @property (retain, readwrite) NSButton *cancelButton;
 @property (retain, readwrite) NSButton *showResultsButton;
 
-@property (nonatomic, retain, readwrite) id<IMSequenceRetrievalOperation> operation;
+@property (nonatomic, retain, readwrite) id<IMOutputFileProducingOperation> operation;
 @property (nonatomic, retain, readwrite) NSTextView *lastEntryView;
 
 -(IBAction) resultsReady:(id) sender;
