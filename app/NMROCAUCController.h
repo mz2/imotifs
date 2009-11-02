@@ -11,6 +11,7 @@
 
 @interface NMROCAUCController : NSWindowController {
     NMROCAUCOperation *_operation;
+    
 }
 
 @property (retain, readwrite) IBOutlet NMROCAUCOperation *operation;

@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+#import "IMOutputFileProducingOperation.h"
+@class IMRetrieveSequencesStatusDialogController;
 
-@interface NMROCAUCOperation : IMTaskOperation {
+@interface NMROCAUCOperation : IMTaskOperation <IMOutputFileProducingOperation> {
 
     NSString *_motifsFile;
     NSString *_positiveSeqsFile;
@@ -17,6 +19,12 @@
     NSString *_outputFile;
     
     NSUInteger _bootstraps;
+    
+    IMRetrieveSequencesStatusDialogController *_statusDialogController;
+    
+@protected
+    NSFileHandle *_readHandle;
+    NSData *_inData;
 }
 
 @property (retain, readwrite) NSString *motifsFile;
@@ -26,11 +34,10 @@
 
 @property (readwrite) NSUInteger bootstraps;
 
+@property (retain, readwrite) IBOutlet IMRetrieveSequencesStatusDialogController *statusDialogController;
+
 -(BOOL) motifsFileExists;
 -(BOOL) positiveSeqsFileExists;
 -(BOOL) negativeSeqsFileExists;
-
--(IBAction) cancel:(id) sender;
--(IBAction) ok:(id) sender;
 
 @end
