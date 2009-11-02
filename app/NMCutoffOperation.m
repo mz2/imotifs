@@ -6,6 +6,7 @@
 //  Copyright 2009 __MyCompanyName__. All rights reserved.
 //
 
+#import <math.h>
 #import "NMOperation.h"
 #import "NMCutoffOperation.h"
 
@@ -55,14 +56,15 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:self.outputFile forKey:@"-motifs"];        
-    [args setObject:self.outputFile forKey:@"-seqs"];        
-    [args setObject:self.outputFile forKey:@"-backgroundModel"];        
+    [args setObject:self.motifsFile forKey:@"-motifs"];        
+    [args setObject:self.seqsFile forKey:@"-seqs"];        
+    [args setObject:self.bgFile forKey:@"-backgroundModel"];        
     [args setObject:self.outputFile forKey:@"-out"];
     
     [args setObject:[NSNumber numberWithDouble:_significanceThreshold] forKey:@"-confThreshold"];
-    [args setObject:[NSNumber numberWithDouble:_binSize] forKey:@"-binSize"];
-    [args setObject:[NSNumber numberWithDouble:_defaultScoreCutoff] forKey:@"-defaultScoreCutoff"];
+    [args setObject:[NSNumber numberWithDouble:_binSize] forKey:@"-bucketSize"];
+    [args setObject:[NSNumber numberWithDouble: abs(_defaultScoreCutoff)] forKey:@"-defaultThreshold"]; //negate (nmcutoff assumes pos values)
+
 }
 
 -(BOOL) motifsFileExists {
