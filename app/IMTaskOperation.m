@@ -77,6 +77,7 @@
     if (![self isCancelled]) {
         [self willChangeValueForKey:@"isExecuting"];
         isExecuting = YES;
+        NSLog(@"TASK:%@",task);
         [task launch];
         [self run];
         NSLog(@"Task has now been run.");
@@ -129,10 +130,18 @@
             if ([value isKindOfClass:[NSArray class]]) {
                 DebugLog(@"Value: %@ Class:%@",value, [value class]);
                 for (id v in (NSArray*)value) {
-                    [args addObject: v];
+                    if (![v isKindOfClass: [NSString class]]) {
+                        [args addObject:[v stringValue]];                    
+                    } else {
+                        [args addObject: v];
+                    }
                 }
             } else {
-                [args addObject:value];                
+                if (![value isKindOfClass: [NSString class]]) {
+                    [args addObject:[value stringValue]];                    
+                } else {
+                    [args addObject: value];
+                }
             }
         }
     }
