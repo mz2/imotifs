@@ -12,11 +12,13 @@
 @interface IMEnsemblConnection : NSObject {
     NSString *_organism;
 	NSString *_version;
+    
+    BOOL _activeDatabaseNeedsUpdating;
 }
 @property (copy, readwrite) NSString *organism;
 @property (copy, readwrite) NSString *version;
 
--(void) updateActiveOrganismAndVersion;
+//-(void) updateActiveOrganismAndVersion;
 
 -(NSArray*) databases;
 - (NSArray*) stableIDDisplayLabelDBPrimaryAccessionTuples;

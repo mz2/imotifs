@@ -47,7 +47,7 @@
 }
 
 -(void) updateActiveOrganismAndVersion {
-    NSLog(@"Updating active organism and version");
+    NSLog(@"Updating active organism and version to %@",[self activeEnsemblDatabaseName]);
     [[ARBase defaultConnection] executeSQL: [NSString stringWithFormat:@"USE %@",[self activeEnsemblDatabaseName]] 
                              substitutions: nil];
 }
@@ -58,6 +58,11 @@
 }
 
 -(NSArray*) stableIDDisplayLabelDBPrimaryAccessionTuples {
+    NSLog(@"Retrieving gene name tuple");
+    if (_activeDatabaseNeedsUpdating) {
+        [self updateActiveOrganismAndVersion];        
+    }
+    
     NSArray *results = [[ARBase defaultConnection] executeSQL:
                         @"SELECT gene_stable_id.stable_id,xref.display_label,xref.dbprimary_acc \
                         FROM gene,xref,gene_stable_id \
@@ -68,25 +73,31 @@
 }
 
 -(void) setVersion:(NSString *) str {
+    if (![str isEqual:_version]) _activeDatabaseNeedsUpdating = YES;
+    
     NSLog(@"Setting version %@", str);
 	NSString *newVal = [str copy];
 	[_version release];
 	_version = newVal;
 	
+    /*
 	if ((_version != nil) && (_organism != nil)) {
 		[self updateActiveOrganismAndVersion];
-	}
+	}*/
 }
 
 -(void) setOrganism:(NSString *) str {
+    if (![str isEqual:_organism]) _activeDatabaseNeedsUpdating = YES;
+    
 	NSLog(@"Setting organism %@", str);
     NSString *newVal = [str copy];
 	[_organism release];
 	_organism = newVal;
 	
+    /*
 	if ((_version != nil) && (_organism != nil)) {
 		[self updateActiveOrganismAndVersion];
-	}
+	}*/
 }
 
 
