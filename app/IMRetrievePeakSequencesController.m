@@ -236,6 +236,7 @@
     NSLog(@"Submitting sequence retrieval task");
     IMRetrieveSequencesStatusDialogController *operationDialogController = 
     [[IMRetrieveSequencesStatusDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesStatusDialog"];
+    operationDialogController.window.title = @"Retrieve peak sequences";
     [operationDialogController showWindow: self];
     
     [operationDialogController setOperation: self.retrieveSequencesOperation];
