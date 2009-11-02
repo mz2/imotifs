@@ -8,8 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+#import "IMOutputFileProducingOperation.h"
+@class IMRetrieveSequencesStatusDialogController;
 
-@interface NMCutoffOperation : IMTaskOperation {
+@interface NMCutoffOperation : IMTaskOperation <IMOutputFileProducingOperation> {
     NSString *_motifsFile;
     NSString *_seqsFile;
     NSString *_bgFile;
@@ -18,6 +20,13 @@
     double _significanceThreshold;
     double _binSize;
     double _defaultScoreCutoff;
+    
+    IMRetrieveSequencesStatusDialogController *_statusDialogController;
+    
+    @protected
+    NSFileHandle *_readHandle;
+    NSData *_inData;
+    
 }
 
 @property (copy, readwrite) NSString *motifsFile;
@@ -28,6 +37,8 @@
 @property (readwrite) double significanceThreshold;
 @property (readwrite) double binSize;
 @property (readwrite) double defaultScoreCutoff;
+
+@property (retain, readwrite) IBOutlet IMRetrieveSequencesStatusDialogController *statusDialogController;
 
 -(BOOL) motifsFileExists;
 -(BOOL) seqsFileExists;

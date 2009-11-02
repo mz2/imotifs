@@ -8,6 +8,8 @@
 
 #import "NMCutoffController.h"
 #import "NMCutoffOperation.h"
+#import "IMRetrieveSequencesStatusDialogController.h"
+#import "AppController.h"
 
 @implementation NMCutoffController
 @synthesize operation = _operation;
@@ -98,21 +100,21 @@
     [self close];
 }
 
+
 -(IBAction) ok:(id) sender {
-    /*
-    NMOperationStatusDialogController *operationDialogController = 
-    [[NMOperationStatusDialogController alloc] initWithWindowNibName:@"NMOperationStatusDialog"];
+    NSLog(@"Submitting sequence retrieval task");
+    IMRetrieveSequencesStatusDialogController *operationDialogController = 
+    [[IMRetrieveSequencesStatusDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesStatusDialog"];
+    operationDialogController.window.title = @"Determine score cutoff";
     [operationDialogController showWindow: self];
-    //[operationDialogController setOutputMotifSetPath: self.outputMotifSetFilenameTextField.stringValue]; 
     
-    [operationDialogController setOperation: nminferOperation];
-    [nminferOperation setDialogController: operationDialogController];
+    [operationDialogController setOperation: self.operation];
+    [self.operation setStatusDialogController: operationDialogController];
     
-    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: nminferOperation];
-    [nminferOperation release];    
-    
+    [[[[NSApplication sharedApplication] delegate] 
+      sharedOperationQueue] addOperation: self.operation];
     [self close];
-    */
+    [self release];
 }
 
 @end
