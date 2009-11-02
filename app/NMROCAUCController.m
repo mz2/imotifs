@@ -8,6 +8,8 @@
 
 #import "NMROCAUCController.h"
 #import "NMROCAUCOperation.h"
+#import "IMRetrieveSequencesStatusDialogController.h"
+#import "AppController.h"
 
 @implementation NMROCAUCController
 @synthesize operation = _operation;
@@ -17,7 +19,18 @@
 }
 
 -(IBAction) ok:(id) sender {
-
+    NSLog(@"Submitting ROC-AUC task");
+    IMRetrieveSequencesStatusDialogController *operationDialogController = 
+    [[IMRetrieveSequencesStatusDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesStatusDialog"];
+    operationDialogController.window.title = @"Determine motif overrepresentation";
+    [operationDialogController showWindow: self];
+    
+    [operationDialogController setOperation: self.operation];
+    [self.operation setStatusDialogController: operationDialogController];
+    
+    [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: self.operation];
+    [self close];
+    [self release];
 }
 
 -(IBAction) browseForPositiveSeqsFile:(id) sender {
@@ -77,7 +90,7 @@
     if (self.operation.outputFile == nil) {
         fileSugg = [[[self.operation motifsFile] lastPathComponent] 
                     stringByReplacingOccurrencesOfString:@".xms" 
-                    withString:@"-with-cutoff.xms"];
+                    withString:@".overrep"];
         dirSugg = [[self.operation motifsFile] stringByDeletingLastPathComponent];
     } else {
         fileSugg = [[self.operation outputFile] lastPathComponent];
