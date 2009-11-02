@@ -140,9 +140,12 @@
                       ofObject: (id)object
                         change: (NSDictionary *)change
                        context: (void *)context {
+    BOOL geneNamesNeedUpdating = NO;
     //NSLog(@"Selection index changed");
     NSLog(@"Observed value changed (%@) for key %@",change, keyPath);
     if ([keyPath isEqual:@"organismListController.selectionIndex"]) {
+        ensemblConnection.organism = [self organism];
+
         [self willChangeValueForKey:@"schemaVersionList"];
         [_schemaVersionList release];
         _schemaVersionList = nil;
@@ -156,17 +159,18 @@
             [[NSUserDefaults standardUserDefaults] 
              setObject: selectedOrganism 
              forKey: @"IMPreviousEnsemblOrganism"];
-            [[NSUserDefaults standardUserDefaults] synchronize];            
+            [[NSUserDefaults standardUserDefaults] synchronize];
         } else {
             //NSLog(@"No organism chosen");
         }
         
-        ensemblConnection.organism = [self organism];
-		self.retrieveSequencesOperation.dbName = [ensemblConnection activeEnsemblDatabaseName];
-		
-		[self refreshGeneNameLists];
+        self.retrieveSequencesOperation.dbName = [ensemblConnection activeEnsemblDatabaseName];
+		//geneNamesNeedUpdating = YES;
+		//[self refreshGeneNameLists];
     } 
     else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
+		ensemblConnection.version = [self schemaVersion];
+        
         if ([schemaVersionListController selectedObjects].count > 0) {
             NSString *selectedSchemaVersion = [[schemaVersionListController selectedObjects] objectAtIndex:0];
             
@@ -178,10 +182,11 @@
             //NSLog(@"No schema chosen");
         }
         
-		ensemblConnection.version = [self schemaVersion];
+        //[ensemblConnection updateActiveOrganismAndVersion];
 		self.retrieveSequencesOperation.dbName = [ensemblConnection activeEnsemblDatabaseName];
 
-        [self refreshGeneNameLists];
+        geneNamesNeedUpdating = YES;
+        //[self refreshGeneNameLists];
     }
     else if ([keyPath isEqual:@"retrieveSequencesOperation.selectGeneList"]) {
 		if (self.retrieveSequencesOperation.selectGeneList) {
@@ -199,6 +204,10 @@
                              ofObject: object 
                                change: change 
                               context: context];
+    }
+    
+    if (geneNamesNeedUpdating) {
+        [self refreshGeneNameLists];
     }
     
 }
@@ -227,7 +236,10 @@
     geneStableIDs = [[[gids uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
     geneDisplayLabels = [[[gdls uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
     genePrimaryAccs = [[[gpaccs uniqueObjectsSortedUsingSelector:@selector(compare:)] mutableCopy] retain];
-        
+    
+    
+    [self setSelectedGeneIDType:self.selectedGeneIDType];
+    [self refreshFoundGeneNameList];
 	/*
     NSLog(@"stable ids: %i\n\n\ndisplay labels: %i\n\n\nprimary accs: %i",
           [geneStableIDs count],
@@ -237,15 +249,16 @@
 
 - (void) refreshFoundGeneNameList {
     //NSLog(@"Refreshing found gene name list");
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", self.searchString];
+    NSArray *foundGenes;
+    if (self.searchString.length > 0) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[c] %@", self.searchString];
+        foundGenes = [selectedGeneIDList filteredArrayUsingPredicate: predicate];        
+    } else {
+        foundGenes = [[selectedGeneIDList copy] autorelease];
+    }
     
-    NSArray *foundGenes = [selectedGeneIDList filteredArrayUsingPredicate: predicate];
-    NSMutableSet *set = [[NSMutableSet alloc] init];
     [self willChangeValueForKey:@"foundGeneList"];
-    [set addObjectsFromArray:foundGenes];
-    
-    _foundGeneList = [foundGenes uniqueObjectsSortedUsingSelector:@selector(compare:)];
-    [set release];
+    _foundGeneList = [[foundGenes uniqueObjectsSortedUsingSelector:@selector(compare:)] retain];
     [self didChangeValueForKey:@"foundGeneList"];
     //NSLog(@"Found genes: %@ (%@)",_foundGeneList,[foundGeneListController arrangedObjects]);
 }
@@ -326,7 +339,6 @@
 
 -(void) setSelectedGeneIDType:(NSUInteger) i {
 
-    NSLog(@"Setting selected gene ID type to %i",i);
     [self willChangeValueForKey:@"selectedGeneIDType"];
     selectedGeneIDType = i;
     [self didChangeValueForKey:@"selectedGeneIDType"];
@@ -338,6 +350,8 @@
     } else if (i == IMRetrieveSequencesSearchTypeStableID) {
         self.selectedGeneIDList = geneStableIDs;
     }
+    
+    NSLog(@"Setting selected gene ID type to %i:#%d",i, self.selectedGeneIDList.count);
     
     [self willChangeValueForKey:@"foundGeneList"];
     [self.selectedGeneIDList retain];
@@ -483,6 +497,7 @@
     NSLog(@"Operation: %@ (args:%@)",self.retrieveSequencesOperation, [self.retrieveSequencesOperation argumentsString]);
     [pb setString: [self.retrieveSequencesOperation argumentsString] forType:NSStringPboardType];
 }
+
 -(NSString*) searchString {
     return searchString;
 }

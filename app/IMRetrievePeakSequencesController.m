@@ -101,8 +101,11 @@
                         change: (NSDictionary *)change
                        context: (void *)context {
     //NSLog(@"Selection index changed");
+    
     NSLog(@"Observed value changed (%@) for key %@",change, keyPath);
     if ([keyPath isEqual:@"organismListController.selectionIndex"]) {
+        ensemblConnection.organism = [self organism];
+        
         [self willChangeValueForKey:@"schemaVersionList"];
         [_schemaVersionList release];
         _schemaVersionList = nil;
@@ -121,12 +124,11 @@
             //NSLog(@"No organism chosen");
         }
         
-		ensemblConnection.organism = [self organism];
-        
 		[self.retrieveSequencesOperation setDbName: [ensemblConnection activeEnsemblDatabaseName]];
         
     } 
     else if ([keyPath isEqual:@"schemaVersionListController.selectionIndex"]) {
+        ensemblConnection.version = [self schemaVersion];
         if ([schemaVersionListController selectedObjects].count > 0) {
             NSString *selectedSchemaVersion = [[schemaVersionListController selectedObjects] objectAtIndex:0];
             
@@ -137,9 +139,6 @@
         } else {
             //NSLog(@"No schema chosen");
         }
-        
-        
-        ensemblConnection.version = [self schemaVersion];
     }
     else {
         [super observeValueForKeyPath: keyPath 

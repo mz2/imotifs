@@ -23,6 +23,7 @@ typedef enum IMPeakFileFormat {
 	NSString *_dbUser;
     NSString *_dbPassword;
     NSString *_dbName;
+    NSString *_dbHost;
     NSString *_dbSchemaVersion;
     NSUInteger _dbPort;
     
@@ -53,6 +54,7 @@ typedef enum IMPeakFileFormat {
 @property(nonatomic,copy)NSString *dbUser;
 @property(nonatomic,copy)NSString *dbPassword;
 @property(nonatomic,copy)NSString *dbName;
+@property(nonatomic,copy)NSString *dbHost;
 @property(nonatomic,copy)NSString *dbSchemaVersion;
 @property(nonatomic,copy)NSString *organismName;
 @property(nonatomic,assign)NSUInteger dbPort;

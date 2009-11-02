@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2"/>
+			<integer value="708"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1384,6 +1384,7 @@
 											<int key="NSvFlags">268</int>
 											<string key="NSFrame">{{226, 203}, {96, 22}}</string>
 											<reference key="NSSuperview" ref="406322606"/>
+											<int key="NSTag">1</int>
 											<bool key="NSEnabled">YES</bool>
 											<object class="BWTransparentPopUpButtonCell" key="NSCell" id="1032524474">
 												<int key="NSCellFlags">-2076049856</int>
@@ -1412,7 +1413,7 @@
 														<string key="NSResourceName">NSMenuMixedState</string>
 													</object>
 													<string key="NSAction">_popUpItemAction:</string>
-													<int key="NSTag">1</int>
+													<int key="NSTag">2</int>
 													<reference key="NSTarget" ref="1032524474"/>
 												</object>
 												<bool key="NSMenuItemRespectAlignment">YES</bool>
@@ -1429,6 +1430,7 @@
 															<reference key="NSOnImage" ref="19029811"/>
 															<reference key="NSMixedImage" ref="710914972"/>
 															<string key="NSAction">_popUpItemAction:</string>
+															<int key="NSTag">1</int>
 															<reference key="NSTarget" ref="1032524474"/>
 														</object>
 														<reference ref="949227005"/>
@@ -1444,7 +1446,7 @@
 										<object class="BWTransparentPopUpButton" id="273028814">
 											<reference key="NSNextResponder" ref="406322606"/>
 											<int key="NSvFlags">268</int>
-											<string key="NSFrame">{{89, 33}, {92, 22}}</string>
+											<string key="NSFrame">{{94, 33}, {92, 22}}</string>
 											<reference key="NSSuperview" ref="406322606"/>
 											<bool key="NSEnabled">YES</bool>
 											<object class="BWTransparentPopUpButtonCell" key="NSCell" id="242009329">
@@ -1468,7 +1470,7 @@
 													<reference key="NSOnImage" ref="19029811"/>
 													<reference key="NSMixedImage" ref="710914972"/>
 													<string key="NSAction">_popUpItemAction:</string>
-													<int key="NSTag">1</int>
+													<int key="NSTag">2</int>
 													<reference key="NSTarget" ref="242009329"/>
 												</object>
 												<bool key="NSMenuItemRespectAlignment">YES</bool>
@@ -1485,6 +1487,7 @@
 															<reference key="NSOnImage" ref="19029811"/>
 															<reference key="NSMixedImage" ref="710914972"/>
 															<string key="NSAction">_popUpItemAction:</string>
+															<int key="NSTag">1</int>
 															<reference key="NSTarget" ref="242009329"/>
 														</object>
 														<reference ref="639520906"/>
@@ -4745,9 +4748,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{372, 48}, {557, 711}}</string>
+					<string>{{212, 131}, {557, 711}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{372, 48}, {557, 711}}</string>
+					<string>{{212, 131}, {557, 711}}</string>
 					<reference ref="9"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -4854,7 +4857,7 @@
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
-					<string>{{982, 691}, {163, 37}}</string>
+					<string>{{605, 474}, {130, 37}}</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
@@ -4886,7 +4889,7 @@
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
-					<string>{{1410, 488}, {163, 37}}</string>
+					<string>{{313, 387}, {130, 37}}</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>

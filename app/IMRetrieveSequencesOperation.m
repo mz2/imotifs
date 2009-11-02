@@ -19,6 +19,7 @@
 @synthesize retrieveThreePrimeUTR;
 @synthesize retrieveFivePrimeUTR;
 @synthesize dbUser;
+@synthesize dbHost;
 @synthesize dbPassword;
 @synthesize dbName;
 @synthesize dbPort;
@@ -37,14 +38,15 @@
 
 - (id) init
 {
+    NSString *lp = 
+    [[[[NMOperation nmicaExtraPath] 
+       stringByAppendingPathComponent:@"bin/nmensemblseq"] 
+      stringByExpandingTildeInPath] retain];
+ 
+    self = [super initWithLaunchPath: lp];
     [NMOperation setupNMICAEnvVars];
     
-    NSString *lp = 
-        [[[[NMOperation nmicaExtraPath] 
-           stringByAppendingPathComponent:@"bin/nmensemblseq"] 
-                stringByExpandingTildeInPath] retain];
     
-    self = [super initWithLaunchPath: lp];
     NSLog(@"Set the launch path to %@", self.launchPath);
     if (self == nil) return nil;
     
@@ -64,11 +66,13 @@
     self.selectedGeneList = [[NSMutableArray alloc] init];
     
     self.dbUser = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblUser"];
-    
     NSString *pass = [[NSUserDefaults standardUserDefaults] stringForKey:@"IMEnsemblPassword"];
     if (pass.length > 0) {
         self.dbPassword = pass;
     }
+    self.dbPort = [[[NSUserDefaults standardUserDefaults] objectForKey:@"IMEnsemblPort"] intValue];
+    self.dbHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"IMEnsemblBaseURL"];
+    
     self.organismName = @"homo_sapiens";
     self.dbSchemaVersion = nil;
     
@@ -145,6 +149,22 @@
         @throw [NSException exceptionWithName:@"IMNullPointerException" reason:@"Database name should not be nil! It needs to be specified." userInfo:nil];
     } else {
         [args setObject:self.dbName forKey:@"-database"];
+    }
+    
+    if (self.dbPort > 0) {
+        [args setObject:[NSNumber numberWithInt:self.dbPort] forKey:@"-port"];
+    }
+    
+    if (self.dbHost != nil) {
+        [args setObject:self.dbHost forKey:@"-host"];
+    }
+    
+    if (self.dbUser != nil) {
+        [args setObject:self.dbUser forKey:@"-user"];
+    }
+    
+    if (self.dbPassword != nil) {
+        [args setObject:self.dbPassword forKey:@"-password"];
     }
         
     if (self.outFilename != nil) {

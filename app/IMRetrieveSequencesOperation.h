@@ -32,6 +32,7 @@ typedef enum IMRetrieveSequencesSearchType {
     NSString *dbPassword;
     NSString *dbName;
     NSString *dbSchemaVersion;
+    NSString *dbHost;
     NSUInteger dbPort;
     
     BOOL selectGeneList;
@@ -69,6 +70,7 @@ typedef enum IMRetrieveSequencesSearchType {
 @property (readwrite,copy) NSString *dbUser;
 @property (readwrite,copy) NSString *dbPassword;
 @property (readwrite,copy) NSString *dbName;
+@property (readwrite,copy) NSString *dbHost;
 @property (readwrite,copy) NSString *dbSchemaVersion;
 @property (readwrite) NSUInteger dbPort;
 
