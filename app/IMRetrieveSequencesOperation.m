@@ -76,7 +76,6 @@
     self.organismName = @"homo_sapiens";
     self.dbSchemaVersion = nil;
     
-    self.outFilename;
     
     return self;
 }
