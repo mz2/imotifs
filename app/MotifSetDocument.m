@@ -91,6 +91,22 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
     motifComparitor = [[MotifComparitor alloc] initWithExponentRatio:2.0 progressIndicator: progressIndicator];
     
     motifHeight = [[self motifTable] rowHeight];
+    
+    NSNumber* defHeight = [[NSUserDefaults standardUserDefaults] objectForKey:IMMotifHeight];
+    NSNumber* defWidth = [[NSUserDefaults standardUserDefaults] objectForKey:IMColumnWidth]; 
+    
+    CGFloat newHeight = [defHeight floatValue];
+    if (newHeight != motifHeight) {
+        motifHeight = newHeight;
+        self.motifTable.rowHeight = newHeight;
+        self.motifViewCell.columnHeight = newHeight;
+    }
+    
+    CGFloat newWidth = [defWidth floatValue];
+    if (newHeight != motifViewCell.columnWidth) {
+        motifViewCell.columnWidth = newWidth;
+        [self.motifTable setNeedsDisplay: YES];
+    }
     //[progressIndicator setUsesThreadedAnimation: YES];
 }
 
@@ -461,10 +477,10 @@ provideDataForType:(NSString *)type {
     } 
     
     if ([info draggingSource] != tv) {
-        DebugLog(@"You're dragging to a different document.");
+        DebugLog(@"You're dragging to a different document (%@ vs %@).",tv, [info draggingSource]);
         return NSDragOperationCopy;
     } else {
-        DebugLog(@"You're dragging to the same document.");
+        DebugLog(@"You're dragging to the same document (%@).", tv);
         return NSDragOperationMove;
     }
 }
