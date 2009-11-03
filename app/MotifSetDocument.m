@@ -572,7 +572,7 @@ provideDataForType:(NSString *)type {
 }
 
 - (NSDragOperation) draggingSourceOperationMaskForLocal:(BOOL)isLocal {
-    DebugLog(@"MotifSetDocument: Returning NSDragOperationCopy as dragging source operation mask");
+    DebugLog(@"MotifSetDocument: Returning NSDragOperationCopy as dragging source operation mask (%d)", isLocal);
     //return isLocal ? NSDragOperationNone || NSDragOperationCopy || NSDragOperationMove : 
     //            NSDragOperationCopy;
     return NSDragOperationCopy;
@@ -896,7 +896,7 @@ provideDataForType:(NSString *)type {
             [mset addMotif: m];
         }        
     } else {
-        DebugLog(@"No motifs selected, will output all arranged objects (%d)", [motifSetController arrangedObjects].count);
+        DebugLog(@"No motifs selected, will output all arranged objects (%d)", [[motifSetController arrangedObjects] count]);
         for (Motif *m in [motifSetController arrangedObjects]) {
             [mset addMotif: m];
         }

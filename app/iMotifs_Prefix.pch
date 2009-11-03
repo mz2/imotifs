@@ -1,6 +1,14 @@
 //
 // Prefix header for all source files of the 'iMotif' target in the 'iMotif' project
 //
+#define DEBUG 1
+
+
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+    #import "IMConstants.h"
+
 
 #ifdef DEBUG
 // We make it a warning because when unit testing it's nice to see the logs in the list view instead of having to scroll through all the compiler output
@@ -9,9 +17,6 @@
 #define DebugLog(...) 
 #endif
 
-#ifdef __OBJC__
-    #import <Cocoa/Cocoa.h>
-    #import "IMConstants.h"
 #endif
 
 #ifndef IMOTIFS_COCOA_GUI
