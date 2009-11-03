@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="2" id="10"/>
+			<integer value="64"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -467,7 +467,7 @@
 										</object>
 										<object class="NSTextField" id="810703944">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">266</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{258, 87}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -544,7 +544,7 @@
 										</object>
 										<object class="NSTextField" id="4992315">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">266</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{258, 119}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -576,7 +576,7 @@
 															<real value="5.000000e-01" id="476453843"/>
 															<reference ref="11"/>
 															<real value="1.000000e-04" id="252127417"/>
-															<reference ref="10"/>
+															<integer value="2"/>
 															<reference ref="9"/>
 															<real value="1.000000e-02"/>
 														</object>
@@ -649,7 +649,7 @@
 										</object>
 										<object class="NSTextField" id="540309574">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">266</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{258, 53}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -1801,9 +1801,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilderKit</string>
 					<string>com.apple.InterfaceBuilderKit</string>
-					<string>{{430, 179}, {464, 453}}</string>
+					<string>{{614, 300}, {464, 453}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{430, 179}, {464, 453}}</string>
+					<string>{{614, 300}, {464, 453}}</string>
 					<reference ref="9"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
