@@ -39,12 +39,13 @@
 			<object class="NSWindowTemplate" id="1005">
 				<int key="NSWindowStyleMask">8223</int>
 				<int key="NSWindowBacking">2</int>
-				<string key="NSWindowRect">{{196, 57}, {464, 453}}</string>
+				<string key="NSWindowRect">{{434, 170}, {464, 453}}</string>
 				<int key="NSWTFlags">536870912</int>
 				<string key="NSWindowTitle">Determine bit score cutoff for motif set</string>
 				<string key="NSWindowClass">NSPanel</string>
 				<nil key="NSViewClass"/>
-				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
+				<string key="NSWindowContentMaxSize">{750, 453}</string>
+				<string key="NSWindowContentMinSize">{464, 453}</string>
 				<object class="NSView" key="NSWindowView" id="1006">
 					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
@@ -52,7 +53,7 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="BWTransparentButton" id="518796871">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{357, 6}, {98, 28}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
@@ -101,7 +102,7 @@
 						</object>
 						<object class="BWTransparentButton" id="851424630">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{10, 6}, {123, 28}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
@@ -124,7 +125,7 @@
 						</object>
 						<object class="BWTransparentButton" id="506284888">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
+							<int key="NSvFlags">289</int>
 							<string key="NSFrame">{{253, 6}, {98, 28}}</string>
 							<reference key="NSSuperview" ref="1006"/>
 							<bool key="NSEnabled">YES</bool>
@@ -147,7 +148,7 @@
 						</object>
 						<object class="NSBox" id="104366806">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">36</int>
+							<int key="NSvFlags">10</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSView" id="815206693">
@@ -193,7 +194,7 @@
 										</object>
 										<object class="NSTextField" id="239837324">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">270</int>
 											<string key="NSFrame">{{18, 123}, {324, 22}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -224,7 +225,7 @@
 										</object>
 										<object class="BWTransparentButton" id="1040225699">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{349, 116}, {81, 27}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -263,7 +264,7 @@
 										</object>
 										<object class="BWTransparentButton" id="1052676952">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{349, 162}, {81, 27}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -286,7 +287,7 @@
 										</object>
 										<object class="BWTransparentButton" id="868908017">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{349, 63}, {81, 27}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -309,7 +310,7 @@
 										</object>
 										<object class="NSTextField" id="777535540">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">270</int>
 											<string key="NSFrame">{{18, 70}, {324, 22}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -326,7 +327,7 @@
 										</object>
 										<object class="BWTransparentButton" id="828773237">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{349, 15}, {81, 27}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -381,7 +382,7 @@
 										</object>
 										<object class="NSTextField" id="103104272">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">270</int>
 											<string key="NSFrame">{{18, 23}, {324, 22}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -398,7 +399,7 @@
 										</object>
 										<object class="NSTextField" id="984932360">
 											<reference key="NSNextResponder" ref="815206693"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">270</int>
 											<string key="NSFrame">{{18, 169}, {324, 22}}</string>
 											<reference key="NSSuperview" ref="815206693"/>
 											<bool key="NSEnabled">YES</bool>
@@ -440,7 +441,7 @@
 						</object>
 						<object class="NSBox" id="21114451">
 							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">36</int>
+							<int key="NSvFlags">34</int>
 							<object class="NSMutableArray" key="NSSubviews">
 								<bool key="EncodedWithXMLCoder">YES</bool>
 								<object class="NSView" id="4537236">
@@ -450,7 +451,7 @@
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSTextField" id="860761756">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{15, 12}, {337, 39}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -466,7 +467,7 @@
 										</object>
 										<object class="NSTextField" id="810703944">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">266</int>
 											<string key="NSFrame">{{258, 87}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -543,7 +544,7 @@
 										</object>
 										<object class="NSTextField" id="4992315">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">266</int>
 											<string key="NSFrame">{{258, 119}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -616,7 +617,7 @@
 										</object>
 										<object class="NSStepper" id="1006225793">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{334, 84}, {19, 27}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -633,7 +634,7 @@
 										</object>
 										<object class="NSStepper" id="863267163">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{334, 116}, {19, 27}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -648,7 +649,7 @@
 										</object>
 										<object class="NSTextField" id="540309574">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">266</int>
 											<string key="NSFrame">{{258, 53}, {76, 22}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -713,7 +714,7 @@
 										</object>
 										<object class="NSStepper" id="1058132170">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">265</int>
 											<string key="NSFrame">{{334, 50}, {19, 27}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -728,7 +729,7 @@
 										</object>
 										<object class="NSTextField" id="962091464">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">267</int>
 											<string key="NSFrame">{{115, 58}, {138, 14}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -744,7 +745,7 @@
 										</object>
 										<object class="NSTextField" id="217612998">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">267</int>
 											<string key="NSFrame">{{123, 122}, {130, 14}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -760,7 +761,7 @@
 										</object>
 										<object class="NSTextField" id="739489093">
 											<reference key="NSNextResponder" ref="4537236"/>
-											<int key="NSvFlags">268</int>
+											<int key="NSvFlags">267</int>
 											<string key="NSFrame">{{171, 91}, {82, 14}}</string>
 											<reference key="NSSuperview" ref="4537236"/>
 											<bool key="NSEnabled">YES</bool>
@@ -835,8 +836,9 @@
 					<string key="NSFrameSize">{464, 453}</string>
 					<reference key="NSSuperview"/>
 				</object>
-				<string key="NSScreenRect">{{0, 0}, {1680, 1028}}</string>
-				<string key="NSMaxSize">{3.40282e+38, 3.40282e+38}</string>
+				<string key="NSScreenRect">{{0, 0}, {1280, 778}}</string>
+				<string key="NSMinSize">{464, 472}</string>
+				<string key="NSMaxSize">{750, 472}</string>
 			</object>
 			<object class="NSCustomObject" id="137063161">
 				<string key="NSClassName">NMCutoffOperation</string>
@@ -1314,12 +1316,12 @@
 							<reference ref="1052676952"/>
 							<reference ref="868908017"/>
 							<reference ref="777535540"/>
-							<reference ref="386195747"/>
 							<reference ref="263248595"/>
 							<reference ref="103104272"/>
 							<reference ref="984932360"/>
 							<reference ref="239837324"/>
 							<reference ref="828773237"/>
+							<reference ref="386195747"/>
 						</object>
 						<reference key="parent" ref="1006"/>
 					</object>
@@ -1730,6 +1732,10 @@
 					<string>1.NSWindowTemplate.visibleAtLaunch</string>
 					<string>1.WindowOrigin</string>
 					<string>1.editorWindowContentRectSynchronizationRect</string>
+					<string>1.windowTemplate.hasMaxSize</string>
+					<string>1.windowTemplate.hasMinSize</string>
+					<string>1.windowTemplate.maxSize</string>
+					<string>1.windowTemplate.minSize</string>
 					<string>10.IBPluginDependency</string>
 					<string>11.IBPluginDependency</string>
 					<string>12.IBPluginDependency</string>
@@ -1801,6 +1807,10 @@
 					<reference ref="9"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
+					<boolean value="YES" id="5"/>
+					<reference ref="5"/>
+					<string>{750, 453}</string>
+					<string>{464, 453}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
