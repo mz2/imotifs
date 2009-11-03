@@ -8,6 +8,7 @@
 
 #import "NMROCAUCOperation.h"
 #import "NMOperation.h"
+#import "IMRetrieveSequencesStatusDialogController.h"
 
 @implementation NMROCAUCOperation
 @synthesize motifsFile = _motifsFile;
@@ -92,6 +93,11 @@
                                            waitUntilDone: NO];
 }
 
+-(void) setStatusDialogController:(IMRetrieveSequencesStatusDialogController*) controller {
+    //[[controller lastEntryView] setString: 
+    _statusDialogController = controller;
+    [_statusDialogController.spinner startAnimation:self];
+}
 
 -(BOOL) motifsFileExists {
     if (self.motifsFile == nil) return NO;
