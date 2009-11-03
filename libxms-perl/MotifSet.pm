@@ -29,6 +29,8 @@ use XML::Writer::String;
 use IO::File;
 use WeightMatrix;
 use Motif;
+use XML::DOM;
+
 
 
 sub new {
@@ -36,16 +38,107 @@ sub new {
     my $self = {};
    
     my($class,@motifs) = @_;
+   
+   
+    my ($temp) = @motifs;
+
+
+
+    if(ref($temp) eq "Motif"){
+
     @{$self->{motifs}} = @motifs;
-   
-   
+   # $self->{output} =  XML::Writer::String->new();
+   # $self->{writer} = new XML::Writer(OUTPUT => $self->{output}, DATA_MODE => 'TRUE', DATA_INDENT=>3);
+
+    }else{
+	#$self->{xmlfile} = $temp;
+
+	my $parser = new XML::DOM::Parser;
+	my $doc = $parser->parsefile($temp);
+	my $root = $doc->getDocumentElement();
+	
+
+	my @motifnodes = $root->getElementsByTagName("motif");
+	if (scalar @motifnodes == 0){
+	    die "Corrupt input XMS file";
+	}
+	
+	my $m=0;
+	my @motifarray=();
+
+	foreach my $motif (@motifnodes){
+	
+    
+	    my $motifname = $motif->getElementsByTagName("name")->item(0)->getFirstChild()->getData;
+	    	    
+	    my $threshold = $motif->getElementsByTagName("threshold")->item(0)->getFirstChild->getData;
+
+	    my @props = $motif->getElementsByTagName("prop");
+	 
+           ####### Begin reading annotation key value pairs ##########
+	    my %annotations;
+	    foreach my $prop (@props){
+		my ($keynode) = $prop->getElementsByTagName("key");
+		my $key="";
+		if ( $keynode->getFirstChild() ) {
+		    $key = $keynode->getFirstChild()->getData;
+		}
+		my ($valuenode) = $prop->getElementsByTagName("value");
+	 	my $value="";
+		if ( $valuenode->getFirstChild() ) {
+		    $value = $valuenode->getFirstChild()->getData;
+		}
+		if ( $key ne "" ){
+		    $annotations{$key} = $value;
+		}
+	    }
+	    ####### End reading annotation key value pairs ########## 
+	    my @wmnodes = $motif->getElementsByTagName("weightmatrix");
+	    my @columnsarray=();
+	    foreach my $wmnode (@wmnodes) {
+
+		
+
+		my @columns=$motif->getElementsByTagName("column");
+
+		my %columnhash;
+		foreach my $column (@columns){
+        
+		   my @weights=$column->getElementsByTagName("weight");
+
+		    foreach my $weight (@weights){
+        
+			my $weightsymbol = $weight->getAttributeNode("symbol");
+			my $symbolvalue = $weightsymbol->getValue;
+        
+			my $weightvalue=$weight->getFirstChild->getData;
+
+			$columnhash{$symbolvalue} = $weightvalue;
+		    }
+		   my $count=0;
+		   my @wmvalues=();
+		   foreach my $key (sort keys %columnhash){
+		       $wmvalues[$count]=$columnhash{$key};
+		       $count++;
+		   }
+		   push(@columnsarray,[@wmvalues]);
+		}
+	    }
+
+
+	    my $wmobj = WeightMatrix->new(@columnsarray);
+	    my $motifobj = Motif->new($wmobj,$motifname,$threshold,%annotations);
+	    $motifarray[$m] = $motifobj;
+	    $m++;
+	}
+	@{$self->{motifs}} = @motifarray;
+    }
     $self->{output} =  XML::Writer::String->new();
     $self->{writer} = new XML::Writer(OUTPUT => $self->{output}, DATA_MODE => 'TRUE', DATA_INDENT=>3);
-   
-    bless($self,$class);
-   
-    return $self;
 
+    bless($self,$class);
+    return $self;
+	    
 }
 
 
@@ -62,7 +155,6 @@ sub toXML {
     for(my $m=0;$m<@motifs;$m++){    
 	$self->{motifs}[$m]->toXML($writer);
     }
-
 
     $writer->endTag("motifset");
 
