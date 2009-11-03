@@ -75,6 +75,7 @@
 		95457AFC0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */; };
 		9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */; };
 		955C93920FEA7645005E6148 /* NSString+ReverseSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */; };
+		9561D85410A04EF6003F37C6 /* NMShuffleOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */; };
 		95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */; };
 		95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */; };
 		95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */; };
@@ -607,6 +608,8 @@
 		9545913E0FB06D8D00F0BEB5 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/MotifSetDocument.nib; sourceTree = "<group>"; };
 		955C93900FEA7645005E6148 /* NSString+ReverseSearch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ReverseSearch.h"; sourceTree = "<group>"; };
 		955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReverseSearch.m"; sourceTree = "<group>"; };
+		9561D85210A04EF6003F37C6 /* NMShuffleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMShuffleOperation.h; sourceTree = "<group>"; };
+		9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMShuffleOperation.m; sourceTree = "<group>"; };
 		95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesDialog.xib; sourceTree = "<group>"; };
 		95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesOperation.h; sourceTree = "<group>"; };
 		95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesOperation.m; sourceTree = "<group>"; };
@@ -1130,6 +1133,7 @@
 		953D81140F2F410700049823 /* NMICA Integration */ = {
 			isa = PBXGroup;
 			children = (
+				9561D84510A04E3A003F37C6 /* nmshuffle */,
 				952B24BB10890FFC0051DACA /* nmrocauc */,
 				952B24BA10890FF60051DACA /* nmcutoff */,
 				951FF3DD0F32559900A9175C /* nmalign */,
@@ -1208,6 +1212,15 @@
 			children = (
 			);
 			name = Preferences;
+			sourceTree = "<group>";
+		};
+		9561D84510A04E3A003F37C6 /* nmshuffle */ = {
+			isa = PBXGroup;
+			children = (
+				9561D85210A04EF6003F37C6 /* NMShuffleOperation.h */,
+				9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */,
+			);
+			name = nmshuffle;
 			sourceTree = "<group>";
 		};
 		9563E2BB101E0370006F067A /* ensembl */ = {
@@ -1750,6 +1763,7 @@
 				95C1C2E9109C8A7B000E4224 /* NMCutoffController.m in Sources */,
 				95BACE5A109CA94400FAA974 /* NMROCAUCOperation.m in Sources */,
 				95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */,
+				9561D85410A04EF6003F37C6 /* NMShuffleOperation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
