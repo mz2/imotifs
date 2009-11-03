@@ -20,7 +20,7 @@
 -(id) init {
     NSString *lp = 
     [[[[NMOperation nmicaExtraPath] 
-       stringByAppendingPathComponent:@"bin/nmcutoff"] 
+       stringByAppendingPathComponent:@"bin/nmrocauc"] 
       stringByExpandingTildeInPath] retain];
     
     self = [super initWithLaunchPath: lp];
@@ -112,7 +112,7 @@
 }
 
 -(NSString*) outFilename {
-    return [self outFilename];
+    return self.outputFile;
 }
 
 @end
