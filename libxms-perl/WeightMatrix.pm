@@ -32,7 +32,7 @@ use XML::Reader;
 sub new {
     my $self = {};
     my($class,@name) = @_;
-    $self->{alphabet} = "DNA";
+    $self->{alphabet} = "Protein";
    
     $self->{cols} = \@name;
    
