@@ -26,6 +26,8 @@ use XML::Writer;
 use XML::Writer::String;
 use IO::File;
 use UNIVERSAL qw(isa);
+use XML::Reader;
+
 
 sub new {
     my $self = {};
