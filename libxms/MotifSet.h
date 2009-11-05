@@ -48,4 +48,6 @@
 -(NSInteger) columnCountWithOffsets;
 -(void) alignToLeftEnd;
 -(NSXMLDocument*) toXMS;
+-(NSString*) stringValue;
+-(void) writeToFileAtPath:(NSString*) path;
 @end

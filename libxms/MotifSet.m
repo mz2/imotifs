@@ -249,4 +249,14 @@
     //if (ownDist > otherDist) return NSOrderedDescending;
     //return NSOrderedSame;
 }
+
+-(NSString*) stringValue {
+    NSXMLDocument *doc = [self toXMS];
+    NSData *data = [doc XMLData];
+    return [[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding] autorelease];
+}
+
+-(void) writeToFileAtPath:(NSString*) path {
+    [[self toString] writeToFileAtPath: path];
+}
 @end

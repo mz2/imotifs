@@ -25,6 +25,7 @@
 #import "MotifSetController.h"
 #import "NMOperationConfigDialogController.h"
 #import "NMAlignOperation.h"
+#import "NMShuffleOperation.h"
 
 CGFloat const IM_MOTIF_HEIGHT_INCREMENT = 5.0;
 CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
@@ -713,6 +714,7 @@ provideDataForType:(NSString *)type {
     [motifTable setNeedsDisplay:YES];
     //[dict release];
 }
+
 /*
 - (void) reverseComplement:(id) sender {
     DebugLog(@"MotifSetDocument: reverseComplement");
@@ -1101,11 +1103,9 @@ provideDataForType:(NSString *)type {
                     //bestHitPairs = [motifComparitor 
                     //                        bestReciprocalHitsFrom:self.motifSet.motifs 
                     //                        to: mset.motifs];
-                    BestHitsOperation *bestRecipHitsOperation = [[BestHitsOperation alloc]
-                                                                           initWithComparitor:motifComparitor 
-                                                                           from:self.motifSet.motifs 
-                                                                           to:mset.motifs
-                                                                 reciprocal: YES];
+                    NMShuffleOperation *bestRecipHitsOperation = [[NMShuffleOperation alloc] 
+                                                                 initWithMotifs:self.motifSet 
+                                                                        against:mset];
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue]
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
