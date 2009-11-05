@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+@class MotifSet;
 
 @interface NMShuffleOperation : IMTaskOperation {
     NSString *_motifsAFile;
@@ -19,7 +20,15 @@
     @protected
     NSFileHandle *_readHandle;
     NSData *_inData;
+    BOOL _temporaryFiles;
 }
+
+-(id) initWithMotifs:(MotifSet*) motifsA 
+             against:(MotifSet*) motifsB;
+
+-(id) initWithMotifsFromFile: (NSString*) motifsAPath 
+       againstMotifsFromFile: (NSString*) motifsBPath
+           deleteSourceFiles: (BOOL) deleteSourceFiles;
 
 @property(nonatomic,retain)NSString *motifsAFile;
 @property(nonatomic,retain)NSString *motifsBFile;

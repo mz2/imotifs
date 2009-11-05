@@ -8,6 +8,7 @@
 
 #import "NMShuffleOperation.h"
 #import "NMOperation.h"
+#import "MotifSet.h"
 
 @implementation NMShuffleOperation
 @synthesize motifsAFile = _motifsAFile;
@@ -15,28 +16,52 @@
 @synthesize bootstraps = _bootstraps;
 @synthesize threshold = _threshold;
 
-// init
-- (id)init
-{
-    NSString *lp = 
-    [[[[NMOperation nmicaExtraPath] 
-       stringByAppendingPathComponent:@"bin/nmshuffle"] 
-      stringByExpandingTildeInPath] retain];
-
-    if (self = [super init]) {
-        [self setMotifsAFile: nil];
-        [self setMotifsBFile: nil];
-        [self setBootstraps: 10000];
-        [self setThreshold: 0.10];
+-(id) initWithMotifs:(MotifSet*) motifsA 
+             against:(MotifSet*) motifsB {
+    NSString *motifsATempPath = 
+        [[NSTemporaryDirectory() stringByAppendingPathComponent:
+          [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
         
-        self = [super initWithLaunchPath: lp];
-        
-        if (self == nil) return nil;
-        self.bootstraps = 10000;
-        
-        return self;
-    }
+    NSString *motifsBTempPath = 
+        [[NSTemporaryDirectory() stringByAppendingPathComponent:
+          [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+    
+    [motifsA writeToFileAtPath: motifsATempPath];
+    NSLog(@"Wrote motifs (A) to file %@", motifsATempPath);
+    [motifsB writeToFileAtPath: motifsBTempPath];
+    NSLog(@"Wrote motifs (B) to file %@", motifsBTempPath);
+    
+    self = [self initWithMotifsFromFile: motifsATempPath 
+                  againstMotifsFromFile: motifsBTempPath 
+                      deleteSourceFiles: YES];
     return self;
+}
+
+-(id) initWithMotifsFromFile: (NSString*) motifsAPath 
+       againstMotifsFromFile: (NSString*) motifsBPath
+           deleteSourceFiles: (BOOL) deleteSourceFiles {
+    _temporaryFiles = deleteSourceFiles;
+      
+      NSString *lp = 
+      [[[[NMOperation nmicaExtraPath] 
+         stringByAppendingPathComponent:@"bin/nmshuffle"] 
+        stringByExpandingTildeInPath] retain];
+      
+      if (self = [super init]) {
+          [self setMotifsAFile: motifsAPath];
+          [self setMotifsBFile: motifsBPath];
+          [self setBootstraps: 10000];
+          [self setThreshold: 0.10];
+          
+          self = [super initWithLaunchPath: lp];
+          
+          if (self == nil) return nil;
+          self.bootstraps = 10000;
+          
+          return self;
+      }
+      
+      return nil;
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
@@ -45,7 +70,6 @@
     [args setObject:[NSNumber numberWithInt:self.bootstraps] forKey:@"-bootstraps"];
     [args setObject:[NSNumber numberWithDouble:self.threshold] forKey:@"-threshold"];
     
-    [args setObject:[NSNumber numberWithInt:_bootstraps] forKey:@"-bootstraps"];
 }
 
 -(void) initializeTask:(NSTask*)t {
@@ -59,7 +83,7 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    DebugLog(@"Running");
+    DebugLog(@"Running NMShuffleOperation");
     while ((inData = [_readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -83,6 +107,21 @@
     }
     
     DebugLog(@"Done.");
+    
+    if (_temporaryFiles) {
+        NSError *errA;
+        NSError *errB;
+        [[NSFileManager defaultManager] removeItemAtPath:_motifsAFile error:&errA];
+        if (errA != nil) {
+            DebugLog(@"Error occurred when removing temporary file A: %@");
+        }
+        
+        [[NSFileManager defaultManager] removeItemAtPath:_motifsBFile error:&errB];
+        
+        if (errB != nil) {
+            DebugLog(@"Error occurred when removing temporary file B: %@");
+        }
+    }
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
