@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="708"/>
+			<integer value="2"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -49,74 +49,6 @@
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSTextField" id="596173187">
-							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 228}, {266, 14}}</string>
-							<reference key="NSSuperview" ref="1006"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="BWTransparentTextFieldCell" key="NSCell" id="646742994">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272761856</int>
-								<string key="NSContents">Type(s) of sequence regions to fetch per gene</string>
-								<object class="NSFont" key="NSSupport" id="26">
-									<string key="NSName">LucidaGrande</string>
-									<double key="NSSize">1.100000e+01</double>
-									<int key="NSfFlags">3100</int>
-								</object>
-								<reference key="NSControlView" ref="596173187"/>
-								<object class="NSColor" key="NSBackgroundColor" id="1015416183">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlColor</string>
-									<object class="NSColor" key="NSColor" id="923427915">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MC42NjY2NjY2OQA</bytes>
-									</object>
-								</object>
-								<object class="NSColor" key="NSTextColor" id="516578386">
-									<int key="NSColorSpace">6</int>
-									<string key="NSCatalogName">System</string>
-									<string key="NSColorName">controlTextColor</string>
-									<object class="NSColor" key="NSColor" id="1022053911">
-										<int key="NSColorSpace">3</int>
-										<bytes key="NSWhite">MAA</bytes>
-									</object>
-								</object>
-							</object>
-						</object>
-						<object class="NSTextField" id="571992012">
-							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 474}, {151, 14}}</string>
-							<reference key="NSSuperview" ref="1006"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="BWTransparentTextFieldCell" key="NSCell" id="624531261">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272761856</int>
-								<string key="NSContents">Filter by gene name</string>
-								<reference key="NSSupport" ref="26"/>
-								<reference key="NSControlView" ref="571992012"/>
-								<reference key="NSBackgroundColor" ref="1015416183"/>
-								<reference key="NSTextColor" ref="516578386"/>
-							</object>
-						</object>
-						<object class="NSTextField" id="765456005">
-							<reference key="NSNextResponder" ref="1006"/>
-							<int key="NSvFlags">268</int>
-							<string key="NSFrame">{{17, 694}, {370, 14}}</string>
-							<reference key="NSSuperview" ref="1006"/>
-							<bool key="NSEnabled">YES</bool>
-							<object class="BWTransparentTextFieldCell" key="NSCell" id="187078451">
-								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272761856</int>
-								<string key="NSContents">Retrieve genomic sequences from Ensembl</string>
-								<reference key="NSSupport" ref="26"/>
-								<reference key="NSControlView" ref="765456005"/>
-								<reference key="NSBackgroundColor" ref="1015416183"/>
-								<reference key="NSTextColor" ref="516578386"/>
-							</object>
-						</object>
 						<object class="BWTransparentButton" id="559510153">
 							<reference key="NSNextResponder" ref="1006"/>
 							<int key="NSvFlags">268</int>
@@ -128,7 +60,7 @@
 								<int key="NSCellFlags2">134348800</int>
 								<object class="NSAttributedString" key="NSContents">
 									<string key="NSString">OK</string>
-									<object class="NSDictionary" key="NSAttributes" id="589336467">
+									<object class="NSDictionary" key="NSAttributes" id="900921186">
 										<bool key="EncodedWithXMLCoder">YES</bool>
 										<object class="NSMutableArray" key="dict.sortedKeys">
 											<bool key="EncodedWithXMLCoder">YES</bool>
@@ -143,7 +75,11 @@
 												<int key="NSColorSpace">3</int>
 												<bytes key="NSWhite">MQA</bytes>
 											</object>
-											<reference ref="26"/>
+											<object class="NSFont" id="26">
+												<string key="NSName">LucidaGrande</string>
+												<double key="NSSize">1.100000e+01</double>
+												<int key="NSfFlags">3100</int>
+											</object>
 											<reference ref="26"/>
 											<object class="NSMutableParagraphStyle">
 												<int key="NSAlignment">2</int>
@@ -173,7 +109,7 @@
 								<int key="NSCellFlags2">134348800</int>
 								<object class="NSAttributedString" key="NSContents">
 									<string key="NSString">Cancel</string>
-									<reference key="NSAttributes" ref="589336467"/>
+									<reference key="NSAttributes" ref="900921186"/>
 								</object>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="7480588"/>
@@ -315,7 +251,10 @@
 													<int key="NSColorSpace">6</int>
 													<string key="NSCatalogName">System</string>
 													<string key="NSColorName">textColor</string>
-													<reference key="NSColor" ref="1022053911"/>
+													<object class="NSColor" key="NSColor" id="1022053911">
+														<int key="NSColorSpace">3</int>
+														<bytes key="NSWhite">MAA</bytes>
+													</object>
 												</object>
 											</object>
 										</object>
@@ -571,8 +510,21 @@
 													<int key="NSfFlags">16</int>
 												</object>
 												<reference key="NSControlView" ref="420352812"/>
-												<reference key="NSBackgroundColor" ref="1015416183"/>
-												<reference key="NSTextColor" ref="516578386"/>
+												<object class="NSColor" key="NSBackgroundColor" id="1015416183">
+													<int key="NSColorSpace">6</int>
+													<string key="NSCatalogName">System</string>
+													<string key="NSColorName">controlColor</string>
+													<object class="NSColor" key="NSColor" id="923427915">
+														<int key="NSColorSpace">3</int>
+														<bytes key="NSWhite">MC42NjY2NjY2OQA</bytes>
+													</object>
+												</object>
+												<object class="NSColor" key="NSTextColor" id="516578386">
+													<int key="NSColorSpace">6</int>
+													<string key="NSCatalogName">System</string>
+													<string key="NSColorName">controlTextColor</string>
+													<reference key="NSColor" ref="1022053911"/>
+												</object>
 											</object>
 										</object>
 										<object class="NSTextField" id="890217819">
@@ -882,7 +834,7 @@
 												<int key="NSCellFlags2">134348800</int>
 												<object class="NSAttributedString" key="NSContents">
 													<string key="NSString">Browse...</string>
-													<reference key="NSAttributes" ref="589336467"/>
+													<reference key="NSAttributes" ref="900921186"/>
 												</object>
 												<reference key="NSSupport" ref="26"/>
 												<reference key="NSControlView" ref="190681438"/>
@@ -1072,7 +1024,7 @@
 												<int key="NSCellFlags2">134348800</int>
 												<object class="NSAttributedString" key="NSContents">
 													<string type="base64-UTF8" key="NSString">Pg</string>
-													<reference key="NSAttributes" ref="589336467"/>
+													<reference key="NSAttributes" ref="900921186"/>
 												</object>
 												<reference key="NSSupport" ref="862750248"/>
 												<reference key="NSControlView" ref="711945274"/>
@@ -1301,7 +1253,7 @@
 												<int key="NSCellFlags2">134348800</int>
 												<object class="NSAttributedString" key="NSContents">
 													<string type="base64-UTF8" key="NSString">PA</string>
-													<reference key="NSAttributes" ref="589336467"/>
+													<reference key="NSAttributes" ref="900921186"/>
 												</object>
 												<reference key="NSSupport" ref="862750248"/>
 												<reference key="NSControlView" ref="490128364"/>
@@ -1959,7 +1911,7 @@
 												<int key="NSCellFlags2">134348800</int>
 												<object class="NSAttributedString" key="NSContents">
 													<string key="NSString">Browse...</string>
-													<reference key="NSAttributes" ref="589336467"/>
+													<reference key="NSAttributes" ref="900921186"/>
 												</object>
 												<reference key="NSSupport" ref="26"/>
 												<reference key="NSControlView" ref="346035801"/>
@@ -2041,7 +1993,7 @@
 								<int key="NSCellFlags2">134348800</int>
 								<object class="NSAttributedString" key="NSContents">
 									<string key="NSString">Copy to clipboard</string>
-									<reference key="NSAttributes" ref="589336467"/>
+									<reference key="NSAttributes" ref="900921186"/>
 								</object>
 								<reference key="NSSupport" ref="26"/>
 								<reference key="NSControlView" ref="339231625"/>
@@ -2051,6 +2003,54 @@
 								<string key="NSKeyEquivalent"/>
 								<int key="NSPeriodicDelay">200</int>
 								<int key="NSPeriodicInterval">25</int>
+							</object>
+						</object>
+						<object class="NSTextField" id="596173187">
+							<reference key="NSNextResponder" ref="1006"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 228}, {266, 14}}</string>
+							<reference key="NSSuperview" ref="1006"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="BWTransparentTextFieldCell" key="NSCell" id="646742994">
+								<int key="NSCellFlags">68288064</int>
+								<int key="NSCellFlags2">272761856</int>
+								<string key="NSContents">Type(s) of sequence regions to fetch per gene</string>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="596173187"/>
+								<reference key="NSBackgroundColor" ref="1015416183"/>
+								<reference key="NSTextColor" ref="516578386"/>
+							</object>
+						</object>
+						<object class="NSTextField" id="571992012">
+							<reference key="NSNextResponder" ref="1006"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 477}, {345, 14}}</string>
+							<reference key="NSSuperview" ref="1006"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="BWTransparentTextFieldCell" key="NSCell" id="624531261">
+								<int key="NSCellFlags">68288064</int>
+								<int key="NSCellFlags2">272761856</int>
+								<string key="NSContents">Choose genes (all genes of the organism chosen by default)</string>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="571992012"/>
+								<reference key="NSBackgroundColor" ref="1015416183"/>
+								<reference key="NSTextColor" ref="516578386"/>
+							</object>
+						</object>
+						<object class="NSTextField" id="765456005">
+							<reference key="NSNextResponder" ref="1006"/>
+							<int key="NSvFlags">268</int>
+							<string key="NSFrame">{{17, 694}, {370, 14}}</string>
+							<reference key="NSSuperview" ref="1006"/>
+							<bool key="NSEnabled">YES</bool>
+							<object class="BWTransparentTextFieldCell" key="NSCell" id="187078451">
+								<int key="NSCellFlags">68288064</int>
+								<int key="NSCellFlags2">272761856</int>
+								<string key="NSContents">Retrieve genomic sequences from Ensembl</string>
+								<reference key="NSSupport" ref="26"/>
+								<reference key="NSControlView" ref="765456005"/>
+								<reference key="NSBackgroundColor" ref="1015416183"/>
+								<reference key="NSTextColor" ref="516578386"/>
 							</object>
 						</object>
 					</object>
@@ -3443,15 +3443,15 @@
 						<reference key="object" ref="1006"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="765456005"/>
 							<reference ref="47860452"/>
 							<reference ref="339231625"/>
 							<reference ref="559510153"/>
 							<reference ref="7480588"/>
-							<reference ref="596173187"/>
 							<reference ref="1035566262"/>
-							<reference ref="571992012"/>
 							<reference ref="11174922"/>
+							<reference ref="596173187"/>
+							<reference ref="571992012"/>
+							<reference ref="765456005"/>
 						</object>
 						<reference key="parent" ref="1005"/>
 					</object>
@@ -4748,9 +4748,9 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{212, 131}, {557, 711}}</string>
+					<string>{{360, 48}, {557, 711}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{212, 131}, {557, 711}}</string>
+					<string>{{360, 48}, {557, 711}}</string>
 					<reference ref="9"/>
 					<string>{196, 240}</string>
 					<string>{{202, 428}, {480, 270}}</string>
@@ -4889,7 +4889,7 @@
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
-					<string>{{313, 387}, {130, 37}}</string>
+					<string>{{461, 304}, {130, 37}}</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
 					<string>com.brandonwalkin.BWToolkit</string>
