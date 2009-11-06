@@ -130,11 +130,11 @@
                  forKey: @"-fivePrimeUTR"];
     }
     
-    if (self.selectedGeneList.count > 0) {
+    if (self.selectGeneList && self.selectedGeneList.count > 0) {
         [args setObject: self.selectedGeneList forKey: @"-filterByIds"];
     }
     
-    if (self.geneNameListFilename) {
+    if (self.selectGeneListFromFile && self.geneNameListFilename) {
         [args setObject: self.geneNameListFilename forKey: @"-filterByIdsInFile"];
     }
 	

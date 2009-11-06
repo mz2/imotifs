@@ -343,6 +343,8 @@
     selectedGeneIDType = i;
     [self didChangeValueForKey:@"selectedGeneIDType"];
     
+    self.retrieveSequencesOperation.searchType = selectedGeneIDType;
+    
     if (i == IMRetrieveSequencesSearchTypeDisplayLabel) {
         self.selectedGeneIDList = geneDisplayLabels;
     } else if (i == IMRetrieveSequencesSearchTypePrimaryAccession) {
