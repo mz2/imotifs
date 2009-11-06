@@ -26,10 +26,22 @@
         [[NSTemporaryDirectory() stringByAppendingPathComponent:
           [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
     
-    [motifsA writeToFileAtPath: motifsATempPath];
-    NSLog(@"Wrote motifs (A) to file %@", motifsATempPath);
-    [motifsB writeToFileAtPath: motifsBTempPath];
-    NSLog(@"Wrote motifs (B) to file %@", motifsBTempPath);
+    NSError *errA;
+    [[motifsA stringValue] writeToFile:motifsATempPath 
+                            atomically:YES 
+                              encoding:NSUTF8StringEncoding error:&errA];
+    
+    if (errA != nil) {
+        NSLog(@"Error: %@", errA);
+    }
+    
+    NSError *errB;
+    [[motifsA stringValue] writeToFile:motifsBTempPath 
+                            atomically:YES 
+                              encoding:NSUTF8StringEncoding error:&errB];
+    if (errB != nil) {
+        NSLog(@"Error: %@", errB);
+    }
     
     self = [self initWithMotifsFromFile: motifsATempPath 
                   againstMotifsFromFile: motifsBTempPath 
@@ -65,11 +77,18 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:[NSNull null] forKey:self.motifsAFile];
-    [args setObject:[NSNull null] forKey:self.motifsBFile];
-    [args setObject:[NSNumber numberWithInt:self.bootstraps] forKey:@"-bootstraps"];
-    [args setObject:[NSNumber numberWithDouble:self.threshold] forKey:@"-threshold"];
-    
+    [args setObject: self.motifsAFile 
+             forKey: @"-database"];
+    [args setObject: self.motifsBFile 
+             forKey: @"-motifs"];
+    [args setObject: [NSNumber numberWithInt:self.bootstraps] 
+             forKey:@"-bootstraps"];
+    [args setObject: [NSNumber numberWithDouble:self.threshold] 
+             forKey:@"-threshold"];
+    [args setObject: [NSNull null] 
+             forKey: @"-outputPairedMotifs"];
+    [args setObject: outputFile 
+             forKey:@"-out"];
 }
 
 -(void) initializeTask:(NSTask*)t {
@@ -103,7 +122,6 @@
             [buf release];
             buf = newBuf;
         }
-        
     }
     
     DebugLog(@"Done.");
@@ -122,6 +140,18 @@
             DebugLog(@"Error occurred when removing temporary file B: %@");
         }
     }
+    
+    NSError *err;
+    NSDocumentController *sharedDocController = [NSDocumentController sharedDocumentController];
+    MotifSetDocument *mdoc = [sharedDocController makeDocumentWithContentsOfURL: [NSURL fileURLWithPath:outputTempPath] 
+                                                                         ofType: @"Motif set" 
+                                                                          error: &err];
+    
+    [[NSDocumentController sharedDocumentController] addDocument: mdoc];
+    [mdoc makeWindowControllers];
+    [mdoc showWindows];
+    [[NSFileManager defaultManager] removeFileAtPath:outputTempPath handler: nil];
+    
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 

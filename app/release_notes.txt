@@ -1,3 +1,10 @@
+h2. 0.2.1 - 
+
+* Bug fixes to sequence retrieal
+* ChIP-seq peak sequence retrieval added
+* Motif cutoff assignment added
+* Motif overrepresentation added
+
 h2. 0.2.0 - Usability fix to sequence retrieval dialog 
 
 Searching / specifying a gene ID list in the sequence retrieval dialog are now mutually exclusive
