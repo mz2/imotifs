@@ -8,16 +8,19 @@
 
 #import "NMShuffleOperation.h"
 #import "NMOperation.h"
+#import "MotifSetDocument.h"
 #import "MotifSet.h"
 
 @implementation NMShuffleOperation
 @synthesize motifsAFile = _motifsAFile;
 @synthesize motifsBFile = _motifsBFile;
+@synthesize outputFile = _outputFile;
 @synthesize bootstraps = _bootstraps;
 @synthesize threshold = _threshold;
 
 -(id) initWithMotifs:(MotifSet*) motifsA 
-             against:(MotifSet*) motifsB {
+             against:(MotifSet*) motifsB
+          outputFile:(NSString*) outputFile {
     NSString *motifsATempPath = 
         [[NSTemporaryDirectory() stringByAppendingPathComponent:
           [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
@@ -26,31 +29,36 @@
         [[NSTemporaryDirectory() stringByAppendingPathComponent:
           [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
     
-    NSError *errA;
+    NSError *errA = nil;
     [[motifsA stringValue] writeToFile:motifsATempPath 
                             atomically:YES 
                               encoding:NSUTF8StringEncoding error:&errA];
     
     if (errA != nil) {
-        NSLog(@"Error: %@", errA);
+        NSLog(@"Error: %@", [errA localizedDescription]);
+        [NSApp presentError:errA];
+
     }
     
-    NSError *errB;
+    NSError *errB = nil;
     [[motifsA stringValue] writeToFile:motifsBTempPath 
                             atomically:YES 
                               encoding:NSUTF8StringEncoding error:&errB];
     if (errB != nil) {
-        NSLog(@"Error: %@", errB);
+        [NSApp presentError:errB];
     }
     
-    self = [self initWithMotifsFromFile: motifsATempPath 
-                  againstMotifsFromFile: motifsBTempPath 
-                      deleteSourceFiles: YES];
+    [self initWithMotifsFromFile: motifsATempPath 
+           againstMotifsFromFile: motifsBTempPath 
+                      outputFile: outputFile 
+               deleteSourceFiles: YES];
+
     return self;
 }
 
 -(id) initWithMotifsFromFile: (NSString*) motifsAPath 
        againstMotifsFromFile: (NSString*) motifsBPath
+                  outputFile: (NSString*) outputFile
            deleteSourceFiles: (BOOL) deleteSourceFiles {
     _temporaryFiles = deleteSourceFiles;
       
@@ -62,13 +70,16 @@
       if (self = [super init]) {
           [self setMotifsAFile: motifsAPath];
           [self setMotifsBFile: motifsBPath];
-          [self setBootstraps: 10000];
+          [self setOutputFile: outputFile];
+          if (outputFile == nil) {
+              _temporaryOutputFile = YES;
+          }
+          [self setBootstraps: 10];
           [self setThreshold: 0.10];
           
           self = [super initWithLaunchPath: lp];
           
           if (self == nil) return nil;
-          self.bootstraps = 10000;
           
           return self;
       }
@@ -87,8 +98,16 @@
              forKey:@"-threshold"];
     [args setObject: [NSNull null] 
              forKey: @"-outputPairedMotifs"];
-    [args setObject: outputFile 
-             forKey:@"-out"];
+    
+    if (self.outputFile == nil) {
+        NSString *outputTempFile = 
+            [[NSTemporaryDirectory() stringByAppendingPathComponent:
+                [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+        
+        self.outputFile = outputTempFile;
+    }
+    
+    [args setObject: self.outputFile forKey:@"-out"];
 }
 
 -(void) initializeTask:(NSTask*)t {
@@ -127,30 +146,38 @@
     DebugLog(@"Done.");
     
     if (_temporaryFiles) {
-        NSError *errA;
-        NSError *errB;
+        NSError *errA = nil;
+        NSError *errB = nil;
         [[NSFileManager defaultManager] removeItemAtPath:_motifsAFile error:&errA];
         if (errA != nil) {
-            DebugLog(@"Error occurred when removing temporary file A: %@");
+            DebugLog(@"Error occurred when removing temporary file A: %@", [errA description]);
         }
         
         [[NSFileManager defaultManager] removeItemAtPath:_motifsBFile error:&errB];
         
         if (errB != nil) {
-            DebugLog(@"Error occurred when removing temporary file B: %@");
+            DebugLog(@"Error occurred when removing temporary file B: %@", [errB description]);
         }
     }
     
-    NSError *err;
+    NSError *err = nil;
     NSDocumentController *sharedDocController = [NSDocumentController sharedDocumentController];
-    MotifSetDocument *mdoc = [sharedDocController makeDocumentWithContentsOfURL: [NSURL fileURLWithPath:outputTempPath] 
+    MotifSetDocument *mdoc = [sharedDocController makeDocumentWithContentsOfURL: [NSURL fileURLWithPath:self.outputFile] 
                                                                          ofType: @"Motif set" 
                                                                           error: &err];
     
     [[NSDocumentController sharedDocumentController] addDocument: mdoc];
     [mdoc makeWindowControllers];
     [mdoc showWindows];
-    [[NSFileManager defaultManager] removeFileAtPath:outputTempPath handler: nil];
+    
+    if (_temporaryOutputFile) {
+        NSError *err;
+        [[NSFileManager defaultManager] removeItemAtPath:self.outputFile error:&err];
+        
+        if (err != nil) {
+            NSLog(@"Error when removing temporary output file %@", self.outputFile);
+        }
+    }
     
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 

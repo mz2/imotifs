@@ -1105,7 +1105,8 @@ provideDataForType:(NSString *)type {
                     //                        to: mset.motifs];
                     NMShuffleOperation *bestRecipHitsOperation = [[NMShuffleOperation alloc] 
                                                                  initWithMotifs:self.motifSet 
-                                                                        against:mset];
+                                                                        against:mset
+                                                                  outputFile:nil];
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue]
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];

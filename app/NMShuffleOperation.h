@@ -22,13 +22,16 @@
     NSFileHandle *_readHandle;
     NSData *_inData;
     BOOL _temporaryFiles;
+    BOOL _temporaryOutputFile;
 }
 
 -(id) initWithMotifs:(MotifSet*) motifsA 
-             against:(MotifSet*) motifsB;
+             against:(MotifSet*) motifsB
+          outputFile:(NSString*) outFile;
 
 -(id) initWithMotifsFromFile: (NSString*) motifsAPath 
        againstMotifsFromFile: (NSString*) motifsBPath
+                 outputFile: (NSString*) outputFile
            deleteSourceFiles: (BOOL) deleteSourceFiles;
 
 @property(nonatomic,retain)NSString *motifsAFile;
