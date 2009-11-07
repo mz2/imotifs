@@ -7,7 +7,7 @@
 //
 
 #import <MotifViewCell.h>
-#import "AppController.h"
+#import "IMAppController.h"
 #import "Metamotif.h"
 #import "Dirichlet.h"
 #import "DistributionBounds.h"

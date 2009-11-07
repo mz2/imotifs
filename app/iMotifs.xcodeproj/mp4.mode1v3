@@ -233,8 +233,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -271,8 +269,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateExpansionKey</key>
 							<array>
 								<string>2A37F4AAFDCFA73011CA2CEA</string>
+								<string>95CE589710A5AECA00D00524</string>
+								<string>95D7652D10231D99009703AA</string>
+								<string>95B3505A1023320600F0E0BF</string>
+								<string>953D80250F2F14BF00049823</string>
 								<string>2A37F4ABFDCFA73011CA2CEA</string>
 								<string>5FB8976A0E3157F60084D9D8</string>
+								<string>5FB898990E31E8450084D9D8</string>
 								<string>953D7F0F0F2E07D200049823</string>
 								<string>5FA66A5F0E142A05009E5AFA</string>
 								<string>95414FDA0F1245DB0083E72A</string>
@@ -297,11 +300,10 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>28</integer>
-									<integer>27</integer>
-									<integer>26</integer>
-									<integer>20</integer>
-									<integer>4</integer>
+									<integer>39</integer>
+									<integer>38</integer>
+									<integer>37</integer>
+									<integer>36</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -336,12 +338,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>NMTrainBGModelOperation.h</string>
+								<string>IMMatrix2D.h</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -349,15 +353,14 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>NMTrainBGModelOperation.h</string>
+										<string>IMMatrix2D.h</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>95CE589110A5AD2B00D00524</string>
+										<string>95CE58E610A5AFDA00D00524</string>
 										<key>history</key>
 										<array>
 											<string>959E3D600EE695C100072A66</string>
-											<string>959E3FC30EE6D82000072A66</string>
 											<string>95B2C60F0EED7BA7004605A6</string>
 											<string>95B2C6100EED7BA7004605A6</string>
 											<string>95B2C6400EED8B13004605A6</string>
@@ -449,11 +452,9 @@
 											<string>95B3508910233A3900F0E0BF</string>
 											<string>95B3508A10233A3900F0E0BF</string>
 											<string>95B3508B10233A3900F0E0BF</string>
-											<string>95B350BE10233C2D00F0E0BF</string>
 											<string>95B350C610233CC300F0E0BF</string>
 											<string>95FD5DE9102461D4007EE467</string>
 											<string>95C32BC51024D75C00BCB3EC</string>
-											<string>95EC88211087299B004FBF52</string>
 											<string>95AA6BAE108730C80000A8BD</string>
 											<string>95AA6BE11087312F0000A8BD</string>
 											<string>95AA6BE21087312F0000A8BD</string>
@@ -501,7 +502,19 @@
 											<string>95CE586810A5AD2B00D00524</string>
 											<string>95CE586910A5AD2B00D00524</string>
 											<string>95CE586A10A5AD2B00D00524</string>
-											<string>95CE586B10A5AD2B00D00524</string>
+											<string>95CE589810A5AEF500D00524</string>
+											<string>95CE589910A5AEF500D00524</string>
+											<string>95CE589A10A5AEF500D00524</string>
+											<string>95CE58C710A5AFDA00D00524</string>
+											<string>95CE58C810A5AFDA00D00524</string>
+											<string>95CE58C910A5AFDA00D00524</string>
+											<string>95CE58CA10A5AFDA00D00524</string>
+											<string>95CE58CB10A5AFDA00D00524</string>
+											<string>95CE58CC10A5AFDA00D00524</string>
+											<string>95CE58CD10A5AFDA00D00524</string>
+											<string>95CE58CE10A5AFDA00D00524</string>
+											<string>95CE58CF10A5AFDA00D00524</string>
+											<string>95CE58D010A5AFDA00D00524</string>
 										</array>
 										<key>prevStack</key>
 										<array>
@@ -695,6 +708,32 @@
 											<string>95CE588E10A5AD2B00D00524</string>
 											<string>95CE588F10A5AD2B00D00524</string>
 											<string>95CE589010A5AD2B00D00524</string>
+											<string>95CE589C10A5AEF500D00524</string>
+											<string>95CE589D10A5AEF500D00524</string>
+											<string>95CE589E10A5AEF500D00524</string>
+											<string>95CE589F10A5AEF500D00524</string>
+											<string>95CE58A010A5AEF500D00524</string>
+											<string>95CE58D110A5AFDA00D00524</string>
+											<string>95CE58D210A5AFDA00D00524</string>
+											<string>95CE58D310A5AFDA00D00524</string>
+											<string>95CE58D410A5AFDA00D00524</string>
+											<string>95CE58D510A5AFDA00D00524</string>
+											<string>95CE58D610A5AFDA00D00524</string>
+											<string>95CE58D710A5AFDA00D00524</string>
+											<string>95CE58D810A5AFDA00D00524</string>
+											<string>95CE58D910A5AFDA00D00524</string>
+											<string>95CE58DA10A5AFDA00D00524</string>
+											<string>95CE58DB10A5AFDA00D00524</string>
+											<string>95CE58DC10A5AFDA00D00524</string>
+											<string>95CE58DD10A5AFDA00D00524</string>
+											<string>95CE58DE10A5AFDA00D00524</string>
+											<string>95CE58DF10A5AFDA00D00524</string>
+											<string>95CE58E010A5AFDA00D00524</string>
+											<string>95CE58E110A5AFDA00D00524</string>
+											<string>95CE58E210A5AFDA00D00524</string>
+											<string>95CE58E310A5AFDA00D00524</string>
+											<string>95CE58E410A5AFDA00D00524</string>
+											<string>95CE58E510A5AFDA00D00524</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -920,7 +959,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>NMTrainBGModelOperation.m</string>
+								<string>NMROCAUCController.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>

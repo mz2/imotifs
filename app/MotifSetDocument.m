@@ -21,7 +21,7 @@
 #import "BestHitsOperation.h"
 #import "BestReciprocalHitsOperation.h"
 #import "MotifsBelowDistanceCutoffOperation.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "MotifSetController.h"
 #import "NMOperationConfigDialogController.h"
 #import "NMAlignOperation.h"

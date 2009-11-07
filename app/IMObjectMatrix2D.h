@@ -21,15 +21,5 @@
 
 -(id) initWithRows:(NSUInteger)rs 
                              cols:(NSUInteger)cs;
-//-(IMObjectMatrix2D*) transpose;
-
-/*
--(NSUInteger) rows;
--(NSUInteger) columns;
--(NSUInteger) elements;
--(id) valueAtRow:(NSUInteger)row col:(NSUInteger)col;
--(void) setValue:(id)v 
-             row:(NSUInteger) row 
-             col:(NSUInteger) col;*/
 
 @end

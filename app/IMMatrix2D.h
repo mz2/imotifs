@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@protocol IMMatrix2D
+@protocol IMMatrix2D <NSObject>
 -(id<IMMatrix2D>) transpose;
 
 -(NSUInteger) rows;

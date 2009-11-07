@@ -8,7 +8,7 @@
 
 #import "stdlib.h"
 #import "NMOperation.h"
-#import "AppController.h"
+#import "IMAppController.h"
 
 @interface NMOperation (private)
 

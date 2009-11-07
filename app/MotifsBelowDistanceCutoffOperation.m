@@ -10,7 +10,7 @@
 #import "MotifComparitor.h"
 #import "MotifSetController.h"
 #import "Multinomial.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "Motif.h"
 
 

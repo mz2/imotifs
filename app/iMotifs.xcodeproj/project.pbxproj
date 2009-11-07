@@ -819,9 +819,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
-				95AA6BDE108731060000A8BD /* nmica-extra */,
-				95AA5B9510872DF60000A8BD /* nmica */,
-				95D7652D10231D99009703AA /* external */,
+				95CE589710A5AECA00D00524 /* NestedMICA */,
+				95D7652D10231D99009703AA /* External */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -909,16 +908,16 @@
 		5FB898990E31E8450084D9D8 /* matrix */ = {
 			isa = PBXGroup;
 			children = (
+				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
+				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
+				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
 				5FF1CB2F0E333BCC001966B7 /* transpose */,
 				5FB8982C0E316DD30084D9D8 /* IMIntMatrix2D.h */,
 				5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */,
-				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
 				5FB897840E315C3D0084D9D8 /* IMDoubleMatrix2D.h */,
 				5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */,
-				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
 				5FB898960E31E82A0084D9D8 /* IMObjectMatrix2D.h */,
 				5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */,
-				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
 			);
 			name = matrix;
 			sourceTree = "<group>";
@@ -1074,7 +1073,7 @@
 			name = "cocoa-extras";
 			sourceTree = "<group>";
 		};
-		953D80250F2F14BF00049823 /* libxms */ = {
+		953D80250F2F14BF00049823 /* LibXMS */ = {
 			isa = PBXGroup;
 			children = (
 				5FC3094B0E18DF5A006C4679 /* Annotable.h */,
@@ -1103,7 +1102,7 @@
 				95371B160FCD8BC900273BA9 /* dirichlet_math.h */,
 				95371B170FCD8BC900273BA9 /* dirichlet_math.m */,
 			);
-			name = libxms;
+			name = LibXMS;
 			sourceTree = "<group>";
 		};
 		953D80260F2F14D400049823 /* operation */ = {
@@ -1500,13 +1499,22 @@
 			name = nmmakebg;
 			sourceTree = "<group>";
 		};
-		95D7652D10231D99009703AA /* external */ = {
+		95CE589710A5AECA00D00524 /* NestedMICA */ = {
+			isa = PBXGroup;
+			children = (
+				95AA5B9510872DF60000A8BD /* nmica */,
+				95AA6BDE108731060000A8BD /* nmica-extra */,
+			);
+			name = NestedMICA;
+			sourceTree = "<group>";
+		};
+		95D7652D10231D99009703AA /* External */ = {
 			isa = PBXGroup;
 			children = (
 				95B3505A1023320600F0E0BF /* preferences */,
-				953D80250F2F14BF00049823 /* libxms */,
+				953D80250F2F14BF00049823 /* LibXMS */,
 			);
-			name = external;
+			name = External;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -9,7 +9,7 @@
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrieveSequencesOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "IMEnsemblConnection.h"
 
 @interface IMRetrieveSequencesDialogController (private) 

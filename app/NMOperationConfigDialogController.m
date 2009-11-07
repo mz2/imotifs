@@ -9,7 +9,7 @@
 #import "NMOperationConfigDialogController.h"
 #import "NMOperationStatusDialogController.h"
 #import "NMOperation.h"
-#import "AppController.h"
+#import "IMAppController.h"
 
 
 @implementation NMOperationConfigDialogController
