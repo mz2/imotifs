@@ -251,4 +251,9 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
         return NO;
     }
 }
+
+-(void) showHelp:(id) sender {
+    NSLog(@"Showing help");
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://wiki.github.com/mz2/imotifs"]];
+}
 @end

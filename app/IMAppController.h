@@ -87,4 +87,5 @@ extern NSString *IMConsensusSearchCutoff;
 
 - (IBAction) scoreCutoff:(id) sender;
 - (IBAction) overrepresentationScore:(id) sender;
+-(void) showHelp:(id) sender;
 @end
