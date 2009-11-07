@@ -27,17 +27,16 @@
     self = [super initWithLaunchPath: lp];
     
     if (self == nil) return nil;
-    
     self.bootstraps = 10000;
     
     return self;
 }
 
 -(void) dealloc {
-    [_motifsFile release],_motifsFile = nil;
-    [_positiveSeqsFile release],_positiveSeqsFile = nil;
-    [_negativeSeqsFile release],_negativeSeqsFile = nil;
-    [_outputFile release],_outputFile = nil;
+    [_motifsFile release], _motifsFile = nil;
+    [_positiveSeqsFile release], _positiveSeqsFile = nil;
+    [_negativeSeqsFile release], _negativeSeqsFile = nil;
+    [_outputFile release], _outputFile = nil;
     
     [super dealloc];
 }

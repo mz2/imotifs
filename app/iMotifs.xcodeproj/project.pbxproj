@@ -1113,8 +1113,6 @@
 				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 				953D80530F2F18B800049823 /* IMTaskOperation.h */,
 				953D80540F2F18B800049823 /* IMTaskOperation.m */,
-				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
-				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
 			);
 			name = operation;
 			sourceTree = "<group>";
@@ -1133,6 +1131,7 @@
 		953D81140F2F410700049823 /* NMICA Integration */ = {
 			isa = PBXGroup;
 			children = (
+				95CE585010A5AAAA00D00524 /* nmmakebg */,
 				9561D84510A04E3A003F37C6 /* nmshuffle */,
 				952B24BB10890FFC0051DACA /* nmrocauc */,
 				952B24BA10890FF60051DACA /* nmcutoff */,
@@ -1490,6 +1489,15 @@
 			children = (
 			);
 			name = debuglog;
+			sourceTree = "<group>";
+		};
+		95CE585010A5AAAA00D00524 /* nmmakebg */ = {
+			isa = PBXGroup;
+			children = (
+				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
+				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
+			);
+			name = nmmakebg;
 			sourceTree = "<group>";
 		};
 		95D7652D10231D99009703AA /* external */ = {

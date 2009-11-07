@@ -11,44 +11,56 @@
 
 
 @implementation NMTrainBGModelOperation
-@synthesize inputSequencePath, outputBackgroundModelFilePath;
-@synthesize classes,order;
+@synthesize inputSequencePath = _inputSequencePath;
+@synthesize outputBackgroundModelFilePath = _outputBackgroundModelFilePath;
+@synthesize classes=_classes;
+@synthesize order=_order;
+@synthesize statusDialogController = _statusDialogController;
 
 - (id) init
 {
     self = [super init];
     if (self != nil) {
-        classes = 4;
-        order = 1;
+        self.classes = 4;
+        self.order = 1;
     }
     return self;
 }
 
 -(void) dealloc {
-    [inputSequencePath release];
-    [outputBackgroundModelFilePath release];
+    [_inputSequencePath release], _inputSequencePath = nil;
+    [_outputBackgroundModelFilePath release], _outputBackgroundModelFilePath = nil;
     [super dealloc];
 }
 
+#pragma mark -
+#pragma mark IMTaskOperation
+
 -(void) initializeArguments:(NSMutableDictionary*)args {
-    [args setObject:inputSequencePath forKey:@"-seqs"];
-    [args setObject:outputBackgroundModelFilePath forKey:@"-out"];
-    [args setObject:[NSString stringWithFormat:@"%d",classes] forKey:@"-classes"];
-    [args setObject:[NSString stringWithFormat:@"%d",order] forKey:@"-order"];
+    [args setObject:self.inputSequencePath forKey:@"-seqs"];
+    [args setObject:self.outputBackgroundModelFilePath forKey:@"-out"];
+    [args setObject:[NSString stringWithFormat:@"%d",self.classes] forKey:@"-classes"];
+    [args setObject:[NSString stringWithFormat:@"%d",self.order] forKey:@"-order"];
 }
 
 -(void) initializeTask:(NSTask*) t {
     t = [[NSTask alloc] init];
     
     NSPipe *stdOutPipe = [NSPipe pipe];
-    //NSPipe *stdErrPipe = [NSPipe pipe];
-    readHandle = [[stdOutPipe fileHandleForReading] retain];
-    //errorReadHandle = [[stdErrPipe fileHandleForReading] retain];
-    
+    _readHandle = [[stdOutPipe fileHandleForReading] retain];
     [t setStandardOutput: stdOutPipe];
-    //[task setStandardError: stdErrPipe];
-    //[self setLaunchPath:launchPath];
 }
 
+-(void) run {
+    [self.statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
+                                              withObject: self 
+                                           waitUntilDone: NO];
+}
+
+#pragma mark -
+#pragma mark IMOutputFileProducingOperation
+-(NSString*) outFilename {
+    return [self outputBackgroundModelFilePath];
+}
 
 @end

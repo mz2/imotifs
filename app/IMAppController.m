@@ -8,7 +8,7 @@
 #import "stdlib.h"
 
 #import <ApplicationServices/ApplicationServices.h>
-#import <AppController.h>
+#import <IMAppController.h>
 #import "MotifViewCell.h"
 #import "NMOperation.h"
 #import "NMOperationStatusDialogController.h"
@@ -20,7 +20,7 @@
 #import "IMRetrievePeakSequencesController.h"
 #import "MotifSetDocument.h"
 
-@implementation AppController
+@implementation IMAppController
 @synthesize preferenceController;
 @synthesize sharedOperationQueue;
 

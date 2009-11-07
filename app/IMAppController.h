@@ -57,7 +57,7 @@
 
 extern NSString *IMConsensusSearchCutoff;
 
-@interface AppController : NSObject {
+@interface IMAppController : NSObject {
     IMPrefsWindowController *preferenceController;
     NSOperationQueue *sharedOperationQueue;
     
