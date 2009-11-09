@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="455"/>
+			<integer value="534"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -559,7 +559,7 @@
 								</object>
 								<object class="NSMenuItem" id="895879691">
 									<reference key="NSMenu" ref="294598153"/>
-									<string key="NSTitle">Estimate mosaic background model from sequences...</string>
+									<string key="NSTitle">Estimate background model from sequences...</string>
 									<string key="NSKeyEquiv">B</string>
 									<int key="NSKeyEquivModMask">1048576</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -2501,7 +2501,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{493, 137}, {463, 263}}</string>
+					<string>{{493, 137}, {441, 263}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{339, 803}, {152, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2698,14 +2698,18 @@
 							<string>goAwayFromFullScreenMode:</string>
 							<string>openPreferencesWindow:</string>
 							<string>overrepresentationScore:</string>
+							<string>retrievePeakSequences:</string>
 							<string>retrieveSequences:</string>
 							<string>runNMICA:</string>
 							<string>scoreCutoff:</string>
 							<string>showHelp:</string>
 							<string>toggleFullScreenMode:</string>
+							<string>trainBackground:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
