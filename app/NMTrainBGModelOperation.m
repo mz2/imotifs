@@ -8,7 +8,8 @@
 
 #import "IMTaskOperation.h"
 #import "NMTrainBGModelOperation.h"
-
+#import "IMRetrieveSequencesStatusDialogController.h"
+#import "NMOperation.h"
 
 @implementation NMTrainBGModelOperation
 @synthesize inputSequencePath = _inputSequencePath;
@@ -19,7 +20,16 @@
 
 - (id) init
 {
-    self = [super init];
+    NSString *lp = 
+    [[[[NMOperation nmicaPath] 
+       stringByAppendingPathComponent:@"bin/nmmakebg"] 
+      stringByExpandingTildeInPath] retain];
+    
+    self = [super initWithLaunchPath: lp];
+    
+    [NMOperation setupNMICAEnvVars];
+
+    
     if (self != nil) {
         self.classes = 4;
         self.order = 1;
@@ -43,16 +53,46 @@
     [args setObject:[NSString stringWithFormat:@"%d",self.order] forKey:@"-order"];
 }
 
--(void) initializeTask:(NSTask*) t {
-    t = [[NSTask alloc] init];
+-(void) initializeTask:(NSTask*) t {    
     
     NSPipe *stdOutPipe = [NSPipe pipe];
     _readHandle = [[stdOutPipe fileHandleForReading] retain];
+    
     [t setStandardOutput: stdOutPipe];
 }
 
 -(void) run {
-    [self.statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
+    [_statusDialogController.spinner performSelectorOnMainThread: @selector(startAnimation:) 
+                                              withObject: self 
+                                           waitUntilDone: NO];
+    NSData *inData = nil;
+    //NSData *errData = nil;
+    NSMutableString *buf = [[NSMutableString alloc] init];
+    PCLog(@"Running (%@)", _statusDialogController);
+    while ((inData = [_readHandle availableData]) && inData.length) {
+        NSString *str = [[NSString alloc] initWithData: inData 
+                                              encoding: NSUTF8StringEncoding];
+        [buf appendString:str];
+        [str release];
+        
+        NSArray *lines = [buf componentsSeparatedByString: @"\n"];
+        if ([lines count] == 1) {
+            //either line is not finished or exactly one line was returned
+            //either way, we'll wait until some more can be read
+            PCLog(@"Line count : %@", lines);
+        } else {
+            //init new buffer with the last remnants
+            NSMutableString *newBuf = [[NSMutableString alloc] 
+                                       initWithString:[lines objectAtIndex: lines.count - 1]];
+            PCLog(@"Buffer: %@", buf);
+            [buf release];
+            buf = newBuf;
+        }
+        
+    }
+    
+    PCLog(@"Done.");
+    [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];
 }

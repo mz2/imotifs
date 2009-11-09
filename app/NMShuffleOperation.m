@@ -74,7 +74,7 @@
           if (outputFile == nil) {
               _temporaryOutputFile = YES;
           }
-          [self setBootstraps: 10];
+          [self setBootstraps: 100];
           [self setThreshold: 0.10];
           
           self = [super initWithLaunchPath: lp];
