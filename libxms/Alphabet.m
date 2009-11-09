@@ -24,7 +24,7 @@
 -(id) initWithSymbols:(Symbol*)sym, ... {
     [super init];
 	symbols = [[NSMutableArray alloc] init];
-	//DebugLog(@"Initialising alphabet with symbols");
+	//PCLog(@"Initialising alphabet with symbols");
 	id eachObject;
 	va_list argumentList;
 	if (sym) {
@@ -32,7 +32,7 @@
 		va_start(argumentList, sym);
 		while (eachObject = va_arg(argumentList, Symbol*)) {
 			[symbols addObject: eachObject];
-			//DebugLog(@"Adding symbol...");
+			//PCLog(@"Adding symbol...");
 		}
 		va_end(argumentList);
 	}
@@ -41,7 +41,7 @@
 }
 
 - (id) initWithCoder:(NSCoder*) coder {
-    DebugLog(@"Alphabet: initWithCoder");
+    PCLog(@"Alphabet: initWithCoder");
     NSString *n = [coder decodeObjectForKey:@"name"];
     Alphabet *alpha = [Alphabet withName:n];
     
@@ -54,7 +54,7 @@
 }
 
 - (void) encodeWithCoder:(NSCoder*) coder {
-    DebugLog(@"Alphabet: encodeWithCoder");
+    PCLog(@"Alphabet: encodeWithCoder");
     [coder encodeObject:name forKey:@"name"];
 }
 

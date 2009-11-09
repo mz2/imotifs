@@ -96,7 +96,7 @@
     NSArray *propNodes = [elem elementsForName:@"prop"];
     
     if ([propNodes count] > 0) {
-        //DebugLog(@"Parsing %d properties for %@",[propNodes count],annotable);
+        //PCLog(@"Parsing %d properties for %@",[propNodes count],annotable);
         [self setAnnotationsForAnnotable:annotable 
                            fromPropNodes:propNodes];
     }
@@ -126,7 +126,7 @@
     if (docError != nil) {
         [xmlDoc release];
         xmlDoc = nil;
-        DebugLog(@"Error parsing an XMS file from input data");
+        PCLog(@"Error parsing an XMS file from input data");
         @throw [NSException exceptionWithName: @"XMSParsingException" 
                                        reason: [docError description] 
                                      userInfo: nil];
@@ -148,7 +148,7 @@
     if (docError != nil) {
         [xmlDoc release];
         xmlDoc = nil;
-        DebugLog(@"Error parsing an XMS file from input data");
+        PCLog(@"Error parsing an XMS file from input data");
         @throw [NSException exceptionWithName: @"XMSParsingException" 
                                        reason: [docError description] 
                                      userInfo: nil];
@@ -173,7 +173,7 @@
                                              error:&motifSetNodeError];
     
     if (motifSetNodeError != nil) {
-        DebugLog(@"ERROR: %@",motifSetNodeError);
+        PCLog(@"ERROR: %@",motifSetNodeError);
         [motifSet release];
         motifSet = nil;
         @throw [NSException exceptionWithName:@"XMSParsingException" 
@@ -195,7 +195,7 @@
     NSArray *motifNodes = [xmlDoc nodesForXPath:@"/motifset/motif" 
                                           error:&motifNodeError];
     if (motifNodeError != nil) {
-        DebugLog(@"ERROR: %@",motifNodeError);
+        PCLog(@"ERROR: %@",motifNodeError);
         [motifNodes release];
         motifNodes = nil;
         @throw [NSException exceptionWithName:@"XMSParsingException" 
@@ -230,11 +230,11 @@
         [motif setName:mName];
         
         NSString *offset = [[motif annotations] objectForKey:@"offset"];
-        //DebugLog(@"Keys: %@",[[motif annotations] allKeys]);
+        //PCLog(@"Keys: %@",[[motif annotations] allKeys]);
         
         /*
         for (NSString* key in [[motif annotations] allKeys]) {
-            DebugLog(@"%@ = %@", key, [[motif annotations] objectForKey:key]);
+            PCLog(@"%@ = %@", key, [[motif annotations] objectForKey:key]);
         }*/
         NSString *color = [[[motif annotations] allKeys] containsObject: @"color"] ? 
                                                                           [[motif annotations] objectForKey:@"color"] : nil;
@@ -244,11 +244,11 @@
             NSColor *col = [NSColor colorFromHexadecimalValue:color];
             [motif setColor:col];
         } else {
-            //DebugLog(@"Color was nil");
+            //PCLog(@"Color was nil");
         }
         //if there are any precision values there, you should treat this motif as a metamotif
         if ([[motif annotations] objectForKey:@"alphasum;column:0"]) {
-            DebugLog(@"Found precision parameter");
+            PCLog(@"Found precision parameter");
             NSUInteger col,cnt;
             NSMutableArray *dirs = [[NSMutableArray alloc] initWithCapacity:cnt];
             for (col = 0,cnt = [motif columnCount]; col < cnt; col++) {
@@ -259,7 +259,7 @@
                 NSString *precStr = [[motif annotations] objectForKey:[NSString stringWithFormat:@"alphasum;column:%d",col]];
                 double prec = [precStr doubleValue];
                 //NSLog(@"Precision : %.3f", prec);
-                //DebugLog(@"%@",multinom);
+                //PCLog(@"%@",multinom);
                 Dirichlet *dir = [[Dirichlet alloc] initWithAlphabet: [motif alphabet] 
                                                                means: multinom 
                                                            precision: prec];
@@ -277,14 +277,14 @@
             
             Metamotif *metam = [[[Metamotif alloc] initWithAlphabet: [motif alphabet] 
                                                         andColumns: dirs] autorelease];
-            //DebugLog(@"Adding metamotif to set");
+            //PCLog(@"Adding metamotif to set");
             [metam setName: [motif name]];
             [metam setThreshold: [motif threshold]];
             [metam setAnnotations: motif.annotations];
             [motifSet addMotif: metam];
             
         } else {
-            //DebugLog(@"Adding motif to set");
+            //PCLog(@"Adding motif to set");
             [motifSet addMotif:motif];
         }
     }

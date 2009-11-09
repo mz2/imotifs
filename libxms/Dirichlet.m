@@ -62,7 +62,7 @@
     double prec = self.precision;
     
     for (Symbol* sym in [alphabet symbols]) {
-        //DebugLog(@"Setting alphasum to %@ : %.3f, %.3f", sym, [self weightForSymbol:sym],[self weightForSymbol:sym] * newPrec / prec);
+        //PCLog(@"Setting alphasum to %@ : %.3f, %.3f", sym, [self weightForSymbol:sym],[self weightForSymbol:sym] * newPrec / prec);
         [self symbol:sym withWeight: [self weightForSymbol:sym] * newPrec / prec];
     }
 }
@@ -173,7 +173,7 @@
         
         SymbolBounds *sb = [SymbolBounds boundsWithMin:min max:max mean:expval];
         [symBounds addObject: sb]; 
-        //DebugLog(@"Interval for %@: %.3f %.3f (mean %.3f)",sym, min, max, expval);
+        //PCLog(@"Interval for %@: %.3f %.3f (mean %.3f)",sym, min, max, expval);
         i++;
     }
     
