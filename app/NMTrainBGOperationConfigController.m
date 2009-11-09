@@ -53,8 +53,8 @@
     NSString *dirSugg = nil;
     if (self.operation.outputBackgroundModelFilePath == nil) {
         fileSugg = [[[self.operation inputSequencePath] lastPathComponent] 
-                    stringByReplacingOccurrencesOfString: @".fasta" 
-                    withString:@".xms"];
+                    stringByReplacingOccurrencesOfString: [self.operation pathExtension] 
+                    withString:@"xms"];
         dirSugg = [[self.operation inputSequencePath] stringByDeletingLastPathComponent];
     } else {
         fileSugg = [[self.operation outputBackgroundModelFilePath] lastPathComponent];

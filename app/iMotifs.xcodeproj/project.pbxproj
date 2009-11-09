@@ -991,6 +991,8 @@
 				953D81190F2F417700049823 /* NMOperationStatusDialogController.m */,
 				953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */,
 				953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */,
+				953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */,
+				953D84280F2F896800049823 /* NMOperationConfigDialog.xib */,
 			);
 			name = nminfer;
 			sourceTree = "<group>";
@@ -1020,8 +1022,6 @@
 		951FF41B0F3258B700A9175C /* nminfer */ = {
 			isa = PBXGroup;
 			children = (
-				953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */,
-				953D84280F2F896800049823 /* NMOperationConfigDialog.xib */,
 			);
 			name = nminfer;
 			sourceTree = "<group>";

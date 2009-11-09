@@ -39,8 +39,8 @@
     NSString *dirSugg = nil;
     if (nminferOperation.outputMotifSetPath == nil) {
         fileSugg = [[[self.nminferOperation sequenceFilePath] lastPathComponent] 
-                    stringByReplacingOccurrencesOfString:@".fasta" 
-                    withString:@".xms"];
+                    stringByReplacingOccurrencesOfString:[[self.nminferOperation sequenceFilePath] pathExtension] 
+                    withString:@"xms"];
         dirSugg = [[self.nminferOperation sequenceFilePath] stringByDeletingLastPathComponent];
     } else {
         fileSugg = [[self.nminferOperation outputMotifSetPath] lastPathComponent];
@@ -100,13 +100,6 @@
     
     [self close];
     
-}
-
--(IBAction) copyToClipboard:(id) sender {
-    NSPasteboard *pb = [NSPasteboard generalPasteboard];
-    NSArray *types = [NSArray arrayWithObjects:NSStringPboardType, nil];
-    [pb declareTypes:types owner:self];
-    [pb setString: [self.nminferOperation argumentsString] forType:NSStringPboardType];
 }
 
 @end

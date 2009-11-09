@@ -24,6 +24,10 @@
 @synthesize sequenceFilePath, outputMotifSetPath;
 @synthesize backgroundModelPath,backgroundClasses,backgroundOrder;
 
+@synthesize backgroundModelFromFile = backgroundModelFromFile;
+@synthesize backgroundModelFromInputSequences = backgroundModelFromInputSequences;
+
+
 +(NSString*) nmicaPath {
     NSString *nmicaPath;
     
@@ -59,6 +63,15 @@
     PCLog(@"NMICA_EXTRA_HOME=%@",[self nmicaExtraPath]);
 }
 
++ (void) initialize 
+{
+    [[self class] setKeys:
+     [NSArray arrayWithObjects: @"backgroundModelFromFile", @"backgroundModelFromInputSequences", @"backgroundModelPath", nil]
+triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExist"];
+    
+    
+}
+
 - (id) init
 {
     NSString *lp = 
@@ -68,6 +81,8 @@
     
     self = [super initWithLaunchPath: lp];
     if (self == nil) return nil;
+    
+    self.backgroundModelFromFile = YES;
     
     logInterval = 100;
     maxCycles = 100000;
@@ -79,6 +94,7 @@
     reverseComplement = YES;
     backgroundClasses = 4;
     backgroundOrder = 1;
+    
     
     return self;
 }
@@ -94,7 +110,7 @@
     [args setObject:[NSString stringWithFormat:@"%f",expectedUsageFraction] forKey:@"-expectedUsageFraction"];
     if (reverseComplement) {[args setObject:[NSNull null] forKey:@"-revComp"];}
     
-    if (backgroundModelPath != nil) {
+    if (self.backgroundModelFromFile) {
         [args setObject:self.backgroundModelPath forKey:@"-backgroundModel"];
     } else {
         [args setObject:[NSString stringWithFormat:@"%d",backgroundOrder] forKey:@"-backgroundOrder"];
@@ -118,10 +134,13 @@
     [self willChangeValueForKey:@"sequenceFilePath"];
     sequenceFilePath = str;
     if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
-        self.outputMotifSetPath = [[sequenceFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:
-             [[sequenceFilePath lastPathComponent] 
-                        stringByReplacingOccurrencesOfString:@".fasta" 
-                                                  withString:@".xms"]]; 
+        NSString *path = [[sequenceFilePath lastPathComponent] 
+                            stringByReplacingOccurrencesOfString:[sequenceFilePath pathExtension] 
+                            withString:@"xms"];
+        
+        self.outputMotifSetPath = 
+            [[sequenceFilePath stringByDeletingLastPathComponent] stringByAppendingPathComponent:
+                path]; 
     }
     [self didChangeValueForKey:@"sequenceFilePath"];
     
@@ -205,6 +224,19 @@
     minMotifLength = i;
 }
 
+-(void) setBackgroundModelFromFile:(BOOL) yesno {
+    backgroundModelFromFile = yesno;
+    if (yesno) {
+        [self setValue:[NSNumber numberWithBool:NO] forKey:@"backgroundModelFromInputSequences"];
+    }
+}
+
+-(void) setBackgroundModelFromInputSequences:(BOOL) yesno {
+    backgroundModelFromInputSequences = yesno;
+    if (yesno) {
+        [self setValue:[NSNumber numberWithBool:NO] forKey:@"backgroundModelFromFile"];
+    }
+}
 
 - (void) dealloc {
     [readHandle release];
@@ -217,5 +249,27 @@
     
     [numFormatter release];
     [super dealloc];
+}
+
+-(BOOL) inputSequencesFileExists {
+    BOOL yesno = [[NSFileManager defaultManager] fileExistsAtPath: self.sequenceFilePath];
+    PCLog(@"Input sequences file exists: %d", yesno);
+    return yesno;
+}
+
+-(BOOL) backgroundModelFileExists {
+    BOOL yesno = [[NSFileManager defaultManager] fileExistsAtPath: self.backgroundModelPath];
+    PCLog(@"Background model file exists: %d", yesno);
+    return yesno;
+}
+
+-(BOOL) backgroundModelParametersOrFileExist {
+    PCLog(@"Determining if background model parameters or file exists");
+    if (self.backgroundModelFromInputSequences) return YES;
+    
+    else if (self.backgroundModelFromFile) {
+        return [self backgroundModelFileExists];
+    }
+    return NO;
 }
 @end
