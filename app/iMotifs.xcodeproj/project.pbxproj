@@ -836,8 +836,8 @@
 			isa = PBXGroup;
 			children = (
 				5FB8976A0E3157F60084D9D8 /* util */,
-				9595B0930FB9B2B700CE2BFF /* test */,
-				5FA66A5F0E142A05009E5AFA /* control */,
+				9595B0930FB9B2B700CE2BFF /* Test Suites */,
+				5FA66A5F0E142A05009E5AFA /* Controllers */,
 				5FFA09B90E1415A400E0F87D /* model */,
 				5FFA09930E1412DF00E0F87D /* ui */,
 			);
@@ -878,7 +878,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5FA66A5F0E142A05009E5AFA /* control */ = {
+		5FA66A5F0E142A05009E5AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				95414FD90F1245CF0083E72A /* Motif Set Document */,
@@ -890,17 +890,16 @@
 				9563E2C2101E065F006F067A /* Pickers */,
 				9563E2C0101E0649006F067A /* Experimental */,
 			);
-			name = control;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		5FB8976A0E3157F60084D9D8 /* util */ = {
 			isa = PBXGroup;
 			children = (
 				5FB898990E31E8450084D9D8 /* matrix */,
-				95BDDD520FC31A9C00EB39C4 /* debuglog */,
-				953D81A70F2F4B5100049823 /* ddcli */,
-				953D7F0F0F2E07D200049823 /* cocoa-extras */,
-				95B2C60D0EED7B95004605A6 /* motifcomparison */,
+				953D81A70F2F4B5100049823 /* DDCLI */,
+				953D7F0F0F2E07D200049823 /* Cocoa Extra Categories */,
+				95B2C60D0EED7B95004605A6 /* Motif Comparison */,
 			);
 			name = util;
 			sourceTree = "<group>";
@@ -911,13 +910,13 @@
 				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
 				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
 				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
-				5FF1CB2F0E333BCC001966B7 /* transpose */,
 				5FB8982C0E316DD30084D9D8 /* IMIntMatrix2D.h */,
 				5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */,
 				5FB897840E315C3D0084D9D8 /* IMDoubleMatrix2D.h */,
 				5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */,
 				5FB898960E31E82A0084D9D8 /* IMObjectMatrix2D.h */,
 				5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */,
+				5FF1CB2F0E333BCC001966B7 /* transpose */,
 			);
 			name = matrix;
 			sourceTree = "<group>";
@@ -999,6 +998,8 @@
 		951FF3DC0F32559000A9175C /* nmmakebg */ = {
 			isa = PBXGroup;
 			children = (
+				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
+				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
 				951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */,
 				951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */,
 				951FF3E70F32562300A9175C /* NMTrainBGOperationConfigController.h */,
@@ -1058,7 +1059,7 @@
 			name = nmrocauc;
 			sourceTree = "<group>";
 		};
-		953D7F0F0F2E07D200049823 /* cocoa-extras */ = {
+		953D7F0F0F2E07D200049823 /* Cocoa Extra Categories */ = {
 			isa = PBXGroup;
 			children = (
 				9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */,
@@ -1070,7 +1071,7 @@
 				95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */,
 				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
 			);
-			name = "cocoa-extras";
+			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
 		};
 		953D80250F2F14BF00049823 /* LibXMS */ = {
@@ -1130,7 +1131,6 @@
 		953D81140F2F410700049823 /* NMICA Integration */ = {
 			isa = PBXGroup;
 			children = (
-				95CE585010A5AAAA00D00524 /* nmmakebg */,
 				9561D84510A04E3A003F37C6 /* nmshuffle */,
 				952B24BB10890FFC0051DACA /* nmrocauc */,
 				952B24BA10890FF60051DACA /* nmcutoff */,
@@ -1152,7 +1152,6 @@
 		953D811C0F2F41AB00049823 /* dialog */ = {
 			isa = PBXGroup;
 			children = (
-				9563E2BB101E0370006F067A /* ensembl */,
 				951FF41B0F3258B700A9175C /* nminfer */,
 				951FF41C0F3258BF00A9175C /* nmmakebg */,
 				95B3502310232EC500F0E0BF /* IMPreferences.xib */,
@@ -1160,13 +1159,13 @@
 			name = dialog;
 			sourceTree = "<group>";
 		};
-		953D81A70F2F4B5100049823 /* ddcli */ = {
+		953D81A70F2F4B5100049823 /* DDCLI */ = {
 			isa = PBXGroup;
 			children = (
 				953D81A40F2F4B4E00049823 /* DDCliUtil.h */,
 				953D81A50F2F4B4E00049823 /* DDCliUtil.m */,
 			);
-			name = ddcli;
+			name = DDCLI;
 			sourceTree = "<group>";
 		};
 		953D82B80F2F64B800049823 /* icons */ = {
@@ -1221,13 +1220,6 @@
 			name = nmshuffle;
 			sourceTree = "<group>";
 		};
-		9563E2BB101E0370006F067A /* ensembl */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = ensembl;
-			sourceTree = "<group>";
-		};
 		9563E2C0101E0649006F067A /* Experimental */ = {
 			isa = PBXGroup;
 			children = (
@@ -1250,14 +1242,14 @@
 			children = (
 				95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */,
 				95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */,
+				5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */,
 				951A72D4109E0CF80085EB87 /* Promoters */,
 				951A7299109E07610085EB87 /* Sequencing Peaks */,
-				5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */,
 			);
 			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";
 		};
-		9595B0930FB9B2B700CE2BFF /* test */ = {
+		9595B0930FB9B2B700CE2BFF /* Test Suites */ = {
 			isa = PBXGroup;
 			children = (
 				9595B0E80FB9B79400CE2BFF /* MetamotifTests.h */,
@@ -1265,7 +1257,7 @@
 				9595B29E0FB9C59F00CE2BFF /* incomplete_beta.h */,
 				9595B29F0FB9C59F00CE2BFF /* incomplete_beta.m */,
 			);
-			name = test;
+			name = "Test Suites";
 			sourceTree = "<group>";
 		};
 		95AA5B9510872DF60000A8BD /* nmica */ = {
@@ -1411,7 +1403,7 @@
 			name = Actions;
 			sourceTree = "<group>";
 		};
-		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
+		95B2C60D0EED7B95004605A6 /* Motif Comparison */ = {
 			isa = PBXGroup;
 			children = (
 				954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */,
@@ -1427,7 +1419,7 @@
 				95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */,
 				95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */,
 			);
-			name = motifcomparison;
+			name = "Motif Comparison";
 			sourceTree = "<group>";
 		};
 		95B2C6740EED8EE3004605A6 /* Motif Set Picker */ = {
@@ -1481,22 +1473,6 @@
 				95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */,
 			);
 			name = preferences;
-			sourceTree = "<group>";
-		};
-		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = debuglog;
-			sourceTree = "<group>";
-		};
-		95CE585010A5AAAA00D00524 /* nmmakebg */ = {
-			isa = PBXGroup;
-			children = (
-				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
-				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
-			);
-			name = nmmakebg;
 			sourceTree = "<group>";
 		};
 		95CE589710A5AECA00D00524 /* NestedMICA */ = {
