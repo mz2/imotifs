@@ -47,7 +47,7 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
 }
 
 -(void) run {
-    DebugLog(@"Running BestHitsOperation");
+    PCLog(@"Running BestHitsOperation");
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     NSArray *bestHitPairs;

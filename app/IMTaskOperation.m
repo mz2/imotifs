@@ -92,7 +92,7 @@
         isFinished = YES;
         [self didChangeValueForKey:@"isFinished"];
         
-        DebugLog(@"IMTaskOperation done.");
+        PCLog(@"IMTaskOperation done.");
     }
     
     [pool drain];
@@ -100,7 +100,7 @@
 }
 
 - (void)handleTaskExitedNotification:(NSNotification*)aNotification {
-    DebugLog(@"IMTaskOperation: terminating...");
+    PCLog(@"IMTaskOperation: terminating...");
     [self willChangeValueForKey:@"isFinished"];
     [self willChangeValueForKey:@"isExecuting"];
     
@@ -113,7 +113,7 @@
                                                   object: task];
     //[task release]; //handled by dealloc
     
-    DebugLog(@"Task exit notification received successfully.\n");
+    PCLog(@"Task exit notification received successfully.\n");
     
     [self didChangeValueForKey:@"isExecuting"];
     [self didChangeValueForKey:@"isFinished"];
@@ -128,7 +128,7 @@
         [args addObject: key];
         if (value != [NSNull null]) {
             if ([value isKindOfClass:[NSArray class]]) {
-                DebugLog(@"Value: %@ Class:%@",value, [value class]);
+                PCLog(@"Value: %@ Class:%@",value, [value class]);
                 for (id v in (NSArray*)value) {
                     if (![v isKindOfClass: [NSString class]]) {
                         [args addObject:[v stringValue]];                    

@@ -45,7 +45,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 
 - (void) awakeFromNib {
     [super awakeFromNib];
-    DebugLog(@"MotifViewCell: awakening from Nib");
+    PCLog(@"MotifViewCell: awakening from Nib");
 }
 
 /* the designated initializer for cells that contain images */
@@ -68,7 +68,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 
 /* the designated initializer for cells that contain text */
 - (id) initTextCell:(NSString*) str {
-    DebugLog(@"MotifViewCell: initialising motif view text cell");
+    PCLog(@"MotifViewCell: initialising motif view text cell");
     self = [super initTextCell:str];
     if (self != nil) {
         [self setDrawingStyle:IMInfoScaledLogo];
@@ -77,7 +77,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
-    DebugLog(@"MotifViewCell: initWithCoder");
+    PCLog(@"MotifViewCell: initWithCoder");
     self = [super initWithCoder:coder];
     drawingStyle = [coder decodeIntegerForKey: @"drawingStyle"];
     columnDisplayOffset = [coder decodeIntegerForKey: @"columnDisplayOffset"];
@@ -92,7 +92,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
-    DebugLog(@"MotifViewCell: encodeWithCoder");
+    PCLog(@"MotifViewCell: encodeWithCoder");
     [super encodeWithCoder:coder];
     [coder encodeInteger: [self drawingStyle] 
                   forKey: @"drawingStyle"];
@@ -115,7 +115,7 @@ NSString *IMLogoFontName = @"Arial Bold";
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    //DebugLog(@"MotifViewCell: copying %@",self);
+    //PCLog(@"MotifViewCell: copying %@",self);
     MotifViewCell *cellCopy = NSCopyObject(self, 0, zone);
     [[self objectValue] retain];
     [cellCopy setObjectValue: self.objectValue];
@@ -291,7 +291,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
       minConfidenceInterval: (CGFloat) minInterval
       maxConfidenceInterval: (CGFloat) maxInterval
       precisionDrawingStyle: (IMMotifColumnPrecisionDrawingStyle) precStyle {
-    //DebugLog(@"MotifViewCell: drawing logo for objectValue=%@ (objectValue=%@)",[self objectValue], [self objectValue]);
+    //PCLog(@"MotifViewCell: drawing logo for objectValue=%@ (objectValue=%@)",[self objectValue], [self objectValue]);
     int colCount = [motif columnCount];
     int i;
     NSPoint point;
@@ -299,7 +299,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
     point.y = 0;
     
     //BOOL isMetaMotif = [motif isKindOfClass:[Metamotif class]];
-    //DebugLog(@"Drawing logo for %@ (%@)", motif, motif.className);
+    //PCLog(@"Drawing logo for %@ (%@)", motif, motif.className);
     
     NSGraphicsContext *context = [NSGraphicsContext currentContext];
     NSMutableAttributedString *aLetter = [[NSMutableAttributedString alloc] 
@@ -585,7 +585,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
 }
 
 - (NSRect) measureString:(NSString*)str inRect:(NSRect)rect {
-    //DebugLog(@"MotifViewCell: measuring string %@ (%@)",str, [str className]);
+    //PCLog(@"MotifViewCell: measuring string %@ (%@)",str, [str className]);
     NSMutableAttributedString *atstr = 
     [[NSMutableAttributedString alloc] initWithString:str];
     NSRect r = [atstr boundingRectWithSize:rect.size
@@ -681,14 +681,14 @@ scaleByInformationContent: (BOOL)scaleByInfo
 
 - (double) letterXTransformation:(NSString*) str
                           inRect:(NSRect)rect{
-    //DebugLog(@"MotifViewCell: letter X transformation for %@", str);
+    //PCLog(@"MotifViewCell: letter X transformation for %@", str);
     NSRect meas = [self measureString:str inRect:rect];
     return (rect.size.height / meas.size.height) * (double)meas.size.width;
 }
 
 - (double) letterYTransformation:(NSString*)str 
                           inRect:(NSRect)rect {
-    //DebugLog(@"MotifViewCell: letter Y transformation for %@", str);
+    //PCLog(@"MotifViewCell: letter Y transformation for %@", str);
     NSRect meas = [self measureString:str inRect:rect];
     return (rect.size.height / meas.size.height);
 }
@@ -697,7 +697,7 @@ scaleByInformationContent: (BOOL)scaleByInfo
                   rect:(NSRect) rect
            controlView:(NSView*) view {
     NSString* consensus = [[self objectValue] consensusString];
-    //DebugLog(@"MotifViewCell: drawing consensus \"%@\"", consensus);
+    //PCLog(@"MotifViewCell: drawing consensus \"%@\"", consensus);
     
     NSMutableAttributedString *s;
     s = [[NSMutableAttributedString alloc]
@@ -818,30 +818,30 @@ scaleByInformationContent: (BOOL)scaleByInfo
 
 /*
 - (BOOL) acceptsFirstResponder {
-    DebugLog(@"MotifViewCell: accepting first responder");
+    PCLog(@"MotifViewCell: accepting first responder");
     return YES;
 }
 
 - (BOOL) resignFirstResponder {
-    DebugLog(@"MotifViewCell: resigning first responder");
+    PCLog(@"MotifViewCell: resigning first responder");
     return YES;
 }
 
 - (BOOL) becomeFirfgfstResponder {
-    DebugLog(@"MotifViewCell: becoming first responder");
+    PCLog(@"MotifViewCell: becoming first responder");
     return YES;
 }*/
 
 /*
 - (BOOL)startTrackingAt:(NSPoint)startPoint 
                  inView:(NSView *)controlView {
-    DebugLog(@"MotifViewCell: start tracking at (%g,%g)",startPoint.x,startPoint.y);
+    PCLog(@"MotifViewCell: start tracking at (%g,%g)",startPoint.x,startPoint.y);
     return YES;
 }
 
 - (BOOL)continueTrackingAt:(NSPoint)point 
                     inView:(NSView *)controlView {
-    DebugLog(@"MotifViewCell: continue tracking at (%g,%g)", point.x,point.y);
+    PCLog(@"MotifViewCell: continue tracking at (%g,%g)", point.x,point.y);
     return YES;
 }
 
@@ -849,15 +849,15 @@ scaleByInformationContent: (BOOL)scaleByInfo
                   at:(NSPoint)stopPoint 
               inView:(NSView *)controlView 
            mouseIsUp:(BOOL)mouseWentUp {
-    DebugLog(@"MotifViewCell: stop tracking at point (%g,%g),stop point=(%g,%g), mouseIsUp=%d",
+    PCLog(@"MotifViewCell: stop tracking at point (%g,%g),stop point=(%g,%g), mouseIsUp=%d",
           lastPoint.x,lastPoint.y,
           stopPoint.x,stopPoint.y,
           mouseWentUp);
     if (mouseWentUp) {
-        DebugLog(@"MotifViewCell: stopped tracking because of mouse button going up.");
+        PCLog(@"MotifViewCell: stopped tracking because of mouse button going up.");
     } else {
         
-        DebugLog(@"MotifViewCell: stopped tracking because of mouse going outside the cell.");
+        PCLog(@"MotifViewCell: stopped tracking because of mouse going outside the cell.");
     }
     return;
 }*/

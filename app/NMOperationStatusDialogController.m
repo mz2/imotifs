@@ -17,7 +17,7 @@
 //@synthesize outputMotifSetPath;
 
 -(void) awakeFromNib {
-    DebugLog(@"Awakening from NIB");
+    PCLog(@"Awakening from NIB");
     [spinner startAnimation: self];
 }
 -(void) dealloc {
@@ -41,7 +41,7 @@
 }
 
 -(void) setStatus:(NSString*)str {
-    //DebugLog(@"Replacing window %@ title %@ with %@", self.window, self.window.title, str);
+    //PCLog(@"Replacing window %@ title %@ with %@", self.window, self.window.title, str);
     [self.window setTitle:str];
 }
 
@@ -66,7 +66,7 @@
 }
 -(IBAction) showResults:(id) sender {
     [self close];
-    DebugLog(@"Getting motifs from %@", [operation outputMotifSetPath]);
+    PCLog(@"Getting motifs from %@", [operation outputMotifSetPath]);
     MotifSetDocument *doc = [[MotifSetDocument alloc] 
                              initWithContentsOfFile:
                              [NSURL fileURLWithPath: operation.outputMotifSetPath] 

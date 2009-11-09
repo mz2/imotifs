@@ -416,7 +416,7 @@
 }
 
 -(IBAction) cancel:(id) sender {
-    DebugLog(@"Cancelling sequence retrieval");
+    PCLog(@"Cancelling sequence retrieval");
     [self close];
     [self release];
 }

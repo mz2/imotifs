@@ -40,7 +40,7 @@
 }
 
 -(IBAction) showResults:(id) sender {
-    DebugLog(@"Showing results");
+    PCLog(@"Showing results");
     [[NSWorkspace sharedWorkspace] selectFile:[self.operation outFilename] 
                      inFileViewerRootedAtPath: nil];}
 

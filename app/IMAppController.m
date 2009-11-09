@@ -11,9 +11,10 @@
 #import <IMAppController.h>
 #import "MotifViewCell.h"
 #import "NMOperation.h"
-#import "NMOperationStatusDialogController.h"
 #import "MotifSetDocumentController.h"
 #import "NMOperationConfigDialogController.h"
+#import "NMTrainBGOperationConfigController.h"
+#import "NMOperationStatusDialogController.h"
 #import "NMCutoffController.h"
 #import "NMROCAUCController.h"
 #import "IMRetrieveSequencesDialogController.h"
@@ -29,7 +30,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 - (id) init {
     self = [super init];
     if (self != nil) {
-        DebugLog(@"AppController: initialising");
+        PCLog(@"AppController: initialising");
         sharedOperationQueue = [[NSOperationQueue alloc] init];
         [sharedOperationQueue setMaxConcurrentOperationCount:2];
         consensusSearchCutoff = FP_INFINITE;
@@ -77,7 +78,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
     
 -(void) setConsensusSearchCutoff:(double) d {
-    DebugLog(@"Setting consensus search cutoff: %f",d);
+    PCLog(@"Setting consensus search cutoff: %f",d);
     [[NSUserDefaults standardUserDefaults] 
      setObject:[NSNumber numberWithDouble:d] 
                                    forKey:IMConsensusSearchCutoff];
@@ -90,12 +91,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
                                   objectForKey:IMConsensusSearchCutoff] doubleValue];
     }
     
-    //DebugLog(@"Retrieving consensus search cutoff: %f",consensusSearchCutoff);
+    //PCLog(@"Retrieving consensus search cutoff: %f",consensusSearchCutoff);
     return consensusSearchCutoff;
 }
 
 - (BOOL) applicationShouldOpenUntitledFile: (NSApplication *)sender {
-    //DebugLog(@"AppController: application should NOT open untitled file.");
+    //PCLog(@"AppController: application should NOT open untitled file.");
     return [[NSUserDefaults standardUserDefaults] boolForKey:IMOpenUntitledDoc]; 
 }
 
@@ -103,19 +104,19 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 -(void) dealloc {
     [sharedOperationQueue release];
     [preferenceController release];
-    //DebugLog(@"AppController: deallocating");
+    //PCLog(@"AppController: deallocating");
     [super dealloc];
 }
 
 - (void) awakeFromNib {
-    DebugLog(@"AppController: awakening from Nib");
+    PCLog(@"AppController: awakening from Nib");
 }
 
 - (IBAction) showPreferencePanel:(id)sender {
     if (!preferenceController) {
         preferenceController = [[IMPrefsWindowController alloc] init];
     }
-    DebugLog(@"AppController: showing %@", preferenceController);
+    PCLog(@"AppController: showing %@", preferenceController);
     [preferenceController showWindow:self];
 }
 - (IBAction)openPreferencesWindow:(id)sender {
@@ -137,7 +138,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     displayID = [[[mainWindowBeforeGoingFullScreen.screen deviceDescription] objectForKey:@"NSScreenNumber"] intValue];
     
     if (CGDisplayCapture(displayID) != kCGErrorSuccess) {
-        DebugLog(@"WARNING!  could not capture the display!");
+        PCLog(@"WARNING!  could not capture the display!");
         // Note: you'll probably want to display a proper error dialog here
     }
     // Get the shielding window level
@@ -157,7 +158,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //[fullScreenMainWindow setBackgroundColor:[NSColor blackColor]];
     [fullScreenMainWindow makeKeyAndOrderFront:nil];
     
-    //DebugLog(@"Showing content view for : %@ : %@ : %@", 
+    //PCLog(@"Showing content view for : %@ : %@ : %@", 
     //      mainWindowBeforeGoingFullScreen, 
     //      mainWindowBeforeGoingFullScreen.contentView,
     //     fullScreenMainWindow);
@@ -170,7 +171,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     
     // Release the display(s)
     if (CGDisplayRelease(displayID) != kCGErrorSuccess) {
-        DebugLog( @"Couldn't release the display(s)!" );
+        PCLog( @"Couldn't release the display(s)!" );
     }
     [mainWindowBeforeGoingFullScreen 
      setFrame: mainWindowBeforeGoingFullScreenRect display: YES];
@@ -189,7 +190,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //                                                                 ofType: @"Motif set"];
     
     //if (error) {
-    //    DebugLog(@"Error encountered: %@", [error localizedDescription]);
+    //    PCLog(@"Error encountered: %@", [error localizedDescription]);
     //}
     
     //ddfprintf(stderr,@"Running NMICA\n");
@@ -230,6 +231,14 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [controller showWindow: self];    
 }
 
+- (IBAction) trainBackground:(id) sender {
+    NSLog(@"Train background");
+    NMROCAUCController *controller = 
+        [[NMTrainBGOperationConfigController alloc] initWithWindowNibName:
+         @"NMTrainBGOperationConfigController"];
+    [controller showWindow: self];
+}
+
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     //MotifSetDocumentController *msetDocController = [[MotifSetDocumentController alloc] init];
     //this object is set as the shared document controller because it's the first to be loaded, so it can be released.
@@ -237,7 +246,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
 
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
-    //DebugLog(@"Application should OPEN FILE: %@", filename);
+    //PCLog(@"Application should OPEN FILE: %@", filename);
     if ([filename hasSuffix:@".fasta"] || [filename hasSuffix:@".fa"] || [filename hasSuffix:@".seq"]) {
         NMOperationConfigDialogController 
         *configDialogController = 

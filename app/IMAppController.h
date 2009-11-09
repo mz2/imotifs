@@ -68,6 +68,8 @@ extern NSString *IMConsensusSearchCutoff;
     NSView *mainWindowBeforeGoingFullScreenView;
     NSRect mainWindowBeforeGoingFullScreenRect;
     CGDirectDisplayID displayID;
+    
+    
 }
 
 @property (readonly) IMPrefsWindowController *preferenceController;
@@ -82,10 +84,17 @@ extern NSString *IMConsensusSearchCutoff;
 - (IBAction) openPreferencesWindow:(id)sender;
 - (IBAction) toggleFullScreenMode:(id) sender;
 - (IBAction) goAwayFromFullScreenMode:(id) sender;
+
 - (IBAction) runNMICA:(id) sender;
+- (IBAction) trainBackground:(id) sender;
 - (IBAction) retrieveSequences:(id) sender;
 
 - (IBAction) scoreCutoff:(id) sender;
 - (IBAction) overrepresentationScore:(id) sender;
--(void) showHelp:(id) sender;
+
+-(IBAction) retrievePeakSequences:(id) sender;
+-(IBAction) retrieveSequences:(id) sender;
+-(IBAction) showHelp:(id) sender;
+
+
 @end

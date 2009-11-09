@@ -54,9 +54,9 @@
     setenv("NMICA_HOME", [[self nmicaPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
     setenv("NMICA_EXTRA_HOME", [[self nmicaExtraPath] cStringUsingEncoding:NSUTF8StringEncoding], YES);
     
-    DebugLog(@"NMICA_DEV_HOME=%@",[self nmicaPath]);
-    DebugLog(@"NMICA_HOME=%@",[self nmicaPath]);
-    DebugLog(@"NMICA_EXTRA_HOME=%@",[self nmicaExtraPath]);
+    PCLog(@"NMICA_DEV_HOME=%@",[self nmicaPath]);
+    PCLog(@"NMICA_HOME=%@",[self nmicaPath]);
+    PCLog(@"NMICA_EXTRA_HOME=%@",[self nmicaExtraPath]);
 }
 
 - (id) init
@@ -114,7 +114,7 @@
 }
 
 -(void) setSequenceFilePath:(NSString*) str {
-    DebugLog(@"Setting sequence file path to %@",str);
+    PCLog(@"Setting sequence file path to %@",str);
     [self willChangeValueForKey:@"sequenceFilePath"];
     sequenceFilePath = str;
     if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
@@ -137,7 +137,7 @@
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
-        //DebugLog(@"inData: %@", str);
+        //PCLog(@"inData: %@", str);
         [buf appendString:str];
         [str release];
         
@@ -175,7 +175,7 @@
     }
     NSArray *components = [line componentsSeparatedByString:@"\t"];
     if (components.count != 5) {
-        DebugLog(@"Warning! could not parse output line (unexpected number of components : %d). line:'%@'", components.count,line);
+        PCLog(@"Warning! could not parse output line (unexpected number of components : %d). line:'%@'", components.count,line);
     } else {
         NSNumber *iterationNo = [numFormatter numberFromString:[components objectAtIndex:0]];
         NSNumber *priorMassShifted = [numFormatter numberFromString:[components objectAtIndex:1]];
@@ -194,13 +194,13 @@
                                            withObject: iterationTime waitUntilDone: NO];     
         
         
-    //DebugLog(@"iterationNo: %d priorMass : %f bestLikelihood: %f accumEvidence : %f iterationTime: %f", 
+    //PCLog(@"iterationNo: %d priorMass : %f bestLikelihood: %f accumEvidence : %f iterationTime: %f", 
     //          iterationNo, priorMassShifted, bestLikelihood, accumEvidence, iterationTime);
     }
 }
 
 -(void) setMinMotifLength:(NSUInteger) i {
-    DebugLog(@"Setting minimum motif length to %d", i);
+    PCLog(@"Setting minimum motif length to %d", i);
     [self willChangeValueForKey:@"minMotifLength"];
     minMotifLength = i;
 }
