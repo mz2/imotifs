@@ -1472,6 +1472,14 @@
 					</object>
 					<int key="connectionID">531</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
+						<string key="label">trainBackground:</string>
+						<reference key="source" ref="1014"/>
+						<reference key="destination" ref="895879691"/>
+					</object>
+					<int key="connectionID">536</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -2590,7 +2598,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">535</int>
+			<int key="maxID">536</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2635,9 +2643,11 @@
 							<string>toggleInformationContentShown:</string>
 							<string>toggleLengthShown:</string>
 							<string>toggleScoreThresholdShown:</string>
+							<string>trainBackground:</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>
