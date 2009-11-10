@@ -1,4 +1,8 @@
-h2. 0.2.1 - 
+h2. 0.2.2 - Background training, plus bug fixes
+
+* Added a GUI for the NMICA background training tool: Analysis -> Train NMICA background model...
+
+h2. 0.2.1 - New analysis tools, plus bug fixes
 
 * Bug fixes to sequence retrieal
 * ChIP-seq peak sequence retrieval added
