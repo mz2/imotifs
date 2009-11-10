@@ -1,0 +1,9 @@
+Package: xms
+Type: Package
+Title: A package for parsing XMS files to position weight matrices that can be used with the seqLogo package
+Version: 1.0
+Date: 2008-04-17
+Author: Matias Piipari
+Maintainer: Matias Piipari <mp4@sanger.ac.uk>
+Description: Parses XMS files and outputs an object that includes the weight matrix
+License: GPL v.3 or later
