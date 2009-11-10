@@ -1006,6 +1006,8 @@
 				951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */,
 				951FF3E70F32562300A9175C /* NMTrainBGOperationConfigController.h */,
 				951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */,
+				951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */,
+				951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */,
 			);
 			name = nmmakebg;
 			sourceTree = "<group>";
@@ -1029,8 +1031,6 @@
 		951FF41C0F3258BF00A9175C /* nmmakebg */ = {
 			isa = PBXGroup;
 			children = (
-				951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */,
-				951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */,
 			);
 			name = nmmakebg;
 			sourceTree = "<group>";
@@ -1930,6 +1930,7 @@
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../external\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1965,6 +1966,7 @@
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../external\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
