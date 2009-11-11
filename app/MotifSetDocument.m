@@ -1093,8 +1093,9 @@ provideDataForType:(NSString *)type {
                     //                        to: mset.motifs];
                     BestHitsOperation *bestHitsOperation = [[BestHitsOperation alloc] 
                                                             initWithComparitor: motifComparitor
-                                                            from:self.motifSet.motifs 
-                                                            to:mset.motifs];
+                                                            from: self.motifSet.motifs 
+                                                            to: mset.motifs];
+                    bestHitsOperation.motifSetDocument = self;
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] 
                      addOperation:bestHitsOperation];
                     [bestHitsOperation release];
@@ -1104,8 +1105,8 @@ provideDataForType:(NSString *)type {
                     //                        bestReciprocalHitsFrom:self.motifSet.motifs 
                     //                        to: mset.motifs];
                     NMShuffleOperation *bestRecipHitsOperation = [[NMShuffleOperation alloc] 
-                                                                 initWithMotifs:self.motifSet 
-                                                                        against:mset
+                                                                 initWithMotifs: self.motifSet 
+                                                                        against: mset
                                                                   outputFile:nil];
                     bestRecipHitsOperation.motifSetDocument = self;
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue]

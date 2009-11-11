@@ -18,6 +18,7 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
 
 @implementation BestHitsOperation
 @synthesize m1s,m2s,isReciprocal;
+@synthesize motifSetDocument=_motifSetDocument;
 
 -(id) initWithComparitor: (MotifComparitor*) comp 
                     from: (NSArray*) am1 
@@ -49,7 +50,8 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
 -(void) run {
     PCLog(@"Running BestHitsOperation");
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
+    [self performSelectorOnMainThread:@selector(startProcessing) withObject:nil waitUntilDone:NO];
+
     NSArray *bestHitPairs;
     if (isReciprocal) {
         bestHitPairs = [comparitor bestReciprocalHitsFrom: m1s to: m2s];
@@ -58,6 +60,8 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
         bestHitPairs = [comparitor bestMotifPairsHitsFrom: m1s to: m2s];
     }
         
+    [self performSelectorOnMainThread:@selector(endProcessing) withObject:nil waitUntilDone:NO];
+
     NSError *error;
     MotifSetDocument *msetDocument = [[NSDocumentController sharedDocumentController] 
                                       makeUntitledDocumentOfType:@"Motif set" 
@@ -110,5 +114,16 @@ NSString* const IMClosestMotifMatchNameKey = @"closest-motif-name";
         }
     }
     [pool release];
+}
+
+
+-(void) startProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: NO];
+    [self.motifSetDocument.alignmentProgressIndicator startAnimation: self];
+}
+
+-(void) endProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator stopAnimation: self];
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: YES];
 }
 @end

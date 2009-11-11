@@ -157,6 +157,7 @@
     }
     
     PCLog(@"Done.");
+    [self performSelectorOnMainThread:@selector(endProcessing) withObject:nil waitUntilDone:NO];
     
     if (_temporaryFiles) {
         NSError *errA = nil;
@@ -192,7 +193,6 @@
         }
     }
     
-    [self performSelectorOnMainThread:@selector(endProcessing) withObject:nil waitUntilDone:NO];
     
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
