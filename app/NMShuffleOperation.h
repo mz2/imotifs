@@ -8,6 +8,8 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+#import "MotifSetDocument.h"
+
 @class MotifSet;
 
 @interface NMShuffleOperation : IMTaskOperation {
@@ -23,6 +25,8 @@
     NSData *_inData;
     BOOL _temporaryFiles;
     BOOL _temporaryOutputFile;
+    
+    MotifSetDocument *_motifSetDocument;
 }
 
 -(id) initWithMotifs:(MotifSet*) motifsA 
@@ -39,5 +43,7 @@
 @property(nonatomic,retain)NSString *outputFile;
 @property(nonatomic,assign)NSUInteger bootstraps;
 @property(nonatomic,assign)double threshold;
+
+@property(nonatomic,retain)MotifSetDocument *motifSetDocument;
 
 @end

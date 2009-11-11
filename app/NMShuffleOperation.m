@@ -11,12 +11,19 @@
 #import "MotifSetDocument.h"
 #import "MotifSet.h"
 
+@interface NMShuffleOperation (private)
+-(void) startProcessing;
+-(void) endProcessing;
+@end
+
+
 @implementation NMShuffleOperation
 @synthesize motifsAFile = _motifsAFile;
 @synthesize motifsBFile = _motifsBFile;
 @synthesize outputFile = _outputFile;
 @synthesize bootstraps = _bootstraps;
 @synthesize threshold = _threshold;
+@synthesize motifSetDocument = _motifSetDocument;
 
 -(id) initWithMotifs:(MotifSet*) motifsA 
              against:(MotifSet*) motifsB
@@ -41,7 +48,7 @@
     }
     
     NSError *errB = nil;
-    [[motifsA stringValue] writeToFile:motifsBTempPath 
+    [[motifsB stringValue] writeToFile:motifsBTempPath 
                             atomically:YES 
                               encoding:NSUTF8StringEncoding error:&errB];
     if (errB != nil) {
@@ -122,6 +129,12 @@
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
     PCLog(@"Running NMShuffleOperation");
+    
+    [self performSelectorOnMainThread:@selector(startProcessing) withObject:nil waitUntilDone:NO];
+    
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: NO];
+    [self.motifSetDocument.alignmentProgressIndicator startAnimation: self];
+    
     while ((inData = [_readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -179,12 +192,23 @@
         }
     }
     
+    [self performSelectorOnMainThread:@selector(endProcessing) withObject:nil waitUntilDone:NO];
+    
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];*/
 }
 
+-(void) startProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: NO];
+    [self.motifSetDocument.alignmentProgressIndicator startAnimation: self];
+}
+
+-(void) endProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator stopAnimation: self];
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: YES];
+}
 //=========================================================== 
 // dealloc
 //=========================================================== 

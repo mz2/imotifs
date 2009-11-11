@@ -153,7 +153,7 @@
 -(NSString*) argumentsString {
     [self initializeArguments: arguments];
     return [NSString stringWithFormat:@"%@ %@",
-             [self.launchPath lastPathComponent],
+             self.launchPath,
              [[IMTaskOperation argumentArrayFromDictionary: arguments] componentsJoinedByString: @" "]];
 }
 

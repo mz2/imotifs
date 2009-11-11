@@ -9,6 +9,8 @@
 #import "stdlib.h"
 #import "NMOperation.h"
 #import "IMAppController.h"
+#import <BioCocoa/BCSequenceReader.h>
+#import <BioCocoa/BCSequenceArray.h>
 
 @interface NMOperation (private)
 
@@ -26,6 +28,19 @@
 
 @synthesize backgroundModelFromFile = backgroundModelFromFile;
 @synthesize backgroundModelFromInputSequences = backgroundModelFromInputSequences;
+
++ (void) initialize 
+{
+    [[self class] setKeys:
+     [NSArray arrayWithObjects: @"numMotifs", nil]
+triggerChangeNotificationsForDependentKey: @"motifCountIsAlarminglyLarge"];
+    
+    [[self class] setKeys:
+     [NSArray arrayWithObjects: @"backgroundModelFromFile", @"backgroundModelFromInputSequences", @"backgroundModelPath", nil]
+triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExist"];
+    
+}
+
 
 
 +(NSString*) nmicaPath {
@@ -61,15 +76,6 @@
     PCLog(@"NMICA_DEV_HOME=%@",[self nmicaPath]);
     PCLog(@"NMICA_HOME=%@",[self nmicaPath]);
     PCLog(@"NMICA_EXTRA_HOME=%@",[self nmicaExtraPath]);
-}
-
-+ (void) initialize 
-{
-    [[self class] setKeys:
-     [NSArray arrayWithObjects: @"backgroundModelFromFile", @"backgroundModelFromInputSequences", @"backgroundModelPath", nil]
-triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExist"];
-    
-    
 }
 
 - (id) init
@@ -132,7 +138,10 @@ triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExis
 -(void) setSequenceFilePath:(NSString*) str {
     PCLog(@"Setting sequence file path to %@",str);
     [self willChangeValueForKey:@"sequenceFilePath"];
-    sequenceFilePath = str;
+    NSString *newSeqFilePath = [str copy];
+    [sequenceFilePath release];
+    sequenceFilePath = newSeqFilePath;
+    
     if ((outputMotifSetPath == nil) || (outputMotifSetPath.length == 0)) {
         NSString *path = [[sequenceFilePath lastPathComponent] 
                             stringByReplacingOccurrencesOfString:[sequenceFilePath pathExtension] 
@@ -144,7 +153,54 @@ triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExis
     }
     [self didChangeValueForKey:@"sequenceFilePath"];
     
+    if (self.sequenceFilePath.length > 0 && [[NSFileManager defaultManager] fileExistsAtPath:sequenceFilePath]) {
+        BCSequenceReader *sequenceReader = [[[BCSequenceReader alloc] init] autorelease];
+        BCSequenceArray *sequenceArray = [sequenceReader readFileUsingPath: sequenceFilePath 
+                                                                    format: BCFastaFileFormat];
+        
+        PCLog(@"Sequence count: %d", [sequenceArray count]);
+        if (sequenceArray.count > IMMaxAdvisedSeqCountForNMInfer) {
+            NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+            [alert addButtonWithTitle:@"OK"];
+            [alert setMessageText:[NSString stringWithFormat:@"Large sequence set (%d entries)", sequenceArray.count]];
+            [alert setInformativeText:
+             @"The sequence set you provided is large \
+and consequently the running time required for NestedMICA motif inference can be long. \
+It is adviseable to run the task on the command line as a batch job. \
+You can use the 'Copy to Clipboard' function and pasting to the Terminal app \
+to create a command line batch job easily."];
+            [alert setAlertStyle:NSWarningAlertStyle];
+            
+            [alert beginSheetModalForWindow:[NSApp mainWindow] 
+                              modalDelegate:self 
+                             didEndSelector:@selector(seqCountAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+        }
+    } else if (self.sequenceFilePath.length > 0 && ![[NSFileManager defaultManager] fileExistsAtPath:sequenceFilePath]) {
+        NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+        [alert addButtonWithTitle:@"OK"];
+        [alert setMessageText:[NSString stringWithFormat:@"File doesn't exist"]];
+        [alert setInformativeText:
+        [NSString stringWithFormat:@"File doesn't exist at %@.",self.sequenceFilePath]];
+        [alert setAlertStyle:NSWarningAlertStyle];
+        
+        [alert beginSheetModalForWindow:[NSApp mainWindow] 
+                          modalDelegate:self 
+                         didEndSelector:@selector(seqFileDoesntExistAlertDidEnd:returnCode:contextInfo:) contextInfo:nil];
+    }
 }
+
+- (void)seqCountAlertDidEnd:(NSAlert *)alert 
+                 returnCode:(NSInteger)returnCode
+                contextInfo:(void *)contextInfo {
+    
+}
+
+- (void)seqFileDoesntExistAlertDidEnd:(NSAlert *)alert 
+                 returnCode:(NSInteger)returnCode
+                contextInfo:(void *)contextInfo {
+    
+}
+
 
 -(void) run {
     [dialogController performSelectorOnMainThread: @selector(setStatus:) 
@@ -271,5 +327,9 @@ triggerChangeNotificationsForDependentKey: @"backgroundModelParametersOrFileExis
         return [self backgroundModelFileExists];
     }
     return NO;
+}
+
+-(BOOL) motifCountIsAlarminglyLarge {
+    return self.numMotifs > IMAdviseableNumMotifsForNMInfer;
 }
 @end

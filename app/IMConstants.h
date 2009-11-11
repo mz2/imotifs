@@ -7,3 +7,6 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
+const static NSInteger IMMaxAdvisedSeqCountForNMInfer = 100;
+const static NSInteger IMAdviseableNumMotifsForNMInfer = 10;

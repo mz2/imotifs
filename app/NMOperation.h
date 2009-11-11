@@ -80,4 +80,6 @@
 -(BOOL) backgroundModelFileExists;
 -(BOOL) backgroundModelParametersOrFileExist;
 
+@property(readonly) BOOL motifCountIsAlarminglyLarge;
+
 @end

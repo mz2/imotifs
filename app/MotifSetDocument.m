@@ -1107,6 +1107,7 @@ provideDataForType:(NSString *)type {
                                                                  initWithMotifs:self.motifSet 
                                                                         against:mset
                                                                   outputFile:nil];
+                    bestRecipHitsOperation.motifSetDocument = self;
                     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue]
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
