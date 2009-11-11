@@ -8,8 +8,10 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="100047"/>
 			<integer value="100243"/>
+			<integer value="6"/>
+			<integer value="100135"/>
+			<integer value="100191"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -599,7 +601,7 @@
 						</object>
 						<object class="NSProgressIndicator" id="385284773">
 							<reference key="NSNextResponder" ref="568628114"/>
-							<int key="NSvFlags">1315</int>
+							<int key="NSvFlags">-2147482333</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{302, 1}, {218, 20}}</string>
 							<reference key="NSSuperview" ref="568628114"/>
@@ -827,7 +829,7 @@
 				<string key="NSWindowContentMaxSize">{3.40282e+38, 3.40282e+38}</string>
 				<string key="NSWindowContentMinSize">{437, 200}</string>
 				<object class="NSView" key="NSWindowView" id="890507347">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1077,6 +1079,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 						</object>
 					</object>
 					<string key="NSFrameSize">{437, 224}</string>
+					<reference key="NSSuperview"/>
 					<double key="NSViewAlphaValue">8.943662e-01</double>
 					<object class="NSShadow" key="NSViewShadow">
 						<reference key="NSShadowColor" ref="127072602"/>
@@ -3518,7 +3521,7 @@ ARcABAAAAAEAAAACARwAAwAAAAEAAQAAAVIAAwAAAAEAAQAAAVMAAwAAAAIAAQABAAAAAA</bytes>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{272, 112}, {187, 153}}</string>
+					<string>{{272, 68}, {187, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{103, 601}, {187, 153}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>

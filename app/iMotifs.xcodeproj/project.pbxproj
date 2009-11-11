@@ -294,6 +294,8 @@
 		95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE62109CA9A600FAA974 /* NMROCAUCController.m */; };
 		95C1C2DF109C83FE000E4224 /* NMCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */; };
 		95C1C2E9109C8A7B000E4224 /* NMCutoffController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2E8109C8A7B000E4224 /* NMCutoffController.m */; };
+		95CD86AB10AACF2B005BA446 /* BioCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CD86AA10AACF2B005BA446 /* BioCocoa.framework */; };
+		95CD86E710AACF59005BA446 /* BioCocoa.framework in Copy BioCocoa Framework */ = {isa = PBXBuildFile; fileRef = 95CD86AA10AACF2B005BA446 /* BioCocoa.framework */; };
 		95D764E21023156C009703AA /* Visualisation.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E11023156C009703AA /* Visualisation.png */; };
 		95D764E6102315EF009703AA /* NMICA.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E5102315EF009703AA /* NMICA.png */; };
 		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
@@ -490,6 +492,17 @@
 				9595E5F70FE65BAE00FDD520 /* ActiveRecord.framework in Copy ActiveRecord Framework */,
 			);
 			name = "Copy ActiveRecord Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95CD86EC10AACF6B005BA446 /* Copy BioCocoa Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95CD86E710AACF59005BA446 /* BioCocoa.framework in Copy BioCocoa Framework */,
+			);
+			name = "Copy BioCocoa Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -744,6 +757,7 @@
 		95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCutoffOperation.m; sourceTree = "<group>"; };
 		95C1C2E7109C8A7B000E4224 /* NMCutoffController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCutoffController.h; sourceTree = "<group>"; };
 		95C1C2E8109C8A7B000E4224 /* NMCutoffController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCutoffController.m; sourceTree = "<group>"; };
+		95CD86AA10AACF2B005BA446 /* BioCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BioCocoa.framework; path = ../external/BioCocoa.framework; sourceTree = "<group>"; };
 		95D764E11023156C009703AA /* Visualisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Visualisation.png; sourceTree = "<group>"; };
 		95D764E5102315EF009703AA /* NMICA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NMICA.png; sourceTree = "<group>"; };
 		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
@@ -767,6 +781,7 @@
 				95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */,
 				950CCF220FE26C2200549134 /* BWToolkitFramework.framework in Frameworks */,
 				9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */,
+				95CD86AB10AACF2B005BA446 /* BioCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +804,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95CD86AA10AACF2B005BA446 /* BioCocoa.framework */,
 				9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */,
 				950CCF210FE26C2200549134 /* BWToolkitFramework.framework */,
 				95113F470FD9685F006823C4 /* Sparkle.framework */,
@@ -1568,6 +1584,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iMotifs" */;
 			buildPhases = (
+				95CD86EC10AACF6B005BA446 /* Copy BioCocoa Framework */,
 				95B70FD40FE440F10090E46A /* Copy ActiveRecord Framework */,
 				950CCF5E0FE26C7300549134 /* Copy BWToolkit Framework */,
 				5FC3088C0E18C020006C4679 /* Copy the Sparkle Framework */,
