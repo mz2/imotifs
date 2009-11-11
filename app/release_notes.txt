@@ -1,3 +1,7 @@
+h3. 0.2.3 - Combined generic sequence feature and sequencing peak retrieval to one dialog
+
+* Added GFF as a possible input format to the ChIP-seq peak retrieval tool and renamed it to "Retrieve sequence features from Ensembl"
+
 h2. 0.2.2 - Background training, plus bug fixes
 
 * Added a GUI for the NMICA background training tool: Analysis -> Train NMICA background model...
