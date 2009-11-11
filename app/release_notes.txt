@@ -1,3 +1,8 @@
+h3. 0.2.4 - User suggested to run NMICA as a batch job for large computations, bug fixes to reciprocal matching
+
+* Motif discovery configuration dialog now suggests running the task as a batch job with the assistance of 'Copy to clipboard' and Terminal, when the user has specified  more than 200 sequences and/or more than 10 motifs.
+* Bug fixes to reciprocal matching: progress indication added back, temporary file handling improved.
+
 h3. 0.2.3 - Combined generic sequence feature and sequencing peak retrieval to one dialog
 
 * Added GFF as a possible input format to the ChIP-seq peak retrieval tool and renamed it to "Retrieve sequence features from Ensembl"
