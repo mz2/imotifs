@@ -148,7 +148,7 @@
     if (docError != nil) {
         [xmlDoc release];
         xmlDoc = nil;
-        PCLog(@"Error parsing an XMS file from input data");
+        PCLog(@"Error parsing an XMS file from input data at URL %@", url);
         @throw [NSException exceptionWithName: @"XMSParsingException" 
                                        reason: [docError description] 
                                      userInfo: nil];
