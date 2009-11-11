@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>keys to add</key>
+	<dict>
+		<key>AGR</key>
+		<string>stop</string>
+		<key>ATR</key>
+		<string>methionine</string>
+		<key>ATY</key>
+		<string>isoleucine</string>
+		<key>TGR</key>
+		<string>tryptophane</string>
+	</dict>
+	<key>keys to delete</key>
+	<array>
+		<string>TGA</string>
+		<string>TGG</string>
+		<string>ATH</string>
+		<string>ATG</string>
+		<string>AGR</string>
+	</array>
+</dict>
+</plist>

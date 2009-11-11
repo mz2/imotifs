@@ -1,0 +1,141 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <title>Using Tests</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="bc.css">
+ </head>
+ <body>
+  <h2>Using Tests</h2>
+  
+	<hr>
+	<h3>Note for Tiger users:</h3>
+	<p>The OCUnit testing framework is now included with the DeveloperTools (starting with Xcode 2.1), so there is no more need to install the framework.</p>
+	<hr>
+
+  <h3>Installing the SenTestingKit framework</h3>
+
+  <p>
+  	To be able to compile and run the existing tests written for the BioCocoa project,
+  	you will first need to install the SenTestingKit framework, a.k.a. OCUnit.
+  </p>
+  <p>
+  	Download the latest version from the
+  	<a href="http://sente.epfl.ch/software/ocunit/">Sente web site</a>.
+  	Currently there are two versions of the installer, one to install
+  	in your home directory, one to install at the root level. Because of path issues,
+  	the BioCocoa Xcode project expects the OCUnit framework and the accomanying tools
+  	to be installed at the root level. So be sure to download the right installer.
+	For all tests to work, make sure you download v40 or higher.
+  </p>
+  <p>Files will be installed in these locations, so it is easy to remove if not needed anymore:</p>
+  <ul>
+   <li>/Developer/Examples/</li>
+   <li>/Developer/Tools/</li>
+   <li>/Developer/Source/</li>
+   <li>/Library/Application Support/Apple/Developer Tools/File Templates/</li>
+   <li>/Library/Application Support/Apple/Developer Tools/Project Templates/</li>
+   <li>/Library/Application Support/Apple/Developer Tools/Target Templates/</li>
+   <li>/Library/Frameworks/</li>
+   <li>/usr/local/man/man1/</li>
+  </ul>
+
+  <h3>Adding test classes to an existing Test target</h3>
+  <p>
+  	As of May 2005, there is only one 'Test' target in the BioCocoa project,
+  	the 'Test-BCFoundation' target. Because the BCFoundation is the only framework
+  	to date, there is so far no need to add a new 'Test' target. But read the next section
+  	on how to add a target when that becomes necessary.
+  </p>
+  <p>
+  	On the existing target (s), more tests are always welcome.
+  	To add more tests, you can either add more methods to an existing test class
+  	(a.k.a. 'test case'), or create a new class. The difference is quite subjective.
+  	A test class is supposed to group together methods that all deal with one of the
+  	BioCocoa class to be tested, or to deal with one aspect of it. For instance, the
+  	test class 'TestBCSequenceDNAInit' tests the initializers of the class BCSequenceDNA,
+  	using various parameters for the 'initWithString:' methods. Alternatively,
+  	and according to the 'test units' terminology,
+  	a class can be  a 'test case', a test of a real life example. For the BioCocoa
+  	framework, a 'test case' could be a sequence file loaded from disk,
+  	and a series of tests would be
+  	performed to check that it loads and behaves properly. The bottom line is: there is no
+  	rules on how to decide when to start a new test class, it depends on what you test.
+  	Also, it is NOT critical to have clean code, or well-commented code. Typical test
+  	methods are short and self-explanatory. As long as they don't fail, nobody has to read
+  	the code. The day a test start failing because of some changes in the code in the
+  	BioCocoa code, it should
+  	be fairly easy to find the problem (it could be the test itself that does not make sense
+  	anymore!).
+  </p>
+  <p>
+  	Practically, a test is a method with a name starting with 'test', is 5-20 lines of
+  	code and includes a 'STAssert...'  statement that will fail if the behavior differs from
+  	what is expected from the BioCocoa framework. As explained above,
+  	the test methods are grouped in classes. One class will typically
+  	implement 5-50 test methods. If you create a new test class, make sure you add it to
+  	the target of interest, e.g. 'Test-BCFoundation'. Also, a test class should always be
+  	a subclass of SenTestCase and should #import the SenTestingKit header.
+  	Read the code of existing tests
+  	to have examples of test classes and class methods, and read the
+  	<a href="file:///Developer/Source/OCUnit/Documentation/index.html">OCUnit documentation</a>
+  	(link to your local documentation, only accessible after installation)
+  	to get a complete list of the macros used for assertions.
+  </p>
+  <p>
+  	Remember to put any new file (.h and .m class files) in the right location,
+  	inside the group 'Tests/Test-BCFoundation' in the Xcode project, and in the right
+  	place in the project folder as well, 'BioCocoa/Tests/Test-BCFoundation'. By default,
+  	Xcode will not put new files in the right place on the filesystem, so check everything
+  	before you commit new files.
+  </p>
+
+
+  <h3>Compiling and running tests</h3>
+  <p>
+  	To compile the test framework, be sure to select the test target, e.g.
+  	'Test-BCFoundation'. After you hit the 'Build' button, Xcode will compile
+  	a bundle named 'Test-BCFoundation.framework', and after compilation, will
+  	run a one-line shell script '/Developer/Tools/RunTargetUnitTests'. This tool
+  	will scan the test framework, go through all the classes, and automatically
+  	run all the methods that start with 'test...' in their names. Thus, the tests
+  	themselves are run as part of the build, after the compilation.
+  	If a test fails, it will show as a build
+  	error in the build window, and the corresponding line will link to the faulty
+  	code in the test method.
+  </p>
+  <p>
+  	As an alternative, after the build, the tests can also be run using the 'Run'
+  	button, which will start the executable '/Developer/Tools/otest' with the
+  	appropriate arguments. The tests are executed exactly the same way as above,
+  	but the result will now be displayed in the 'Run' window, with a log of
+  	the failed tests and the successful tests, with no link
+  	to go to the code, like you found on the build window.
+  	However, you will also have information about the timing, the total number of tests,
+  	any message included in the tests, ...
+  </p>
+
+
+  <h3>Creating a new Test target</h3>
+  <p>
+	A new 'Test' target should only be created if a new framework is ever
+	added to the BioCocoa project, other than BCFoundation (probably BCAppKit one day...).
+	When this becomes necessary, create a new framework target. Change the build settings
+	based on the Test-BCFoundation target. Add an executable '/Developer/Tools/otest' and
+	set it as the executable for the new test framework. Set the arguments of this executable
+	taking as example the 'otest for Test-BCFoundation' executable. Finally, add a
+	shell script phase at the end of the build of the new test target,
+	which should be set to simply use '/bin/sh' as the shell
+	and run the one-liner '/Developer/Tools/RunTargetUnitTests'.
+  <p>
+  <p>
+  	It is also probably a good idea to read the 
+  	<a href="file:///Developer/Source/OCUnit/Documentation/index.html">OCUnit documentation</a>
+  	to fully understand the details of the whole process.
+  </p>
+  <p>
+   <a href="index.html">Back to index</a>
+  </p>
+ </body>
+</html>

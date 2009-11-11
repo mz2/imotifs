@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AAR</key>
+	<string>lysine</string>
+	<key>AAY</key>
+	<string>asparagine</string>
+	<key>ACN</key>
+	<string>threonine</string>
+	<key>AGR</key>
+	<string>arginine</string>
+	<key>AGY</key>
+	<string>serine</string>
+	<key>ATG</key>
+	<string>methionine</string>
+	<key>ATH</key>
+	<string>isoleucine</string>
+	<key>CAR</key>
+	<string>glutamine</string>
+	<key>CAY</key>
+	<string>histidine</string>
+	<key>CCN</key>
+	<string>proline</string>
+	<key>CGN</key>
+	<string>arginine</string>
+	<key>CTN</key>
+	<string>leucine</string>
+	<key>GAR</key>
+	<string>glutamicacid</string>
+	<key>GAY</key>
+	<string>asparticacid</string>
+	<key>GCN</key>
+	<string>alanine</string>
+	<key>GGN</key>
+	<string>glycine</string>
+	<key>GTN</key>
+	<string>valine</string>
+	<key>MGR</key>
+	<string>arginine</string>
+	<key>TAR</key>
+	<string>stop</string>
+	<key>TAY</key>
+	<string>tyrosine</string>
+	<key>TCN</key>
+	<string>serine</string>
+	<key>TGA</key>
+	<string>stop</string>
+	<key>TGG</key>
+	<string>tryptophan</string>
+	<key>TGY</key>
+	<string>cysteine</string>
+	<key>TTR</key>
+	<string>leucine</string>
+	<key>TTY</key>
+	<string>phenylalanine</string>
+	<key>YTR</key>
+	<string>leucine</string>
+</dict>
+</plist>

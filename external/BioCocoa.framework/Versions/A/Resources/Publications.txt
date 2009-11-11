@@ -1,0 +1,15 @@
+Publications
+------------
+
+This file contains the list of publications that have been
+published about BioCocoa or reference BioCocoa.
+
+
+
+Scott Christley, Neil F. Lobo and Greg Madey.
+Multiple Organism Algorithm for Finding Ultraconserved Elements.
+BMC Bioinformatics, 9: 15, 2008.
+-----
+This paper describes the algorithms implemented in BCSuffixArray and BCMCP classes.
+Also, the programs mentioned in the paper can be found in the Ultraconserved
+project in the BioCocoa Applications.

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<head>
+		<title>Adding new files</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="bc.css">
+	</head>
+	<BODY>
+		<h2>Adding new files to the framework</h2>
+		<p>Please follow these steps when adding new files to BioCocoa. This will make sure that
+			whatever you add will be visible and usable in the Xcode project of the other developers, and
+			minimize the Xcode-cvs issues that some of us are experiencing.
+		</p>
+		<ol>
+			<li>Add the files in the right location in Xcode, so they match the
+				structure on your HD.
+			</li>
+			<li>Add the new files to BCFoundation.h or BCAppKit.h under their appropriate header, reflecting
+				the project's file structure.
+			</li>
+			<li>Click on the BioCocoa target and make sure all headerfiles are labeled
+				'public' (except for BioCocoa_Prefix.h).
+			</li>
+			<li>Header files in BCFoundation only need to add
+				#import &lt;Foundation/Foundation.h&gt; and not
+				#import &lt;Cocoa/Cocoa.h&gt;.
+				Header files in BCAppKit need
+				#import &lt;AppKit/AppKit.h&gt; and maybe
+				#import &lt;Foundation/Foundation.h&gt;.
+			</li>
+			<li>In public headers, check that you do not use relative paths in your #import statements.
+				Example: use #import "BCSequence.h" and not #import "../BCSequence/BCSequence.h"
+				if called from a file in another folder. The compiler will find the header even without the correct path.
+			</li>
+			<li>Change "_MyCompanyName_" to "The BioCocoa Project".</li>
+			<li>Make sure the target compiles without errors and warnings.</li>
+			<li>Add and commit the files to the cvs repository, and don't forget to commit the changes to
+				BCFoundation.h and project.pbxproj. You should be able to use cvs from within Xcode (see also the <a href="about-cvs.html#xcodecvs">Xcode cvs setup</a>
+				documentation). However,
+				using cvs from the command line has proven more reliable, at least in my hands ;-).
+				If you use Xcode, <em>never</em> select BioCocoa at the top of the "Groups &amp; Files" and then commit changes to
+				cvs, this will wreak havoc. Always commit individual files. The best place to
+				do this is within the SCM disclosure triangle in the "Groups &amp; Files" pane. This is also the only place where you can
+				commit changes in project.pbxproj from Xcode. If you use the command line, you will find project.pbxproj inside
+				the BioCocoa.pbproj folder at the root level of the framework.
+			</li>
+		</ol>
+		<p>That should be it!</p>
+		<p><a href="index.html">Back to index</a></p>
+	</body>
+</html>
+
