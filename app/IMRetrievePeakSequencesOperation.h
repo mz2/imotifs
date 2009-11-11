@@ -13,7 +13,8 @@
 typedef enum IMPeakFileFormat {
     IMPeakFileFormatSWEMBL = 1,
     IMPeakFileFormatMACS = 2,
-    IMPeakFileFormatFindPeaks = 3
+    IMPeakFileFormatFindPeaks = 3,
+    IMPeakFileFormatGFF = 4
 } IMPeakFileFormat;
 
 @interface IMRetrievePeakSequencesOperation : IMTaskOperation <IMOutputFileProducingOperation> {
@@ -63,7 +64,9 @@ typedef enum IMPeakFileFormat {
 @property(nonatomic,assign)BOOL retrieveTopRankedPeaks;
 @property(nonatomic,assign)BOOL retrieveAroundPeakMax;
 @property(nonatomic,readonly)BOOL canSubmitOperation;
+
 @property(assign) IMPeakFileFormat format;
+@property(readonly) BOOL formatIsGFF;
 
 @property(nonatomic,assign)NSInteger maxCount;
 @property(nonatomic,assign)NSInteger aroundPeak;

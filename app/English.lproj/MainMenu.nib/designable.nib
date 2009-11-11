@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="534"/>
+			<integer value="525"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -540,7 +540,7 @@
 								</object>
 								<object class="NSMenuItem" id="134630851">
 									<reference key="NSMenu" ref="294598153"/>
-									<string key="NSTitle">Retrieve ChIP-seq peak sequences from Ensembl...</string>
+									<string key="NSTitle">Retrieve sequence features from Ensembl...</string>
 									<string key="NSKeyEquiv">c</string>
 									<int key="NSKeyEquivModMask">1572864</int>
 									<int key="NSMnemonicLoc">2147483647</int>
@@ -2501,7 +2501,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{493, 137}, {441, 263}}</string>
+					<string>{{493, 137}, {411, 263}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>{{339, 803}, {152, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
