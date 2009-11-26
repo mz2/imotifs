@@ -109,8 +109,10 @@
     
     Multinomial *dist = [[Multinomial alloc] initWithAlphabet: alphabet];
     for (NSXMLElement *weightNode in weights) {
-        NSString *sym = [[weightNode attributeForName:@"symbol"] stringValue];
+        NSString *sym = [[[weightNode attributeForName:@"symbol"] stringValue] lowercaseString];
         NSString *val = [weightNode stringValue];
+        
+        PCLog(@"%@", [weightNode attributeForName:@"symbol"]);
         [dist symbol:[alphabet symbolWithName:sym] withWeight:[val doubleValue]];
     }
     [dist autorelease];
@@ -217,6 +219,7 @@
         
         NSArray *cols = [self columns:wmNode];
         for (NSXMLNode *col in cols) {
+            //PCLog(@"%@:%@", alphabet, col);
             Multinomial *dist = [self parseMultinomial:col alphabet:alphabet];
             [dists addObject:dist];
         }
@@ -248,7 +251,7 @@
         }
         //if there are any precision values there, you should treat this motif as a metamotif
         if ([[motif annotations] objectForKey:@"alphasum;column:0"]) {
-            PCLog(@"Found precision parameter");
+            //PCLog(@"Found precision parameter");
             NSUInteger col,cnt;
             NSMutableArray *dirs = [[NSMutableArray alloc] initWithCapacity:cnt];
             for (col = 0,cnt = [motif columnCount]; col < cnt; col++) {

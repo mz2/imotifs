@@ -149,7 +149,7 @@
 -(NSSet*) names {return names;}
 
 -(bool) hasName:(NSString*)name {
-	return [names containsObject:name];
+	return [names containsObject: name];
 }
 
 - (BOOL) isEqual:(id) obj {
