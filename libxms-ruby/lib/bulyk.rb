@@ -2,19 +2,23 @@
 require 'xms'
 
 module WMC
+
+  # The WMC::BulykParser parses motif set files where there is a header line
+  # containing the motif name, followed by lines of symbol weights, each line 
+  # containing either a nucleotide name and weights for all columnfs for that nucleotide,
+  # or rows in the symbol order A,C,G,T.
   class BulykParser
     attr_accessor :motifset
     attr_accessor :namelinepattern
     attr_accessor :nukelinepattern
     attr_accessor :normalize
     attr_accessor :nukenameincluded
-
-    # if nukenameincluded = true
-    #   * the first captured match from nukelinepat is the nucleotide name, the 2nd match contains the weights separated by any whitespace characters (/\s+/)
-    # if nukenameincluded = false
-    #   * the first capture match from nukelinepat is the weight for the nuke in question
-    #   * 2nd match matches a whitespace (/\s+/) separated list of the weights (order A,C,G,T)
-
+    
+    # If nukenameincluded is true the first captured group from nukelinepat is the nucleotide name, 
+    # the 2nd captured group contains the weights separated by any whitespace characters (/\s+/).
+    #
+    # If nukenameincluded is false the first capture match from nukelinepat is the weight for the nucleotide in question,
+    # 1st captured group is a separated list of the weights and rows for motif are assumed to be in order A,C,G,T.
     def initialize(nukelinepat,namelinepat=/(.*)/,normalize=false,nukenameincluded=true)
       @motifset = nil
       @nukelinepattern = nukelinepat 
@@ -51,7 +55,8 @@ module WMC
       return XMS::WeightMatrix.new(cols)
     end
 
-
+   # Parses an input file, after which the motifset property of this parser
+   # object will contain an XMS::WeightMatrix object with all the parsed motifs.
    def parse(inputf)
       @motifs = []
       @motif = nil
@@ -145,4 +150,5 @@ module WMC
     end
 
   end
+
 end

@@ -1,15 +1,31 @@
 require 'rexml/document'
 
+# The XMS module provides input and output of annotated sequence motifs
+# using the XMS file format.
+#
+# NOTE! Only the DNA alphabet is currently supported.
+#
+# Author::    Matias Piipari (mailto:matias.piipari@gmail.com)
+# Copyright:: Copyright (c) 2009 Wellcome Trust Sanger Institute
+# License::   LGPL v3
+
 module XMS
+  
+  # Represents an ordered set of sequence motif objects.
+  # The motif set also has a dictionary of key-value paired annotations.
+  # Both annotations and motifs are mutable.
   class MotifSet
     attr_accessor :annotations
     attr_accessor :motifs
-
+    
+    # Takes an array of Motif objects as an array.
     def initialize(motifs)
       @motifs = motifs
       @annotations = {}
     end
 
+    # Returns a REXML::Document object representation of the motif set
+    # that follows the XMS format.
     def toXML
       doc = REXML::Document.new
       motifsetnode = REXML::Element.new "motifset",doc
@@ -27,21 +43,26 @@ module XMS
       return doc
     end
 
+    # Returns a string representation of the motif set in the XMS format.
     def to_s
       self.toXML
     end
   end
-
+  
+  # A motif object contains the name, threshold, annotation and the model weight matrix object.
+  # All its fields are mutable.
   class Motif
     attr_accessor :weightmatrix, :name, :threshold, :annotations
-
-    def initialize(weightmatrix,name,threshold)
+    
+    # Arguments are a weight matrix (an XMS::WeightMatrix object),name (String) and threshold (float).
+    def initialize(weightmatrix,name,threshold=0.0)
       @weightmatrix = weightmatrix
       @name = name
       @threshold = threshold
       @annotations = {}
     end
-
+    
+    # Returns a REXML::Element object containing an XMS formatted <motif> tag.
     def toXML(parent = nil)
       motifnode = REXML::Element.new "motif",parent
       namenode = REXML::Element.new "name",motifnode
@@ -58,17 +79,23 @@ module XMS
       }
       return motifnode
     end
-
+    
+    # Returns a string containing an XMS formatted <motif> tag
     def to_s
       return self.toXML
     end
   end
-
+  
+  # A weight matrix object that contains an array of columns. 
+  # Each column is an array of weights for each of the symobls in the alphabet, in the order A,C,G,T.
+  #
+  # NOTE! Only the DNA alphabet is currently supported.
   class WeightMatrix
     def initialize(columns)
       @columns = columns
     end
-
+    
+    # Returns a REXML::Element containing an XMS <weightmatrix> tag.
     def toXML(parent=nil)
       wmnode = REXML::Element.new("weightmatrix",parent)
       wmnode.add_attribute REXML::Attribute.new("alphabet","DNA")
@@ -98,10 +125,10 @@ module XMS
       }
       return wmnode
     end
-
+    
+    # Returns a string containing an XMS <weightmatrix> tag.
     def to_s
       self.toXML
     end
   end
 end
-
