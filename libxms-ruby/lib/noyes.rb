@@ -1,10 +1,15 @@
 module WMC
+
+  # NoyesParser parses motif files with a header line and
+  # column lines with symbols in the DNA alphabet in order A,C,G,T
   class NoyesParser
     attr_accessor :motifset
     attr_accessor :nukelinepattern
     attr_accessor :namepattern
     attr_accessor :normalize
     
+    # Arguments: input file, pattern for the nucleotide line, with four capture groups in the order A,C,G,T
+    # and motif name line pattern with the first capture group as the name of the motif
     def initialize(inputf, nukelinepattern = /(\d+)\s+(\d+)\s+(\d+)\s+(\d+)/, namepattern = />(\S*)\t(\d+)(.*)/, normalize = true)
       #0  0 0 30
       @nukelinepattern = nukelinepattern
@@ -14,7 +19,9 @@ module WMC
       @normalize = true
       @motifset = nil 
     end 
-
+    
+    # Parses the input file and returns an XMS::MotifSet object containing 
+    # the motifs
     def parse(inputf)
       cols = []
       motifs = []
