@@ -60,7 +60,7 @@ extern NSString *IMConsensusSearchCutoff;
 @interface IMAppController : NSObject {
     IMPrefsWindowController *preferenceController;
     NSOperationQueue *sharedOperationQueue;
-    
+        
     double consensusSearchCutoff;
     @private
     NSWindow *fullScreenMainWindow;
@@ -68,8 +68,6 @@ extern NSString *IMConsensusSearchCutoff;
     NSView *mainWindowBeforeGoingFullScreenView;
     NSRect mainWindowBeforeGoingFullScreenRect;
     CGDirectDisplayID displayID;
-    
-    
 }
 
 @property (readonly) IMPrefsWindowController *preferenceController;

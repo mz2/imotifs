@@ -20,10 +20,10 @@
 -(id) init;
 
 -(void) showAll;
-/*
+
 -(BOOL) objectIsShown:(id)obj;
 -(void) hideObject:(id)obj;
 -(void) showObject:(id)obj;
 
- */
+
 @end

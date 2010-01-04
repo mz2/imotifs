@@ -41,7 +41,7 @@
     [super dealloc];
 }
 
-/*
+
 -(NSArray*) arrangeObjects:(NSArray*) objs {
     if (hiddenObjects.count == 0) {
         //PCLog(@"MotifSetController: arranging objects with super",objs.count);
@@ -113,7 +113,7 @@
 -(void) showObject:(id)obj {
     [hiddenObjects removeObject: obj];
 }
-*/
+
 
 /*
 -(void) showAll {

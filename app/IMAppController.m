@@ -245,6 +245,7 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     //[msetDocController release];
 }
 
+/*
 - (BOOL)application:(NSApplication *)theApplication openFile:(NSString *)filename {
     //PCLog(@"Application should OPEN FILE: %@", filename);
     if ([filename hasSuffix:@".fasta"] || [filename hasSuffix:@".fa"] || [filename hasSuffix:@".seq"]) {
@@ -259,7 +260,10 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     } else {
         return NO;
     }
+    return NO;
 }
+ */
+
 
 -(void) showHelp:(id) sender {
     NSLog(@"Showing help");
