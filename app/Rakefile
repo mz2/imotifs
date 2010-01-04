@@ -18,4 +18,5 @@ ChocTop.new do |s|
   #s.applications_icon = "icon.icns" # or "appicon.png"
   s.add_file("../quicklook/build/Debug/MotifQuickLook.qlgenerator",:position=>[100,400])
   s.add_file("./example.xms",:position=>[420,400])
+  s.add_file("iMotifs Documentation.webloc", :position=>[260,400])
 end

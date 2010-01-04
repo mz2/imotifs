@@ -112,7 +112,7 @@
         NSString *sym = [[[weightNode attributeForName:@"symbol"] stringValue] lowercaseString];
         NSString *val = [weightNode stringValue];
         
-        PCLog(@"%@", [weightNode attributeForName:@"symbol"]);
+        //PCLog(@"%@", [weightNode attributeForName:@"symbol"]);
         [dist symbol:[alphabet symbolWithName:sym] withWeight:[val doubleValue]];
     }
     [dist autorelease];
@@ -129,6 +129,7 @@
         [xmlDoc release];
         xmlDoc = nil;
         PCLog(@"Error parsing an XMS file from input data");
+        
         @throw [NSException exceptionWithName: @"XMSParsingException" 
                                        reason: [docError description] 
                                      userInfo: nil];
