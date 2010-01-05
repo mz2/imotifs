@@ -68,8 +68,12 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	if (motifSetDocument != nil) [otherMotifSetDocuments removeObject: motifSetDocument];
 	[otherMotifSets release];
 	otherMotifSets = [[NSMutableArray alloc] init];
-	for (MotifSetDocument* msdoc in otherMotifSetDocuments) {
-		[otherMotifSets addObject: [msdoc motifSet]];
+	for (NSDocument* msdoc in otherMotifSetDocuments) {
+        if ([msdoc isKindOfClass:[MotifSetDocument class]]) {
+            [otherMotifSets addObject: [(MotifSetDocument*)msdoc motifSet]];            
+        } else {
+            
+        }
 	}
     [otherMotifSets sortUsingSelector:@selector(compare:)];
 }

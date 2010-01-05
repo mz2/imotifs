@@ -8,6 +8,7 @@
 
 
 #import <Cocoa/Cocoa.h>
+#import "IMotifsDocument.h"
 #import <MotifSetPickerWindow.h>
 
 @class MotifSet;
@@ -39,7 +40,7 @@ typedef enum IMMotifSetSearchType {
 extern NSString *IMMotifSetPboardType;
 extern NSString *IMMotifSetIndicesPboardType;
 
-@interface MotifSetDocument : NSDocument {
+@interface MotifSetDocument : NSDocument <IMotifsDocument> {
     MotifSet *motifSet;
     MotifNameCell *motifNameCell;
     MotifViewCell *motifViewCell;
@@ -173,4 +174,8 @@ extern NSString *IMMotifSetIndicesPboardType;
 -(IBAction) decreaseMotifHeight: (id) sender;
 -(IBAction) increaseMotifWidth: (id) sender;
 -(IBAction) decreaseMotifWidth: (id) sender;
+
+-(BOOL) isMotifSetDocument;
+-(BOOL) isSequenceSetDocument;
+-(BOOL) isAnnotationSetDocument;
 @end

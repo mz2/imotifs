@@ -114,11 +114,9 @@
     [hiddenObjects removeObject: obj];
 }
 
-
-/*
 -(void) showAll {
     [hiddenObjects removeAllObjects];
-}*/
+}
 
 
 @end

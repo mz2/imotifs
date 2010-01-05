@@ -1308,4 +1308,17 @@ provideDataForType:(NSString *)type {
     [self.alignmentProgressIndicator stopAnimation: self];
     [self.alignmentProgressIndicator setHidden: YES];
 }
+
+-(BOOL) isMotifSetDocument {
+    return YES;
+}
+
+-(BOOL) isSequenceSetDocument {
+    return NO;
+}
+
+-(BOOL) isAnnotationSetDocument {
+    return NO;
+}
+
 @end

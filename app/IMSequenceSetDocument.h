@@ -7,25 +7,44 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "IMotifsDocument.h"
+
 @class IMSequenceSetController;
 @class IMSequenceView;
 @class BCSequenceArray;
+@class IMSequenceViewCell;
 
-@interface IMSequenceSetDocument : NSDocument {
+@interface IMSequenceSetDocument : NSDocument <IMotifsDocument> {
     NSString *_name;
-    BCSequenceArray *_sequenceArray;
+    NSArray *_sequences;
     
     IMSequenceView *_sequenceView;
     
     IMSequenceSetController *_sequenceSetController;
     
     NSTextField *_numberOfSequencesLabel;
+    
+    NSTableView *_sequenceTable;
+    NSTableColumn *_nameColumn;
+    NSTableColumn *_sequenceColumn;
+    
+    NSDrawer *_drawer;
+    
+    @protected
+    IMSequenceViewCell *_sequenceCell;
 }
 
 @property(nonatomic,retain) NSString *name;
 @property(nonatomic,retain) IBOutlet IMSequenceView *sequenceView;
 @property(nonatomic,retain) IBOutlet IMSequenceSetController *sequenceSetController;
-@property(nonatomic,retain) BCSequenceArray *sequenceArray;
+@property(nonatomic,retain) NSArray *sequences;
 @property(nonatomic,retain) IBOutlet NSTextField *numberOfSequencesLabel;
+@property(nonatomic,retain) IBOutlet NSTableView *sequenceTable;
+@property(nonatomic,retain) IBOutlet NSTableColumn *nameColumn;
+@property(nonatomic,retain) IBOutlet NSTableColumn *sequenceColumn;
+
+@property(nonatomic,retain) IBOutlet NSDrawer *drawer;
+
+-(IBAction) toggleDrawer:(id) sender;
 
 @end

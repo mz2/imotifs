@@ -20,6 +20,5 @@
 -(IBAction) browseForBGModelFile:(id) sender;
 -(IBAction) cancel:(id) sender;
 -(IBAction) ok:(id) sender;
--(IBAction) copyToClipboard: (id) sender;
 
 @end

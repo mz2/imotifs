@@ -76,6 +76,8 @@
 		9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */; };
 		955C93920FEA7645005E6148 /* NSString+ReverseSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */; };
 		9561D85410A04EF6003F37C6 /* NMShuffleOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */; };
+		9562DF3910F3462F0091549E /* IMSequenceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562DF3810F3462F0091549E /* IMSequenceViewCell.m */; };
+		9562E00B10F351910091549E /* IMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562E00A10F351910091549E /* IMSequence.m */; };
 		95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */; };
 		95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */; };
 		95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */; };
@@ -630,6 +632,11 @@
 		955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReverseSearch.m"; sourceTree = "<group>"; };
 		9561D85210A04EF6003F37C6 /* NMShuffleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMShuffleOperation.h; sourceTree = "<group>"; };
 		9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMShuffleOperation.m; sourceTree = "<group>"; };
+		9562DF3710F3462F0091549E /* IMSequenceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceViewCell.h; sourceTree = "<group>"; };
+		9562DF3810F3462F0091549E /* IMSequenceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceViewCell.m; sourceTree = "<group>"; };
+		9562E00910F351910091549E /* IMSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequence.h; sourceTree = "<group>"; };
+		9562E00A10F351910091549E /* IMSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequence.m; sourceTree = "<group>"; };
+		9562E15010F394080091549E /* IMotifsDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMotifsDocument.h; sourceTree = "<group>"; };
 		95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesDialog.xib; sourceTree = "<group>"; };
 		95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesOperation.h; sourceTree = "<group>"; };
 		95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesOperation.m; sourceTree = "<group>"; };
@@ -642,7 +649,6 @@
 		9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMSequenceSetDocument.xib; sourceTree = "<group>"; };
 		9587FD1710F248E300435D2A /* IMDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDocumentController.h; sourceTree = "<group>"; };
 		9587FD1810F248E300435D2A /* IMDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDocumentController.m; sourceTree = "<group>"; };
-		9587FFDA10F2628B00435D2A /* GCDrawKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GCDrawKit.framework; sourceTree = "<group>"; };
 		9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetController.h; sourceTree = "<group>"; };
 		9587FFE010F262CD00435D2A /* IMSequenceSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetController.m; sourceTree = "<group>"; };
 		9587FFED10F2635300435D2A /* IMSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceView.h; sourceTree = "<group>"; };
@@ -856,7 +862,6 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
-				9587FFDA10F2628B00435D2A /* GCDrawKit.framework */,
 				95CE589710A5AECA00D00524 /* NestedMICA */,
 				95D7652D10231D99009703AA /* External */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
@@ -920,8 +925,8 @@
 			isa = PBXGroup;
 			children = (
 				9587FD1610F248C900435D2A /* Document Controller */,
-				95FE41CC10C8982600E034FE /* Sequence Set Document */,
-				95414FD90F1245CF0083E72A /* Motif Set Document */,
+				95FE41CC10C8982600E034FE /* Sequence Set */,
+				95414FD90F1245CF0083E72A /* Motif Set */,
 				95414FDA0F1245DB0083E72A /* App Controller */,
 				95414FDB0F1245F00083E72A /* Preferences */,
 				953D81140F2F410700049823 /* NMICA Integration */,
@@ -929,6 +934,7 @@
 				95B2C6750EED8F11004605A6 /* Annotations Drawer */,
 				9563E2C2101E065F006F067A /* Pickers */,
 				9563E2C0101E0649006F067A /* Experimental */,
+				9562E15010F394080091549E /* IMotifsDocument.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -1218,7 +1224,7 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
-		95414FD90F1245CF0083E72A /* Motif Set Document */ = {
+		95414FD90F1245CF0083E72A /* Motif Set */ = {
 			isa = PBXGroup;
 			children = (
 				95AA6CE2108736F50000A8BD /* Actions */,
@@ -1232,7 +1238,7 @@
 				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
 			);
-			name = "Motif Set Document";
+			name = "Motif Set";
 			sourceTree = "<group>";
 		};
 		95414FDA0F1245DB0083E72A /* App Controller */ = {
@@ -1258,6 +1264,34 @@
 				9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */,
 			);
 			name = nmshuffle;
+			sourceTree = "<group>";
+		};
+		9562E02B10F3530E0091549E /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				95FE41D010C8987000E034FE /* IMSequenceSetDocument.h */,
+				95FE41D110C8987000E034FE /* IMSequenceSetDocument.m */,
+				9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		9562E03010F353340091549E /* Array Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */,
+				9587FFE010F262CD00435D2A /* IMSequenceSetController.m */,
+			);
+			name = "Array Controller";
+			sourceTree = "<group>";
+		};
+		9562E03210F3533F0091549E /* Sequence View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9562DF3710F3462F0091549E /* IMSequenceViewCell.h */,
+				9562DF3810F3462F0091549E /* IMSequenceViewCell.m */,
+			);
+			name = "Sequence View Cell";
 			sourceTree = "<group>";
 		};
 		9563E2C0101E0649006F067A /* Experimental */ = {
@@ -1542,22 +1576,22 @@
 			name = External;
 			sourceTree = "<group>";
 		};
-		95FE41CC10C8982600E034FE /* Sequence Set Document */ = {
+		95FE41CC10C8982600E034FE /* Sequence Set */ = {
 			isa = PBXGroup;
 			children = (
-				95FE41D010C8987000E034FE /* IMSequenceSetDocument.h */,
-				95FE41D110C8987000E034FE /* IMSequenceSetDocument.m */,
+				9562E03210F3533F0091549E /* Sequence View Cell */,
+				9562E03010F353340091549E /* Array Controller */,
+				9562E02B10F3530E0091549E /* Document */,
 				9587FC4710F23BFF00435D2A /* IMSequenceSetDocumentController.h */,
 				9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */,
 				9587FC4F10F23C8600435D2A /* IMSequenceSetWindowController.h */,
 				9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */,
-				9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */,
-				9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */,
-				9587FFE010F262CD00435D2A /* IMSequenceSetController.m */,
 				9587FFED10F2635300435D2A /* IMSequenceView.h */,
 				9587FFEE10F2635300435D2A /* IMSequenceView.m */,
+				9562E00910F351910091549E /* IMSequence.h */,
+				9562E00A10F351910091549E /* IMSequence.m */,
 			);
-			name = "Sequence Set Document";
+			name = "Sequence Set";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1831,6 +1865,8 @@
 				9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */,
 				9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */,
 				9587FFEF10F2635300435D2A /* IMSequenceView.m in Sources */,
+				9562DF3910F3462F0091549E /* IMSequenceViewCell.m in Sources */,
+				9562E00B10F351910091549E /* IMSequence.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
