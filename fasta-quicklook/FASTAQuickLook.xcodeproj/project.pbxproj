@@ -1,0 +1,457 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */; };
+		5F66DDDE1089DEE9001159D8 /* MotifViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */; };
+		5F66DDDF1089DEE9001159D8 /* MotifViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */; };
+		5F66DDE21089DEF8001159D8 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE01089DEF8001159D8 /* Metamotif.m */; };
+		5F66DDE31089DEF8001159D8 /* Metamotif.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE11089DEF8001159D8 /* Metamotif.h */; };
+		5F66DDE61089DEFE001159D8 /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE41089DEFE001159D8 /* SymbolBounds.m */; };
+		5F66DDE71089DEFE001159D8 /* SymbolBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE51089DEFE001159D8 /* SymbolBounds.h */; };
+		5F66DDEA1089DF03001159D8 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDE81089DF03001159D8 /* dirichlet_math.m */; };
+		5F66DDEB1089DF03001159D8 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDE91089DF03001159D8 /* dirichlet_math.h */; };
+		5F66DDF51089DF21001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDF31089DF21001159D8 /* DistributionBounds.m */; };
+		5F66DDF61089DF21001159D8 /* DistributionBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDF41089DF21001159D8 /* DistributionBounds.h */; };
+		5FAE5BF70ED0CB2300A0B053 /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BE80ED0CB2300A0B053 /* Symbol.m */; };
+		5FAE5BF80ED0CB2300A0B053 /* Symbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BE90ED0CB2300A0B053 /* Symbol.h */; };
+		5FAE5BF90ED0CB2300A0B053 /* Multinomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BEA0ED0CB2300A0B053 /* Multinomial.m */; };
+		5FAE5BFA0ED0CB2300A0B053 /* Multinomial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BEB0ED0CB2300A0B053 /* Multinomial.h */; };
+		5FAE5BFB0ED0CB2300A0B053 /* MotifSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BEC0ED0CB2300A0B053 /* MotifSetParser.m */; };
+		5FAE5BFC0ED0CB2300A0B053 /* MotifSetParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BED0ED0CB2300A0B053 /* MotifSetParser.h */; };
+		5FAE5BFD0ED0CB2300A0B053 /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BEE0ED0CB2300A0B053 /* MotifSet.m */; };
+		5FAE5BFE0ED0CB2300A0B053 /* Alphabet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BEF0ED0CB2300A0B053 /* Alphabet.h */; };
+		5FAE5BFF0ED0CB2300A0B053 /* MotifSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BF00ED0CB2300A0B053 /* MotifSet.h */; };
+		5FAE5C000ED0CB2300A0B053 /* Motif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BF10ED0CB2300A0B053 /* Motif.m */; };
+		5FAE5C010ED0CB2300A0B053 /* Motif.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BF20ED0CB2300A0B053 /* Motif.h */; };
+		5FAE5C020ED0CB2300A0B053 /* Alphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BF30ED0CB2300A0B053 /* Alphabet.m */; };
+		5FAE5C030ED0CB2300A0B053 /* Annotable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BF40ED0CB2300A0B053 /* Annotable.h */; };
+		5FAE5C040ED0CB2300A0B053 /* WeightMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FAE5BF50ED0CB2300A0B053 /* WeightMatrix.m */; };
+		5FAE5C050ED0CB2300A0B053 /* WeightMatrix.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FAE5BF60ED0CB2300A0B053 /* WeightMatrix.h */; };
+		5FC164060D9C1C86006567C1 /* FASTAQuickLook.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = 8D576316048677EA00EA77CD /* FASTAQuickLook.qlgenerator */; };
+		5FC164090D9C1CA6006567C1 /* Carbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC164080D9C1CA6006567C1 /* Carbon.framework */; };
+		5FC1640B0D9C1CB1006567C1 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC1640A0D9C1CB1006567C1 /* Cocoa.framework */; };
+		61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */; };
+		8D576312048677EA00EA77CD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB77B6FE84183AC02AAC07 /* main.m */; settings = {ATTRIBUTES = (); }; };
+		8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */; };
+		8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8D5B49A704867FD3000E48DA /* InfoPlist.strings */; };
+		9562E88A10F4ED1B0091549E /* snp_ncbi37.fasta in Resources */ = {isa = PBXBuildFile; fileRef = 9562E88910F4ED1B0091549E /* snp_ncbi37.fasta */; };
+		9562EA1F10F4F7E10091549E /* FASTAParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 9562EA1D10F4F7E10091549E /* FASTAParser.h */; };
+		9562EA2010F4F7E10091549E /* FASTAParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562EA1E10F4F7E10091549E /* FASTAParser.m */; };
+		95D910510FDD7407006298B2 /* Dirichlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D9104F0FDD7407006298B2 /* Dirichlet.m */; };
+		95D910520FDD7407006298B2 /* Dirichlet.h in Headers */ = {isa = PBXBuildFile; fileRef = 95D910500FDD7407006298B2 /* Dirichlet.h */; };
+		95F8FBCA0FDE5B3D00FAD7C4 /* FASTAQuickLook_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = 95F8FBC80FDE5B3D00FAD7C4 /* FASTAQuickLook_Prefix.pch */; };
+		C86B05270671AA6E00DD9006 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86B05260671AA6E00DD9006 /* CoreServices.framework */; };
+		F28CFBFD0A3EC0AF000ABFF5 /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */; };
+		F28CFC030A3EC0C6000ABFF5 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F28CFC020A3EC0C6000ABFF5 /* QuickLook.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FC164070D9C1CA4006567C1 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Library/QuickLook;
+			dstSubfolderSpec = 0;
+			files = (
+				5FC164060D9C1C86006567C1 /* FASTAQuickLook.qlgenerator in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		089C167EFE841241C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		08FB77B6FE84183AC02AAC07 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = /System/Library/Frameworks/CoreFoundation.framework; sourceTree = "<absolute>"; };
+		2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
+		5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifViewCell.m; path = ../app/MotifViewCell.m; sourceTree = SOURCE_ROOT; };
+		5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifViewCell.h; path = ../app/MotifViewCell.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE01089DEF8001159D8 /* Metamotif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Metamotif.m; path = ../libxms/Metamotif.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE11089DEF8001159D8 /* Metamotif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Metamotif.h; path = ../libxms/Metamotif.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE41089DEFE001159D8 /* SymbolBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SymbolBounds.m; path = ../libxms/SymbolBounds.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE51089DEFE001159D8 /* SymbolBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SymbolBounds.h; path = ../libxms/SymbolBounds.h; sourceTree = SOURCE_ROOT; };
+		5F66DDE81089DF03001159D8 /* dirichlet_math.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = dirichlet_math.m; path = ../libxms/dirichlet_math.m; sourceTree = SOURCE_ROOT; };
+		5F66DDE91089DF03001159D8 /* dirichlet_math.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = dirichlet_math.h; path = ../libxms/dirichlet_math.h; sourceTree = SOURCE_ROOT; };
+		5F66DDF31089DF21001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
+		5F66DDF41089DF21001159D8 /* DistributionBounds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DistributionBounds.h; path = ../libxms/DistributionBounds.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BE80ED0CB2300A0B053 /* Symbol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Symbol.m; path = ../libxms/Symbol.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BE90ED0CB2300A0B053 /* Symbol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Symbol.h; path = ../libxms/Symbol.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BEA0ED0CB2300A0B053 /* Multinomial.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Multinomial.m; path = ../libxms/Multinomial.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BEB0ED0CB2300A0B053 /* Multinomial.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Multinomial.h; path = ../libxms/Multinomial.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BEC0ED0CB2300A0B053 /* MotifSetParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifSetParser.m; path = ../libxms/MotifSetParser.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BED0ED0CB2300A0B053 /* MotifSetParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifSetParser.h; path = ../libxms/MotifSetParser.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BEE0ED0CB2300A0B053 /* MotifSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MotifSet.m; path = ../libxms/MotifSet.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BEF0ED0CB2300A0B053 /* Alphabet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Alphabet.h; path = ../libxms/Alphabet.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BF00ED0CB2300A0B053 /* MotifSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MotifSet.h; path = ../libxms/MotifSet.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BF10ED0CB2300A0B053 /* Motif.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Motif.m; path = ../libxms/Motif.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BF20ED0CB2300A0B053 /* Motif.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Motif.h; path = ../libxms/Motif.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BF30ED0CB2300A0B053 /* Alphabet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Alphabet.m; path = ../libxms/Alphabet.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BF40ED0CB2300A0B053 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Annotable.h; path = ../libxms/Annotable.h; sourceTree = SOURCE_ROOT; };
+		5FAE5BF50ED0CB2300A0B053 /* WeightMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WeightMatrix.m; path = ../libxms/WeightMatrix.m; sourceTree = SOURCE_ROOT; };
+		5FAE5BF60ED0CB2300A0B053 /* WeightMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WeightMatrix.h; path = ../libxms/WeightMatrix.h; sourceTree = SOURCE_ROOT; };
+		5FC164080D9C1CA6006567C1 /* Carbon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Carbon.framework; path = /System/Library/Frameworks/Carbon.framework; sourceTree = "<absolute>"; };
+		5FC1640A0D9C1CB1006567C1 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		5FC164180D9C1D06006567C1 /* example.xms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example.xms; sourceTree = "<group>"; };
+		61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = GenerateThumbnailForURL.m; sourceTree = "<group>"; };
+		8D576316048677EA00EA77CD /* FASTAQuickLook.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FASTAQuickLook.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D576317048677EA00EA77CD /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		9562E88910F4ED1B0091549E /* snp_ncbi37.fasta */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = snp_ncbi37.fasta; sourceTree = "<group>"; };
+		9562EA1D10F4F7E10091549E /* FASTAParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTAParser.h; sourceTree = "<group>"; };
+		9562EA1E10F4F7E10091549E /* FASTAParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FASTAParser.m; sourceTree = "<group>"; };
+		95D9104F0FDD7407006298B2 /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Dirichlet.m; path = ../libxms/Dirichlet.m; sourceTree = SOURCE_ROOT; };
+		95D910500FDD7407006298B2 /* Dirichlet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Dirichlet.h; path = ../libxms/Dirichlet.h; sourceTree = SOURCE_ROOT; };
+		95F8FBC80FDE5B3D00FAD7C4 /* FASTAQuickLook_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FASTAQuickLook_Prefix.pch; sourceTree = "<group>"; };
+		C86B05260671AA6E00DD9006 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = /System/Library/Frameworks/CoreServices.framework; sourceTree = "<absolute>"; };
+		F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		F28CFC020A3EC0C6000ABFF5 /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = /System/Library/Frameworks/QuickLook.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8D576313048677EA00EA77CD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D576314048677EA00EA77CD /* CoreFoundation.framework in Frameworks */,
+				C86B05270671AA6E00DD9006 /* CoreServices.framework in Frameworks */,
+				F28CFBFD0A3EC0AF000ABFF5 /* ApplicationServices.framework in Frameworks */,
+				F28CFC030A3EC0C6000ABFF5 /* QuickLook.framework in Frameworks */,
+				5FC164090D9C1CA6006567C1 /* Carbon.framework in Frameworks */,
+				5FC1640B0D9C1CB1006567C1 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		089C166AFE841209C02AAC07 /* MotifQuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				9562E88910F4ED1B0091549E /* snp_ncbi37.fasta */,
+				08FB77AFFE84173DC02AAC07 /* Source */,
+				089C167CFE841241C02AAC07 /* Resources */,
+				089C1671FE841209C02AAC07 /* External Frameworks and Libraries */,
+				19C28FB6FE9D52B211CA2CBB /* Products */,
+			);
+			name = MotifQuickLook;
+			sourceTree = "<group>";
+		};
+		089C1671FE841209C02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				5FC1640A0D9C1CB1006567C1 /* Cocoa.framework */,
+				5FC164080D9C1CA6006567C1 /* Carbon.framework */,
+				F28CFC020A3EC0C6000ABFF5 /* QuickLook.framework */,
+				F28CFBFC0A3EC0AF000ABFF5 /* ApplicationServices.framework */,
+				C86B05260671AA6E00DD9006 /* CoreServices.framework */,
+				0AA1909FFE8422F4C02AAC07 /* CoreFoundation.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C167CFE841241C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FC164180D9C1D06006567C1 /* example.xms */,
+				8D576317048677EA00EA77CD /* Info.plist */,
+				8D5B49A704867FD3000E48DA /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AFFE84173DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9562EA1B10F4F7CB0091549E /* FASTA reading */,
+				9562E87510F4EC940091549E /* QuickLook */,
+				9562E82910F4EC800091549E /* LibXMS */,
+				08FB77B6FE84183AC02AAC07 /* main.m */,
+				95F8FBC80FDE5B3D00FAD7C4 /* FASTAQuickLook_Prefix.pch */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		19C28FB6FE9D52B211CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D576316048677EA00EA77CD /* FASTAQuickLook.qlgenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9562E82910F4EC800091549E /* LibXMS */ = {
+			isa = PBXGroup;
+			children = (
+				5F66DDDC1089DEE9001159D8 /* MotifViewCell.m */,
+				5F66DDDD1089DEE9001159D8 /* MotifViewCell.h */,
+				5F66DDE81089DF03001159D8 /* dirichlet_math.m */,
+				5F66DDE91089DF03001159D8 /* dirichlet_math.h */,
+				5F66DDE01089DEF8001159D8 /* Metamotif.m */,
+				5F66DDE11089DEF8001159D8 /* Metamotif.h */,
+				5F66DDE41089DEFE001159D8 /* SymbolBounds.m */,
+				5F66DDE51089DEFE001159D8 /* SymbolBounds.h */,
+				95D9104F0FDD7407006298B2 /* Dirichlet.m */,
+				95D910500FDD7407006298B2 /* Dirichlet.h */,
+				5F66DDF31089DF21001159D8 /* DistributionBounds.m */,
+				5F66DDF41089DF21001159D8 /* DistributionBounds.h */,
+				5FAE5BE90ED0CB2300A0B053 /* Symbol.h */,
+				5FAE5BE80ED0CB2300A0B053 /* Symbol.m */,
+				5FAE5BEB0ED0CB2300A0B053 /* Multinomial.h */,
+				5FAE5BEA0ED0CB2300A0B053 /* Multinomial.m */,
+				5FAE5BED0ED0CB2300A0B053 /* MotifSetParser.h */,
+				5FAE5BEC0ED0CB2300A0B053 /* MotifSetParser.m */,
+				5FAE5BF00ED0CB2300A0B053 /* MotifSet.h */,
+				5FAE5BEE0ED0CB2300A0B053 /* MotifSet.m */,
+				5FAE5BF20ED0CB2300A0B053 /* Motif.h */,
+				5FAE5BF10ED0CB2300A0B053 /* Motif.m */,
+				5FAE5BEF0ED0CB2300A0B053 /* Alphabet.h */,
+				5FAE5BF30ED0CB2300A0B053 /* Alphabet.m */,
+				5FAE5BF40ED0CB2300A0B053 /* Annotable.h */,
+				5FAE5BF60ED0CB2300A0B053 /* WeightMatrix.h */,
+				5FAE5BF50ED0CB2300A0B053 /* WeightMatrix.m */,
+			);
+			name = LibXMS;
+			sourceTree = "<group>";
+		};
+		9562E87510F4EC940091549E /* QuickLook */ = {
+			isa = PBXGroup;
+			children = (
+				61E3BCFA0870B4F2002186A0 /* GenerateThumbnailForURL.m */,
+				2C05A19B06CAA52B00D84F6F /* GeneratePreviewForURL.m */,
+			);
+			name = QuickLook;
+			sourceTree = "<group>";
+		};
+		9562EA1B10F4F7CB0091549E /* FASTA reading */ = {
+			isa = PBXGroup;
+			children = (
+				9562EA1D10F4F7E10091549E /* FASTAParser.h */,
+				9562EA1E10F4F7E10091549E /* FASTAParser.m */,
+			);
+			name = "FASTA reading";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8D57630E048677EA00EA77CD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FAE5BF80ED0CB2300A0B053 /* Symbol.h in Headers */,
+				5FAE5BFA0ED0CB2300A0B053 /* Multinomial.h in Headers */,
+				5FAE5BFC0ED0CB2300A0B053 /* MotifSetParser.h in Headers */,
+				5FAE5BFE0ED0CB2300A0B053 /* Alphabet.h in Headers */,
+				5FAE5BFF0ED0CB2300A0B053 /* MotifSet.h in Headers */,
+				5FAE5C010ED0CB2300A0B053 /* Motif.h in Headers */,
+				5FAE5C030ED0CB2300A0B053 /* Annotable.h in Headers */,
+				5FAE5C050ED0CB2300A0B053 /* WeightMatrix.h in Headers */,
+				95D910520FDD7407006298B2 /* Dirichlet.h in Headers */,
+				95F8FBCA0FDE5B3D00FAD7C4 /* FASTAQuickLook_Prefix.pch in Headers */,
+				5F66DDDF1089DEE9001159D8 /* MotifViewCell.h in Headers */,
+				5F66DDE31089DEF8001159D8 /* Metamotif.h in Headers */,
+				5F66DDE71089DEFE001159D8 /* SymbolBounds.h in Headers */,
+				5F66DDEB1089DF03001159D8 /* dirichlet_math.h in Headers */,
+				5F66DDF61089DF21001159D8 /* DistributionBounds.h in Headers */,
+				9562EA1F10F4F7E10091549E /* FASTAParser.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8D57630D048677EA00EA77CD /* FASTAQuickLook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "FASTAQuickLook" */;
+			buildPhases = (
+				8D57630E048677EA00EA77CD /* Headers */,
+				8D57630F048677EA00EA77CD /* Resources */,
+				8D576311048677EA00EA77CD /* Sources */,
+				8D576313048677EA00EA77CD /* Frameworks */,
+				8D576315048677EA00EA77CD /* Rez */,
+				5FC164070D9C1CA4006567C1 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FASTAQuickLook;
+			productInstallPath = /Library/QuickLook;
+			productName = MotifQuickLook;
+			productReference = 8D576316048677EA00EA77CD /* FASTAQuickLook.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		089C1669FE841209C02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 2CA326220896AD4900168862 /* Build configuration list for PBXProject "FASTAQuickLook" */;
+			compatibilityVersion = "Xcode 3.0";
+			hasScannedForEncodings = 1;
+			mainGroup = 089C166AFE841209C02AAC07 /* MotifQuickLook */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D57630D048677EA00EA77CD /* FASTAQuickLook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8D57630F048677EA00EA77CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D5B49A804867FD3000E48DA /* InfoPlist.strings in Resources */,
+				9562E88A10F4ED1B0091549E /* snp_ncbi37.fasta in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		8D576315048677EA00EA77CD /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8D576311048677EA00EA77CD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8D576312048677EA00EA77CD /* main.m in Sources */,
+				2C05A19C06CAA52B00D84F6F /* GeneratePreviewForURL.m in Sources */,
+				61E3BCFB0870B4F2002186A0 /* GenerateThumbnailForURL.m in Sources */,
+				5FAE5BF70ED0CB2300A0B053 /* Symbol.m in Sources */,
+				5FAE5BF90ED0CB2300A0B053 /* Multinomial.m in Sources */,
+				5FAE5BFB0ED0CB2300A0B053 /* MotifSetParser.m in Sources */,
+				5FAE5BFD0ED0CB2300A0B053 /* MotifSet.m in Sources */,
+				5FAE5C000ED0CB2300A0B053 /* Motif.m in Sources */,
+				5FAE5C020ED0CB2300A0B053 /* Alphabet.m in Sources */,
+				5FAE5C040ED0CB2300A0B053 /* WeightMatrix.m in Sources */,
+				95D910510FDD7407006298B2 /* Dirichlet.m in Sources */,
+				5F66DDDE1089DEE9001159D8 /* MotifViewCell.m in Sources */,
+				5F66DDE21089DEF8001159D8 /* Metamotif.m in Sources */,
+				5F66DDE61089DEFE001159D8 /* SymbolBounds.m in Sources */,
+				5F66DDEA1089DF03001159D8 /* dirichlet_math.m in Sources */,
+				5F66DDF51089DF21001159D8 /* DistributionBounds.m in Sources */,
+				9562EA2010F4F7E10091549E /* FASTAParser.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		8D5B49A704867FD3000E48DA /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C167EFE841241C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2CA3261F0896AD4900168862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../external\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = FASTAQuickLook_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_NAME = FASTAQuickLook;
+				VALID_ARCHS = "i386 ppc";
+				WRAPPER_EXTENSION = qlgenerator;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		2CA326200896AD4900168862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../external\"",
+				);
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_NAME = MotifQuickLook;
+				VALID_ARCHS = "i386 ppc";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Release;
+		};
+		2CA326230896AD4900168862 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MotifQuickLook_Prefix.pch;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		2CA326240896AD4900168862 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2CA3261E0896AD4900168862 /* Build configuration list for PBXNativeTarget "FASTAQuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CA3261F0896AD4900168862 /* Debug */,
+				2CA326200896AD4900168862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2CA326220896AD4900168862 /* Build configuration list for PBXProject "FASTAQuickLook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CA326230896AD4900168862 /* Debug */,
+				2CA326240896AD4900168862 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 089C1669FE841209C02AAC07 /* Project object */;
+}
