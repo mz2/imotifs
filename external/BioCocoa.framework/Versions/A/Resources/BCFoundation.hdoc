@@ -1,0 +1,11 @@
+/*!
+@framework BioCocoa Foundation Reference
+
+@abstract Open Source Bioinformatics Framework for Cocoa and GNUstep
+
+@discussion BioCocoa is an open source framework for bioinformatics
+written in Objective-C. It provides Cocoa and GNUstep programmers with
+a full suite of tools for handling and manipulating biological
+sequences.
+
+*/
