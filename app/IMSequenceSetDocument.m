@@ -26,6 +26,7 @@
 @synthesize sequenceTable = _sequenceTable;
 @synthesize nameColumn = _nameColumn;
 @synthesize sequenceColumn = _sequenceColumn;
+@synthesize sequenceDetailView = _sequenceDetailView;
 
 - (NSString *)windowNibName {
     // Implement this to return a nib to load OR implement -makeWindowControllers to manually create your controllers.
@@ -65,7 +66,7 @@
              error:(NSError**) outError {
     
     PCLog(@"Reading document of type %@ from URL %@", type, url);
-    if ([type isEqual:@"Sequence set"]) {
+    if ([type isEqual:@"FASTA sequence set"]) {
 
         NSString *path = [url path];
         BCSequenceReader *sequenceReader = [[[BCSequenceReader alloc] init] autorelease];

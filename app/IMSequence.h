@@ -17,4 +17,6 @@
 @property (readwrite) NSInteger focusPosition;
 @property (copy,readwrite) NSString *name;
 
+-(NSArray*) annotationsOverlappingWithPosition:(NSInteger) position;
+
 @end
