@@ -220,7 +220,18 @@ const CGFloat IMSymbolWidth = 2.0;
     [[NSColor grayColor] setStroke];
     [path fill];
     [path stroke];
-
+	
+	if ([[self objectValue] focusPosition] != NSNotFound) {
+		
+		NSRect rect = NSMakeRect([[self objectValue] focusPosition] * IMSymbolWidth, 0, 10, 10);
+		NSBezierPath* circlePath = [NSBezierPath bezierPath];
+		[circlePath appendBezierPathWithOvalInRect: rect];
+		
+		[[NSColor redColor] setFill];
+		[circlePath fill];
+		[circlePath stroke];
+	}
+	
 	[self drawRangeAnnotation:
 	 [IMRangeAnnotation rangeAnnotationWithStart: 10 end: 20 score: 10]
 									 forSequence: seq
@@ -231,15 +242,6 @@ const CGFloat IMSymbolWidth = 2.0;
 				  forSequence: seq
 					   inRect: rect];
 	
-	if ([[self objectValue] focusPosition] != NSNotFound) {
-		
-		NSRect rect = NSMakeRect([[self objectValue] focusPosition] * IMSymbolWidth, 0, 10, 10);
-		NSBezierPath* circlePath = [NSBezierPath bezierPath];
-		[circlePath appendBezierPathWithOvalInRect: rect];
-		
-		[[NSColor redColor] setFill];
-		[circlePath stroke];
-	}
 	
 	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
 }

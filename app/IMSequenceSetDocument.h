@@ -51,4 +51,5 @@
 
 -(IBAction) toggleDrawer:(id) sender;
 
+-(NSString*) selectedPositionString;
 @end

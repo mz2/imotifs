@@ -47,6 +47,13 @@
 	return self.end - self.start + 1;
 }
 
+-(BOOL) overlapsWithPosition:(NSInteger) pos {
+	if (self.start > pos) return NO;
+	if (self.end < pos) return NO;
+	
+	return YES;
+}
+
 //=========================================================== 
 // dealloc
 //=========================================================== 

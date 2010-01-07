@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="1"/>
+			<integer value="2"/>
 			<integer value="36"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -284,16 +284,32 @@
 				<int key="NSvFlags">256</int>
 				<object class="NSMutableArray" key="NSSubviews">
 					<bool key="EncodedWithXMLCoder">YES</bool>
+					<object class="NSTextField" id="308891249">
+						<reference key="NSNextResponder" ref="639609245"/>
+						<int key="NSvFlags">268</int>
+						<string key="NSFrame">{{17, 8}, {326, 17}}</string>
+						<reference key="NSSuperview" ref="639609245"/>
+						<bool key="NSEnabled">YES</bool>
+						<object class="NSTextFieldCell" key="NSCell" id="921408165">
+							<int key="NSCellFlags">68288064</int>
+							<int key="NSCellFlags2">272630784</int>
+							<string key="NSContents">Position</string>
+							<reference key="NSSupport" ref="475489392"/>
+							<reference key="NSControlView" ref="308891249"/>
+							<reference key="NSBackgroundColor" ref="587338433"/>
+							<reference key="NSTextColor" ref="838050708"/>
+						</object>
+					</object>
 					<object class="NSTextField" id="15419403">
 						<reference key="NSNextResponder" ref="639609245"/>
 						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{17, 45}, {252, 17}}</string>
+						<string key="NSFrame">{{17, 57}, {326, 17}}</string>
 						<reference key="NSSuperview" ref="639609245"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="13230453">
 							<int key="NSCellFlags">68288064</int>
 							<int key="NSCellFlags2">272630784</int>
-							<string key="NSContents">Sequence around position %d (%d - %d)</string>
+							<string key="NSContents">Selected sequence name</string>
 							<reference key="NSSupport" ref="475489392"/>
 							<reference key="NSControlView" ref="15419403"/>
 							<reference key="NSBackgroundColor" ref="587338433"/>
@@ -302,8 +318,8 @@
 					</object>
 					<object class="NSTextField" id="329449623">
 						<reference key="NSNextResponder" ref="639609245"/>
-						<int key="NSvFlags">268</int>
-						<string key="NSFrame">{{20, 15}, {320, 22}}</string>
+						<int key="NSvFlags">266</int>
+						<string key="NSFrame">{{20, 27}, {320, 22}}</string>
 						<reference key="NSSuperview" ref="639609245"/>
 						<bool key="NSEnabled">YES</bool>
 						<object class="NSTextFieldCell" key="NSCell" id="201704355">
@@ -328,7 +344,7 @@
 						</object>
 					</object>
 				</object>
-				<string key="NSFrameSize">{360, 66}</string>
+				<string key="NSFrameSize">{454, 78}</string>
 				<reference key="NSSuperview"/>
 				<string key="NSClassName">NSView</string>
 			</object>
@@ -355,10 +371,10 @@
 					</object>
 					<string>@count</string>
 					<string>name</string>
+					<string>focusPosition</string>
 				</object>
-				<bool key="NSEditable">YES</bool>
+				<string key="NSObjectClassName">IMSequence</string>
 				<object class="_NSManagedProxy" key="_NSManagedProxy"/>
-				<bool key="NSAvoidsEmptySelection">YES</bool>
 				<bool key="NSPreservesSelection">YES</bool>
 				<bool key="NSSelectsInsertedObjects">YES</bool>
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
@@ -532,6 +548,42 @@
 					</object>
 					<int key="connectionID">98</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">displayPatternValue1: selection.name</string>
+						<reference key="source" ref="15419403"/>
+						<reference key="destination" ref="713230119"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="15419403"/>
+							<reference key="NSDestination" ref="713230119"/>
+							<string key="NSLabel">displayPatternValue1: selection.name</string>
+							<string key="NSBinding">displayPatternValue1</string>
+							<string key="NSKeyPath">selection.name</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSDisplayPattern</string>
+								<string key="NS.object.0">Selected sequence %{value1}@</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">113</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: selectedPositionString</string>
+						<reference key="source" ref="308891249"/>
+						<reference key="destination" ref="1001"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="308891249"/>
+							<reference key="NSDestination" ref="1001"/>
+							<string key="NSLabel">value: selectedPositionString</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">selectedPositionString</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">122</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -589,8 +641,9 @@
 						<reference key="object" ref="639609245"/>
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="15419403"/>
 							<reference ref="329449623"/>
+							<reference ref="15419403"/>
+							<reference ref="308891249"/>
 						</object>
 						<reference key="parent" ref="0"/>
 						<string key="objectName">Drawer Content View</string>
@@ -712,6 +765,20 @@
 						<reference key="object" ref="13230453"/>
 						<reference key="parent" ref="15419403"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">115</int>
+						<reference key="object" ref="308891249"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="921408165"/>
+						</object>
+						<reference key="parent" ref="639609245"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">116</int>
+						<reference key="object" ref="921408165"/>
+						<reference key="parent" ref="308891249"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -729,6 +796,8 @@
 					<string>100.IBPluginDependency</string>
 					<string>101.IBPluginDependency</string>
 					<string>102.IBPluginDependency</string>
+					<string>115.IBPluginDependency</string>
+					<string>116.IBPluginDependency</string>
 					<string>2.IBPluginDependency</string>
 					<string>36.IBEditorWindowLastContentRect</string>
 					<string>36.IBPluginDependency</string>
@@ -762,7 +831,9 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{172, 779}, {360, 66}}</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>{{172, 767}, {454, 78}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -797,7 +868,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">102</int>
+			<int key="maxID">123</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -821,22 +892,22 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>_sequenceDetailView</string>
 							<string>drawer</string>
 							<string>nameColumn</string>
 							<string>numberOfSequencesLabel</string>
 							<string>sequenceColumn</string>
+							<string>sequenceDetailView</string>
 							<string>sequenceSetController</string>
 							<string>sequenceTable</string>
 							<string>sequenceView</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSTextField</string>
 							<string>NSDrawer</string>
 							<string>NSTableColumn</string>
 							<string>NSTextField</string>
 							<string>NSTableColumn</string>
+							<string>NSTextField</string>
 							<string>IMSequenceSetController</string>
 							<string>NSTableView</string>
 							<string>IMSequenceView</string>

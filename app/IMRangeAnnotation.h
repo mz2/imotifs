@@ -29,4 +29,6 @@
 - (id)init;
 - (id)initWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score;
 + (id)rangeAnnotationWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score;
+
+-(BOOL) overlapsWithPosition:(NSInteger) pos;
 @end
