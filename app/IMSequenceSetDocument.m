@@ -65,7 +65,7 @@
              error:(NSError**) outError {
     
     PCLog(@"Reading document of type %@ from URL %@", type, url);
-    if ([type isEqual:@"Sequence set"]) {
+    if ([type isEqual:@"FASTA sequence set"]) {
 
         NSString *path = [url path];
         BCSequenceReader *sequenceReader = [[[BCSequenceReader alloc] init] autorelease];
@@ -79,15 +79,6 @@
             BCSequence *s = [sequenceArray sequenceAtIndex: i];
             PCLog(@"Sequence:%@\nannotations:%@",s,[[s annotations] allKeys]);
 
-            /*
-            for (id key in [[s annotations] allKeys]) {
-                PCLog(@"Annotation: %@",[[s annotations] objectForKey: key]);
-                PCLog(@"Name: '%@'",[[[s annotations] objectForKey: key] name]);
-                BCAnnotation *a = [[s annotations] objectForKey: key];
-                
-                PCLog(@"'%@'=>'%@'",[a name], [a stringValue]);
-            }*/
-            
             IMSequence *seq = 
                 [[[IMSequence alloc] initWithSymbolArray: [s symbolArray]] autorelease];
             seq.name =  [[[s annotations] objectForKey: @">"] stringValue];
@@ -97,11 +88,6 @@
         
         self.sequences = [[seqs copy] autorelease];
         
-        //this is nil! the Nib hasn't been read yet 
-        /*
-        PCLog(@"Sequence controller %@ contents: %@", self.sequenceSetController, self.sequenceSetController.content);
-        //[self.sequenceSetController setContent: self.sequences];
-        */
         PCLog(@"Read %d sequences from file %@", self.sequences.count, path);
         return self.sequences != nil ? YES : NO;
     } else {
