@@ -1179,7 +1179,6 @@ provideDataForType:(NSString *)type {
     task = nil;
 }
 
-
 -(BOOL) searchingByName {
     return [self searchType] == IMMotifSetSearchByName;
 }
