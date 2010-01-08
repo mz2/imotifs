@@ -30,6 +30,8 @@
     
     NSDrawer *_drawer;
     
+	NSTextField *_sequenceDetailView;
+	
     @protected
     IMSequenceViewCell *_sequenceCell;
 }
@@ -45,6 +47,9 @@
 
 @property(nonatomic,retain) IBOutlet NSDrawer *drawer;
 
+@property(nonatomic,retain) IBOutlet NSTextField *sequenceDetailView;
+
 -(IBAction) toggleDrawer:(id) sender;
 
+-(NSString*) selectedPositionString;
 @end

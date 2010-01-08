@@ -26,6 +26,7 @@
 @synthesize sequenceTable = _sequenceTable;
 @synthesize nameColumn = _nameColumn;
 @synthesize sequenceColumn = _sequenceColumn;
+@synthesize sequenceDetailView = _sequenceDetailView;
 
 - (NSString *)windowNibName {
     // Implement this to return a nib to load OR implement -makeWindowControllers to manually create your controllers.
@@ -114,5 +115,17 @@
 
 -(BOOL) isAnnotationSetDocument {
     return NO;
+}
+
+-(NSString*) selectedPositionString {
+	NSArray *selection = [self.sequenceSetController selectedObjects];
+	if (selection.count == 0) return @"Nothing selected";
+	
+	PCLog(@"Selection: %@", [selection objectAtIndex:0]);
+	IMSequence *seq = (IMSequence*)[[self.sequenceSetController selectedObjects] objectAtIndex:0];
+	
+	if (seq.focusPosition == NSNotFound) return @"No focus position";
+	
+	return [NSString stringWithFormat:@"Selected position %d",seq.focusPosition];
 }
 @end
