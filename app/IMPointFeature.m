@@ -22,17 +22,18 @@
     return self;
 }
 
-- (id)initWithPosition:(NSInteger)aPosition  
+- (id)initWithPosition:(NSInteger)aPosition strand:(IMStrand)strand
 {
     if (self = [super init]) {
         [self setPosition:aPosition];
+        [self setStrand:strand];
     }
     return self;
 }
 
-+ (id)pointFeatureWithPosition:(NSInteger)aPosition  
++ (id)pointFeatureWithPosition:(NSInteger)aPosition strand:(IMStrand)strand
 {
-    id result = [[[self class] alloc] initWithPosition:aPosition];
+    id result = [[[self class] alloc] initWithPosition:aPosition strand: strand];
 	
     return [result autorelease];
 }

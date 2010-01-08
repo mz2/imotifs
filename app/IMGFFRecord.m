@@ -7,7 +7,9 @@
 //
 
 #import "IMGFFRecord.h"
-
+#import "IMFeature.h"
+#import "IMRangeFeature.h"
+#import "IMPointFeature.h"
 
 @implementation IMGFFRecord
 @synthesize seqName = _seqName;
@@ -82,6 +84,15 @@
 
 -(NSString*) identifier {
     return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start,self.end,self.score];
+}
+
+-(IMFeature*) toFeature {
+    if (self.start == self.end) {
+        return [IMPointFeature pointFeatureWithPosition:self.start strand:self.strand];
+    } else {
+        return [IMRangeFeature rangeFeatureWithStart:self.start end:self.end score:self.score strand:self.strand];
+    }
+    return nil;
 }
 
 //=========================================================== 

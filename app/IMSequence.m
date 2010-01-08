@@ -10,7 +10,7 @@
 #import <BioCocoa/BCFoundation.h>
 #import "IMFeature.h"
 #import "IMRangeFeature.h"
-#import "IMPointAnnotation.h"
+#import "IMPointFeature.h"
 
 @implementation IMSequence
 @synthesize focusPosition = _focusPosition;
@@ -51,8 +51,8 @@
 				[anns addObject: feature];
 			}
 			
-		} else if ([feature isKindOfClass: [IMPointAnnotation class]]) {
-			if ([(IMPointAnnotation*)feature position] == position) {
+		} else if ([feature isKindOfClass: [IMPointFeature class]]) {
+			if ([(IMPointFeature*)feature position] == position) {
 				[anns addObject: feature];
 			}
 		} else {

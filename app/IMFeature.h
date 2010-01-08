@@ -11,12 +11,12 @@
 
 @interface IMFeature : NSObject {
 	CGFloat _score;
-	BOOL _selected;   
+	BOOL _selected;
+    IMStrand _strand;
 }
-
 
 @property(nonatomic,assign) CGFloat score;
 @property(nonatomic,assign) BOOL selected;
-
+@property(nonatomic,assign) IMStrand strand;
 
 @end

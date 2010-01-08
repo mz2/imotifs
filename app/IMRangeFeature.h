@@ -21,8 +21,14 @@
 
 // init
 - (id)init;
-- (id)initWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score;
-+ (id)rangeFeatureWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score;
+- (id)initWithStart:(NSInteger)aStart 
+                end:(NSInteger)anEnd
+              score:(CGFloat)score
+             strand:(IMStrand)strand;
++ (id)rangeFeatureWithStart:(NSInteger)aStart 
+                        end:(NSInteger)anEnd
+                      score:(CGFloat)score
+                     strand:(IMStrand)strand;
 
 -(BOOL) overlapsWithPosition:(NSInteger) pos;
 @end

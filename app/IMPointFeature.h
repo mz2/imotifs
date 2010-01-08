@@ -16,7 +16,9 @@
 
 @property(nonatomic,assign)NSInteger position;
 
-- (id)initWithPosition:(NSInteger)aPosition;
-+ (id)pointFeatureWithPosition:(NSInteger)aPosition;
+- (id)initWithPosition:(NSInteger)aPosition
+                strand:(IMStrand)strand;
++ (id)pointFeatureWithPosition:(NSInteger)aPosition 
+                        strand:(IMStrand)strand;
 
 @end

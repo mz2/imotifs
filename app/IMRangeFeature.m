@@ -24,19 +24,20 @@
     return self;
 }
 
-- (id)initWithStart:(NSInteger)aStart end:(NSInteger)anEnd  score:(CGFloat)score
+- (id)initWithStart:(NSInteger)aStart end:(NSInteger)anEnd  score:(CGFloat)score strand:(IMStrand)strand
 {
     if (self = [super init]) {
         [self setStart:aStart];
         [self setEnd:anEnd];
 		[self setScore: 0];
+        [self setStrand: strand];
     }
     return self;
 }
 
-+ (id)rangeFeatureWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score
++ (id)rangeFeatureWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score strand:(IMStrand)strand
 {
-    id result = [[[self class] alloc] initWithStart:aStart end:anEnd score: score];
+    id result = [[[self class] alloc] initWithStart:aStart end:anEnd score: score strand:strand];
 	
     return [result autorelease];
 }

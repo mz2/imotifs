@@ -12,3 +12,9 @@ const static NSInteger IMMaxAdvisedSeqCountForNMInfer = 100;
 const static NSInteger IMAdviseableNumMotifsForNMInfer = 10;
 
 const static CGFloat const IMSequenceCellMargin = 4.0;
+
+typedef enum IMStrand {
+    IMStrandPositive = 1,
+    IMStrandNegative = -1,
+    IMStrandNA = 0
+} IMStrand;

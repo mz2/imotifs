@@ -7,13 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
-typedef enum IMStrand {
-    IMStrandPositive = 1,
-    IMStrandNegative = -1,
-    IMStrandNA = 0
-} IMStrand;
-
+@class IMFeature;
 
 @interface IMGFFRecord : NSObject {
     NSString *_seqName;
@@ -46,5 +40,7 @@ typedef enum IMStrand {
            attributes:(NSString*)anAttributes;
 
 -(NSString*) identifier;
+
+-(IMFeature*) toFeature;
 
 @end
