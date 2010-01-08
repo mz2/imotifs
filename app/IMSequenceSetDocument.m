@@ -8,8 +8,7 @@
 
 #import "IMSequenceSetDocument.h"
 
-#import <BioCocoa/BCSequenceReader.h>
-#import <BioCocoa/BCSequenceArray.h>
+#import <BioCocoa/BCFoundation.h>
 
 #import "IMSequenceSetController.h"
 #import "IMSequenceView.h"

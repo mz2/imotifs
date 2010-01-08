@@ -12,11 +12,14 @@
 @interface IMSequence : BCSequence {
     NSInteger _focusPosition;
     NSString *_name;
+    
+    NSSet *_features;
 }
 
 @property (readwrite) NSInteger focusPosition;
 @property (copy,readwrite) NSString *name;
+@property (retain,readwrite) NSSet *features;
 
--(NSArray*) annotationsOverlappingWithPosition:(NSInteger) position;
+-(NSArray*) featuresOverlappingWithPosition:(NSInteger) position;
 
 @end

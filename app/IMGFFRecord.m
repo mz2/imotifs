@@ -6,10 +6,10 @@
 //  Copyright 2010 __MyCompanyName__. All rights reserved.
 //
 
-#import "IMAnnotation.h"
+#import "IMGFFRecord.h"
 
 
-@implementation IMAnnotation
+@implementation IMGFFRecord
 @synthesize seqName = _seqName;
 @synthesize source = _source;
 @synthesize feature = _feature;
@@ -68,7 +68,8 @@
 }
 
 -(NSString*) description {
-    return [NSString stringWithFormat:@"%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@",
+    return [NSString stringWithFormat:
+            @"%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@",
             _seqName,
             _source,
             _feature,
@@ -77,6 +78,10 @@
             _score,
             _strand,
             _attributes];
+}
+
+-(NSString*) identifier {
+    return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start,self.end,self.score];
 }
 
 //=========================================================== 

@@ -8,12 +8,14 @@
 
 #import "IMSequence.h"
 #import <BioCocoa/BCFoundation.h>
-#import "IMRangeAnnotation.h"
+#import "IMFeature.h"
+#import "IMRangeFeature.h"
 #import "IMPointAnnotation.h"
 
 @implementation IMSequence
 @synthesize focusPosition = _focusPosition;
 @synthesize name = _name;
+@synthesize features = _features;
 
 - (id)initWithSymbolArray:(NSArray *)a {
 	self = [super initWithSymbolArray:a];
@@ -39,20 +41,19 @@
     }
 }
 
--(NSArray*) annotationsOverlappingWithPosition:(NSInteger) position {
+-(NSArray*) featuresOverlappingWithPosition:(NSInteger) position {
 	NSMutableArray *anns = [NSMutableArray array];
 	
-	for (id key in [[self annotations] allKeys]) {
-		BCAnnotation *annotation = [[self annotations] objectForKey: key];
+	for (IMFeature *feature in [self features]) {
 		
-		if ([annotation isKindOfClass: [IMRangeAnnotation class]]) {
-			if ([(IMRangeAnnotation*)annotation overlapsWithPosition: position]) {
-				[anns addObject: annotation];
+		if ([[self features] isKindOfClass: [IMRangeFeature class]]) {
+			if ([(IMRangeFeature*)feature overlapsWithPosition: position]) {
+				[anns addObject: feature];
 			}
 			
-		} else if ([annotation isKindOfClass: [IMPointAnnotation class]]) {
-			if ([(IMPointAnnotation*)annotation position] == position) {
-				[anns addObject: annotation];
+		} else if ([feature isKindOfClass: [IMPointAnnotation class]]) {
+			if ([(IMPointAnnotation*)feature position] == position) {
+				[anns addObject: feature];
 			}
 		} else {
 			//ignore

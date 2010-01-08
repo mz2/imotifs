@@ -6,14 +6,12 @@
 //  Copyright 2010 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
-#import "IMRangeAnnotation.h"
+#import "IMRangeFeature.h"
 
 
-@implementation IMRangeAnnotation
+@implementation IMRangeFeature
 @synthesize start = _start;
 @synthesize end = _end;
-@synthesize score = _score;
-@synthesize selected = _selected;
 
 // init
 - (id)init
@@ -36,7 +34,7 @@
     return self;
 }
 
-+ (id)rangeAnnotationWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score
++ (id)rangeFeatureWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score
 {
     id result = [[[self class] alloc] initWithStart:aStart end:anEnd score: score];
 	

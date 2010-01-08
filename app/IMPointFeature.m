@@ -1,15 +1,15 @@
 //
-//  IMPointAnnotation.m
+//  IMPointFeature.m
 //  iMotifs
 //
 //  Created by Matias Piipari on 07/01/2010.
 //  Copyright 2010 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
-#import "IMPointAnnotation.h"
+#import "IMPointFeature.h"
 
 
-@implementation IMPointAnnotation
+@implementation IMPointFeature
 
 @synthesize position = _position;
 
@@ -30,7 +30,7 @@
     return self;
 }
 
-+ (id)pointAnnotationWithPosition:(NSInteger)aPosition  
++ (id)pointFeatureWithPosition:(NSInteger)aPosition  
 {
     id result = [[[self class] alloc] initWithPosition:aPosition];
 	

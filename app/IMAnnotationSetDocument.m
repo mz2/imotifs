@@ -7,7 +7,7 @@
 //
 
 #import "IMAnnotationSetDocument.h"
-#import "IMAnnotation.h"
+#import "IMGFFRecord.h"
 #import "IMAnnotationSetController.h"
 
 @implementation IMAnnotationSetDocument
@@ -91,8 +91,8 @@
                 attrStr = @"";
             }
             
-            IMAnnotation* annotation = 
-                [[[IMAnnotation alloc] initWithSeqName:[cols objectAtIndex:0]
+            IMGFFRecord* annotation = 
+                [[[IMGFFRecord alloc] initWithSeqName:[cols objectAtIndex:0]
                                                source:[cols objectAtIndex:1] 
                                               feature:[cols objectAtIndex:2] 
                                                 start:[[cols objectAtIndex:3] intValue] 

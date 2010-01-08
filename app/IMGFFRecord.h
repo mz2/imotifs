@@ -15,7 +15,7 @@ typedef enum IMStrand {
 } IMStrand;
 
 
-@interface IMAnnotation : NSObject {
+@interface IMGFFRecord : NSObject {
     NSString *_seqName;
     NSString *_source;
     NSString *_feature;
@@ -44,5 +44,7 @@ typedef enum IMStrand {
                 score:(double)aScore
                strand:(IMStrand)aStrand
            attributes:(NSString*)anAttributes;
+
+-(NSString*) identifier;
 
 @end

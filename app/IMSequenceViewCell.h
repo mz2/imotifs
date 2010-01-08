@@ -10,15 +10,15 @@
 @class IMSequence;
 
 @interface IMSequenceViewCell : NSActionCell <NSCopying> {
-
-	@protected
+    
+@protected
 	NSRect _cellRectAtMouseEventStart;
-	
-	
+    
+    
 }
 
 -(CGFloat) sequenceLengthInPixels:(IMSequence*) seq;
--(CGFloat) sequence:(IMSequence*) lengthFractionAtPoint:(NSPoint) p;
+-(CGFloat) sequence:(IMSequence*)seq lengthFractionAtPoint:(NSPoint) p;
 -(NSInteger) symbolPositionAtPoint:(NSPoint) p;
 
 @end
