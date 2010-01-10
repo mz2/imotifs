@@ -23,4 +23,7 @@
 @property (readwrite,retain) NSArray *annotations;
 @property (readwrite,retain) IBOutlet IMAnnotationSetController *annotationSetController;
 @property (readwrite,copy) NSString *name;
+
++(NSArray*) annotationSetDocuments;
+
 @end

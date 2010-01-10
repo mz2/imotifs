@@ -222,12 +222,12 @@ const CGFloat IMSymbolWidth = 2.0;
     [path stroke];
     
 	[self drawRangeFeature:
-	 [IMRangeFeature rangeFeatureWithStart: 10 end: 20 score: 10]
+	 [IMRangeFeature rangeFeatureWithStart: 10 end: 20 score: 10 strand:IMStrandNA]
                   forSequence: seq
                        inRect: rect];
     
 	[self drawRangeFeature:
-	 [IMRangeFeature rangeFeatureWithStart: 80 end: 100 score: 10]
+	 [IMRangeFeature rangeFeatureWithStart: 80 end: 100 score: 10 strand:IMStrandNA]
 				  forSequence: seq
 					   inRect: rect];
     

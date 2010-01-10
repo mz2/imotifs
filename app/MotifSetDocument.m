@@ -366,7 +366,7 @@ writeRowsWithIndexes:(NSIndexSet *)rowIndexes
     NSMutableArray *draggedMotifs = [[NSMutableArray alloc] init];
     NSMutableArray *draggedMotifsOriginals = [[NSMutableArray alloc] init];
     
-    unsigned currentIndex = [rowIndexes firstIndex];
+    NSUInteger currentIndex = [rowIndexes firstIndex];
     while (currentIndex != NSNotFound) {
         PCLog(@"currentIndex=%d",currentIndex);
         Motif *m = [[motifSetController arrangedObjects] objectAtIndex:currentIndex];

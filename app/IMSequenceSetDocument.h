@@ -13,6 +13,8 @@
 @class IMSequenceView;
 @class BCSequenceArray;
 @class IMSequenceViewCell;
+@class IMAnnotationSetPickerWindow;
+@class IMAnnotationSetPickerTableDelegate;
 
 @interface IMSequenceSetDocument : NSDocument <IMotifsDocument> {
     NSString *_name;
@@ -31,6 +33,9 @@
     NSDrawer *_drawer;
     
 	NSTextField *_sequenceDetailView;
+    
+    IMAnnotationSetPickerWindow *_annotationSetPicker;
+    IMAnnotationSetPickerTableDelegate *_annotationSetPickerTableDelegate;
 	
     @protected
     IMSequenceViewCell *_sequenceCell;
@@ -44,12 +49,16 @@
 @property(nonatomic,retain) IBOutlet NSTableView *sequenceTable;
 @property(nonatomic,retain) IBOutlet NSTableColumn *nameColumn;
 @property(nonatomic,retain) IBOutlet NSTableColumn *sequenceColumn;
-
+@property(nonatomic,retain) IBOutlet IMAnnotationSetPickerWindow *annotationSetPicker;
+@property(nonatomic,retain) IBOutlet IMAnnotationSetPickerTableDelegate *annotationSetPickerTableDelegate;
 @property(nonatomic,retain) IBOutlet NSDrawer *drawer;
 
 @property(nonatomic,retain) IBOutlet NSTextField *sequenceDetailView;
 
 -(IBAction) toggleDrawer:(id) sender;
+
+-(IBAction) annotateSequencesWithFeatures: (id)sender;
+-(IBAction) closeAnnotationSetPickerSheet: (id) sender;
 
 -(NSString*) selectedPositionString;
 @end

@@ -126,4 +126,9 @@
     return NO;
 }
 
++(NSArray*) annotationSetDocuments {
+    NSMutableArray *a = [NSMutableArray array];
+    
+}
+
 @end

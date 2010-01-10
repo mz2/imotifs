@@ -14,6 +14,8 @@
 #import "IMSequenceView.h"
 #import "IMSequenceViewCell.h"
 #import "IMSequence.h"
+#import "IMAnnotationSetPickerTableDelegate.h"
+#import "IMAnnotationSetPickerWindow.h"
 
 @implementation IMSequenceSetDocument
 @synthesize name = _name;
@@ -26,6 +28,9 @@
 @synthesize nameColumn = _nameColumn;
 @synthesize sequenceColumn = _sequenceColumn;
 @synthesize sequenceDetailView = _sequenceDetailView;
+@synthesize annotationSetPicker = _annotationSetPicker;
+@synthesize annotationSetPickerTableDelegate = _annotationSetPickerTableDelegate;
+
 
 - (NSString *)windowNibName {
     // Implement this to return a nib to load OR implement -makeWindowControllers to manually create your controllers.
@@ -127,4 +132,22 @@
 	
 	return [NSString stringWithFormat:@"Selected position %d",seq.focusPosition];
 }
+
+- (IBAction) annotateSequencesWithFeatures: (id)sender {
+    if (!self.annotationSetPicker) {
+        [NSBundle loadNibNamed: @"IMAnnotationSetPickerWindow" 
+						 owner: self];
+	}
+	
+	[(NSTableView*)self.annotationSetPicker.tableView reloadData];
+	NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
+						  @"bestHitsWith",@"action",nil];
+	
+	[NSApp beginSheet: self.annotationSetPicker
+	   modalForWindow: [NSApp mainWindow]
+		modalDelegate: self
+	   didEndSelector: @selector(didEndAnnotationSetPickerSheet:returnCode:contextInfo:)
+		  contextInfo: dict];
+}
+
 @end
