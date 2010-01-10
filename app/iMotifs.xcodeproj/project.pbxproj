@@ -313,6 +313,9 @@
 		95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */; };
 		95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */; };
 		95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD2B210F749CB0008CE43 /* IMFeature.m */; };
+		95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */; };
+		95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */; };
+		95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */; };
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
@@ -803,6 +806,12 @@
 		95DDD1E110F743FA0008CE43 /* IMRangeFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRangeFeature.h; sourceTree = "<group>"; };
 		95DDD2B110F749CB0008CE43 /* IMFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMFeature.h; sourceTree = "<group>"; };
 		95DDD2B210F749CB0008CE43 /* IMFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMFeature.m; sourceTree = "<group>"; };
+		95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetPickerWindow.h; sourceTree = "<group>"; };
+		95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetPickerWindow.m; sourceTree = "<group>"; };
+		95DDD52E10F786770008CE43 /* IMAnnotationSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetPickerWindow.h; sourceTree = "<group>"; };
+		95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetPickerWindow.m; sourceTree = "<group>"; };
+		95DDD57610F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetPickerTableDelegate.h; sourceTree = "<group>"; };
+		95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetPickerTableDelegate.m; sourceTree = "<group>"; };
 		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEnsemblConnection.h; sourceTree = "<group>"; };
@@ -1327,6 +1336,8 @@
 				9562E58C10F4B0080091549E /* IMAnnotationSetDocument.h */,
 				9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */,
 				9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */,
+				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
+				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
 			);
 			name = Document;
 			sourceTree = "<group>";
@@ -1351,6 +1362,7 @@
 		9563E2C2101E065F006F067A /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				95DDD57010F788870008CE43 /* Annotation Set Picker */,
 				95B2C6770EED8F40004605A6 /* Motif Name Picker */,
 				95B2C6740EED8EE3004605A6 /* Motif Set Picker */,
 			);
@@ -1640,6 +1652,17 @@
 				9562E5FB10F4CC710091549E /* IMGFFRecord.m */,
 			);
 			name = "GFF Record";
+			sourceTree = "<group>";
+		};
+		95DDD57010F788870008CE43 /* Annotation Set Picker */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD52E10F786770008CE43 /* IMAnnotationSetPickerWindow.h */,
+				95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */,
+				95DDD57610F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.h */,
+				95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */,
+			);
+			name = "Annotation Set Picker";
 			sourceTree = "<group>";
 		};
 		95FE41CC10C8982600E034FE /* Sequence Set */ = {
@@ -1938,6 +1961,9 @@
 				95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */,
 				95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */,
 				95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */,
+				95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */,
+				95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */,
+				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2135,7 +2161,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
-				VALID_ARCHS = i386;
+				VALID_ARCHS = "x86_64 i386";
 				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;

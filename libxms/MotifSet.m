@@ -110,7 +110,7 @@
 -(NSUInteger) count {
     return [motifs count];
 }
--(Motif*) motifWithIndex:(int)index {
+-(Motif*) motifWithIndex:(NSInteger)index {
     return [motifs objectAtIndex:index];
 }
 -(NSInteger) indexForMotif:(Motif*)m {
