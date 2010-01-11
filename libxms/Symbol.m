@@ -18,7 +18,7 @@
     names = [ns retain];
     
     if ([symbolRegistry containsObject:self]) {
-        DebugLog(@"An existing symbol was found. Will release and deallocate self and return a pointer to the existing object");
+        PCLog(@"An existing symbol was found. Will release and deallocate self and return a pointer to the existing object");
         Symbol *sym = [symbolRegistry objectAtIndex:[symbolRegistry indexOfObject:self]];
         
         [primaryName release];
@@ -64,7 +64,7 @@
 }
 
 - (id) initWithCoder:(NSCoder *)coder {
-    DebugLog(@"Symbol: initWithCoder");
+    PCLog(@"Symbol: initWithCoder");
     
     NSMutableSet *ns = [[coder decodeObjectForKey:@"names"] retain];
     NSString *primName = [[coder decodeObjectForKey:@"primaryName"] retain];
@@ -84,7 +84,7 @@
 }
 
 - (void) encodeWithCoder:(NSCoder *)coder {
-    DebugLog(@"Symbol: encodeWithCoder");
+    PCLog(@"Symbol: encodeWithCoder");
     
     /*
     if (![symbolRegistry containsObject:self]) {
@@ -149,7 +149,7 @@
 -(NSSet*) names {return names;}
 
 -(bool) hasName:(NSString*)name {
-	return [names containsObject:name];
+	return [names containsObject: name];
 }
 
 - (BOOL) isEqual:(id) obj {

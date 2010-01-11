@@ -9,7 +9,7 @@
 #import "NMCutoffController.h"
 #import "NMCutoffOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "AppController.h"
+#import "IMAppController.h"
 
 @implementation NMCutoffController
 @synthesize operation = _operation;

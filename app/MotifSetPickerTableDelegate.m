@@ -24,7 +24,7 @@
 
 - (NSUInteger) motifSetCount {
 	NSUInteger count = [[NSDocumentController sharedDocumentController] documents].count;
-	//DebugLog(@"MotifSetPickerTableDelegate: picker motif set count: %d", count);
+	//PCLog(@"MotifSetPickerTableDelegate: picker motif set count: %d", count);
 	return count;
 }
 
@@ -58,7 +58,7 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 }
 
 - (void) setMotifSetDocument:(MotifSetDocument*)msetdoc {
-	DebugLog(@"Setting motif set document");
+	PCLog(@"Setting motif set document");
 	[msetdoc retain];
 	[motifSetDocument release];
 	motifSetDocument = msetdoc;
@@ -68,8 +68,12 @@ shouldEditTableColumn:(NSTableColumn *)tableColumn
 	if (motifSetDocument != nil) [otherMotifSetDocuments removeObject: motifSetDocument];
 	[otherMotifSets release];
 	otherMotifSets = [[NSMutableArray alloc] init];
-	for (MotifSetDocument* msdoc in otherMotifSetDocuments) {
-		[otherMotifSets addObject: [msdoc motifSet]];
+	for (NSDocument* msdoc in otherMotifSetDocuments) {
+        if ([msdoc isKindOfClass:[MotifSetDocument class]]) {
+            [otherMotifSets addObject: [(MotifSetDocument*)msdoc motifSet]];            
+        } else {
+            
+        }
 	}
     [otherMotifSets sortUsingSelector:@selector(compare:)];
 }

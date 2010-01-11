@@ -10,7 +10,7 @@
 #import "MotifComparitor.h"
 #import "MotifSetController.h"
 #import "Multinomial.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "Motif.h"
 
 
@@ -36,7 +36,7 @@ againstMotifsControlledBy: (MotifSetController*) msc {
 
 -(void) run {
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];    
-    DebugLog(@"Running MotifsBelowDistanceCutoffOperation");
+    PCLog(@"Running MotifsBelowDistanceCutoffOperation");
     Multinomial *elsewhere = [Multinomial multinomialWithAlphabet:[Alphabet dna]];
     NSUInteger contentCount = [motifSetController.content count];
     
@@ -53,7 +53,7 @@ againstMotifsControlledBy: (MotifSetController*) msc {
                                       toMotif: m 
                                    background: elsewhere];
         if (val >= [[[NSApplication sharedApplication] delegate] consensusSearchCutoff]) {
-            DebugLog(@"Motif %@ doesn't match below cutoff %.3f",
+            PCLog(@"Motif %@ doesn't match below cutoff %.3f",
                   m.name,[[[NSApplication sharedApplication] delegate] consensusSearchCutoff]);
             [motifSetController hideObject:m];
         }
@@ -62,10 +62,10 @@ againstMotifsControlledBy: (MotifSetController*) msc {
     [comparitor.indicator setDoubleValue: 100];
     [comparitor.indicator stopAnimation: self];
     //[comparitor.indicator setHidden: YES];
-    DebugLog(@"Rearranging after finding ");
+    PCLog(@"Rearranging after finding ");
     [motifSetController rearrangeObjects];
     [pool release];
-    DebugLog(@"MotifsBelowDistanceCutoffOperation done.");
+    PCLog(@"MotifsBelowDistanceCutoffOperation done.");
     
 }
 @end

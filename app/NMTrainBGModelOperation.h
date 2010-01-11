@@ -8,23 +8,27 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMTaskOperation.h"
+#import "IMOutputFileProducingOperation.h"
+@class IMRetrieveSequencesStatusDialogController;
 
-@interface NMTrainBGModelOperation : IMTaskOperation {
-    NSString *inputSequencePath;
-    NSString *outputBackgroundModelFilePath;
-    NSUInteger classes;
-    NSUInteger order;
+@interface NMTrainBGModelOperation : IMTaskOperation <IMOutputFileProducingOperation> {
+    NSString *_inputSequencePath;
+    NSString *_outputBackgroundModelFilePath;
+    NSUInteger _classes;
+    NSUInteger _order;
     
-    
+    IMRetrieveSequencesStatusDialogController *_statusDialogController;
     @private
-    NSFileHandle *readHandle;
-    NSFileHandle *errorReadHandle;
+    NSFileHandle *_readHandle;
+    NSFileHandle *_errorReadHandle;
 }
 
 @property (copy,readwrite) NSString *inputSequencePath;
 @property (copy,readwrite) NSString *outputBackgroundModelFilePath;
 
-@property NSUInteger classes;
-@property NSUInteger order;
+@property (readwrite) NSUInteger classes;
+@property (readwrite) NSUInteger order;
+
+@property (assign, readwrite) IMRetrieveSequencesStatusDialogController *statusDialogController;
 
 @end

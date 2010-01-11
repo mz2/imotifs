@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "MotifComparisonOperation.h"
 @class Motif;
+@class MotifSetDocument;
 
 extern NSString* const IMClosestMotifMatchScoreKey;
 extern NSString* const IMClosestMotifMatchNameKey;
@@ -16,6 +17,8 @@ extern NSString* const IMClosestMotifMatchNameKey;
 @interface BestHitsOperation : MotifComparisonOperation {
     NSArray *m1s;
     NSArray *m2s;
+    
+    MotifSetDocument *_motifSetDocument;
     
     @private
     BOOL isReciprocal;
@@ -33,5 +36,7 @@ extern NSString* const IMClosestMotifMatchNameKey;
 @property (retain,readonly) NSArray *m1s;
 @property (retain,readonly) NSArray *m2s;
 @property (readonly) BOOL isReciprocal;
+
+@property (nonatomic,retain) MotifSetDocument *motifSetDocument;
 
 @end

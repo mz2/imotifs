@@ -21,7 +21,7 @@
 - (id)initWithFrame:(NSRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        //DebugLog(@"MotifView: initialising with frame");
+        //PCLog(@"MotifView: initialising with frame");
         bgColor = [[NSColor controlBackgroundColor] retain];
         //[self setDrawingStyle:IMInfoScaledLogo];
     }
@@ -34,15 +34,15 @@
 }
 
 - (void)awakeFromNib {
-    DebugLog(@"MotifView: awakening from Nib");
+    PCLog(@"MotifView: awakening from Nib");
     id oldCell = [self cell];
     MotifViewCell *cell = [[[MotifViewCell class] alloc] initImageCell:[oldCell image]];
     
     [[NSUserDefaults standardUserDefaults] floatForKey:@"IMMetamotifConfidenceIntervalCutoff"];
     
     [cell setColumnDisplayOffset: [self columnDisplayOffset]];
-    DebugLog(@"MotifView: old cell: %@",oldCell);
-    DebugLog(@"MotifView: represented motif: %@", [self motif]);
+    PCLog(@"MotifView: old cell: %@",oldCell);
+    PCLog(@"MotifView: represented motif: %@", [self motif]);
     //[cell setImage:[oldCell image]];
     [cell setObjectValue:motif];
     [self setCell:cell];
@@ -58,7 +58,7 @@
 }
 
 -(void) setMotif:(Motif*) m {
-    DebugLog(@"MotifView: setting motif to %@",m);
+    PCLog(@"MotifView: setting motif to %@",m);
     [m retain];
     [[self motif] release];
     motif = m;
@@ -95,18 +95,18 @@
 
 #pragma mark Event handling
 - (BOOL) acceptsFirstResponder {
-    DebugLog(@"MotifView: accepting first responder");
+    PCLog(@"MotifView: accepting first responder");
     return YES;
 }
 
 - (BOOL) resignFirstResponder {
-    DebugLog(@"MotifView: resigning first responder");
+    PCLog(@"MotifView: resigning first responder");
     [self setNeedsDisplay: YES];
     return YES;
 }
 
 - (BOOL) becomeFirstResponder {
-    DebugLog(@"MotifView: becoming first responder");
+    PCLog(@"MotifView: becoming first responder");
     [self setNeedsDisplay: YES];
     return YES;
 }
@@ -129,32 +129,32 @@
 
 /*
 - (void) insertTab:(id) sender {
-    DebugLog(@"MotifView: inserted tab");
+    PCLog(@"MotifView: inserted tab");
 }
 - (void) insertBacktab:(id) sender {
-    DebugLog(@"MotifView: inserted backtab");
+    PCLog(@"MotifView: inserted backtab");
 }
 - (void) insertText:(NSString*) input {
-    DebugLog(@"MotifView: inserted text:%@",input);
+    PCLog(@"MotifView: inserted text:%@",input);
 }
 */
 
 /*
 - (void) moveLeft {
-    DebugLog(@"MotifView: move left");
+    PCLog(@"MotifView: move left");
     [motif decrementOffset];
     [self setNeedsDisplay:YES];
 }
 
 - (void) moveRight {
-    DebugLog(@"MotifView: move right");
+    PCLog(@"MotifView: move right");
     [motif incrementOffset];
     [self setNeedsDisplay:YES];
 }*/
 
 /*
         - (void) insertText:(NSString*) input {
-    DebugLog(@"MotifView: inserted %@",input);
+    PCLog(@"MotifView: inserted %@",input);
     if ([input isEqual: @"k"]) {
         [self moveToLeft];
     } else if ([input isEqual:@"l"]) {

@@ -24,14 +24,5 @@
 -(id) initWithRows:(NSUInteger)rs 
                              cols:(NSUInteger)cs 
                             value:(double)value;
-//-(IMDoubleMatrix2D*) transpose;
 
-/*
--(NSUInteger) rows;
--(NSUInteger) columns;
--(NSUInteger) elements;
--(double) valueAtRow:(NSUInteger)row col:(NSUInteger)col;
--(void) setValue:(double)v 
-             row:(NSUInteger) row 
-             col:(NSUInteger) col;*/
 @end

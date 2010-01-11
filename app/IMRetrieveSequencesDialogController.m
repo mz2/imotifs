@@ -9,7 +9,7 @@
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrieveSequencesOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "IMEnsemblConnection.h"
 
 @interface IMRetrieveSequencesDialogController (private) 
@@ -343,6 +343,8 @@
     selectedGeneIDType = i;
     [self didChangeValueForKey:@"selectedGeneIDType"];
     
+    self.retrieveSequencesOperation.searchType = selectedGeneIDType;
+    
     if (i == IMRetrieveSequencesSearchTypeDisplayLabel) {
         self.selectedGeneIDList = geneDisplayLabels;
     } else if (i == IMRetrieveSequencesSearchTypePrimaryAccession) {
@@ -414,7 +416,7 @@
 }
 
 -(IBAction) cancel:(id) sender {
-    DebugLog(@"Cancelling sequence retrieval");
+    PCLog(@"Cancelling sequence retrieval");
     [self close];
     [self release];
 }

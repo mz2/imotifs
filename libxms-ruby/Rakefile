@@ -1,0 +1,58 @@
+# Rakefile.rb  
+# Copyright (C)::   Matias Piipari <matias.piipari@gmail.com>  
+# License::         LGPL v3.0
+
+require 'rubygems'
+require 'rake'  
+require 'rake/testtask'  
+require 'rake/rdoctask'  
+require 'rake/gempackagetask'
+
+PKG_VERSION = 1.0
+file_list = Dir.glob("lib/**/*.rb")  
+
+task :default => :package
+
+desc "Create RDoc documentation"  
+file 'doc/index.html' => file_list do  
+  puts "Creating RDoc documentation"  
+  system "rdoc --title 'libxms documentation' lib/"  
+end  
+  
+desc "An alias for creating the RDoc documentation"  
+task :rdoc do  
+  Rake::Task['doc/index.html'].invoke  
+end  
+
+desc "Create a gem for version #{PKG_VERSION} of the package"
+task :pkg => do
+  Rake::Task['package'].invoke #this task is created dynamically by Rake::GemPackageTask
+end
+
+def spec
+  puts "Creating gemspec for the package"
+  spec = Gem::Specification.new do |s|
+    s.name = 'libxms-ruby'
+    s.version = PKG_VERSION.to_s
+    s.summary = "An API for sequence motif I/O and visualisation."
+    s.description = %{An API for sequence motif I/O and visualisation: reading and writing XMS formatted files and visualisation of sequence logos is included.}
+    files = Dir.glob("lib/**/*.rb") 
+    puts files
+    s.files = files
+    s.require_path = 'lib'
+    s.has_rdoc = true
+    s.extra_rdoc_files = Dir['[A-Z]*']
+    s.rdoc_options << '--title' <<  'libxms-ruby -- an API for sequence motif I/O and visualisation.'
+    s.author = "Matias Piipari"
+    s.email = "matias.piipari@gmail.com"
+    s.homepage = "http://www.github.com/mz2/imotifs/"
+    s.rubyforge_project = "libxms-ruby"
+  end
+  return spec
+end
+
+Rake::GemPackageTask.new(spec) do |pkg|
+  pkg.need_tar_gz = true
+  pkg.package_dir = "pkg"
+end
+

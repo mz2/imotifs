@@ -8,44 +8,113 @@
 
 #import "NMShuffleOperation.h"
 #import "NMOperation.h"
+#import "MotifSetDocument.h"
+#import "MotifSet.h"
+
+@interface NMShuffleOperation (private)
+-(void) startProcessing;
+-(void) endProcessing;
+@end
+
 
 @implementation NMShuffleOperation
 @synthesize motifsAFile = _motifsAFile;
 @synthesize motifsBFile = _motifsBFile;
+@synthesize outputFile = _outputFile;
 @synthesize bootstraps = _bootstraps;
 @synthesize threshold = _threshold;
+@synthesize motifSetDocument = _motifSetDocument;
 
-// init
-- (id)init
-{
-    NSString *lp = 
-    [[[[NMOperation nmicaExtraPath] 
-       stringByAppendingPathComponent:@"bin/nmshuffle"] 
-      stringByExpandingTildeInPath] retain];
+-(id) initWithMotifs:(MotifSet*) motifsA 
+             against:(MotifSet*) motifsB
+          outputFile:(NSString*) outputFile {
+    NSString *motifsATempPath = 
+        [[NSTemporaryDirectory() stringByAppendingPathComponent:
+          [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+        
+    NSString *motifsBTempPath = 
+        [[NSTemporaryDirectory() stringByAppendingPathComponent:
+          [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+    
+    NSError *errA = nil;
+    [[motifsA stringValue] writeToFile:motifsATempPath 
+                            atomically:YES 
+                              encoding:NSUTF8StringEncoding error:&errA];
+    
+    if (errA != nil) {
+        NSLog(@"Error: %@", [errA localizedDescription]);
+        [NSApp presentError:errA];
 
-    if (self = [super init]) {
-        [self setMotifsAFile: nil];
-        [self setMotifsBFile: nil];
-        [self setBootstraps: 10000];
-        [self setThreshold: 0.10];
-        
-        self = [super initWithLaunchPath: lp];
-        
-        if (self == nil) return nil;
-        self.bootstraps = 10000;
-        
-        return self;
     }
+    
+    NSError *errB = nil;
+    [[motifsB stringValue] writeToFile:motifsBTempPath 
+                            atomically:YES 
+                              encoding:NSUTF8StringEncoding error:&errB];
+    if (errB != nil) {
+        [NSApp presentError:errB];
+    }
+    
+    [self initWithMotifsFromFile: motifsATempPath 
+           againstMotifsFromFile: motifsBTempPath 
+                      outputFile: outputFile 
+               deleteSourceFiles: YES];
+
     return self;
 }
 
+-(id) initWithMotifsFromFile: (NSString*) motifsAPath 
+       againstMotifsFromFile: (NSString*) motifsBPath
+                  outputFile: (NSString*) outputFile
+           deleteSourceFiles: (BOOL) deleteSourceFiles {
+    _temporaryFiles = deleteSourceFiles;
+      
+      NSString *lp = 
+      [[[[NMOperation nmicaExtraPath] 
+         stringByAppendingPathComponent:@"bin/nmshuffle"] 
+        stringByExpandingTildeInPath] retain];
+      
+      if (self = [super init]) {
+          [self setMotifsAFile: motifsAPath];
+          [self setMotifsBFile: motifsBPath];
+          [self setOutputFile: outputFile];
+          if (outputFile == nil) {
+              _temporaryOutputFile = YES;
+          }
+          [self setBootstraps: 100];
+          [self setThreshold: 0.10];
+          
+          self = [super initWithLaunchPath: lp];
+          
+          if (self == nil) return nil;
+          
+          return self;
+      }
+      
+      return nil;
+}
+
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:[NSNull null] forKey:self.motifsAFile];
-    [args setObject:[NSNull null] forKey:self.motifsBFile];
-    [args setObject:[NSNumber numberWithInt:self.bootstraps] forKey:@"-bootstraps"];
-    [args setObject:[NSNumber numberWithDouble:self.threshold] forKey:@"-threshold"];
+    [args setObject: self.motifsAFile 
+             forKey: @"-database"];
+    [args setObject: self.motifsBFile 
+             forKey: @"-motifs"];
+    [args setObject: [NSNumber numberWithInt:self.bootstraps] 
+             forKey:@"-bootstraps"];
+    [args setObject: [NSNumber numberWithDouble:self.threshold] 
+             forKey:@"-threshold"];
+    [args setObject: [NSNull null] 
+             forKey: @"-outputPairedMotifs"];
     
-    [args setObject:[NSNumber numberWithInt:_bootstraps] forKey:@"-bootstraps"];
+    if (self.outputFile == nil) {
+        NSString *outputTempFile = 
+            [[NSTemporaryDirectory() stringByAppendingPathComponent:
+                [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+        
+        self.outputFile = outputTempFile;
+    }
+    
+    [args setObject: self.outputFile forKey:@"-out"];
 }
 
 -(void) initializeTask:(NSTask*)t {
@@ -59,7 +128,13 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    DebugLog(@"Running");
+    PCLog(@"Running NMShuffleOperation");
+    
+    [self performSelectorOnMainThread:@selector(startProcessing) withObject:nil waitUntilDone:NO];
+    
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: NO];
+    [self.motifSetDocument.alignmentProgressIndicator startAnimation: self];
+    
     while ((inData = [_readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -70,25 +145,70 @@
         if ([lines count] == 1) {
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
-            DebugLog(@"Line count : %@", lines);
+            PCLog(@"Line count : %@", lines);
         } else {
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
-            DebugLog(@"Buffer: %@", buf);
+            PCLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
         }
-        
     }
     
-    DebugLog(@"Done.");
+    PCLog(@"Done.");
+    [self performSelectorOnMainThread:@selector(endProcessing) withObject:nil waitUntilDone:NO];
+    
+    if (_temporaryFiles) {
+        NSError *errA = nil;
+        NSError *errB = nil;
+        [[NSFileManager defaultManager] removeItemAtPath:_motifsAFile error:&errA];
+        if (errA != nil) {
+            PCLog(@"Error occurred when removing temporary file A: %@", [errA description]);
+        }
+        
+        [[NSFileManager defaultManager] removeItemAtPath:_motifsBFile error:&errB];
+        
+        if (errB != nil) {
+            PCLog(@"Error occurred when removing temporary file B: %@", [errB description]);
+        }
+    }
+    
+    NSError *err = nil;
+    NSDocumentController *sharedDocController = [NSDocumentController sharedDocumentController];
+    MotifSetDocument *mdoc = [sharedDocController makeDocumentWithContentsOfURL: [NSURL fileURLWithPath:self.outputFile] 
+                                                                         ofType: @"Motif set" 
+                                                                          error: &err];
+    
+    [[NSDocumentController sharedDocumentController] addDocument: mdoc];
+    [mdoc makeWindowControllers];
+    [mdoc showWindows];
+    
+    if (_temporaryOutputFile) {
+        NSError *err;
+        [[NSFileManager defaultManager] removeItemAtPath:self.outputFile error:&err];
+        
+        if (err != nil) {
+            NSLog(@"Error when removing temporary output file %@", self.outputFile);
+        }
+    }
+    
+    
     /*
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];*/
 }
 
+-(void) startProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: NO];
+    [self.motifSetDocument.alignmentProgressIndicator startAnimation: self];
+}
+
+-(void) endProcessing {
+    [self.motifSetDocument.alignmentProgressIndicator stopAnimation: self];
+    [self.motifSetDocument.alignmentProgressIndicator setHidden: YES];
+}
 //=========================================================== 
 // dealloc
 //=========================================================== 

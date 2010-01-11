@@ -10,7 +10,7 @@
 #import "IMRetrievePeakSequencesOperation.h"
 #import <ActiveRecord/ActiveRecord.h>
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "IMEnsemblConnection.h"
 
 @interface IMRetrievePeakSequencesController (private) 
@@ -227,7 +227,7 @@
 }
 
 -(IBAction) cancel:(id) sender {
-    DebugLog(@"Cancelling sequence retrieval");
+    PCLog(@"Cancelling sequence retrieval");
     [self close];
     [self release];
 }

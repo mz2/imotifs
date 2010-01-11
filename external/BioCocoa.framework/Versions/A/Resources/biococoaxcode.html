@@ -1,0 +1,24 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>BioCocoa and Xcode</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="bc.css">
+	</head>
+	<body>
+		<h2>Compiling BioCocoa in Xcode</h2>
+		<p>This section is probably NOT useful for anyone who succeeded in compiling the latest BioCocoa version from our CVS server. 
+		However, for people new to the project, this might be of interest. If you experience problems when compiling the latest version of BioCocoa, 
+		make sure you install the Mac OS 10.2.x and Mac OS 10.3.x SDKs from the Xcode CD. 
+		I don't think these SDKs are installed by default. However, they are required to properly compile BioCocoa.
+After installing them, make sure that BioCocoa links to the right SDK in the Xcode project:</p>
+<ul>
+
+<li>Select the BioCocoa target from the list of targets</li>
+<li>Click Get Info and then select the build tab</li>
+<li>Make sure the SDKROOT property points to a valid SDK path</li>
+</ul>
+<p>That should fix any (pre)compiler errors.</p>
+		<p><a href="index.html">Back to index</a></p>
+	</body>
+</html>

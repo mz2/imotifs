@@ -64,7 +64,7 @@
 
 - (id) initWithCoder:(NSCoder*)coder {
     [super init];
-    //DebugLog(@"Multinomial: initWithCoder");
+    //PCLog(@"Multinomial: initWithCoder");
     alphabet = [[coder decodeObjectForKey:@"alphabet"] retain];
     //weightArray = [[coder decodeObjectForKey:@"weightArray"] retain];
     weights = [[coder decodeObjectForKey:@"weights"] retain];
@@ -136,7 +136,7 @@
 
 - (NSString*) description {
     NSMutableString *str = [NSMutableString stringWithString:@""];
-    //DebugLog(@"Alphabet:%@",alphabet);
+    //PCLog(@"Alphabet:%@",alphabet);
     for (Symbol* sym in [alphabet symbols]) {
         [str appendFormat:@"%@ => %.3g ",sym,[self weightForSymbol:sym]];
     }
@@ -228,7 +228,7 @@
 }
 
 - (NSXMLElement*) toXMSDistributionNode {
-    //DebugLog(@"Motif: toXMSDistributionNode");
+    //PCLog(@"Motif: toXMSDistributionNode");
     NSXMLElement *distElem = [NSXMLElement elementWithName:@"column"];
     
     for (Symbol *sym in [[self alphabet] symbols]) {

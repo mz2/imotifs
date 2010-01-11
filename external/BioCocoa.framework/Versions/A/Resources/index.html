@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+	<head>
+		<title>BioCocoa Developer Documentation</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="bc.css">
+	</head>
+	<body>
+		<h2>BioCocoa Developer Documentation</h2>
+		<p>This page is meant to provide an index for the different documents
+			that a developer new to BioCocoa may want to read.
+			Anybody is welcome to edit this page.
+			The html format was chosen to allow for links.
+			To switch between editing and display of this page from Xcode,
+			use the contextual menu on the file in the groups view,
+			and choose the Open As... or Open with Finder menu item.
+		</p>
+		<p>To add contents to the developer documentation, create a new file
+			in the directory 'Developer-documentation' in the project folder.
+			Do NOT add the file to any target (otherwise it will end up in the
+			framework bundle resources).
+			This new file can be in any format easily readable within Xcode
+			(plain text, html, rtf). After adding the file,
+			add a link to the newly created page on this index page.
+			Note that the link will open in a new window, except if the format
+			is also html. So maybe you want to
+			use the html extension even for plain text,
+			and even if you don't use any html tag.
+		</p>
+		<p>
+		<strong>Important.</strong>
+		The "BioCocoa Developer Documentation" is not aimed at the users of the framework.
+		The documentation provided to the user is generated with HeaderDoc and
+		should be included in the headers. Similarly, the "BioCocoa Developer Documentation"
+		should not replace comments in the implementation
+		of the different classes, where you should still explain the purpose
+		of the class and its design. Ideally, the "BioCocoa Developer Documentation"
+		should thus only cover topics not directly related to the code (e.g. cvs setup),
+		or topics of broad interest (design choices, relationship between parts of
+		the frameworks, general organization of classes...).
+		</p>
+		<h3>Index</h3>
+		<ul>
+			<li><a href="todo.html">TODO</a>: to do list</li>
+			<li><a href="about-cvs.html">About cvs</a>:
+				how to load the BioCocoa project, and how to
+				setup cvs and ssh keys to work with Xcode or CVL
+			</li>
+			<li><a href="biococoaxcode.html">How to compile BioCocoa with Xcode</a></li>
+			<li><a href="newfiles.html">How to add new files to the project</a></li>
+			<li><a href="newtargets.html">How to add new targets to the project</a></li>
+			<li><a href="headerdoc.html">How to use HeaderDoc</a></li>
+			<li><a href="about-tests.html">How to use Tests</a>:
+				how to install the SenTestingKit framework, add tests and run tests
+			</li>
+		</ul>
+	</body>
+</html>

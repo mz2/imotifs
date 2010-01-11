@@ -38,7 +38,7 @@
     self = [super init];
     
     if (self != nil) {
-        //DebugLog(@"Initialising with alphabet %@ from consensus string %@", alpha, str);
+        //PCLog(@"Initialising with alphabet %@ from consensus string %@", alpha, str);
         NSUInteger i,cnt;
         NSMutableArray *cols = [[NSMutableArray alloc] init];
         for (i = 0,cnt = [str length]; i < cnt; i++) {
@@ -46,7 +46,7 @@
             Multinomial *m = [[Multinomial alloc] initWithAlphabet:alpha];
             [m setWeightsFromConsensus:c];
             [cols addObject:m];
-            //DebugLog(@"constructed multinomial: %@",m);
+            //PCLog(@"constructed multinomial: %@",m);
         }
         
         return [self initWithAlphabet:alpha 
@@ -99,7 +99,7 @@
     offset = [coder decodeIntegerForKey:@"offset"];
     threshold = [coder decodeDoubleForKey:@"threshold"];
     if (annotations == nil) {
-        DebugLog(@"Motif: Annotations were nil, this shouldn't happen");
+        PCLog(@"Motif: Annotations were nil, this shouldn't happen");
         annotations = [[NSMutableDictionary alloc] init];
     }
     return self;
@@ -210,7 +210,7 @@
 }
 
 -(Motif*) reverseComplement {
-    //DebugLog(@"Motif: reverseComplement");
+    //PCLog(@"Motif: reverseComplement");
     NSInteger cols = [self columnCount];
     
     NSUInteger c;
@@ -252,7 +252,7 @@
 }
 
 -(NSXMLElement*) toXMSMotifNode {
-    //DebugLog(@"Motif: toXMSMotifNode");
+    //PCLog(@"Motif: toXMSMotifNode");
     NSXMLElement *motifNode = [NSXMLElement elementWithName:@"motif"];
     NSXMLElement *wmNode = [NSXMLElement elementWithName:@"weightmatrix"];
     NSXMLElement *nameElem = [NSXMLElement elementWithName:@"name" stringValue:[self name]];
@@ -289,7 +289,7 @@
 }
 
 -(NSArray*) xmsPropKeyValuePairs {
-    //DebugLog(@"Motif: xmsPropKeyValuePairs");
+    //PCLog(@"Motif: xmsPropKeyValuePairs");
     [self annotations];
     NSMutableArray *propKeys = [NSMutableArray array];
     for (id key in [[self annotations] keyEnumerator]) {
@@ -309,7 +309,7 @@
 }
 
 - (void) setNilValueForKey:(NSString*) str {
-    DebugLog(@"Motif: setting nil value for key %@",str);
+    PCLog(@"Motif: setting nil value for key %@",str);
 }
 
 -(NSArray*) annotationValues {

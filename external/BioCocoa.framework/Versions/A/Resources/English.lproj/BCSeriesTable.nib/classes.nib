@@ -1,0 +1,33 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {
+                loadSeries = id; 
+                makeKeyAndOrderFront = id; 
+                modifyTableColumn = id; 
+                searchSeries = id; 
+                showGEODownload = id; 
+                showPlatforms = id; 
+                showProbes = id; 
+                showSamples = id; 
+            }; 
+            CLASS = BCSeriesTableController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                datasetColumns = NSPopUpButton; 
+                datasetTable = NSTableView; 
+                datasetWindow = NSWindow; 
+                inspectorPanel = NSPanel; 
+                inspectorText = WebView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {
+            ACTIONS = {showInspector = id; }; 
+            CLASS = FirstResponder; 
+            LANGUAGE = ObjC; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

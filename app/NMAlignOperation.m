@@ -8,7 +8,7 @@
 
 #import "NMAlignOperation.h"
 #import "MotifSet.h"
-#import "AppController.h"
+#import "IMAppController.h"
 #import "MotifSetDocument.h"
 #import "NMOperation.h"
 

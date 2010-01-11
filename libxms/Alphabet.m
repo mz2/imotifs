@@ -24,7 +24,7 @@
 -(id) initWithSymbols:(Symbol*)sym, ... {
     [super init];
 	symbols = [[NSMutableArray alloc] init];
-	//DebugLog(@"Initialising alphabet with symbols");
+	//PCLog(@"Initialising alphabet with symbols");
 	id eachObject;
 	va_list argumentList;
 	if (sym) {
@@ -32,7 +32,7 @@
 		va_start(argumentList, sym);
 		while (eachObject = va_arg(argumentList, Symbol*)) {
 			[symbols addObject: eachObject];
-			//DebugLog(@"Adding symbol...");
+			//PCLog(@"Adding symbol...");
 		}
 		va_end(argumentList);
 	}
@@ -41,7 +41,7 @@
 }
 
 - (id) initWithCoder:(NSCoder*) coder {
-    DebugLog(@"Alphabet: initWithCoder");
+    PCLog(@"Alphabet: initWithCoder");
     NSString *n = [coder decodeObjectForKey:@"name"];
     Alphabet *alpha = [Alphabet withName:n];
     
@@ -54,7 +54,7 @@
 }
 
 - (void) encodeWithCoder:(NSCoder*) coder {
-    DebugLog(@"Alphabet: encodeWithCoder");
+    PCLog(@"Alphabet: encodeWithCoder");
     [coder encodeObject:name forKey:@"name"];
 }
 
@@ -141,36 +141,83 @@
 	static Alphabet* protein;
 	@synchronized(self) {
 		if (!protein) {
-			Symbol* val = [[Symbol alloc]initWithNames:@"V",@"val",@"valine",nil];
-			Symbol* leu = [[Symbol alloc]initWithNames:@"L",@"leu",@"leucine",nil];
-			Symbol* ile = [[Symbol alloc]initWithNames:@"I",@"ile",@"isoleucine",nil];
-			Symbol* met = [[Symbol alloc]initWithNames:@"M",@"met",@"methionine",nil];
-			Symbol* phe = [[Symbol alloc]initWithNames:@"F",@"phe",@"phenylalanine",nil];
-			Symbol* asn = [[Symbol alloc]initWithNames:@"N",@"asn",@"asparagine",nil];
-			Symbol* glu = [[Symbol alloc]initWithNames:@"E",@"glu",@"glutamate",nil];
-			Symbol* gln = [[Symbol alloc]initWithNames:@"Q",@"gln",@"glutamine",nil];
-			Symbol* his = [[Symbol alloc]initWithNames:@"H",@"his",@"histidine",nil];
-			Symbol* lys = [[Symbol alloc]initWithNames:@"K",@"lys",@"lysine",nil];
-			Symbol* arg = [[Symbol alloc]initWithNames:@"R",@"arg",@"arginine",nil];
-			Symbol* asp = [[Symbol alloc]initWithNames:@"D",@"asp",@"asparate",nil];
-			Symbol* gly = [[Symbol alloc]initWithNames:@"G",@"gly",@"glycine",nil];
-			Symbol* ala = [[Symbol alloc]initWithNames:@"A",@"ala",@"alanine",nil];
-			Symbol* ser = [[Symbol alloc]initWithNames:@"S",@"ser",@"serine",nil];
-			Symbol* thr = [[Symbol alloc]initWithNames:@"T",@"thr",@"threonine",nil];
-			Symbol* tyr = [[Symbol alloc]initWithNames:@"Y",@"tyr",@"tyrosine",nil];
-			Symbol* trp = [[Symbol alloc]initWithNames:@"W",@"trp",@"tryptophan",nil];
-			Symbol* cys = [[Symbol alloc]initWithNames:@"C",@"cys",@"cysteine",nil];
-			Symbol* pro = [[Symbol alloc]initWithNames:@"P",@"pro",@"proline",nil];
-		
+			Symbol* val = [[Symbol alloc]initWithNames:@"v",@"val",@"valine",nil];
+            [val setDefaultFillColor:[NSColor greenColor]];
+			[val setDefaultEdgeColor:[NSColor greenColor]];
+			Symbol* leu = [[Symbol alloc]initWithNames:@"l",@"leu",@"leucine",nil];
+            [leu setDefaultFillColor:[NSColor greenColor]];
+			[leu setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* ile = [[Symbol alloc]initWithNames:@"i",@"ile",@"isoleucine",nil];
+            [ile setDefaultFillColor:[NSColor greenColor]];
+			[ile setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* met = [[Symbol alloc]initWithNames:@"m",@"met",@"methionine",nil];
+            [met setDefaultFillColor:[NSColor greenColor]];
+			[met setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* phe = [[Symbol alloc]initWithNames:@"f",@"phe",@"phenylalanine",nil];
+            [phe setDefaultFillColor:[NSColor greenColor]];
+			[phe setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* asn = [[Symbol alloc]initWithNames:@"n",@"asn",@"asparagine",nil];
+            [asn setDefaultFillColor:[NSColor magentaColor]];
+			[asn setDefaultEdgeColor:[NSColor magentaColor]];
+            Symbol* glu = [[Symbol alloc]initWithNames:@"e",@"glu",@"glutamate",nil];
+            [glu setDefaultFillColor:[NSColor greenColor]];
+			[glu setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* gln = [[Symbol alloc]initWithNames:@"q",@"gln",@"glutamine",nil];
+            [gln setDefaultFillColor:[NSColor magentaColor]];
+			[gln setDefaultEdgeColor:[NSColor magentaColor]];
+            Symbol* his = [[Symbol alloc]initWithNames:@"h",@"his",@"histidine",nil];
+            [his setDefaultFillColor:[NSColor magentaColor]];
+			[his setDefaultEdgeColor:[NSColor magentaColor]];
+            Symbol* lys = [[Symbol alloc]initWithNames:@"k",@"lys",@"lysine",nil];
+            [lys setDefaultFillColor:[NSColor blueColor]];
+			[lys setDefaultEdgeColor:[NSColor blueColor]];
+            Symbol* arg = [[Symbol alloc]initWithNames:@"r",@"arg",@"arginine",nil];
+            [arg setDefaultFillColor:[NSColor greenColor]];
+			[arg setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* asp = [[Symbol alloc]initWithNames:@"d",@"asp",@"asparate",nil];
+            [asp setDefaultFillColor:[NSColor redColor]];
+			[asp setDefaultEdgeColor:[NSColor redColor]];
+            Symbol* gly = [[Symbol alloc]initWithNames:@"g",@"gly",@"glycine",nil];
+            [gly setDefaultFillColor:[NSColor orangeColor]];
+			[gly setDefaultEdgeColor:[NSColor orangeColor]];
+            Symbol* ala = [[Symbol alloc]initWithNames:@"a",@"ala",@"alanine",nil];
+            [ala setDefaultFillColor:[NSColor orangeColor]];
+			[ala setDefaultEdgeColor:[NSColor orangeColor]];
+            Symbol* ser = [[Symbol alloc]initWithNames:@"s",@"ser",@"serine",nil];
+            [ser setDefaultFillColor:[NSColor orangeColor]];
+			[ser setDefaultEdgeColor:[NSColor orangeColor]];
+            Symbol* thr = [[Symbol alloc]initWithNames:@"t",@"thr",@"threonine",nil];
+            [thr setDefaultFillColor:[NSColor orangeColor]];
+			[thr setDefaultEdgeColor:[NSColor orangeColor]];
+            Symbol* tyr = [[Symbol alloc]initWithNames:@"y",@"tyr",@"tyrosine",nil];
+            [tyr setDefaultFillColor:[NSColor greenColor]];
+			[tyr setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* trp = [[Symbol alloc]initWithNames:@"w",@"trp",@"tryptophan",nil];
+            [trp setDefaultFillColor:[NSColor greenColor]];
+			[trp setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* cys = [[Symbol alloc]initWithNames:@"c",@"cys",@"cysteine",nil];
+            [cys setDefaultFillColor:[NSColor greenColor]];
+			[cys setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* sec = [[Symbol alloc]initWithNames:@"u",@"sec",@"selenocysteine",nil];
+            [sec setDefaultFillColor:[NSColor greenColor]];
+			[sec setDefaultEdgeColor:[NSColor greenColor]];
+            Symbol* pro = [[Symbol alloc]initWithNames:@"p",@"pro",@"proline",nil];
+            [pro setDefaultFillColor:[NSColor greenColor]];
+			[pro setDefaultEdgeColor:[NSColor greenColor]];
+            
 			protein = [[Alphabet alloc]initWithSymbols:
                        val,leu,ile,met,phe,
                        asn,glu,gln,his,lys,
                        arg,asp,gly,ala,ser,
-                       thr,tyr,trp,cys,pro,nil];
-			[protein setName: @"aminoacid"];
+                       thr,tyr,trp,cys,sec,pro,nil];
+			[protein setName: @"PROTEIN"];
 			//[protein->symbols];
 		}
 	}
 	return protein;
+}
+
+-(NSString*) description {
+    return [NSString stringWithFormat:@"[Alphabet:%@]",self.name];
 }
 @end

@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+	<head>
+		<title>Adding new targets</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="stylesheet" href="bc.css">
+	</head>
+	<BODY>
+		<h2>Adding new targets to the framework</h2>
+		<p>Please follow these steps when adding new targets to BioCocoa. This will make sure that
+			whatever target you add will be visible and usable in the Xcode project of the other developers, and
+			minimize the Xcode-cvs issues that some of us are experiencing.
+		</p>
+		<ol>
+			<li>Add a new target by right-clicking the Targets icon and select Add -> New Target. Select the type of target you want to create.
+				Note that we try to reflect the file hierarchy with the targets and project settings. For instance, all examples are found in a folder "Examples"
+				in a folder with the name of the target, e.g. "Translation".
+			</li>
+			<li>Select the new target, right-click it and call up the info panel.
+			</li>
+			<li>Rename the target according to the simple guideline: TYPE_OF_TARGET - YOUR_TARGET_NAME, for example: "Demo - Translation" or "Test - BCFoundation". 
+				Try to re-use existing target types wherever possible.
+			</li>
+			<li>In the same info panel, under the "General" tab, add the BioCocoa.framework target to the "Direct Dependency" list using the little plus button in
+				the lower left corner. This ensures that whenever changes are made to the main framework, that framework is first compiled before your target app will be.
+			</li>
+			<li>Next, move to the "Properties" tab of the info panel. Name your build product, and fill in the identifier using the following convention:
+				org.bioinformatics.biococoa.YOUR_PRODUCT_NAME. Of course you're free to add more relevant info for your product, like a custom icon.
+			</li>
+			<li>Now move to the "Build" tab of the info panel. You need to fill in or adjust a few parameters here depending on the type of target you create.
+				Please scroll through the list and check if all links are reflecting the file hierarchy of your project. In other words, all paths should be relative to the project's root. 
+				For example, if the info.plist of your target is inside the folder Examples -> Peptides, change the "Info.plist File" parameter to: "Examples/Peptides/Info-Demo-Peptides.plist"
+				The same holds true for the prefix_header file.
+			</li>
+			<li>Adjust in the build parameters list the "Mac OS X Deployment Target" parameter to reflect the minimum version of MacOSX your product should run on. 
+			</li>
+			<li>Finally, drag your new target at the right place in the list of targets, that is grouped by target type, on alphabet.
+			</li>
+			<li>Don't forget to add the BioCocoa framework to your app if needed, open your target (using the little triangle) and drag the BioCocoa.framework from the Products folder to the 
+			   "Frameworks &amp; Libraries" build phase. Also if you want your application to run stand-alone, add a "copy files" build phase to your target using the 
+			   Project -> New Build Phase -> New Copy Files Build Phase menu item, and add the BioCocoa.framework there as well.
+			</li>
+		</ol>
+		<p>That should be it! You can now add new files to the target and build your product. Of course, don't forget to commit your changes to the CVS repository.</p>
+		<p><a href="index.html">Back to index</a></p>
+	</body>
+</html>
+

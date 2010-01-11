@@ -28,6 +28,9 @@
     NSUInteger maxCycles;
     BOOL reverseComplement;
     
+    BOOL backgroundModelFromFile;
+    BOOL backgroundModelFromInputSequences;
+    
     NSUInteger backgroundClasses;
     NSUInteger backgroundOrder;
     
@@ -59,10 +62,24 @@
 @property (readwrite) NSUInteger backgroundOrder;
 
 @property (readwrite) BOOL reverseComplement;
+
+@property(nonatomic,assign)BOOL backgroundModelFromFile;
+@property(nonatomic,assign)BOOL backgroundModelFromInputSequences;
+
+@property(readonly) BOOL inputSequencesFileExists;
+@property(readonly) BOOL backgroundModelFileExists;
+@property(readonly) BOOL backgroundModelParametersOrFileExist;
+
 //@property (readwrite) BOOL needsRepeatMasking;
 
 +(NSString*) nmicaPath;
 +(NSString*) nmicaExtraPath;
 +(void) setupNMICAEnvVars;
+
+-(BOOL) inputSequencesFileExists;
+-(BOOL) backgroundModelFileExists;
+-(BOOL) backgroundModelParametersOrFileExist;
+
+@property(readonly) BOOL motifCountIsAlarminglyLarge;
 
 @end

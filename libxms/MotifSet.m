@@ -38,7 +38,7 @@
 
 - (id) initWithCoder:(NSCoder *)coder {
     [super init];
-    DebugLog(@"MotifSet: initWithCoder");
+    PCLog(@"MotifSet: initWithCoder");
     //name = [[coder decodeObjectForKey:@"name"] retain];
     annotations = [[coder decodeObjectForKey:@"annotations"] retain];
     motifs = [[coder decodeObjectForKey:@"motifs"] retain];
@@ -46,7 +46,7 @@
 }
 
 - (void) encodeWithCoder:(NSCoder *) coder {
-    DebugLog(@"MotifSet: encodeWithCoder");
+    PCLog(@"MotifSet: encodeWithCoder");
     [coder encodeObject:[self name] forKey:@"name"];
     [coder encodeObject:[self annotations] forKey:@"annotations"];
     [coder encodeObject:motifs forKey:@"motifs"];
@@ -110,7 +110,7 @@
 -(NSUInteger) count {
     return [motifs count];
 }
--(Motif*) motifWithIndex:(int)index {
+-(Motif*) motifWithIndex:(NSInteger)index {
     return [motifs objectAtIndex:index];
 }
 -(NSInteger) indexForMotif:(Motif*)m {
@@ -165,7 +165,7 @@
 }
 
 -(NSXMLDocument*) toXMS {
-    //DebugLog(@"MotifSet: toXMS");
+    //PCLog(@"MotifSet: toXMS");
     NSXMLElement *elem = [[NSXMLElement elementWithName:@"motifset"] retain];
     NSXMLDocument *doc = [NSXMLDocument documentWithRootElement:elem];
     [doc setVersion:@"1.0"];
@@ -187,7 +187,7 @@
 }
 
 - (NSArray*) xmsPropKeyValuePairs {
-    //DebugLog(@"Motif: xmsPropKeyValuePairs");
+    //PCLog(@"Motif: xmsPropKeyValuePairs");
     [self annotations];
     NSMutableArray *propKeys = [NSMutableArray array];
     for (id key in [[self annotations] keyEnumerator]) {
@@ -238,7 +238,7 @@
 }
 
 - (void) setNilValueForKey:(NSString*) str {
-    DebugLog(@"MotifSet: setting nil value for key %@",str);
+    PCLog(@"MotifSet: setting nil value for key %@",str);
     [super setNilValueForKey:str];
 }
 
@@ -249,4 +249,11 @@
     //if (ownDist > otherDist) return NSOrderedDescending;
     //return NSOrderedSame;
 }
+
+-(NSString*) stringValue {
+    NSXMLDocument *doc = [self toXMS];
+    NSData *data = [doc XMLData];
+    return [[[NSString alloc] initWithData:data encoding: NSUTF8StringEncoding] autorelease];
+}
+
 @end

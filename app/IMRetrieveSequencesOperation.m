@@ -130,11 +130,11 @@
                  forKey: @"-fivePrimeUTR"];
     }
     
-    if (self.selectedGeneList.count > 0) {
+    if (self.selectGeneList && self.selectedGeneList.count > 0) {
         [args setObject: self.selectedGeneList forKey: @"-filterByIds"];
     }
     
-    if (self.geneNameListFilename) {
+    if (self.selectGeneListFromFile && self.geneNameListFilename) {
         [args setObject: self.geneNameListFilename forKey: @"-filterByIdsInFile"];
     }
 	
@@ -182,7 +182,7 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    DebugLog(@"Running");
+    PCLog(@"Running");
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -193,19 +193,19 @@
         if ([lines count] == 1) {
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
-            DebugLog(@"Line count : %@", lines);
+            PCLog(@"Line count : %@", lines);
         } else {
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
-            DebugLog(@"Buffer: %@", buf);
+            PCLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
         }
         
     }
     
-    DebugLog(@"Done.");
+    PCLog(@"Done.");
     [statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                              withObject: self 
                                           waitUntilDone: NO];

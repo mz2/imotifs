@@ -14,7 +14,7 @@
 		5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */; };
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
 		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
-		5FA66A620E142A12009E5AFA /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* AppController.m */; };
+		5FA66A620E142A12009E5AFA /* IMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* IMAppController.m */; };
 		5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
 		5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8976C0E3158150084D9D8 /* MotifComparitor.m */; };
 		5FB897830E315C2D0084D9D8 /* MotifPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897820E315C2D0084D9D8 /* MotifPair.m */; };
@@ -76,9 +76,21 @@
 		9545913F0FB06D8D00F0BEB5 /* MotifSetDocument.nib in Resources */ = {isa = PBXBuildFile; fileRef = 9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */; };
 		955C93920FEA7645005E6148 /* NSString+ReverseSearch.m in Sources */ = {isa = PBXBuildFile; fileRef = 955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */; };
 		9561D85410A04EF6003F37C6 /* NMShuffleOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */; };
+		9562DF3910F3462F0091549E /* IMSequenceViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562DF3810F3462F0091549E /* IMSequenceViewCell.m */; };
+		9562E00B10F351910091549E /* IMSequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562E00A10F351910091549E /* IMSequence.m */; };
+		9562E58E10F4B0080091549E /* IMAnnotationSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */; };
+		9562E5FC10F4CC710091549E /* IMGFFRecord.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562E5FB10F4CC710091549E /* IMGFFRecord.m */; };
+		9562E64310F4D32B0091549E /* IMAnnotationSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9562E64210F4D32B0091549E /* IMAnnotationSetController.m */; };
+		9562E67410F4D5380091549E /* IMAnnotationSetDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */; };
 		95800A0A0FE04FC500D9068B /* IMRetrieveSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */; };
 		95800A770FE0FD9400D9068B /* IMRetrieveSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */; };
 		95800A910FE153A900D9068B /* IMRetrieveSequencesDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */; };
+		9587FC4910F23BFF00435D2A /* IMSequenceSetDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */; };
+		9587FC5110F23C8700435D2A /* IMSequenceSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */; };
+		9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */; };
+		9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FD1810F248E300435D2A /* IMDocumentController.m */; };
+		9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FFE010F262CD00435D2A /* IMSequenceSetController.m */; };
+		9587FFEF10F2635300435D2A /* IMSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FFEE10F2635300435D2A /* IMSequenceView.m */; };
 		9595AE980FB9780500CE2BFF /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */; };
 		9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE970FB9780500CE2BFF /* IMNSColorExtras.m */; };
 		9595B0EA0FB9B79400CE2BFF /* MetamotifTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B0E90FB9B79400CE2BFF /* MetamotifTests.m */; };
@@ -100,7 +112,7 @@
 		9595B11E0FB9BB7500CE2BFF /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C40E1415BC00E0F87D /* MotifSet.m */; };
 		9595B11F0FB9BB8700CE2BFF /* ScoreOffsetPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 954579B80EE725B20099ABA0 /* ScoreOffsetPair.m */; };
 		9595B1200FB9BB8A00CE2BFF /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FFA09C60E1415BC00E0F87D /* Symbol.m */; };
-		9595B12B0FB9BBFF00CE2BFF /* AppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* AppController.m */; };
+		9595B12B0FB9BBFF00CE2BFF /* IMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* IMAppController.m */; };
 		9595B12C0FB9BC0000CE2BFF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A37F4C4FDCFA73011CA2CEA /* AppKit.framework */; };
 		9595B12D0FB9BC0000CE2BFF /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 		9595B12E0FB9BC0100CE2BFF /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
@@ -131,12 +143,11 @@
 		9595B14D0FB9BC2300CE2BFF /* MotifPairArrayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3CC70EE681A600072A66 /* MotifPairArrayController.m */; };
 		9595B14E0FB9BC2300CE2BFF /* MotifPair.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB897820E315C2D0084D9D8 /* MotifPair.m */; };
 		9595B14F0FB9BC2400CE2BFF /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
-		9595B1500FB9BC2400CE2BFF /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
 		9595B1510FB9BC2400CE2BFF /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
 		9595B1520FB9BC2600CE2BFF /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
 		9595B1F90FB9C02200CE2BFF /* Alphabet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA09CB0E1415BC00E0F87D /* Alphabet.h */; };
 		9595B1FA0FB9C02200CE2BFF /* Annotable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FC3094B0E18DF5A006C4679 /* Annotable.h */; };
-		9595B1FB0FB9C02200CE2BFF /* AppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA66A600E142A12009E5AFA /* AppController.h */; };
+		9595B1FB0FB9C02200CE2BFF /* IMAppController.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FA66A600E142A12009E5AFA /* IMAppController.h */; };
 		9595B1FC0FB9C02200CE2BFF /* BestHitsOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 95B2C6310EED7DFB004605A6 /* BestHitsOperation.h */; };
 		9595B1FD0FB9C02200CE2BFF /* DDCliUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 953D81A40F2F4B4E00049823 /* DDCliUtil.h */; };
 		9595B1FE0FB9C02200CE2BFF /* Dirichlet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FFA09CF0E1415BC00E0F87D /* Dirichlet.h */; };
@@ -160,7 +171,6 @@
 		9595B2100FB9C02200CE2BFF /* MotifComparisonOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 95B2C6080EED72E5004605A6 /* MotifComparisonOperation.h */; };
 		9595B2110FB9C02200CE2BFF /* MotifComparitor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB8976B0E3158150084D9D8 /* MotifComparitor.h */; };
 		9595B2120FB9C02200CE2BFF /* MotifNameCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F83C9B70E363C4900369591 /* MotifNameCell.h */; };
-		9595B2130FB9C02200CE2BFF /* MotifNamePickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */; };
 		9595B2140FB9C02200CE2BFF /* MotifNamePickerWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */; };
 		9595B2150FB9C02200CE2BFF /* MotifPair.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FB897810E315C2D0084D9D8 /* MotifPair.h */; };
 		9595B2160FB9C02200CE2BFF /* MotifPairArrayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 959E3CC60EE681A600072A66 /* MotifPairArrayController.h */; };
@@ -284,7 +294,6 @@
 		95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
 		95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
-		95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */; };
 		95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C82F0EEE6C54004605A6 /* IMOperation.m */; };
 		95B3502410232EC500F0E0BF /* IMPreferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95B3502310232EC500F0E0BF /* IMPreferences.xib */; };
 		95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */; };
@@ -294,16 +303,25 @@
 		95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE62109CA9A600FAA974 /* NMROCAUCController.m */; };
 		95C1C2DF109C83FE000E4224 /* NMCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */; };
 		95C1C2E9109C8A7B000E4224 /* NMCutoffController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2E8109C8A7B000E4224 /* NMCutoffController.m */; };
+		95CD86AB10AACF2B005BA446 /* BioCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CD86AA10AACF2B005BA446 /* BioCocoa.framework */; };
+		95CD86E710AACF59005BA446 /* BioCocoa.framework in Copy BioCocoa Framework */ = {isa = PBXBuildFile; fileRef = 95CD86AA10AACF2B005BA446 /* BioCocoa.framework */; };
 		95D764E21023156C009703AA /* Visualisation.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E11023156C009703AA /* Visualisation.png */; };
 		95D764E6102315EF009703AA /* NMICA.png in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E5102315EF009703AA /* NMICA.png */; };
 		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
 		95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */; };
 		95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */; };
+		95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */; };
+		95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */; };
+		95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD2B210F749CB0008CE43 /* IMFeature.m */; };
+		95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */; };
+		95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */; };
+		95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */; };
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 		95F6D2F9109B5E43003C327C /* IMEnsemblConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */; };
 		95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */; };
+		95FE41D210C8987000E034FE /* IMSequenceSetDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 95FE41D110C8987000E034FE /* IMSequenceSetDocument.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -492,6 +510,17 @@
 			name = "Copy ActiveRecord Framework";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		95CD86EC10AACF6B005BA446 /* Copy BioCocoa Framework */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				95CD86E710AACF59005BA446 /* BioCocoa.framework in Copy BioCocoa Framework */,
+			);
+			name = "Copy BioCocoa Framework";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -518,8 +547,8 @@
 		5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetWindowController.m; sourceTree = "<group>"; };
 		5F83C9B70E363C4900369591 /* MotifNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNameCell.h; sourceTree = "<group>"; };
 		5F83C9B80E363C4900369591 /* MotifNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNameCell.m; sourceTree = "<group>"; };
-		5FA66A600E142A12009E5AFA /* AppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppController.h; sourceTree = "<group>"; };
-		5FA66A610E142A12009E5AFA /* AppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppController.m; sourceTree = "<group>"; };
+		5FA66A600E142A12009E5AFA /* IMAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAppController.h; sourceTree = "<group>"; };
+		5FA66A610E142A12009E5AFA /* IMAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAppController.m; sourceTree = "<group>"; };
 		5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetController.h; sourceTree = "<group>"; };
 		5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetController.m; sourceTree = "<group>"; };
 		5FB8976B0E3158150084D9D8 /* MotifComparitor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifComparitor.h; sourceTree = "<group>"; };
@@ -610,11 +639,34 @@
 		955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ReverseSearch.m"; sourceTree = "<group>"; };
 		9561D85210A04EF6003F37C6 /* NMShuffleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMShuffleOperation.h; sourceTree = "<group>"; };
 		9561D85310A04EF6003F37C6 /* NMShuffleOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMShuffleOperation.m; sourceTree = "<group>"; };
+		9562DF3710F3462F0091549E /* IMSequenceViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceViewCell.h; sourceTree = "<group>"; };
+		9562DF3810F3462F0091549E /* IMSequenceViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceViewCell.m; sourceTree = "<group>"; };
+		9562E00910F351910091549E /* IMSequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequence.h; sourceTree = "<group>"; };
+		9562E00A10F351910091549E /* IMSequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequence.m; sourceTree = "<group>"; };
+		9562E15010F394080091549E /* IMotifsDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMotifsDocument.h; sourceTree = "<group>"; };
+		9562E58C10F4B0080091549E /* IMAnnotationSetDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetDocument.h; sourceTree = "<group>"; };
+		9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetDocument.m; sourceTree = "<group>"; };
+		9562E5FA10F4CC710091549E /* IMGFFRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMGFFRecord.h; sourceTree = "<group>"; };
+		9562E5FB10F4CC710091549E /* IMGFFRecord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMGFFRecord.m; sourceTree = "<group>"; };
+		9562E64110F4D32B0091549E /* IMAnnotationSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetController.h; sourceTree = "<group>"; };
+		9562E64210F4D32B0091549E /* IMAnnotationSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetController.m; sourceTree = "<group>"; };
+		9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMAnnotationSetDocument.xib; sourceTree = "<group>"; };
 		95800A090FE04FC500D9068B /* IMRetrieveSequencesDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesDialog.xib; sourceTree = "<group>"; };
 		95800A750FE0FD9400D9068B /* IMRetrieveSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesOperation.h; sourceTree = "<group>"; };
 		95800A760FE0FD9400D9068B /* IMRetrieveSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesOperation.m; sourceTree = "<group>"; };
 		95800A8F0FE153A900D9068B /* IMRetrieveSequencesDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesDialogController.h; sourceTree = "<group>"; };
 		95800A900FE153A900D9068B /* IMRetrieveSequencesDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesDialogController.m; sourceTree = "<group>"; };
+		9587FC4710F23BFF00435D2A /* IMSequenceSetDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetDocumentController.h; sourceTree = "<group>"; };
+		9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetDocumentController.m; sourceTree = "<group>"; };
+		9587FC4F10F23C8600435D2A /* IMSequenceSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetWindowController.h; sourceTree = "<group>"; };
+		9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetWindowController.m; sourceTree = "<group>"; };
+		9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMSequenceSetDocument.xib; sourceTree = "<group>"; };
+		9587FD1710F248E300435D2A /* IMDocumentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMDocumentController.h; sourceTree = "<group>"; };
+		9587FD1810F248E300435D2A /* IMDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDocumentController.m; sourceTree = "<group>"; };
+		9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetController.h; sourceTree = "<group>"; };
+		9587FFE010F262CD00435D2A /* IMSequenceSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetController.m; sourceTree = "<group>"; };
+		9587FFED10F2635300435D2A /* IMSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceView.h; sourceTree = "<group>"; };
+		9587FFEE10F2635300435D2A /* IMSequenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceView.m; sourceTree = "<group>"; };
 		9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSArrayExtras.h; path = ../libxms/IMNSArrayExtras.h; sourceTree = SOURCE_ROOT; };
 		9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMNSArrayExtras.m; path = ../libxms/IMNSArrayExtras.m; sourceTree = SOURCE_ROOT; };
 		9595AE960FB9780500CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSColorExtras.h; path = ../libxms/IMNSColorExtras.h; sourceTree = SOURCE_ROOT; };
@@ -726,8 +778,6 @@
 		95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestHitsOperation.m; sourceTree = "<group>"; };
 		95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNamePickerWindow.h; sourceTree = "<group>"; };
 		95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerWindow.m; sourceTree = "<group>"; };
-		95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNamePickerController.h; sourceTree = "<group>"; };
-		95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNamePickerController.m; sourceTree = "<group>"; };
 		95B2C82E0EEE6C54004605A6 /* IMOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOperation.h; sourceTree = "<group>"; };
 		95B2C82F0EEE6C54004605A6 /* IMOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMOperation.m; sourceTree = "<group>"; };
 		95B3502310232EC500F0E0BF /* IMPreferences.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMPreferences.xib; sourceTree = "<group>"; };
@@ -744,17 +794,32 @@
 		95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCutoffOperation.m; sourceTree = "<group>"; };
 		95C1C2E7109C8A7B000E4224 /* NMCutoffController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMCutoffController.h; sourceTree = "<group>"; };
 		95C1C2E8109C8A7B000E4224 /* NMCutoffController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMCutoffController.m; sourceTree = "<group>"; };
+		95CD86AA10AACF2B005BA446 /* BioCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BioCocoa.framework; path = ../external/BioCocoa.framework; sourceTree = "<group>"; };
 		95D764E11023156C009703AA /* Visualisation.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Visualisation.png; sourceTree = "<group>"; };
 		95D764E5102315EF009703AA /* NMICA.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NMICA.png; sourceTree = "<group>"; };
 		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
 		95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMScoreCutoffDialog.xib; sourceTree = "<group>"; };
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
+		95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRangeFeature.m; sourceTree = "<group>"; };
+		95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPointFeature.m; sourceTree = "<group>"; };
+		95DDD1E010F743FA0008CE43 /* IMPointFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPointFeature.h; sourceTree = "<group>"; };
+		95DDD1E110F743FA0008CE43 /* IMRangeFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRangeFeature.h; sourceTree = "<group>"; };
+		95DDD2B110F749CB0008CE43 /* IMFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMFeature.h; sourceTree = "<group>"; };
+		95DDD2B210F749CB0008CE43 /* IMFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMFeature.m; sourceTree = "<group>"; };
+		95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetPickerWindow.h; sourceTree = "<group>"; };
+		95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetPickerWindow.m; sourceTree = "<group>"; };
+		95DDD52E10F786770008CE43 /* IMAnnotationSetPickerWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetPickerWindow.h; sourceTree = "<group>"; };
+		95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetPickerWindow.m; sourceTree = "<group>"; };
+		95DDD57610F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAnnotationSetPickerTableDelegate.h; sourceTree = "<group>"; };
+		95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAnnotationSetPickerTableDelegate.m; sourceTree = "<group>"; };
 		95E2EF530FDD1512001F14A2 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		95F680360F2622AC00FD797B /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
 		95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMEnsemblConnection.h; sourceTree = "<group>"; };
 		95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMEnsemblConnection.m; sourceTree = "<group>"; };
 		95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+UniqueObjects.h"; sourceTree = "<group>"; };
 		95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+UniqueObjects.m"; sourceTree = "<group>"; };
+		95FE41D010C8987000E034FE /* IMSequenceSetDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetDocument.h; sourceTree = "<group>"; };
+		95FE41D110C8987000E034FE /* IMSequenceSetDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetDocument.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -767,6 +832,7 @@
 				95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */,
 				950CCF220FE26C2200549134 /* BWToolkitFramework.framework in Frameworks */,
 				9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */,
+				95CD86AB10AACF2B005BA446 /* BioCocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +855,7 @@
 		1058C7A6FEA54F5311CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				95CD86AA10AACF2B005BA446 /* BioCocoa.framework */,
 				9595E5D50FE65B9500FDD520 /* ActiveRecord.framework */,
 				950CCF210FE26C2200549134 /* BWToolkitFramework.framework */,
 				95113F470FD9685F006823C4 /* Sparkle.framework */,
@@ -819,9 +886,8 @@
 		2A37F4AAFDCFA73011CA2CEA /* iMotif */ = {
 			isa = PBXGroup;
 			children = (
-				95AA6BDE108731060000A8BD /* nmica-extra */,
-				95AA5B9510872DF60000A8BD /* nmica */,
-				95D7652D10231D99009703AA /* external */,
+				95CE589710A5AECA00D00524 /* NestedMICA */,
+				95D7652D10231D99009703AA /* External */,
 				2A37F4ABFDCFA73011CA2CEA /* Classes */,
 				2A37F4AFFDCFA73011CA2CEA /* Other Sources */,
 				2A37F4B8FDCFA73011CA2CEA /* Resources */,
@@ -836,11 +902,10 @@
 		2A37F4ABFDCFA73011CA2CEA /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				5FB8976A0E3157F60084D9D8 /* util */,
-				9595B0930FB9B2B700CE2BFF /* test */,
-				5FA66A5F0E142A05009E5AFA /* control */,
-				5FFA09B90E1415A400E0F87D /* model */,
-				5FFA09930E1412DF00E0F87D /* ui */,
+				5FB8976A0E3157F60084D9D8 /* Utilities */,
+				5FA66A5F0E142A05009E5AFA /* Controllers */,
+				5FFA09B90E1415A400E0F87D /* Model */,
+				5FFA09930E1412DF00E0F87D /* Motif View */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -848,6 +913,7 @@
 		2A37F4AFFDCFA73011CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9595B0930FB9B2B700CE2BFF /* Test Suites */,
 				32DBCF750370BD2300C91783 /* iMotifs_Prefix.pch */,
 				2A37F4B0FDCFA73011CA2CEA /* main.m */,
 				95113DF20FD91631006823C4 /* IMConstants.h */,
@@ -879,48 +945,51 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5FA66A5F0E142A05009E5AFA /* control */ = {
+		5FA66A5F0E142A05009E5AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				9587FD1610F248C900435D2A /* Document Controller */,
+				9562E58B10F4AFEC0091549E /* Annotation Set */,
+				95FE41CC10C8982600E034FE /* Sequence Set */,
+				95414FD90F1245CF0083E72A /* Motif Set */,
+				95414FDA0F1245DB0083E72A /* App Controller */,
+				95414FDB0F1245F00083E72A /* Preferences */,
 				953D81140F2F410700049823 /* NMICA Integration */,
 				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
-				95414FDA0F1245DB0083E72A /* App Controller */,
-				95B2C6750EED8F11004605A6 /* Drawer */,
-				9563E2C0101E0649006F067A /* Experimental */,
-				95414FD90F1245CF0083E72A /* Motif Set Document */,
+				95B2C6750EED8F11004605A6 /* Annotations Drawer */,
 				9563E2C2101E065F006F067A /* Pickers */,
-				95414FDB0F1245F00083E72A /* Preferences */,
+				9563E2C0101E0649006F067A /* Experimental */,
+				9562E15010F394080091549E /* IMotifsDocument.h */,
 			);
-			name = control;
+			name = Controllers;
 			sourceTree = "<group>";
 		};
-		5FB8976A0E3157F60084D9D8 /* util */ = {
+		5FB8976A0E3157F60084D9D8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				5FB898990E31E8450084D9D8 /* matrix */,
-				95BDDD520FC31A9C00EB39C4 /* debuglog */,
-				953D81A70F2F4B5100049823 /* ddcli */,
-				953D7F0F0F2E07D200049823 /* cocoa-extras */,
-				95B2C60D0EED7B95004605A6 /* motifcomparison */,
+				953D7F0F0F2E07D200049823 /* Cocoa Extra Categories */,
+				953D81A70F2F4B5100049823 /* DDCLI */,
+				5FB898990E31E8450084D9D8 /* Matrix */,
+				95B2C60D0EED7B95004605A6 /* Motif Comparison */,
 			);
-			name = util;
+			name = Utilities;
 			sourceTree = "<group>";
 		};
-		5FB898990E31E8450084D9D8 /* matrix */ = {
+		5FB898990E31E8450084D9D8 /* Matrix */ = {
 			isa = PBXGroup;
 			children = (
-				5FF1CB2F0E333BCC001966B7 /* transpose */,
+				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
+				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
+				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
 				5FB8982C0E316DD30084D9D8 /* IMIntMatrix2D.h */,
 				5FB8982D0E316DD30084D9D8 /* IMIntMatrix2D.m */,
-				5FF1CB290E333B6B001966B7 /* IMIntMatrix2DIface.h */,
 				5FB897840E315C3D0084D9D8 /* IMDoubleMatrix2D.h */,
 				5FB897850E315C3D0084D9D8 /* IMDoubleMatrix2D.m */,
-				5FB89ABF0E3253B20084D9D8 /* IMDoubleMatrix2DIface.h */,
 				5FB898960E31E82A0084D9D8 /* IMObjectMatrix2D.h */,
 				5FB898970E31E82A0084D9D8 /* IMObjectMatrix2D.m */,
-				5FB899D80E3218380084D9D8 /* IMMatrix2D.h */,
+				5FF1CB2F0E333BCC001966B7 /* transpose */,
 			);
-			name = matrix;
+			name = Matrix;
 			sourceTree = "<group>";
 		};
 		5FF1CB2F0E333BCC001966B7 /* transpose */ = {
@@ -936,7 +1005,7 @@
 			name = transpose;
 			sourceTree = "<group>";
 		};
-		5FFA09930E1412DF00E0F87D /* ui */ = {
+		5FFA09930E1412DF00E0F87D /* Motif View */ = {
 			isa = PBXGroup;
 			children = (
 				5FFA099D0E14133900E0F87D /* MotifView.h */,
@@ -946,18 +1015,18 @@
 				5F83C9B70E363C4900369591 /* MotifNameCell.h */,
 				5F83C9B80E363C4900369591 /* MotifNameCell.m */,
 			);
-			name = ui;
+			name = "Motif View";
 			sourceTree = "<group>";
 		};
-		5FFA09B90E1415A400E0F87D /* model */ = {
+		5FFA09B90E1415A400E0F87D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				953D80260F2F14D400049823 /* operation */,
+				953D80260F2F14D400049823 /* Operation */,
 			);
-			name = model;
+			name = Model;
 			sourceTree = "<group>";
 		};
-		951A7299109E07610085EB87 /* Peaks */ = {
+		951A7299109E07610085EB87 /* Sequencing Peaks */ = {
 			isa = PBXGroup;
 			children = (
 				5F2BC6FC108B666000A634F4 /* IMRetrievePeakSequencesController.h */,
@@ -966,7 +1035,7 @@
 				5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */,
 				5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */,
 			);
-			name = Peaks;
+			name = "Sequencing Peaks";
 			sourceTree = "<group>";
 		};
 		951A72D4109E0CF80085EB87 /* Promoters */ = {
@@ -993,6 +1062,8 @@
 				953D81190F2F417700049823 /* NMOperationStatusDialogController.m */,
 				953D832B0F2F6E7300049823 /* NMOperationConfigDialogController.h */,
 				953D832C0F2F6E7300049823 /* NMOperationConfigDialogController.m */,
+				953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */,
+				953D84280F2F896800049823 /* NMOperationConfigDialog.xib */,
 			);
 			name = nminfer;
 			sourceTree = "<group>";
@@ -1000,10 +1071,14 @@
 		951FF3DC0F32559000A9175C /* nmmakebg */ = {
 			isa = PBXGroup;
 			children = (
+				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
+				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
 				951FF3E40F32560E00A9175C /* NMTrainBGOperationStatusController.h */,
 				951FF3E50F32560E00A9175C /* NMTrainBGOperationStatusController.m */,
 				951FF3E70F32562300A9175C /* NMTrainBGOperationConfigController.h */,
 				951FF3E80F32562300A9175C /* NMTrainBGOperationConfigController.m */,
+				951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */,
+				951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */,
 			);
 			name = nmmakebg;
 			sourceTree = "<group>";
@@ -1020,8 +1095,6 @@
 		951FF41B0F3258B700A9175C /* nminfer */ = {
 			isa = PBXGroup;
 			children = (
-				953D81120F2F40F800049823 /* NMOperationStatusDialog.xib */,
-				953D84280F2F896800049823 /* NMOperationConfigDialog.xib */,
 			);
 			name = nminfer;
 			sourceTree = "<group>";
@@ -1029,8 +1102,6 @@
 		951FF41C0F3258BF00A9175C /* nmmakebg */ = {
 			isa = PBXGroup;
 			children = (
-				951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */,
-				951FF3EA0F32563400A9175C /* NMTrainBGOperationConfigController.xib */,
 			);
 			name = nmmakebg;
 			sourceTree = "<group>";
@@ -1059,7 +1130,7 @@
 			name = nmrocauc;
 			sourceTree = "<group>";
 		};
-		953D7F0F0F2E07D200049823 /* cocoa-extras */ = {
+		953D7F0F0F2E07D200049823 /* Cocoa Extra Categories */ = {
 			isa = PBXGroup;
 			children = (
 				9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */,
@@ -1071,10 +1142,10 @@
 				95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */,
 				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
 			);
-			name = "cocoa-extras";
+			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
 		};
-		953D80250F2F14BF00049823 /* libxms */ = {
+		953D80250F2F14BF00049823 /* LibXMS */ = {
 			isa = PBXGroup;
 			children = (
 				5FC3094B0E18DF5A006C4679 /* Annotable.h */,
@@ -1103,26 +1174,23 @@
 				95371B160FCD8BC900273BA9 /* dirichlet_math.h */,
 				95371B170FCD8BC900273BA9 /* dirichlet_math.m */,
 			);
-			name = libxms;
+			name = LibXMS;
 			sourceTree = "<group>";
 		};
-		953D80260F2F14D400049823 /* operation */ = {
+		953D80260F2F14D400049823 /* Operation */ = {
 			isa = PBXGroup;
 			children = (
 				95B2C82E0EEE6C54004605A6 /* IMOperation.h */,
 				95B2C82F0EEE6C54004605A6 /* IMOperation.m */,
 				953D80530F2F18B800049823 /* IMTaskOperation.h */,
 				953D80540F2F18B800049823 /* IMTaskOperation.m */,
-				951FF3F40F32573E00A9175C /* NMTrainBGModelOperation.h */,
-				951FF3F50F32573E00A9175C /* NMTrainBGModelOperation.m */,
 			);
-			name = operation;
+			name = Operation;
 			sourceTree = "<group>";
 		};
 		953D81110F2F40BA00049823 /* nib */ = {
 			isa = PBXGroup;
 			children = (
-				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
 				2A37F4B6FDCFA73011CA2CEA /* MainMenu.nib */,
 				953D811C0F2F41AB00049823 /* dialog */,
 				953D811B0F2F418A00049823 /* doc */,
@@ -1154,7 +1222,6 @@
 		953D811C0F2F41AB00049823 /* dialog */ = {
 			isa = PBXGroup;
 			children = (
-				9563E2BB101E0370006F067A /* ensembl */,
 				951FF41B0F3258B700A9175C /* nminfer */,
 				951FF41C0F3258BF00A9175C /* nmmakebg */,
 				95B3502310232EC500F0E0BF /* IMPreferences.xib */,
@@ -1162,13 +1229,13 @@
 			name = dialog;
 			sourceTree = "<group>";
 		};
-		953D81A70F2F4B5100049823 /* ddcli */ = {
+		953D81A70F2F4B5100049823 /* DDCLI */ = {
 			isa = PBXGroup;
 			children = (
 				953D81A40F2F4B4E00049823 /* DDCliUtil.h */,
 				953D81A50F2F4B4E00049823 /* DDCliUtil.m */,
 			);
-			name = ddcli;
+			name = DDCLI;
 			sourceTree = "<group>";
 		};
 		953D82B80F2F64B800049823 /* icons */ = {
@@ -1182,27 +1249,28 @@
 			name = icons;
 			sourceTree = "<group>";
 		};
-		95414FD90F1245CF0083E72A /* Motif Set Document */ = {
+		95414FD90F1245CF0083E72A /* Motif Set */ = {
 			isa = PBXGroup;
 			children = (
 				95AA6CE2108736F50000A8BD /* Actions */,
-				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
-				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
 				5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */,
 				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
 				953D84900F2F9A1900049823 /* MotifSetDocumentController.h */,
 				953D84910F2F9A1900049823 /* MotifSetDocumentController.m */,
+				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
+				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
 			);
-			name = "Motif Set Document";
+			name = "Motif Set";
 			sourceTree = "<group>";
 		};
 		95414FDA0F1245DB0083E72A /* App Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5FA66A600E142A12009E5AFA /* AppController.h */,
-				5FA66A610E142A12009E5AFA /* AppController.m */,
+				5FA66A600E142A12009E5AFA /* IMAppController.h */,
+				5FA66A610E142A12009E5AFA /* IMAppController.m */,
 			);
 			name = "App Controller";
 			sourceTree = "<group>";
@@ -1223,11 +1291,64 @@
 			name = nmshuffle;
 			sourceTree = "<group>";
 		};
-		9563E2BB101E0370006F067A /* ensembl */ = {
+		9562E02B10F3530E0091549E /* Document */ = {
 			isa = PBXGroup;
 			children = (
+				95FE41D010C8987000E034FE /* IMSequenceSetDocument.h */,
+				95FE41D110C8987000E034FE /* IMSequenceSetDocument.m */,
+				9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */,
 			);
-			name = ensembl;
+			name = Document;
+			sourceTree = "<group>";
+		};
+		9562E03010F353340091549E /* Array Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */,
+				9587FFE010F262CD00435D2A /* IMSequenceSetController.m */,
+			);
+			name = "Array Controller";
+			sourceTree = "<group>";
+		};
+		9562E03210F3533F0091549E /* Sequence View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9562DF3710F3462F0091549E /* IMSequenceViewCell.h */,
+				9562DF3810F3462F0091549E /* IMSequenceViewCell.m */,
+			);
+			name = "Sequence View Cell";
+			sourceTree = "<group>";
+		};
+		9562E58B10F4AFEC0091549E /* Annotation Set */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD29310F749710008CE43 /* GFF Record */,
+				95DDD29210F749610008CE43 /* Features */,
+				9562E6A410F4DF450091549E /* Array Controller */,
+				9562E5FD10F4CDEA0091549E /* Document */,
+			);
+			name = "Annotation Set";
+			sourceTree = "<group>";
+		};
+		9562E5FD10F4CDEA0091549E /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				9562E58C10F4B0080091549E /* IMAnnotationSetDocument.h */,
+				9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */,
+				9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */,
+				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
+				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		9562E6A410F4DF450091549E /* Array Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9562E64110F4D32B0091549E /* IMAnnotationSetController.h */,
+				9562E64210F4D32B0091549E /* IMAnnotationSetController.m */,
+			);
+			name = "Array Controller";
 			sourceTree = "<group>";
 		};
 		9563E2C0101E0649006F067A /* Experimental */ = {
@@ -1241,6 +1362,7 @@
 		9563E2C2101E065F006F067A /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				95DDD57010F788870008CE43 /* Annotation Set Picker */,
 				95B2C6770EED8F40004605A6 /* Motif Name Picker */,
 				95B2C6740EED8EE3004605A6 /* Motif Set Picker */,
 			);
@@ -1252,14 +1374,23 @@
 			children = (
 				95F6D2F7109B5E43003C327C /* IMEnsemblConnection.h */,
 				95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */,
-				951A72D4109E0CF80085EB87 /* Promoters */,
-				951A7299109E07610085EB87 /* Peaks */,
 				5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */,
+				951A72D4109E0CF80085EB87 /* Promoters */,
+				951A7299109E07610085EB87 /* Sequencing Peaks */,
 			);
 			name = "Ensembl Sequence Retrieval";
 			sourceTree = "<group>";
 		};
-		9595B0930FB9B2B700CE2BFF /* test */ = {
+		9587FD1610F248C900435D2A /* Document Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587FD1710F248E300435D2A /* IMDocumentController.h */,
+				9587FD1810F248E300435D2A /* IMDocumentController.m */,
+			);
+			name = "Document Controller";
+			sourceTree = "<group>";
+		};
+		9595B0930FB9B2B700CE2BFF /* Test Suites */ = {
 			isa = PBXGroup;
 			children = (
 				9595B0E80FB9B79400CE2BFF /* MetamotifTests.h */,
@@ -1267,7 +1398,7 @@
 				9595B29E0FB9C59F00CE2BFF /* incomplete_beta.h */,
 				9595B29F0FB9C59F00CE2BFF /* incomplete_beta.m */,
 			);
-			name = test;
+			name = "Test Suites";
 			sourceTree = "<group>";
 		};
 		95AA5B9510872DF60000A8BD /* nmica */ = {
@@ -1413,7 +1544,7 @@
 			name = Actions;
 			sourceTree = "<group>";
 		};
-		95B2C60D0EED7B95004605A6 /* motifcomparison */ = {
+		95B2C60D0EED7B95004605A6 /* Motif Comparison */ = {
 			isa = PBXGroup;
 			children = (
 				954579B70EE725B20099ABA0 /* ScoreOffsetPair.h */,
@@ -1429,7 +1560,7 @@
 				95414F210F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.h */,
 				95414F220F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m */,
 			);
-			name = motifcomparison;
+			name = "Motif Comparison";
 			sourceTree = "<group>";
 		};
 		95B2C6740EED8EE3004605A6 /* Motif Set Picker */ = {
@@ -1443,13 +1574,13 @@
 			name = "Motif Set Picker";
 			sourceTree = "<group>";
 		};
-		95B2C6750EED8F11004605A6 /* Drawer */ = {
+		95B2C6750EED8F11004605A6 /* Annotations Drawer */ = {
 			isa = PBXGroup;
 			children = (
 				95457AFA0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.h */,
 				95457AFB0EE8100D0099ABA0 /* MotifSetDrawerTableDelegate.m */,
 			);
-			name = Drawer;
+			name = "Annotations Drawer";
 			sourceTree = "<group>";
 		};
 		95B2C6760EED8F2C004605A6 /* Motif Pairs */ = {
@@ -1468,8 +1599,6 @@
 			children = (
 				95B2C6780EED8F54004605A6 /* MotifNamePickerWindow.h */,
 				95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */,
-				95B2C67B0EED8F7C004605A6 /* MotifNamePickerController.h */,
-				95B2C67C0EED8F7C004605A6 /* MotifNamePickerController.m */,
 			);
 			name = "Motif Name Picker";
 			sourceTree = "<group>";
@@ -1485,20 +1614,73 @@
 			name = preferences;
 			sourceTree = "<group>";
 		};
-		95BDDD520FC31A9C00EB39C4 /* debuglog */ = {
+		95CE589710A5AECA00D00524 /* NestedMICA */ = {
 			isa = PBXGroup;
 			children = (
+				95AA5B9510872DF60000A8BD /* nmica */,
+				95AA6BDE108731060000A8BD /* nmica-extra */,
 			);
-			name = debuglog;
+			name = NestedMICA;
 			sourceTree = "<group>";
 		};
-		95D7652D10231D99009703AA /* external */ = {
+		95D7652D10231D99009703AA /* External */ = {
 			isa = PBXGroup;
 			children = (
 				95B3505A1023320600F0E0BF /* preferences */,
-				953D80250F2F14BF00049823 /* libxms */,
+				953D80250F2F14BF00049823 /* LibXMS */,
 			);
-			name = external;
+			name = External;
+			sourceTree = "<group>";
+		};
+		95DDD29210F749610008CE43 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD2B110F749CB0008CE43 /* IMFeature.h */,
+				95DDD2B210F749CB0008CE43 /* IMFeature.m */,
+				95DDD1E110F743FA0008CE43 /* IMRangeFeature.h */,
+				95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */,
+				95DDD1E010F743FA0008CE43 /* IMPointFeature.h */,
+				95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */,
+			);
+			name = Features;
+			sourceTree = "<group>";
+		};
+		95DDD29310F749710008CE43 /* GFF Record */ = {
+			isa = PBXGroup;
+			children = (
+				9562E5FA10F4CC710091549E /* IMGFFRecord.h */,
+				9562E5FB10F4CC710091549E /* IMGFFRecord.m */,
+			);
+			name = "GFF Record";
+			sourceTree = "<group>";
+		};
+		95DDD57010F788870008CE43 /* Annotation Set Picker */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD52E10F786770008CE43 /* IMAnnotationSetPickerWindow.h */,
+				95DDD52F10F786770008CE43 /* IMAnnotationSetPickerWindow.m */,
+				95DDD57610F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.h */,
+				95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */,
+			);
+			name = "Annotation Set Picker";
+			sourceTree = "<group>";
+		};
+		95FE41CC10C8982600E034FE /* Sequence Set */ = {
+			isa = PBXGroup;
+			children = (
+				9562E03210F3533F0091549E /* Sequence View Cell */,
+				9562E03010F353340091549E /* Array Controller */,
+				9562E02B10F3530E0091549E /* Document */,
+				9587FC4710F23BFF00435D2A /* IMSequenceSetDocumentController.h */,
+				9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */,
+				9587FC4F10F23C8600435D2A /* IMSequenceSetWindowController.h */,
+				9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */,
+				9587FFED10F2635300435D2A /* IMSequenceView.h */,
+				9587FFEE10F2635300435D2A /* IMSequenceView.m */,
+				9562E00910F351910091549E /* IMSequence.h */,
+				9562E00A10F351910091549E /* IMSequence.m */,
+			);
+			name = "Sequence Set";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1510,7 +1692,7 @@
 			files = (
 				9595B1F90FB9C02200CE2BFF /* Alphabet.h in Headers */,
 				9595B1FA0FB9C02200CE2BFF /* Annotable.h in Headers */,
-				9595B1FB0FB9C02200CE2BFF /* AppController.h in Headers */,
+				9595B1FB0FB9C02200CE2BFF /* IMAppController.h in Headers */,
 				9595B1FC0FB9C02200CE2BFF /* BestHitsOperation.h in Headers */,
 				9595B1FD0FB9C02200CE2BFF /* DDCliUtil.h in Headers */,
 				9595B1FE0FB9C02200CE2BFF /* Dirichlet.h in Headers */,
@@ -1534,7 +1716,6 @@
 				9595B2100FB9C02200CE2BFF /* MotifComparisonOperation.h in Headers */,
 				9595B2110FB9C02200CE2BFF /* MotifComparitor.h in Headers */,
 				9595B2120FB9C02200CE2BFF /* MotifNameCell.h in Headers */,
-				9595B2130FB9C02200CE2BFF /* MotifNamePickerController.h in Headers */,
 				9595B2140FB9C02200CE2BFF /* MotifNamePickerWindow.h in Headers */,
 				9595B2150FB9C02200CE2BFF /* MotifPair.h in Headers */,
 				9595B2160FB9C02200CE2BFF /* MotifPairArrayController.h in Headers */,
@@ -1576,6 +1757,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C05733C708A9546B00998B17 /* Build configuration list for PBXNativeTarget "iMotifs" */;
 			buildPhases = (
+				95CD86EC10AACF6B005BA446 /* Copy BioCocoa Framework */,
 				95B70FD40FE440F10090E46A /* Copy ActiveRecord Framework */,
 				950CCF5E0FE26C7300549134 /* Copy BWToolkit Framework */,
 				5FC3088C0E18C020006C4679 /* Copy the Sparkle Framework */,
@@ -1663,6 +1845,8 @@
 				95B3502410232EC500F0E0BF /* IMPreferences.xib in Resources */,
 				95B3507F10233A1600F0E0BF /* General.png in Resources */,
 				5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */,
+				9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */,
+				9562E67410F4D5380091549E /* IMAnnotationSetDocument.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1708,7 +1892,7 @@
 				5FFA09D50E1415BC00E0F87D /* Alphabet.m in Sources */,
 				5FFA09D60E1415BC00E0F87D /* MotifSetParser.m in Sources */,
 				5FFA09D70E1415BC00E0F87D /* Dirichlet.m in Sources */,
-				5FA66A620E142A12009E5AFA /* AppController.m in Sources */,
+				5FA66A620E142A12009E5AFA /* IMAppController.m in Sources */,
 				5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */,
 				5FC3084D0E185802006C4679 /* MotifViewCell.m in Sources */,
 				5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */,
@@ -1732,7 +1916,6 @@
 				95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */,
 				95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */,
 				95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */,
-				95B2C67D0EED8F7C004605A6 /* MotifNamePickerController.m in Sources */,
 				95B2C8300EEE6C54004605A6 /* IMOperation.m in Sources */,
 				95414F230F123C7D0083E72A /* MotifsBelowDistanceCutoffOperation.m in Sources */,
 				953D80550F2F18B800049823 /* IMTaskOperation.m in Sources */,
@@ -1764,6 +1947,23 @@
 				95BACE5A109CA94400FAA974 /* NMROCAUCOperation.m in Sources */,
 				95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */,
 				9561D85410A04EF6003F37C6 /* NMShuffleOperation.m in Sources */,
+				95FE41D210C8987000E034FE /* IMSequenceSetDocument.m in Sources */,
+				9587FC4910F23BFF00435D2A /* IMSequenceSetDocumentController.m in Sources */,
+				9587FC5110F23C8700435D2A /* IMSequenceSetWindowController.m in Sources */,
+				9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */,
+				9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */,
+				9587FFEF10F2635300435D2A /* IMSequenceView.m in Sources */,
+				9562DF3910F3462F0091549E /* IMSequenceViewCell.m in Sources */,
+				9562E00B10F351910091549E /* IMSequence.m in Sources */,
+				9562E58E10F4B0080091549E /* IMAnnotationSetDocument.m in Sources */,
+				9562E5FC10F4CC710091549E /* IMGFFRecord.m in Sources */,
+				9562E64310F4D32B0091549E /* IMAnnotationSetController.m in Sources */,
+				95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */,
+				95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */,
+				95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */,
+				95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */,
+				95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */,
+				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1790,7 +1990,7 @@
 				9595B11E0FB9BB7500CE2BFF /* MotifSet.m in Sources */,
 				9595B11F0FB9BB8700CE2BFF /* ScoreOffsetPair.m in Sources */,
 				9595B1200FB9BB8A00CE2BFF /* Symbol.m in Sources */,
-				9595B12B0FB9BBFF00CE2BFF /* AppController.m in Sources */,
+				9595B12B0FB9BBFF00CE2BFF /* IMAppController.m in Sources */,
 				9595B12E0FB9BC0100CE2BFF /* BestHitsOperation.m in Sources */,
 				9595B1310FB9BC0300CE2BFF /* DDCliUtil.m in Sources */,
 				9595B1340FB9BC0C00CE2BFF /* IMOperation.m in Sources */,
@@ -1816,7 +2016,6 @@
 				9595B14D0FB9BC2300CE2BFF /* MotifPairArrayController.m in Sources */,
 				9595B14E0FB9BC2300CE2BFF /* MotifPair.m in Sources */,
 				9595B14F0FB9BC2400CE2BFF /* MotifNamePickerWindow.m in Sources */,
-				9595B1500FB9BC2400CE2BFF /* MotifNamePickerController.m in Sources */,
 				9595B1510FB9BC2400CE2BFF /* MotifNameCell.m in Sources */,
 				9595B1520FB9BC2600CE2BFF /* MotifComparisonOperation.m in Sources */,
 				9595B2A10FB9C59F00CE2BFF /* incomplete_beta.m in Sources */,
@@ -1932,12 +2131,15 @@
 		C05733C808A9546B00998B17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../external\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -1945,6 +2147,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "IMDEBUG=YES";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				JAVA_HOME = /System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home;
@@ -1958,6 +2161,7 @@
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
+				VALID_ARCHS = "x86_64 i386";
 				VERSION_INFO_FILE = "$(PRODUCT_NAME)_vers.c";
 				WRAPPER_EXTENSION = app;
 				ZERO_LINK = YES;
@@ -1973,10 +2177,12 @@
 					"\"$(SRCROOT)/../Frameworks/XMS/build/Release\"",
 					"\"$(DEVELOPER_DIR)/Local/Frameworks\"",
 					"\"$(SRCROOT)\"",
+					"\"$(SRCROOT)/../external\"",
 				);
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=YES";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (

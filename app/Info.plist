@@ -28,13 +28,32 @@
 				<string>fasta</string>
 			</array>
 			<key>CFBundleTypeName</key>
-			<string>Sequence set</string>
+			<string>FASTA sequence set</string>
 			<key>CFBundleTypeRole</key>
 			<string>Viewer</string>
 			<key>LSTypeIsPackage</key>
 			<false/>
 			<key>NSDocumentClass</key>
-			<string>MotifSetDocument</string>
+			<string>IMSequenceSetDocument</string>
+			<key>NSPersistentStoreTypeKey</key>
+			<string>Binary</string>
+		</dict>
+		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>gff</string>
+				<string>gff1</string>
+				<string>gff2</string>				
+				<string>gff3</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>GFF annotation set</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSTypeIsPackage</key>
+			<false/>
+			<key>NSDocumentClass</key>
+			<string>IMAnnotationSetDocument</string>
 			<key>NSPersistentStoreTypeKey</key>
 			<string>Binary</string>
 		</dict>
@@ -54,7 +73,7 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>0.2.1</string>
+	<string>0.2.4</string>
 	<key>NSMainNibFile</key>
 	<string>MainMenu</string>
 	<key>NSPrincipalClass</key>
@@ -87,7 +106,7 @@
 		<dict>
 			<key>UTTypeConformsTo</key>
 			<array>
-				<string>public.xml</string>
+				<string>public.text</string>
 			</array>
 			<key>UTTypeDescription</key>
 			<string>FASTA sequence set</string>
@@ -100,6 +119,26 @@
 					<string>fasta</string>
 					<string>fa</string>
 					<string>seq</string>
+				</array>
+			</dict>
+		</dict>
+		<dict>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.text</string>
+			</array>
+			<key>UTTypeDescription</key>
+			<string>GFF annotation set</string>
+			<key>UTTypeIdentifier</key>
+			<string>net.derkholm.annotationset.gff</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>gff</string>
+					<string>gff1</string>
+					<string>gff2</string>
+					<string>gff3</string>
 				</array>
 			</dict>
 		</dict>

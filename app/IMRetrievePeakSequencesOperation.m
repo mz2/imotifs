@@ -32,6 +32,12 @@
 @synthesize maxCount = _maxCount;
 @synthesize aroundPeak = _aroundPeak;
 
++ (void) initialize 
+{
+    [[self class] setKeys:
+     [NSArray arrayWithObjects: @"format", nil]
+        triggerChangeNotificationsForDependentKey: @"formatIsGFF"];
+}
 
 // init
 - (id)init
@@ -87,16 +93,32 @@
 
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
+    if (self.formatIsGFF) {
+        NSString *lp = 
+        [[[[NMOperation nmicaExtraPath] 
+           stringByAppendingPathComponent:@"bin/nmensemblfeat"] 
+          stringByExpandingTildeInPath] retain];
+        self.launchPath = lp;
+    } else {
+        NSString *lp = 
+        [[[[NMOperation nmicaExtraPath] 
+           stringByAppendingPathComponent:@"bin/nmensemblpeakseq"] 
+          stringByExpandingTildeInPath] retain];
+        self.launchPath = lp;
+    }
+    
     [args setObject: [NSNull null] forKey:self.isRepeatMasked ? @"-repeatMask" : @"-noRepeatMask"];
     [args setObject: [NSNull null] forKey:self.excludeTranslations ? @"-excludeTranslations" : @"-excludeTranslations"];
 	
-	if (self.retrieveTopRankedPeaks && (self.maxCount > 0)) {
-		[args setObject:[NSNumber numberWithInt:self.maxCount] forKey:@"-maxCount"];
-	}
-	
-	if (self.retrieveAroundPeakMax && (self.aroundPeak > 0)) {
-		[args setObject:[NSNumber numberWithInt:self.aroundPeak] forKey:@"-aroundPeak"];
-	}
+    if (!self.formatIsGFF) {
+        if (self.retrieveTopRankedPeaks && (self.maxCount > 0)) {
+            [args setObject:[NSNumber numberWithInt:self.maxCount] forKey:@"-maxCount"];
+        }
+        
+        if (self.retrieveAroundPeakMax && (self.aroundPeak > 0)) {
+            [args setObject:[NSNumber numberWithInt:self.aroundPeak] forKey:@"-aroundPeak"];
+        }        
+    }
     
     if (self.dbName == nil) {
         @throw [NSException exceptionWithName:@"IMNullPointerException" reason:@"Database name should not be nil! It needs to be specified." userInfo:nil];
@@ -122,7 +144,11 @@
     
 
     if (self.peakRegionFilename != nil) {
-        [args setObject:self.peakRegionFilename forKey:@"-peaks"];
+        if (self.formatIsGFF) {
+            [args setObject:self.peakRegionFilename forKey:@"-features"];
+        } else {
+            [args setObject:self.peakRegionFilename forKey:@"-peaks"];
+        }
     }
     
     if (self.outFilename != nil) {
@@ -173,7 +199,7 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    DebugLog(@"Running");
+    PCLog(@"Running");
     while ((inData = [readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -184,19 +210,19 @@
         if ([lines count] == 1) {
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
-            DebugLog(@"Line count : %@", lines);
+            PCLog(@"Line count : %@", lines);
         } else {
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
-            DebugLog(@"Buffer: %@", buf);
+            PCLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
         }
         
     }
     
-    DebugLog(@"Done.");
+    PCLog(@"Done.");
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];
@@ -207,4 +233,9 @@
     _statusDialogController = controller;
     [_statusDialogController.spinner startAnimation:self];
 }
+
+-(BOOL) formatIsGFF {
+    return self.format == IMPeakFileFormatGFF;
+}
+
 @end

@@ -28,6 +28,44 @@
 		8DD76F9F0486AA7600D96B5E /* XMSParser.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = C6859EA3029092ED04C91782 /* XMSParser.1 */; };
 		9595AE900FB977F700CE2BFF /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE8D0FB977F700CE2BFF /* IMNSArrayExtras.m */; };
 		9595AE910FB977F700CE2BFF /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE8F0FB977F700CE2BFF /* IMNSColorExtras.m */; };
+		95CE592C10A5B20000D00524 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CE592B10A5B20000D00524 /* Foundation.framework */; };
+		95CE593010A5B20400D00524 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95CE592F10A5B20400D00524 /* Cocoa.framework */; };
+		95CE594C10A5B26000D00524 /* XMSParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FB7796FE84155DC02AAC07 /* XMSParser.m */; };
+		95CE594D10A5B26000D00524 /* Motif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F02CE570E104F530066AD72 /* Motif.m */; };
+		95CE594E10A5B26000D00524 /* Alphabet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F02CE770E105ACA0066AD72 /* Alphabet.m */; };
+		95CE594F10A5B26000D00524 /* Multinomial.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F02CE930E105FB60066AD72 /* Multinomial.m */; };
+		95CE595010A5B26000D00524 /* Symbol.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F02CE9B0E1062FE0066AD72 /* Symbol.m */; };
+		95CE595110A5B26000D00524 /* MotifSetParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA37CF0E12DF6600EA3AAD /* MotifSetParser.m */; };
+		95CE595210A5B26000D00524 /* MotifSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA37D10E12DF9100EA3AAD /* MotifSet.m */; };
+		95CE595310A5B26000D00524 /* Dirichlet.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA3A6A0E13294900EA3AAD /* Dirichlet.m */; };
+		95CE595410A5B26000D00524 /* gen_dirch.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCAC0E13E1CE00C04050 /* gen_dirch.c */; };
+		95CE595510A5B26000D00524 /* gen_beta.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB00E13E21200C04050 /* gen_beta.c */; };
+		95CE595610A5B26000D00524 /* gen_dirch_mix.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB40E13E49500C04050 /* gen_dirch_mix.c */; };
+		95CE595710A5B26000D00524 /* gen_norm.c in Sources */ = {isa = PBXBuildFile; fileRef = 5F44CCB70E13E9AB00C04050 /* gen_norm.c */; };
+		95CE595810A5B26000D00524 /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE8D0FB977F700CE2BFF /* IMNSArrayExtras.m */; };
+		95CE595910A5B26000D00524 /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE8F0FB977F700CE2BFF /* IMNSColorExtras.m */; };
+		95CE595A10A5B26000D00524 /* SymbolBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDCB1089DEBC001159D8 /* SymbolBounds.m */; };
+		95CE595B10A5B26000D00524 /* dirichlet_math.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDD01089DECB001159D8 /* dirichlet_math.m */; };
+		95CE595C10A5B26000D00524 /* Metamotif.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDD61089DED5001159D8 /* Metamotif.m */; };
+		95CE595D10A5B26000D00524 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DDF01089DF1D001159D8 /* DistributionBounds.m */; };
+		95CE597A10A5B35200D00524 /* Alphabet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F02CE760E105ACA0066AD72 /* Alphabet.h */; };
+		95CE597B10A5B35200D00524 /* Annotable.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FC309480E18DF2D006C4679 /* Annotable.h */; };
+		95CE597C10A5B35200D00524 /* Dirichlet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBA3A690E13294900EA3AAD /* Dirichlet.h */; };
+		95CE597D10A5B35200D00524 /* dirichlet_math.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDD11089DECB001159D8 /* dirichlet_math.h */; };
+		95CE597E10A5B35200D00524 /* DistributionBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDF11089DF1D001159D8 /* DistributionBounds.h */; };
+		95CE597F10A5B35200D00524 /* gen_beta.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F44CCAF0E13E21200C04050 /* gen_beta.h */; };
+		95CE598010A5B35200D00524 /* gen_dirch.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F44CCAB0E13E1CE00C04050 /* gen_dirch.h */; };
+		95CE598110A5B35200D00524 /* gen_dirch_mix.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F44CCB30E13E49500C04050 /* gen_dirch_mix.h */; };
+		95CE598210A5B35200D00524 /* gen_norm.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F44CCB60E13E9AB00C04050 /* gen_norm.h */; };
+		95CE598310A5B35200D00524 /* IMNSArrayExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595AE8C0FB977F700CE2BFF /* IMNSArrayExtras.h */; };
+		95CE598410A5B35200D00524 /* IMNSColorExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = 9595AE8E0FB977F700CE2BFF /* IMNSColorExtras.h */; };
+		95CE598510A5B35200D00524 /* Metamotif.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDD71089DED5001159D8 /* Metamotif.h */; };
+		95CE598610A5B35200D00524 /* Motif.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F02CE560E104F530066AD72 /* Motif.h */; };
+		95CE598710A5B35200D00524 /* MotifSet.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBA37D20E12DF9100EA3AAD /* MotifSet.h */; };
+		95CE598810A5B35200D00524 /* MotifSetParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 5FBA37CE0E12DF6600EA3AAD /* MotifSetParser.h */; };
+		95CE598910A5B35200D00524 /* Multinomial.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F02CE920E105FB60066AD72 /* Multinomial.h */; };
+		95CE598A10A5B35200D00524 /* Symbol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F02CE9C0E1062FE0066AD72 /* Symbol.h */; };
+		95CE598B10A5B35200D00524 /* SymbolBounds.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F66DDCC1089DEBC001159D8 /* SymbolBounds.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -79,11 +117,15 @@
 		5FBA3A6A0E13294900EA3AAD /* Dirichlet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Dirichlet.m; sourceTree = "<group>"; };
 		5FC309480E18DF2D006C4679 /* Annotable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Annotable.h; sourceTree = "<group>"; };
 		5FC3095C0E18E1F0006C4679 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
-		8DD76FA10486AA7600D96B5E /* XMSParser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = XMSParser; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DD76FA10486AA7600D96B5E /* xmsparser */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = xmsparser; sourceTree = BUILT_PRODUCTS_DIR; };
 		9595AE8C0FB977F700CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSArrayExtras.h; sourceTree = "<group>"; };
 		9595AE8D0FB977F700CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNSArrayExtras.m; sourceTree = "<group>"; };
 		9595AE8E0FB977F700CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMNSColorExtras.h; sourceTree = "<group>"; };
 		9595AE8F0FB977F700CE2BFF /* IMNSColorExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMNSColorExtras.m; sourceTree = "<group>"; };
+		95CE592610A5B1EB00D00524 /* XMS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XMS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		95CE592710A5B1EB00D00524 /* XMS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "XMS-Info.plist"; sourceTree = "<group>"; };
+		95CE592B10A5B20000D00524 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		95CE592F10A5B20400D00524 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		C6859EA3029092ED04C91782 /* XMSParser.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = XMSParser.1; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,6 +136,15 @@
 			files = (
 				8DD76F9C0486AA7600D96B5E /* Foundation.framework in Frameworks */,
 				5FC3095D0E18E1F0006C4679 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95CE592410A5B1EB00D00524 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95CE592C10A5B20000D00524 /* Foundation.framework in Frameworks */,
+				95CE593010A5B20400D00524 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +160,9 @@
 				C6859EA2029092E104C91782 /* Documentation */,
 				08FB779DFE84155DC02AAC07 /* External Frameworks and Libraries */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
+				95CE592710A5B1EB00D00524 /* XMS-Info.plist */,
+				95CE592B10A5B20000D00524 /* Foundation.framework */,
+				95CE592F10A5B20400D00524 /* Cocoa.framework */,
 			);
 			name = XMSParser;
 			sourceTree = "<group>";
@@ -134,7 +188,8 @@
 		1AB674ADFE9D54B511CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DD76FA10486AA7600D96B5E /* XMSParser */,
+				8DD76FA10486AA7600D96B5E /* xmsparser */,
+				95CE592610A5B1EB00D00524 /* XMS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -222,6 +277,34 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		95CE592110A5B1EB00D00524 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95CE597A10A5B35200D00524 /* Alphabet.h in Headers */,
+				95CE597B10A5B35200D00524 /* Annotable.h in Headers */,
+				95CE597C10A5B35200D00524 /* Dirichlet.h in Headers */,
+				95CE597D10A5B35200D00524 /* dirichlet_math.h in Headers */,
+				95CE597E10A5B35200D00524 /* DistributionBounds.h in Headers */,
+				95CE597F10A5B35200D00524 /* gen_beta.h in Headers */,
+				95CE598010A5B35200D00524 /* gen_dirch.h in Headers */,
+				95CE598110A5B35200D00524 /* gen_dirch_mix.h in Headers */,
+				95CE598210A5B35200D00524 /* gen_norm.h in Headers */,
+				95CE598310A5B35200D00524 /* IMNSArrayExtras.h in Headers */,
+				95CE598410A5B35200D00524 /* IMNSColorExtras.h in Headers */,
+				95CE598510A5B35200D00524 /* Metamotif.h in Headers */,
+				95CE598610A5B35200D00524 /* Motif.h in Headers */,
+				95CE598710A5B35200D00524 /* MotifSet.h in Headers */,
+				95CE598810A5B35200D00524 /* MotifSetParser.h in Headers */,
+				95CE598910A5B35200D00524 /* Multinomial.h in Headers */,
+				95CE598A10A5B35200D00524 /* Symbol.h in Headers */,
+				95CE598B10A5B35200D00524 /* SymbolBounds.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
 		8DD76F960486AA7600D96B5E /* xmsparser-cli */ = {
 			isa = PBXNativeTarget;
@@ -238,8 +321,26 @@
 			name = "xmsparser-cli";
 			productInstallPath = "$(HOME)/bin";
 			productName = XMSParser;
-			productReference = 8DD76FA10486AA7600D96B5E /* XMSParser */;
+			productReference = 8DD76FA10486AA7600D96B5E /* xmsparser */;
 			productType = "com.apple.product-type.tool";
+		};
+		95CE592510A5B1EB00D00524 /* XMS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95CE592A10A5B1EC00D00524 /* Build configuration list for PBXNativeTarget "XMS" */;
+			buildPhases = (
+				95CE592110A5B1EB00D00524 /* Headers */,
+				95CE592210A5B1EB00D00524 /* Resources */,
+				95CE592310A5B1EB00D00524 /* Sources */,
+				95CE592410A5B1EB00D00524 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XMS;
+			productName = XMS;
+			productReference = 95CE592610A5B1EB00D00524 /* XMS.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
@@ -254,9 +355,20 @@
 			projectRoot = "";
 			targets = (
 				8DD76F960486AA7600D96B5E /* xmsparser-cli */,
+				95CE592510A5B1EB00D00524 /* XMS */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		95CE592210A5B1EB00D00524 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8DD76F990486AA7600D96B5E /* Sources */ = {
@@ -281,6 +393,31 @@
 				5F66DDD21089DECB001159D8 /* dirichlet_math.m in Sources */,
 				5F66DDD81089DED5001159D8 /* Metamotif.m in Sources */,
 				5F66DDF21089DF1D001159D8 /* DistributionBounds.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		95CE592310A5B1EB00D00524 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				95CE594C10A5B26000D00524 /* XMSParser.m in Sources */,
+				95CE594D10A5B26000D00524 /* Motif.m in Sources */,
+				95CE594E10A5B26000D00524 /* Alphabet.m in Sources */,
+				95CE594F10A5B26000D00524 /* Multinomial.m in Sources */,
+				95CE595010A5B26000D00524 /* Symbol.m in Sources */,
+				95CE595110A5B26000D00524 /* MotifSetParser.m in Sources */,
+				95CE595210A5B26000D00524 /* MotifSet.m in Sources */,
+				95CE595310A5B26000D00524 /* Dirichlet.m in Sources */,
+				95CE595410A5B26000D00524 /* gen_dirch.c in Sources */,
+				95CE595510A5B26000D00524 /* gen_beta.c in Sources */,
+				95CE595610A5B26000D00524 /* gen_dirch_mix.c in Sources */,
+				95CE595710A5B26000D00524 /* gen_norm.c in Sources */,
+				95CE595810A5B26000D00524 /* IMNSArrayExtras.m in Sources */,
+				95CE595910A5B26000D00524 /* IMNSColorExtras.m in Sources */,
+				95CE595A10A5B26000D00524 /* SymbolBounds.m in Sources */,
+				95CE595B10A5B26000D00524 /* dirichlet_math.m in Sources */,
+				95CE595C10A5B26000D00524 /* Metamotif.m in Sources */,
+				95CE595D10A5B26000D00524 /* DistributionBounds.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +498,68 @@
 			};
 			name = Release;
 		};
+		95CE592810A5B1EC00D00524 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = 4.2;
+				INFOPLIST_FILE = "XMS-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lObjC",
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = XMS;
+			};
+			name = Debug;
+		};
+		95CE592910A5B1EC00D00524 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				GCC_VERSION = 4.2;
+				INFOPLIST_FILE = "XMS-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-lObjC",
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = XMS;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -378,6 +577,15 @@
 			buildConfigurations = (
 				1DEB927908733DD40010E9CD /* Debug */,
 				1DEB927A08733DD40010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95CE592A10A5B1EC00D00524 /* Build configuration list for PBXNativeTarget "XMS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				95CE592810A5B1EC00D00524 /* Debug */,
+				95CE592910A5B1EC00D00524 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

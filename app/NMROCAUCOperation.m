@@ -27,17 +27,16 @@
     self = [super initWithLaunchPath: lp];
     
     if (self == nil) return nil;
-    
     self.bootstraps = 10000;
     
     return self;
 }
 
 -(void) dealloc {
-    [_motifsFile release],_motifsFile = nil;
-    [_positiveSeqsFile release],_positiveSeqsFile = nil;
-    [_negativeSeqsFile release],_negativeSeqsFile = nil;
-    [_outputFile release],_outputFile = nil;
+    [_motifsFile release], _motifsFile = nil;
+    [_positiveSeqsFile release], _positiveSeqsFile = nil;
+    [_negativeSeqsFile release], _negativeSeqsFile = nil;
+    [_outputFile release], _outputFile = nil;
     
     [super dealloc];
 }
@@ -64,7 +63,7 @@
     NSData *inData = nil;
     //NSData *errData = nil;
     NSMutableString *buf = [[NSMutableString alloc] init];
-    DebugLog(@"Running");
+    PCLog(@"Running");
     while ((inData = [_readHandle availableData]) && inData.length) {
         NSString *str = [[NSString alloc] initWithData: inData 
                                               encoding: NSUTF8StringEncoding];
@@ -75,19 +74,19 @@
         if ([lines count] == 1) {
             //either line is not finished or exactly one line was returned
             //either way, we'll wait until some more can be read
-            DebugLog(@"Line count : %@", lines);
+            PCLog(@"Line count : %@", lines);
         } else {
             //init new buffer with the last remnants
             NSMutableString *newBuf = [[NSMutableString alloc] 
                                        initWithString:[lines objectAtIndex: lines.count - 1]];
-            DebugLog(@"Buffer: %@", buf);
+            PCLog(@"Buffer: %@", buf);
             [buf release];
             buf = newBuf;
         }
         
     }
     
-    DebugLog(@"Done.");
+    PCLog(@"Done.");
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];

@@ -25,12 +25,4 @@
                              cols:(NSUInteger)cs 
                             value:(NSInteger)value;
 
-/*-(IMIntMatrix2D*) transpose;
--(NSUInteger) rows;
--(NSUInteger) columns;
--(NSUInteger) elements;
--(NSInteger) valueAtRow:(NSUInteger)row col:(NSUInteger)col;
--(void) setValue:(NSInteger)v 
-             row:(NSUInteger) row 
-             col:(NSUInteger) col;*/
 @end

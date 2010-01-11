@@ -48,4 +48,5 @@
 -(NSInteger) columnCountWithOffsets;
 -(void) alignToLeftEnd;
 -(NSXMLDocument*) toXMS;
+-(NSString*) stringValue;
 @end

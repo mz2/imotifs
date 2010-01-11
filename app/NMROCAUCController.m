@@ -9,7 +9,7 @@
 #import "NMROCAUCController.h"
 #import "NMROCAUCOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
-#import "AppController.h"
+#import "IMAppController.h"
 
 @implementation NMROCAUCController
 @synthesize operation = _operation;

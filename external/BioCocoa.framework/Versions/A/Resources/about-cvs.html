@@ -1,0 +1,256 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+ <head>
+  <title>About CVS</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="bc.css">
+ </head>
+ <body>
+  <h2>About CVS</h2>
+  <p>This document explains how to use the Concurrent Versions System (CVS) with the BioCocoa project.
+To be able to use CVS and contribute code to the BioCocoa project,
+   you will need to have an account at <a href="https://bioinformatics.org/account/register.php">bioinformatics.org</a>, and request to be added
+   to the developer list by the project leader, <a href="mailto:peter.schols@bio.kuleuven.ac.be">Peter Schols</a>.
+		
+
+		You can get more information about the use of CVS with bioinformatics.org projects
+   <a href="http://bioinformatics.org/docs/cvs/">here</a>.
+  </p>
+  <hr>
+  <ul>
+   <li>
+    <a href="#gettingstarted">Getting Started</a>
+   </li>
+   <li>
+    <a href="#sshkeys">Setting up ssh keys</a>
+   </li>
+   <li>
+    <a href="#xcodesvn">Xcode and SVN</a>
+   </li>
+   <li>
+    <a href="#xcodecvs">Xcode and CVS</a>
+   </li>
+   <li>
+    <a href="#cvl">Using CVL to perform CVS operations</a>
+   </li>
+   <li>
+    <a href="#moving">Moving folders and files</a>
+   </li>
+   <li>
+    <a href="#cli">Using CVS from the command-line</a>
+   </li>
+   <li>
+    <a href="#links">Useful links</a>
+   </li>
+  </ul>
+  <hr>
+  <h2 id="gettingstarted">Getting the BioCocoa project on your computer</h2>
+  <p>To upload/export the BioCocoa project into your computer,
+			open Terminal.app on your machine and make sure that you are using the bash shell by typing <code>bash</code> at the prompt. Now you can excecute the following commands:</p>
+  <ul>
+   <li>
+    <p>First, set these two shell parameters:</p>
+    <pre>export CVS_RSH='ssh'</pre>
+    <pre>export CVSROOT=':ext:loginname@bioinformatics.org:/cvsroot'</pre>
+    <p>(make sure to replace <code>loginname</code> by your login)</p>
+   </li>
+   <li>
+    <p>Create a folder on your machine where you want to store the BioCocoa source, e.g. </p>
+    <pre>mkdir ~/Desktop/BioCocoa</pre>
+   </li>
+   <li>
+    <p>Move to that folder, e.g.
+    <p>
+    <pre>cd ~/Desktop/BioCocoa</pre>
+   </li>
+   <li>
+    <p>Move the contents of the CVS repository to that folder:
+    <p>
+    <pre>cvs checkout BioCocoa -P</pre>
+   </li>
+  </ul>
+    <p>The entire BioCocoa project will be now be transfered to your local folder.
+	You can monitor what's going on in the Terminal window.</p>
+  <hr>
+  <h2 id="sshkeys">Setting up ssh keys</h2>
+  <p>To be able to use CVS transparently in GUI applications,
+   in particular <a href="#xcodecvs">Xcode</a> and
+   <a href="#cvl">CVL</a>, you will need to set up ssh on
+			your machine and on your account at bioinformatics.org, so that you
+			don't need to type your account password everytime you want to use CVS. After setting this up,
+			you will never be asked for your bioinformatics password anymore.
+			This is how GUI applications can run without having to deal with passwords.
+			One other advantage of doing this is that your scripts will be able to run
+			without human intervention. The disadvantage is that anyone who can
+			access your account on your local Mac OS X box will also be able to
+			access those remote servers which have stored your public key.
+  </p>
+  <h4>Create public/private key pair with the ssh-keygen command</h4>
+  <p>Open Terminal.app on your machine and type the following commands at the prompt:</p>
+  <ul>
+   <li>
+   <pre>ssh-keygen -t dsa</pre>
+   <p>The ssh-keygen process will generate a key pair</p></li>
+   <li>
+   <pre>Enter file in which to save the key:</pre> You can choose the proposed
+			file name and path
+   <li>
+   <pre>Enter passphrase (empty for no passphrase):</pre> 
+   Just hit return when you are asked for a passphrase</li>
+   <li>
+   <pre>Enter same passphrase again:</pre><p> Hit return a second time.</p></li>
+   
+   <li>You will see the following output:
+   <pre>Your identification has been saved in /Users/yourlogin/.ssh/id_dsa.</pre>
+   <pre>Your public key has been saved in /Users/yourlogin/.ssh/id_dsa.pub.</pre>
+   <pre>The key fingerprint is:</pre> followed by the key that is generated for your local account.
+
+   </li>
+  </ul>
+  <p>Note that you could choose to type a password, it does not have to be the
+			same as your bioinformatics.org password. However, if you type a password, it will
+			be needed to access your ssh account. This can makes things more complicated,
+			in particular with CVL. You can always change that password or remove it
+			(by replacing it with an empty password), using the command <code>ssh-keygen -p</code>. </p>
+  <h4>Place your public key on the remote host</h4>
+  <p>Once you have created your private and public keys, you need to place
+			your public key on the remote host in a place where ssh and scp can
+			recognize it. For this, add the contents of your local
+			<code>~/.ssh/id_dsa.pub</code> file to the file called <code>authorized_keys</code> in the <code>~/.ssh</code>
+			directory in your remote account at bioinformatics.org
+			(if you don't have such file already, you can create it). You can do this by SFTP'ing to your bioinformatics.org
+			account and by creating a <code>.ssh</code> folder in your Home directory and by
+			adding a <code>authorized_keys</code> file to this dir. </p>
+  <p>Another option is to use the Terminal (I have not tested that):</p>
+  <ul>
+   <li>
+   <pre>ssh loginname@bioinformatics.org</pre>
+   <p>(make sure to replace <code>loginname</code> with your bioinformatics login)</p>
+   <li>Type your password
+   <li>
+   <pre>cd .ssh</pre>
+   <li>
+   <pre>echo '--...copy paste the line from you local ~/.ssh/id_dsa.pub file...--' >> authorized_keys</pre>
+   <p>(the line you have to copy is very long, make sure it is all on one line)</p>
+   <li>
+   <pre>exit</pre>
+  </ul>
+  <p>If you are going to access the CVS from different machines, you will have to
+			add one line per machine, so make sure you are on a new line when adding
+			another key to the <code>authorized_keys</code> file. </p>
+  <hr>
+  <h2 id="xcodesvn">Using SVN in Xcode</h2>
+  <p>Add a section on using Subversion here</p>
+  <h2 id="xcodecvs">Using CVS in Xcode</h2>
+  <p>To be able to use CVS in Xcode, you need to set up a pair of
+			private/public key on your machine and on your account at bioinformatics.org,
+			as described above. Xcode will then be able to connect to
+			the CVS server without asking a password. You can use the built-in SCM
+			support to work on the project and use CVS in Xcode. </p>
+  <p>To start using CVS in Xcode,
+			double-click the project icon at the top of the 'Groups and Files'
+			view. In the 'General' tab, check the box 'enable SCM' and choose CVS.
+			Click on the edit button to specify to use ssh. </p>
+  <p>Look into the SCM smart group on the 'Groups and Files' panel on the left.
+			New files and modified files will appear in this group, as indicated by a
+			letter on the left, 'U' for updated (you have an old version), 'M' for modified
+			(you have modified it and may need to commit), 'A' for new files
+			(need to be added first), 'R' for removal, 'C' for conflict,... </p>
+  <p>The files for the project itself are in the file package 'BioCocoa.pbproj',
+			which contains 'project.pbxproj' and one file per user, e.g. 'username.pbxuser'.
+			The first file is modified every time the project is modified (adding files,
+			changing target settings,...), the second when a user changes her settings.
+			These files will only appear in the 'SCM' smart group, and should be committed
+			to save changes to the project, or the other developers won't have access to
+			the changes. </p>
+  <p>Things you can NOT do in Xcode, and for which you will have to use
+			another tool (command line or CVL): </p>
+  <ul>
+   <li>add new folders</li>
+   <li>manipulate files that are not referenced in the project</li>
+   <li>update new folders created by others</li>
+   <li>add new folders</li>
+  </ul>
+  <hr>
+  <h2 id="cvl">Using CVL to perform CVS operations</h2>
+  <p>As an alternative to Xcode, there are other GUI tools available, including
+			CVL, that you can download from
+   <a href="http://sente.epfl.ch/software/cvl/">here</a>.
+			The following instructions have been tested with version 3.4.7 (b72).
+  </p>
+  <p>CVL has instructions to use a remote repository like bioinformatics.org.
+			Here are these instructions: </p>
+  <ul>
+   <li>Install the private/public keys as
+    <a href="#sshkeys">described above</a>,
+			so that CVL can ssh into the repository without a password.
+			The setup is much easier if you did not set a password on the
+   private key. If you did and want to use it, look into CVL help.</li>
+   <li>In the Repositories window, click on button Add...,
+			choose the Other repository type, and type the following in the Repository root field:
+    <pre>:ext:username@bioinformatics.org:/cvsroot</pre>
+    <p>	(replace <code>username</code> with... your user name). After clicking OK, CVL will try to connect immediately, and fail,
+   as we haven't finished configuring it. Don't worry.</li>
+   <li>
+			In the Repositories Window, tab Environment, click on Add to add key CVS_RSH with value <code>/usr/bin/ssh</code>.</li>
+   <li>
+			If you have already checked out the code, you can open the project using the menu Work Area...Open, and select the BioCocoa folder.</li>
+   <li>
+			Otherwise, in the Repositories Window,
+			click on Checkout, type 'BioCocoa' in the Module field, and choose a location to checkout the project.</li>
+  </ul>
+  <p>Here are the most important items that you will probably use in the menus:</p>
+  <ul>
+   <li>Work Area...Refresh : refresh the display and the icons on the files;
+			to use every time you made changes to the project, or before working on it to check what other developers may have done.</li>
+   <li>Work Area...Commit Files : commit all the changes.</li>
+   <li>Work Area...Update Files : update all the files in the whole project to match the most recent version.</li>
+   <li>File...Commit : commit only the selected files.</li>
+   <li>File...Mark File for addition : to add a file to the repository (you need to commit then).</li>
+   <li>File...Mark File for removal : to remove a file from the repository (you need to commit then).</li>
+  </ul>
+  <p>Switch off SCM in Xcode if you want to use CVL.
+			Remember to always close your project in Xcode when you update the project
+			file package itself, as Xcode might otherwise get very confused.
+			Never delete a file in Xcode. Only remove the reference. Then you can
+			mark files for removal and commit using CVL. </p>
+  <hr>
+  <h2 id="moving">Moving files and folders</h2>
+  <p>This is quite complicated with CVS.
+			Read a CVS manual before doing it if you are not familiar with CVS. </p>
+  <hr>
+  <h2 id="cli">Using the command-line for CVS</h2>
+  <p>This is not an attempt to write a tutorial for the use of CVS, the reader is referred to the many excellent tutorials that already exist, most of them freely available through the web. And of course 'man cvs' is your friend. However, there are a few useful tips that are listed below. These instructions assume that the user is familiar with the command line.</p>
+  <ul>
+   <li>Use the -P and -d flags for the 'cvs update' command:
+    <pre>cvs update -P -d</pre>
+<p>The -P flag wil prune (remove them from the working copy) empty folders, 
+the -d flag makes sure that new directories added by someone else will also be added to your local repository.</p>
+   </li>
+   <li>
+When updating resources in a nib file, you have to realize that a nib-file is actually also a folder. So for instance to update the MainMenu.nib file, you would:
+    <pre>cd MainMenu.nib</pre>
+    <p>In this folder you will find at least three files: info.nib, classes.nib, and keyedobjects.nib. The first two are regular text files,
+	 and can be treated by CVS as source code files. However, the keyedobjects.nib file is a binary file, and need some special attention. To update the changes you will need to issue two commands:
+    <pre>cvs update -kb keyedobjects.nib</pre>
+	<pre>cvs commit -m "added cool new feature" keyedobjects.nib</pre>
+   </li>
+  </ul>
+  <hr>
+  <h2 id="links">Links</h2>
+  <ul>
+   <li>Part of the contents of this page was originally in Peter Schols' <a href="http://bioinformatics.org/pipermail/biococoa-dev/2004-July/000017.html">message</a> on the BioCocoa-dev mailinglist.
+    </li>
+   <li>
+    A good CVS tutorial can be found <a href="http://www.linux.ie/articles/tutorials/cvs.php">
+				here</a>.
+   </li>
+<li>A complete book on CVS has been published online <a href="http://cvsbook.red-bean.com/cvsbook.html">here</a>.</li>
+  </ul>
+  <p>
+   <a href="index.html">Back to index</a>
+  </p>
+ </body>
+</html>
+

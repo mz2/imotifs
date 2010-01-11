@@ -1,0 +1,17 @@
+{
+    IBClasses = (
+        {
+            ACTIONS = {downloadSeries = id; retrieveList = id; showSeriesInfo = id; }; 
+            CLASS = BCGEODownloadController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {
+                downloadPanel = NSPanel; 
+                downloadSeries = NSTextField; 
+                seriesTable = NSTableView; 
+            }; 
+            SUPERCLASS = NSObject; 
+        }, 
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }
+    ); 
+    IBVersion = 1; 
+}
