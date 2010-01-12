@@ -1,9 +1,9 @@
-package MotifSet;
+package XMS::MotifSet;
 
 use 5.008008;
 use strict;
 use warnings;
-
+use Carp;
 require Exporter;
 
 our @ISA = qw(Exporter);
@@ -27,8 +27,8 @@ our $VERSION = '0.01';
 use XML::Writer;
 use XML::Writer::String;
 use IO::File;
-use WeightMatrix;
-use Motif;
+use XMS::WeightMatrix;
+use XMS::Motif;
 use XML::DOM;
 
 
@@ -36,29 +36,21 @@ use XML::DOM;
 sub new {
 
     my $self = {};
-   
     my($class,@motifs) = @_;
-   
-   
     my ($temp) = @motifs;
-
-
 
     if(ref($temp) eq "Motif"){
 
-    @{$self->{motifs}} = @motifs;
-   # $self->{output} =  XML::Writer::String->new();
-   # $self->{writer} = new XML::Writer(OUTPUT => $self->{output}, DATA_MODE => 'TRUE', DATA_INDENT=>3);
+	@{$self->{motifs}} = @motifs;
 
     }else{
-	#$self->{xmlfile} = $temp;
-
+	
 	my $parser = new XML::DOM::Parser;
 	my $doc = $parser->parsefile($temp);
 	my $root = $doc->getDocumentElement();
 	
-
 	my @motifnodes = $root->getElementsByTagName("motif");
+	
 	if (scalar @motifnodes == 0){
 	    die "Corrupt input XMS file";
 	}
@@ -67,15 +59,16 @@ sub new {
 	my @motifarray=();
 
 	foreach my $motif (@motifnodes){
-	
+	    
     
 	    my $motifname = $motif->getElementsByTagName("name")->item(0)->getFirstChild()->getData;
 	    	    
 	    my $threshold = $motif->getElementsByTagName("threshold")->item(0)->getFirstChild->getData;
-
+	    
 	    my @props = $motif->getElementsByTagName("prop");
 	 
-           ####### Begin reading annotation key value pairs ##########
+	    ####### Begin reading annotation key value pairs ##########
+	    
 	    my %annotations;
 	    foreach my $prop (@props){
 		my ($keynode) = $prop->getElementsByTagName("key");
@@ -92,12 +85,12 @@ sub new {
 		    $annotations{$key} = $value;
 		}
 	    }
+
 	    ####### End reading annotation key value pairs ########## 
+
 	    my @wmnodes = $motif->getElementsByTagName("weightmatrix");
 	    my @columnsarray=();
 	    foreach my $wmnode (@wmnodes) {
-
-		
 
 		my @columns=$motif->getElementsByTagName("column");
 
@@ -125,7 +118,6 @@ sub new {
 		}
 	    }
 
-
 	    my $wmobj = WeightMatrix->new(@columnsarray);
 	    my $motifobj = Motif->new($wmobj,$motifname,$threshold,%annotations);
 	    $motifarray[$m] = $motifobj;
@@ -133,6 +125,7 @@ sub new {
 	}
 	@{$self->{motifs}} = @motifarray;
     }
+
     $self->{output} =  XML::Writer::String->new();
     $self->{writer} = new XML::Writer(OUTPUT => $self->{output}, DATA_MODE => 'TRUE', DATA_INDENT=>3);
 
@@ -179,46 +172,63 @@ sub toString {
     return $rawstring;
 }
 
-# Preloaded methods go here.
 
 1;
 __END__
 
-# Below is stub documentation for your module. You'd better edit it!
 
 =head1 NAME
 
-MotifSet - Perl extension for creating Motifset for a given array of motifs
+XMS::MotifSet - Perl module for creating XMS Motifset from a given array of motifs
 
 =head1 SYNOPSIS
 
-  use MotifSet;
+  use XMS::MotifSet;
 
-  my $motifset = MotifSet->new(@motif);   # @motif is an array of motifs
+  my $motifset = XMS::MotifSet->new(@motif);   # @motif is an array of motifs
   $motifset->toXML();       # Creating motifset in xms format
   $motifset->toString();    # Creatin motifset in string format
   
 
 =head1 DESCRIPTION
 
-The MotifSet package is used to create motifset in XMS and string format from a given array of motifs.
+The XMS::MotifSet package is used to create motifset in XMS and string format from a given array of motifs.
+
+=head1 METHODS
+XMS::MotifSet provides three methods, C<new()>, C<toXML()> and C<toString()>:
+
+=over
+
+=item C<$m = XMS::MotifSet->new([array]);>
+
+new() returns a new String handle.
+
+=item C<$x = $m->toXML();>
+
+toXML() converts an array of motifs into a XMS format motifset.
+
+= item C<$s = $m->toString();>
+
+toString() converts an array of motifs into a string motifset.
+
+=back
+
+=head1 DEPENDENCIES
+
+This module has external dependencies on the following modules:
+Exporter
+XML::Writer, 
+IO::File
+XML::DOM
+XMS::Motif
+XMS::WeightMatrix
 
 =head2 EXPORT
 
-None by default.
-
-
+Nothing
 
 =head1 SEE ALSO
-
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
-
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
+perl(1), XML::Writer, XML::DOM, XMS::WeightMatrix, XMS::Motif
 
 =head1 AUTHOR
 

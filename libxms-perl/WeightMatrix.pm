@@ -1,9 +1,9 @@
-package WeightMatrix;
+package XMS::WeightMatrix;
 
 use 5.008008;
 use strict;
 use warnings;
-
+use Carp;
 require Exporter;
 
 our @ISA = qw(Exporter);
@@ -192,8 +192,6 @@ sub setWeightForSymbol {
 
 
     
-# Preloaded methods go here.
-
 1;
 __END__
 
@@ -202,13 +200,13 @@ __END__
 
 =head1 NAME
 
-WeightMatrix - Perl extension for creating weightmatrices for DNA motifs in XMS format
+XMS::WeightMatrix - Perl module for creating weightmatrices for DNA motifs in XMS format
 
 
 =head1 SYNOPSIS
 
-  use WeightMatrix;
-  my $wm = Weightmatrix->new(@matrix);   # @matrix is reference to array of arrays
+  use XMS::WeightMatrix;
+  my $wm = XMS::Weightmatrix->new(@matrix);   # @matrix is reference to array of arrays
   $wm->toXML();                          # wm is weightmatrix is xms format
   $wm->toString();                       # wm is weightmatrix is string/raw format
   $wm->WeightForSymbol("adenine",rowindex) # Get weight for "adenine" residue at row number rowindex
@@ -217,25 +215,50 @@ WeightMatrix - Perl extension for creating weightmatrices for DNA motifs in XMS 
 
 =head1 DESCRIPTION
 
-The WeightMatrix package can be used to create the XMS format for a given position weight matrix. It can also be sued to obtain weights or to set ne weights.
+The WeightMatrix package can be used to create the XMS format for a given position weight matrix. It can also be sued to obtain weights or to set new weights.
 
+=head1 METHODS
+XMS::WeightMatrix provides five methods, C<new()>, C<toXML()>, C<toString()>, C<WeightForSymbol()> and C<setWeightForSymbol()>:
+
+=over
+
+=item C<$w = XMS::WeightMatrix->new([matrix]);>
+
+new() returns a new String handle.
+
+=item C<$x = $w->toXML();>
+
+toXML() converts the array into a XMS format weightmatrix.
+
+=item C<$s = $w->toString();>
+
+toString() converts the array into a string format weightmatrix.
+
+=item C<$ws = $w->WeightForSymbol([symbol, row number]);>
+WeightForSymbol allows to get weight for a nucleotide (A,T,G or C) at a particular position in the matrix.
+
+= item C<$sws = $w->setWeightForSymbol([symbol, rownumber,weight]);>
+setWeightForSymbol allows to set weight for a nucleotide (A, T, G or C) at a particular position in the matrix.
+
+=back
+
+=head1 DEPENDENCIES
+
+This module has external dependencies on the following modules:
+Exporter
+XML::Writer, 
+IO::File
+XML::Reader
 
 =head2 EXPORT
 
-None by default.
-
+Nothing.
 
 
 =head1 SEE ALSO
 
-Mention other useful documentation such as the documentation of
-related modules or operating system documentation (such as man pages
-in UNIX), or any relevant external documentation such as RFCs or
-standards.
+perl(1), XML::Writer, XML::Reader
 
-If you have a mailing list set up for your module, mention it here.
-
-If you have a web site set up for your module, mention it here.
 
 =head1 AUHTOR
 
