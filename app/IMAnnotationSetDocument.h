@@ -12,7 +12,6 @@
 @class IMAnnotationSetController;
 
 @interface IMAnnotationSetDocument : NSDocument <IMotifsDocument> {
-
     NSArray *_annotations;
     NSString *_name;
     
@@ -25,5 +24,6 @@
 @property (readwrite,copy) NSString *name;
 
 +(NSArray*) annotationSetDocuments;
+
 
 @end

@@ -71,7 +71,7 @@
 
 -(NSString*) description {
     return [NSString stringWithFormat:
-            @"%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@",
+            @"%@\t%@\t%@\t%d\t%d\t%f\t%d\t%@",
             _seqName,
             _source,
             _feature,
@@ -88,9 +88,13 @@
 
 -(IMFeature*) toFeature {
     if (self.start == self.end) {
-        return [IMPointFeature pointFeatureWithPosition:self.start strand:self.strand];
+        return [IMPointFeature pointFeatureWithPosition:self.start 
+												 strand:self.strand];
     } else {
-        return [IMRangeFeature rangeFeatureWithStart:self.start end:self.end score:self.score strand:self.strand];
+        return [IMRangeFeature rangeFeatureWithStart:self.start 
+												 end:self.end 
+											   score:self.score 
+											  strand:self.strand];
     }
     return nil;
 }

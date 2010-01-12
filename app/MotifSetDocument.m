@@ -969,10 +969,11 @@ provideDataForType:(NSString *)type {
 }
 
 -(IBAction) bestReciprocalHitsWith: (id)sender {
+	/*
     if (!motifSetPickerSheet) {
         [NSBundle loadNibNamed: @"MotifSetPickerWindow" 
 						 owner: self];
-	}
+	}*/
 	
 	[motifSetPickerTableDelegate setMotifSetDocument: self];
 	[motifSetPickerTableView reloadData];
@@ -1086,11 +1087,7 @@ provideDataForType:(NSString *)type {
 				PCLog(@"curIndex: %d", curIndex);
 				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] objectAtIndex: curIndex];
                 
-                //NSArray *bestHitPairs;
                 if ([action isEqual:@"bestHitsWith"]) {
-                    //bestHitPairs = [motifComparitor 
-                    //                        bestMotifPairsHitsFrom: self.motifSet.motifs 
-                    //                        to: mset.motifs];
                     BestHitsOperation *bestHitsOperation = [[BestHitsOperation alloc] 
                                                             initWithComparitor: motifComparitor
                                                             from: self.motifSet.motifs 
@@ -1101,9 +1098,6 @@ provideDataForType:(NSString *)type {
                     [bestHitsOperation release];
                     
 				} else {
-                    //bestHitPairs = [motifComparitor 
-                    //                        bestReciprocalHitsFrom:self.motifSet.motifs 
-                    //                        to: mset.motifs];
                     NMShuffleOperation *bestRecipHitsOperation = [[NMShuffleOperation alloc] 
                                                                  initWithMotifs: self.motifSet 
                                                                         against: mset
@@ -1113,43 +1107,7 @@ provideDataForType:(NSString *)type {
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
                 }
-				//PCLog(@"Found %d pairs", [bestHitPairs count]);
-                
-                
-                /*
-                NSError *error;
-                MotifSetDocument *msetDocument = [[NSDocumentController sharedDocumentController] 
-                                                 makeUntitledDocumentOfType:@"Motif set" 
-                                                 error:&error];
-                
-                if (msetDocument) {
-                    [[NSDocumentController sharedDocumentController] addDocument: msetDocument];
-                    [msetDocument makeWindowControllers];
-                    for (MotifPair *mp in bestHitPairs) {
-                        Motif *m1 = [[Motif alloc] initWithMotif: mp.m1];
-                        Motif *m2;
-                        if ([mp flipped]) 
-                            m2 = [[Motif alloc] initWithMotif: [mp.m2 reverseComplement]];
-                        else
-                            m2 = [[Motif alloc] initWithMotif: mp.m2];
-                        [m2 setOffset: mp.offset];
-                        [[msetDocument motifSet] addMotif: m1]; 
-                        [[msetDocument motifSet] addMotif: m2];
-                        PCLog(@"%@ -> %@ : %d (%d)",
-                              m1.name,
-                              m2.name,
-                              mp.offset,
-                              mp.flipped);
-                    }
-                    [msetDocument showWindows];
-                    
-                } else {
-                    NSAlert *alert = [NSAlert alertWithError:error];
-                    int button = [alert runModal];
-                    if (button != NSAlertFirstButtonReturn) {
-                        // handle
-                    }
-                }*/
+				
                 curIndex = [indexes indexGreaterThanIndex: curIndex];
 			}
 		}
@@ -1318,6 +1276,17 @@ provideDataForType:(NSString *)type {
 
 -(BOOL) isAnnotationSetDocument {
     return NO;
+}
+
++(NSArray*) motifSetDocuments {
+    NSMutableArray *a = [NSMutableArray array];
+	
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents]) {
+		if ([doc isKindOfClass:[MotifSetDocument class]]) {
+			[a addObject: a];
+		}
+	}
+    return a;
 }
 
 @end

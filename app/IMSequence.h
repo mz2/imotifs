@@ -13,12 +13,12 @@
     NSInteger _focusPosition;
     NSString *_name;
     
-    NSSet *_features;
+    NSMutableSet *_features;
 }
 
 @property (readwrite) NSInteger focusPosition;
 @property (copy,readwrite) NSString *name;
-@property (retain,readwrite) NSSet *features;
+@property (retain,readwrite) NSMutableSet *features;
 
 -(NSArray*) featuresOverlappingWithPosition:(NSInteger) position;
 

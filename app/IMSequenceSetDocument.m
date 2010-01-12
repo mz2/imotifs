@@ -11,11 +11,12 @@
 #import <BioCocoa/BCFoundation.h>
 
 #import "IMSequenceSetController.h"
-#import "IMSequenceView.h"
 #import "IMSequenceViewCell.h"
 #import "IMSequence.h"
 #import "IMAnnotationSetPickerTableDelegate.h"
 #import "IMAnnotationSetPickerWindow.h"
+#import "IMAnnotationSetDocument.h"
+#import "IMGFFRecord.h"
 
 @implementation IMSequenceSetDocument
 @synthesize name = _name;
@@ -134,20 +135,93 @@
 }
 
 - (IBAction) annotateSequencesWithFeatures: (id)sender {
-    if (!self.annotationSetPicker) {
-        [NSBundle loadNibNamed: @"IMAnnotationSetPickerWindow" 
-						 owner: self];
-	}
-	
 	[(NSTableView*)self.annotationSetPicker.tableView reloadData];
 	NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:
-						  @"bestHitsWith",@"action",nil];
+						  @"annotateSequencesWithFeatures",@"action",nil];
 	
 	[NSApp beginSheet: self.annotationSetPicker
 	   modalForWindow: [NSApp mainWindow]
 		modalDelegate: self
 	   didEndSelector: @selector(didEndAnnotationSetPickerSheet:returnCode:contextInfo:)
 		  contextInfo: dict];
+}
+
+-(IBAction) closeAnnotationSetPickerSheet: (id) sender {
+	PCLog(@"Close annotation set picker sheet %@ (sender: %@", self.annotationSetPicker, sender);
+	
+	[self.annotationSetPicker orderOut: self];
+	[NSApp endSheet: self.annotationSetPicker 
+		 returnCode: ([sender tag] == 1) ? NSOKButton : NSCancelButton];
+}
+
+- (void)didEndAnnotationSetPickerSheet: (NSWindow*)sheet 
+							returnCode: (int)returnCode 
+						   contextInfo: (void*)contextInfo {
+	IMAnnotationSetPickerWindow *annotationSheet = (IMAnnotationSetPickerWindow*)sheet;
+	NSIndexSet *indexes = [annotationSheet.tableView selectedRowIndexes];
+	
+	[self willChangeValueForKey:@"sequences"];
+	if (returnCode == NSCancelButton) { 
+		PCLog(@"Pressed cancel in the sheet");
+		return;
+	}
+	else {
+		PCLog(@"Pressed ok in sheet %@", sheet);
+		NSDictionary *dict = contextInfo;
+		NSString *action = [dict objectForKey:@"action"];
+		
+		if ([action isEqual: @"annotateSequencesWithFeatures"]) {
+			PCLog(@"Annotating sequences with features");
+
+			NSMutableDictionary *dict = [NSMutableDictionary dictionary];
+			
+			NSUInteger curIndex = [indexes firstIndex];
+			PCLog(@"First index: %d", curIndex);
+			while (curIndex != NSNotFound) {
+				PCLog(@"curIndex: %d", curIndex);
+				IMAnnotationSetDocument *adoc 
+					= [[IMAnnotationSetDocument annotationSetDocuments] 
+					   objectAtIndex:curIndex];
+				
+				for (IMGFFRecord *a in adoc.annotations) {
+					if ([dict objectForKey:a.seqName] == nil) {
+						[dict setObject:[NSMutableArray array] forKey: a.seqName];
+					}
+					[[dict objectForKey:a.seqName] addObject:a];
+				}
+				
+				for (IMSequence *seq in self.sequences) {
+					[seq willChangeValueForKey:@"features"];
+					NSArray *annotations = [dict objectForKey: seq.name];
+					for (IMGFFRecord *a in annotations) {
+						PCLog(@"Adding record \n%@\nto %@",a,seq.name);
+						[seq.features addObject: [a toFeature]];
+						PCLog(@"Features:%@", seq.features);
+					}
+					[seq didChangeValueForKey:@"features"];
+				}
+				
+                curIndex = [indexes indexGreaterThanIndex: curIndex];
+			}
+		}
+	}
+	[self.sequenceTable reloadData];
+	[self didChangeValueForKey:@"sequences"];
+}
+
++(NSArray*) sequenceSetDocuments {
+    NSMutableArray *a = [NSMutableArray array];
+	
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents]) {
+		if ([doc isKindOfClass:[IMSequenceSetDocument class]]) {
+			[a addObject: a];
+		}
+	}
+    return a;
+}
+
++(BOOL) atLeastOneSequenceSetDocumentIsOpen {
+	return [[IMSequenceSetDocument sequenceSetDocuments] count] > 0;
 }
 
 @end

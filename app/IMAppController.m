@@ -20,6 +20,8 @@
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrievePeakSequencesController.h"
 #import "MotifSetDocument.h"
+#import "IMAnnotationSetDocument.h"
+#import "IMSequenceSetDocument.h"
 
 @implementation IMAppController
 @synthesize preferenceController;
@@ -269,4 +271,17 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     NSLog(@"Showing help");
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://wiki.github.com/mz2/imotifs"]];
 }
+
+-(BOOL) atLeastOneAnnotationSetDocumentIsOpen {
+	return [[IMAnnotationSetDocument annotationSetDocuments] count] > 0;
+}
+
+-(BOOL) atLeastOneSequenceSetDocumentIsOpen {
+	return [[IMSequenceSetDocument sequenceSetDocuments] count] > 0;
+}
+
+-(BOOL) atLeastOneMotifSetDocumentIsOpen {
+	return [[MotifSetDocument motifSetDocuments] count] > 0;
+}
+
 @end

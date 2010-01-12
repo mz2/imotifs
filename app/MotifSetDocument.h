@@ -178,4 +178,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 -(BOOL) isMotifSetDocument;
 -(BOOL) isSequenceSetDocument;
 -(BOOL) isAnnotationSetDocument;
+
++(NSArray*) motifSetDocuments;
 @end

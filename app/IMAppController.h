@@ -94,5 +94,8 @@ extern NSString *IMConsensusSearchCutoff;
 -(IBAction) retrieveSequences:(id) sender;
 -(IBAction) showHelp:(id) sender;
 
+-(BOOL) atLeastOneAnnotationSetDocumentIsOpen;
+-(BOOL) atLeastOneSequenceSetDocumentIsOpen;
+-(BOOL) atLeastOneMotifSetDocumentIsOpen;
 
 @end

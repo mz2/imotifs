@@ -61,4 +61,7 @@
 -(IBAction) closeAnnotationSetPickerSheet: (id) sender;
 
 -(NSString*) selectedPositionString;
+
++(NSArray*) sequenceSetDocuments;
++(BOOL) atLeastOneSequenceSetDocumentIsOpen;
 @end

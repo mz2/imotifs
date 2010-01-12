@@ -21,6 +21,7 @@
 	self = [super initWithSymbolArray:a];
 	if (self == nil) return nil;
 	self.focusPosition = NSNotFound;
+	self.features = [NSMutableArray array];
 	return self;
 }
 
@@ -28,6 +29,7 @@
 	self = [super initWithString:aString symbolSet: aSet];
 	if (self == nil) return nil;
 	self.focusPosition = NSNotFound;
+	self.features = [NSMutableArray array];
 	return self;
 }
 
@@ -61,5 +63,10 @@
 	}
 	
 	return anns;
+}
+
+-(void) dealloc {
+	[_features release], _features = nil;
+	[super dealloc];
 }
 @end

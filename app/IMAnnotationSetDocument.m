@@ -57,10 +57,14 @@
                              encoding:NSUTF8StringEncoding
                              error:&error];
         
+	
         if (error != nil) {
             NSAlert *theAlert = [NSAlert alertWithError:error];
             [theAlert runModal]; // Ignore return value.
+			return NO;
         }
+		
+		self.name = [url path];
         
         NSArray *components = [str componentsSeparatedByString:@"\n"];
         for (NSString *line in components) {
@@ -126,9 +130,16 @@
     return NO;
 }
 
+
 +(NSArray*) annotationSetDocuments {
     NSMutableArray *a = [NSMutableArray array];
-    
+	
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents]) {
+		if ([doc isKindOfClass:[IMAnnotationSetDocument class]]) {
+			[a addObject: doc];
+		}
+	}
+    return a;
 }
 
 @end
