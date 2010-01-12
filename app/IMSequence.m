@@ -48,7 +48,7 @@
 	
 	for (IMFeature *feature in [self features]) {
 		
-		if ([[self features] isKindOfClass: [IMRangeFeature class]]) {
+		if ([feature isKindOfClass: [IMRangeFeature class]]) {
 			if ([(IMRangeFeature*)feature overlapsWithPosition: position]) {
 				[anns addObject: feature];
 			}

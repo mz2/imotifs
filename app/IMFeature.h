@@ -13,10 +13,14 @@
 	CGFloat _score;
 	BOOL _selected;
     IMStrand _strand;
+    NSString *_type;
+    NSColor *_color;
 }
 
 @property(nonatomic,assign) CGFloat score;
 @property(nonatomic,assign) BOOL selected;
 @property(nonatomic,assign) IMStrand strand;
+@property(nonatomic,retain) NSString *type;
+@property(nonatomic,retain) NSColor *color;
 
 @end

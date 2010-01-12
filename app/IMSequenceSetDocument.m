@@ -17,6 +17,9 @@
 #import "IMAnnotationSetPickerWindow.h"
 #import "IMAnnotationSetDocument.h"
 #import "IMGFFRecord.h"
+#import "IMFeature.h"
+#import "IMRangeFeature.h"
+#import "IMPointFeature.h"
 
 @implementation IMSequenceSetDocument
 @synthesize name = _name;
@@ -31,6 +34,8 @@
 @synthesize sequenceDetailView = _sequenceDetailView;
 @synthesize annotationSetPicker = _annotationSetPicker;
 @synthesize annotationSetPickerTableDelegate = _annotationSetPickerTableDelegate;
+@synthesize featureTypes = _featureTypes;
+@synthesize colorsByFeatureType = _colorsByFeatureType;
 
 
 - (NSString *)windowNibName {
@@ -65,6 +70,11 @@
     return nil;
 }
 
+- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn {
+    PCLog(@"Did click table column %@", tableColumn);
+    [self willChangeValueForKey:@"selectedPositionString"];
+    [self didChangeValueForKey:@"selectedPositionString"];
+}
 
 -(BOOL)readFromURL:(NSURL*) url 
             ofType:(NSString*)type 
@@ -93,7 +103,7 @@
         self.name = path;
         
         self.sequences = [[seqs copy] autorelease];
-        
+        self.featureTypes = [NSMutableSet set];
         PCLog(@"Read %d sequences from file %@", self.sequences.count, path);
         return self.sequences != nil ? YES : NO;
     } else {
@@ -102,9 +112,6 @@
     }
 }
 
-- (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn {
-    PCLog(@"Clicked table %@ column %@", tableView , tableColumn);
-}
 
 -(IBAction) toggleDrawer:(id) sender {
     [self.drawer toggle: sender];
@@ -123,15 +130,18 @@
 }
 
 -(NSString*) selectedPositionString {
+    PCLog(@"Creating selected position string");
 	NSArray *selection = [self.sequenceSetController selectedObjects];
-	if (selection.count == 0) return @"Nothing selected";
-	
-	PCLog(@"Selection: %@", [selection objectAtIndex:0]);
-	IMSequence *seq = (IMSequence*)[[self.sequenceSetController selectedObjects] objectAtIndex:0];
-	
-	if (seq.focusPosition == NSNotFound) return @"No focus position";
-	
-	return [NSString stringWithFormat:@"Selected position %d",seq.focusPosition];
+	if (selection.count == 0) return @"No sequence is selected";
+	if (selection.count > 1) return @"Multiple sequences selected";
+    else {
+        PCLog(@"Selection: %@", [selection objectAtIndex:0]);
+        IMSequence *seq = (IMSequence*)[[self.sequenceSetController selectedObjects] objectAtIndex:0];
+        
+        if (seq.focusPosition == NSNotFound) return @"";
+        
+        return [NSString stringWithFormat:@"Selected position %d",seq.focusPosition];        
+    }
 }
 
 - (IBAction) annotateSequencesWithFeatures: (id)sender {
@@ -173,8 +183,8 @@
 		if ([action isEqual: @"annotateSequencesWithFeatures"]) {
 			PCLog(@"Annotating sequences with features");
 
-			NSMutableDictionary *dict = [NSMutableDictionary dictionary];
-			
+			NSMutableDictionary *featuresBySeqName = [NSMutableDictionary dictionary];
+            
 			NSUInteger curIndex = [indexes firstIndex];
 			PCLog(@"First index: %d", curIndex);
 			while (curIndex != NSNotFound) {
@@ -184,19 +194,22 @@
 					   objectAtIndex:curIndex];
 				
 				for (IMGFFRecord *a in adoc.annotations) {
-					if ([dict objectForKey:a.seqName] == nil) {
-						[dict setObject:[NSMutableArray array] forKey: a.seqName];
+					if ([featuresBySeqName objectForKey:a.seqName] == nil) {
+						[featuresBySeqName setObject:[NSMutableArray array] forKey: a.seqName];
 					}
-					[[dict objectForKey:a.seqName] addObject:a];
+                    [self.featureTypes addObject: a.feature];
+					[[featuresBySeqName objectForKey:a.seqName] addObject:a];
 				}
 				
+                self.colorsByFeatureType = [self colorsForFeatureTypes:self.featureTypes];
+                
 				for (IMSequence *seq in self.sequences) {
 					[seq willChangeValueForKey:@"features"];
-					NSArray *annotations = [dict objectForKey: seq.name];
+					NSArray *annotations = [featuresBySeqName objectForKey: seq.name];
 					for (IMGFFRecord *a in annotations) {
-						PCLog(@"Adding record \n%@\nto %@",a,seq.name);
-						[seq.features addObject: [a toFeature]];
-						PCLog(@"Features:%@", seq.features);
+						IMFeature *feat = [a toFeature];
+                        feat.color = [self.colorsByFeatureType objectForKey: feat.type];
+                        [seq.features addObject: feat];
 					}
 					[seq didChangeValueForKey:@"features"];
 				}
@@ -207,6 +220,41 @@
 	}
 	[self.sequenceTable reloadData];
 	[self didChangeValueForKey:@"sequences"];
+}
+
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
+    NSTableView *tv = [aNotification object];
+    NSIndexSet *indexSet = [tv selectedRowIndexes];
+    
+    /* Remove focus from positions from unselected sequences */
+    NSUInteger i = 0;
+    for (i = 0; i < self.sequences.count; i++) {
+        if (![indexSet containsIndex:i]) {
+            [[self.sequences objectAtIndex:i] setFocusPosition: -1];            
+        } 
+    }
+    PCLog(@"tableview selection changed");
+    [self willChangeValueForKey:@"selectedPositionString"];
+    [self didChangeValueForKey:@"selectedPositionString"];
+}
+
+-(NSMutableDictionary*) colorsForFeatureTypes:(NSSet*) features {
+    NSMutableDictionary *colorsForFTs = [NSMutableDictionary dictionary];
+    
+    NSMutableArray *orderedFeatureTypes = [[features allObjects] mutableCopy];
+    [orderedFeatureTypes sortUsingSelector:@selector(caseInsensitiveCompare:)];
+    
+    NSArray *colors = [NSColor colorRainbowWithAlternatingHueAtDeviceSaturation:1.0 
+                                                                      hueOffset:0.2
+                                                                     brightness:0.5
+                                                                          alpha:1.0
+                                                                      numColors:features.count];
+    NSUInteger i=0;
+    for (NSString *ft in orderedFeatureTypes) {
+        [colorsForFTs setObject: [colors objectAtIndex:i++] 
+                         forKey: ft];
+    }
+    return colorsForFTs;
 }
 
 +(NSArray*) sequenceSetDocuments {

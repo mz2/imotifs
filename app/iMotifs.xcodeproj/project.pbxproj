@@ -298,6 +298,7 @@
 		95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */; };
 		95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */; };
 		95B3507F10233A1600F0E0BF /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B3507E10233A1600F0E0BF /* General.png */; };
+		95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */; };
 		95BACE5A109CA94400FAA974 /* NMROCAUCOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE59109CA94400FAA974 /* NMROCAUCOperation.m */; };
 		95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE62109CA9A600FAA974 /* NMROCAUCController.m */; };
 		95C1C2DF109C83FE000E4224 /* NMCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */; };
@@ -783,6 +784,8 @@
 		95B3505E1023326B00F0E0BF /* IMPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrefsWindowController.h; sourceTree = "<group>"; };
 		95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrefsWindowController.m; sourceTree = "<group>"; };
 		95B3507E10233A1600F0E0BF /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
+		95B49F4110FC88CF005DF489 /* NSColor+IMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+IMColors.h"; sourceTree = "<group>"; };
+		95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+IMColors.m"; sourceTree = "<group>"; };
 		95BACE58109CA94400FAA974 /* NMROCAUCOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMROCAUCOperation.h; sourceTree = "<group>"; };
 		95BACE59109CA94400FAA974 /* NMROCAUCOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMROCAUCOperation.m; sourceTree = "<group>"; };
 		95BACE61109CA9A600FAA974 /* NMROCAUCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMROCAUCController.h; sourceTree = "<group>"; };
@@ -1156,6 +1159,8 @@
 				955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */,
 				95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */,
 				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
+				95B49F4110FC88CF005DF489 /* NSColor+IMColors.h */,
+				95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */,
 			);
 			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
@@ -1352,8 +1357,6 @@
 				9562E58C10F4B0080091549E /* IMAnnotationSetDocument.h */,
 				9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */,
 				9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */,
-				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
-				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
 			);
 			name = Document;
 			sourceTree = "<group>";
@@ -1378,6 +1381,7 @@
 		9563E2C2101E065F006F067A /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				95B49F1410FC7DF2005DF489 /* Sequence Set Picker */,
 				95DDD57010F788870008CE43 /* Annotation Set Picker */,
 				95B2C6770EED8F40004605A6 /* Motif Name Picker */,
 				95B2C6740EED8EE3004605A6 /* Motif Set Picker */,
@@ -1628,6 +1632,15 @@
 				95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */,
 			);
 			name = preferences;
+			sourceTree = "<group>";
+		};
+		95B49F1410FC7DF2005DF489 /* Sequence Set Picker */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
+				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
+			);
+			name = "Sequence Set Picker";
 			sourceTree = "<group>";
 		};
 		95CE589710A5AECA00D00524 /* NestedMICA */ = {
@@ -1966,6 +1979,7 @@
 				95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */,
 				95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */,
 				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
+				95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -24,20 +24,29 @@
     return self;
 }
 
-- (id)initWithStart:(NSInteger)aStart end:(NSInteger)anEnd  score:(CGFloat)score strand:(IMStrand)strand
+- (id)initWithStart:(NSInteger)aStart
+                end:(NSInteger)anEnd
+              score:(CGFloat)score
+             strand:(IMStrand)strand
+               type:(NSString*)type
 {
     if (self = [super init]) {
         [self setStart:aStart];
         [self setEnd:anEnd];
 		[self setScore: 0];
         [self setStrand: strand];
+        [self setType: type];
     }
     return self;
 }
 
-+ (id)rangeFeatureWithStart:(NSInteger)aStart end:(NSInteger)anEnd score:(CGFloat)score strand:(IMStrand)strand
++ (id)rangeFeatureWithStart:(NSInteger)aStart 
+                        end:(NSInteger)anEnd 
+                      score:(CGFloat)score
+                     strand:(IMStrand)strand
+                       type:(NSString*)type
 {
-    id result = [[[self class] alloc] initWithStart:aStart end:anEnd score: score strand:strand];
+    id result = [[[self class] alloc] initWithStart:aStart end:anEnd score: score strand:strand type:type];
 	
     return [result autorelease];
 }
@@ -47,10 +56,18 @@
 }
 
 -(BOOL) overlapsWithPosition:(NSInteger) pos {
+    PCLog(@"%d [%d -- %d]", pos, self.start, self.end);
 	if (self.start > pos) return NO;
 	if (self.end < pos) return NO;
+    
+    PCLog(@"Overlaps with position");
 	
 	return YES;
+}
+
+-(NSString*) description {
+    return [NSString stringWithFormat:@"[IMRangeFeature start:%d end:%d strand:%d type:%@]",
+            self.start,self.end,self.strand,self.type];
 }
 
 //=========================================================== 

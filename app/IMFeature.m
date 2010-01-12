@@ -13,5 +13,6 @@
 @synthesize score = _score;
 @synthesize selected = _selected;
 @synthesize strand = _strand;
-
+@synthesize type = _type;
+@synthesize color = _color;
 @end

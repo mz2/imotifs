@@ -36,7 +36,10 @@
     
     IMAnnotationSetPickerWindow *_annotationSetPicker;
     IMAnnotationSetPickerTableDelegate *_annotationSetPickerTableDelegate;
-	
+
+    NSMutableSet *_featureTypes;
+    NSMutableDictionary *_colorsByFeatureType;
+    
     @protected
     IMSequenceViewCell *_sequenceCell;
 }
@@ -53,15 +56,17 @@
 @property(nonatomic,retain) IBOutlet IMAnnotationSetPickerTableDelegate *annotationSetPickerTableDelegate;
 @property(nonatomic,retain) IBOutlet NSDrawer *drawer;
 
+@property(nonatomic,readonly) NSString *selectedPositionString;
+@property(nonatomic,retain) NSMutableSet *featureTypes;
+@property(nonatomic,retain) NSMutableDictionary *colorsByFeatureType;
 @property(nonatomic,retain) IBOutlet NSTextField *sequenceDetailView;
 
 -(IBAction) toggleDrawer:(id) sender;
-
 -(IBAction) annotateSequencesWithFeatures: (id)sender;
 -(IBAction) closeAnnotationSetPickerSheet: (id) sender;
 
--(NSString*) selectedPositionString;
-
 +(NSArray*) sequenceSetDocuments;
 +(BOOL) atLeastOneSequenceSetDocumentIsOpen;
+
+-(NSMutableDictionary*) colorsForFeatureTypes:(NSSet*) features;
 @end

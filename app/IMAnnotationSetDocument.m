@@ -68,6 +68,8 @@
         
         NSArray *components = [str componentsSeparatedByString:@"\n"];
         for (NSString *line in components) {
+            if (line.length < 2) continue;
+            
             if ([[line substringToIndex:1] isEqual:@"#"]) {
                 PCLog(@"Ignoring comment line %@", line);
                 continue;

@@ -24,11 +24,13 @@
 - (id)initWithStart:(NSInteger)aStart 
                 end:(NSInteger)anEnd
               score:(CGFloat)score
-             strand:(IMStrand)strand;
+             strand:(IMStrand)strand
+               type:(NSString*)type;
 + (id)rangeFeatureWithStart:(NSInteger)aStart 
                         end:(NSInteger)anEnd
                       score:(CGFloat)score
-                     strand:(IMStrand)strand;
+                     strand:(IMStrand)strand
+                       type:(NSString*)type;
 
 -(BOOL) overlapsWithPosition:(NSInteger) pos;
 @end

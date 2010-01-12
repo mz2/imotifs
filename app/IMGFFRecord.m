@@ -89,12 +89,14 @@
 -(IMFeature*) toFeature {
     if (self.start == self.end) {
         return [IMPointFeature pointFeatureWithPosition:self.start 
-												 strand:self.strand];
+												 strand:self.strand
+                                                   type:self.feature];
     } else {
         return [IMRangeFeature rangeFeatureWithStart:self.start 
 												 end:self.end 
 											   score:self.score 
-											  strand:self.strand];
+											  strand:self.strand
+                                                type:self.feature];
     }
     return nil;
 }
