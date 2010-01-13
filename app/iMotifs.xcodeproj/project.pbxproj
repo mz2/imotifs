@@ -14,6 +14,7 @@
 		5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */; };
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
 		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
+		5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */; };
 		5FA66A620E142A12009E5AFA /* IMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* IMAppController.m */; };
 		5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
 		5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8976C0E3158150084D9D8 /* MotifComparitor.m */; };
@@ -547,6 +548,8 @@
 		5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetWindowController.m; sourceTree = "<group>"; };
 		5F83C9B70E363C4900369591 /* MotifNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNameCell.h; sourceTree = "<group>"; };
 		5F83C9B80E363C4900369591 /* MotifNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNameCell.m; sourceTree = "<group>"; };
+		5F9DDE3C10FDE655003FC2A5 /* IMPositionedFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPositionedFeature.h; sourceTree = "<group>"; };
+		5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPositionedFeature.m; sourceTree = "<group>"; };
 		5FA66A600E142A12009E5AFA /* IMAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAppController.h; sourceTree = "<group>"; };
 		5FA66A610E142A12009E5AFA /* IMAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAppController.m; sourceTree = "<group>"; };
 		5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetController.h; sourceTree = "<group>"; };
@@ -1670,6 +1673,8 @@
 				95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */,
 				95DDD1E010F743FA0008CE43 /* IMPointFeature.h */,
 				95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */,
+				5F9DDE3C10FDE655003FC2A5 /* IMPositionedFeature.h */,
+				5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */,
 			);
 			name = Features;
 			sourceTree = "<group>";
@@ -1980,6 +1985,7 @@
 				95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */,
 				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
 				95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */,
+				5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
