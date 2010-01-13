@@ -101,8 +101,8 @@
                 [[[IMGFFRecord alloc] initWithSeqName:[cols objectAtIndex:0]
                                                source:[cols objectAtIndex:1] 
                                               feature:[cols objectAtIndex:2] 
-                                                start:[[cols objectAtIndex:3] intValue] 
-                                                  end:[[cols objectAtIndex:4] intValue]
+                                                start:[[cols objectAtIndex:3] intValue] - 1 //GFFs start at 1 
+                                                  end:[[cols objectAtIndex:4] intValue] - 1 //GFFs start at 1
                                                 score:[[cols objectAtIndex: 5] doubleValue] 
                                                strand:strand
                                            attributes:attrStr] autorelease];

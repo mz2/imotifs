@@ -12,7 +12,8 @@
 
 @interface IMSequence : BCSequence {
     NSInteger _focusPosition;
-    NSString *_name;
+	
+	NSString *_name;
     NSMutableSet *_features;
 	
 	
@@ -35,5 +36,7 @@
 											  before:(NSInteger) before
 											   after:(NSInteger) after;
 -(NSAttributedString*) focusPositionFormattedString;
+
+-(NSRange) focusRange;
 
 @end

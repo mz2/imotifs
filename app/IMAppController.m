@@ -68,6 +68,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [defaultValues setObject: [NSNumber numberWithFloat: IMDefaultColWidth] 
                       forKey: IMColumnWidth];
     
+	[defaultValues setObject: [NSNumber numberWithFloat:IMDefaultSymbolWidth] 
+					  forKey:IMSymbolWidthKey];
+	
+	[defaultValues setObject: [NSNumber numberWithInt:IMSequenceFocusAreaHalfLength] 
+					  forKey: IMSequenceFocusAreaHalfLengthKey];
+	
     [defaultValues setObject: [NSNumber numberWithBool:YES] forKey:@"IMUseBuiltInNMICA"];
     
     [defaultValues setObject: @"anonymous" forKey:@"IMEnsemblUser"];

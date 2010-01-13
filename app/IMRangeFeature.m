@@ -6,6 +6,7 @@
 //  Copyright 2010 Wellcome Trust Sanger Institute. All rights reserved.
 //
 
+#import "math.h"
 #import "IMRangeFeature.h"
 
 
@@ -61,11 +62,11 @@
 }
 
 -(BOOL) overlapsWithRange:(NSRange) range {
-	NSInteger rangeStart = range.location;
-	NSInteger rangeEnd = range.location + range.length;
+	NSInteger rangeStart = (NSInteger)fmax(range.location,0);
+	NSInteger rangeEnd = (NSInteger)fmax(range.location + range.length,0);
 	
-	if (self.end >= rangeStart && self.end <= rangeEnd) return YES;
-	if (self.start >= rangeStart && self.start <= rangeEnd) return YES;
+	if ((self.end >= rangeStart) && (self.end <= rangeEnd)) return YES;
+	if ((self.start >= rangeStart) && (self.start <= rangeEnd)) return YES;
 	
 	return NO;
 }

@@ -6,6 +6,7 @@
 //  Copyright 2008 Matias Piipari. All rights reserved.
 //
 
+#import "IMConstants.h"
 #import <BioCocoa/BCSequenceArray.h>
 #import "IMSequenceViewCell.h"
 #import "IMRangeFeature.h"
@@ -26,10 +27,8 @@
 -(NSInteger) symbolPositionAtPoint:(NSPoint) p;
 @end
 
-const CGFloat IMSymbolWidth = 2.0;
-
-
 @implementation IMSequenceViewCell
+@synthesize symbolWidth = _symbolWidth;
 
 - (void) awakeFromNib {
     [super awakeFromNib];
@@ -40,7 +39,7 @@ const CGFloat IMSymbolWidth = 2.0;
 - (id) initImageCell:(NSImage*) image {
     self = [super initImageCell:image];
     if (self != nil) {
-        
+        _symbolWidth = [[NSUserDefaults standardUserDefaults] floatForKey:IMSymbolWidthKey];
     }
     return self;
 }
@@ -50,18 +49,21 @@ const CGFloat IMSymbolWidth = 2.0;
     PCLog(@"MotifViewCell: initialising motif view text cell");
     self = [super initTextCell:str];
     if (self != nil) {
-        
+        _symbolWidth = [[NSUserDefaults standardUserDefaults] floatForKey:IMSymbolWidthKey];
     }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];	
+	_symbolWidth = [coder decodeFloatForKey:IMSymbolWidthKey];
+	
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [super encodeWithCoder:coder];
+	[coder encodeFloat:_symbolWidth forKey:IMSymbolWidthKey];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -70,6 +72,7 @@ const CGFloat IMSymbolWidth = 2.0;
     [[self objectValue] retain];
     [cellCopy setObjectValue: self.objectValue];
     [cellCopy setImage: self.image];
+	[cellCopy setSymbolWidth: self.symbolWidth];
     
     return [cellCopy retain];
 }
@@ -86,18 +89,23 @@ const CGFloat IMSymbolWidth = 2.0;
 	NSPoint cellP = NSMakePoint(p.x - cellFrame.origin.x,p.y - cellFrame.origin.y);
 	
 	NSInteger symPos = [self symbolPositionAtPoint: cellP];
+	
+	//toggle selection
+	/*
+	if ([[self objectValue] focusPosition] == symPos) {
+		[[self objectValue] setFocusPosition: NSNotFound];
+	} else {
+		[[self objectValue] setFocusPosition: symPos];		
+	}*/
 	[[self objectValue] setFocusPosition: symPos];
-    
-	PCLog(@"Track mouse event %f,%f in rect %f,%f (%f,%f) of view %@ until mouse up %d: %d",
-		  p.x,p.y,cellFrame.origin.x,cellFrame.origin.y,cellP.x,cellP.y,controlView,untilMouseUp, symPos);
-    
+        
     IMSequence *seq = (IMSequence*)[self objectValue];
 
 	[self willChangeValueForKey:@"features"];
 	[self willChangeValueForKey:@"selectedFeatures"];
     for (IMFeature *f in seq.features) {[f setSelected: NO];}
     NSArray *selectedFeats = [seq featuresOverlappingWithPosition: symPos];
-    PCLog(@"Selected features: %@ (all: %@)", selectedFeats, [seq features]);
+    //PCLog(@"Selected features: %@ (all: %@)", selectedFeats, [seq features]);
     for (IMFeature *f in selectedFeats) {[f setSelected: YES];}
     [self didChangeValueForKey:@"features"];
 	[self didChangeValueForKey:@"selectedFeatures"];
@@ -108,7 +116,7 @@ const CGFloat IMSymbolWidth = 2.0;
 }
 
 -(CGFloat) sequenceLengthInPixels:(IMSequence*) seq {
-	return (IMSymbolWidth * (CGFloat)[self.objectValue length]);
+	return (_symbolWidth * (CGFloat)[self.objectValue length]);
 }
 -(CGFloat) sequence:(IMSequence*)seq lengthFractionAtPoint:(NSPoint) p {
 	return (p.x - IMSequenceCellMargin) / [self sequenceLengthInPixels: seq];
@@ -118,7 +126,7 @@ const CGFloat IMSymbolWidth = 2.0;
 	IMSequence *seq = (IMSequence*)[self objectValue];
 	CGFloat seqLength = [self sequenceLengthInPixels: seq];
 	CGFloat lengthFraction = [self sequence:seq lengthFractionAtPoint:p];
-	CGFloat syms = (lengthFraction * seqLength) / IMSymbolWidth;
+	CGFloat syms = (lengthFraction * seqLength) / _symbolWidth;
     
 	if (lengthFraction > 1.0) {
 		return NSNotFound;
@@ -199,30 +207,22 @@ const CGFloat IMSymbolWidth = 2.0;
 	[NSGraphicsContext saveGraphicsState];
     
     
-	CGFloat seqWidthOnScreen = seq.length * IMSymbolWidth;	
-	PCLog(@"Seq will be %.2f pixels long on screen", seqWidthOnScreen);
+	CGFloat seqWidthOnScreen = seq.length * _symbolWidth;	
+	//PCLog(@"Seq will be %.2f pixels long on screen", seqWidthOnScreen);
     
     
-	NSRect insetRect = NSMakeRect(0, 1, seqWidthOnScreen, 8);
+	NSRect insetRect = NSMakeRect(0, 2, seqWidthOnScreen, 6);
     NSBezierPath *path = [NSBezierPath bezierPathWithRect: insetRect];
     
     
     [path setLineWidth: 1.0];
-    [[NSColor blackColor] setFill];
-    [[NSColor grayColor] setStroke];
-    [path fill];
+    [[NSColor grayColor] setFill];
+    [[NSColor blackColor] setStroke];
+    //[path fill];
     [path stroke];
 	
-    /*
-	if ([[self objectValue] focusPosition] != NSNotFound) {
-		NSRect rect = NSMakeRect([[self objectValue] focusPosition] * IMSymbolWidth, 0, 10, 10);
-		NSBezierPath* circlePath = [NSBezierPath bezierPath];
-		[circlePath appendBezierPathWithOvalInRect: rect];
-        
-		[[NSColor redColor] setFill];
-		[circlePath fill];
-	}*/
     
+
 	for (IMFeature *f in [seq features]) {
 		if ([f isKindOfClass:[IMRangeFeature class]]) {
 			[self drawRangeFeature: (IMRangeFeature*)f
@@ -237,6 +237,47 @@ const CGFloat IMSymbolWidth = 2.0;
 	}
 	
 	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
+	
+	NSInteger focus = [[self objectValue] focusPosition];
+	
+	if (focus != NSNotFound) {
+		[NSGraphicsContext saveGraphicsState]; //moveToSeqStart
+		NSAffineTransform *moveToSeqStart = [NSAffineTransform transform];
+		
+		[moveToSeqStart translateXBy:[[self objectValue] focusPosition] * _symbolWidth
+								 yBy:5];
+		[moveToSeqStart concat];
+		
+		
+		NSBezierPath* path = [[[NSBezierPath alloc] init] autorelease];
+		[path moveToPoint:NSMakePoint(-6, 0)];
+		[path lineToPoint:NSMakePoint(0, -6)];
+		[path lineToPoint:NSMakePoint(6, 0)];
+		[path lineToPoint:NSMakePoint(0, 6)];		
+		[path lineToPoint:NSMakePoint(-6, 0)];
+		
+		[[[NSColor redColor] colorWithAlphaComponent:0.8] setFill];
+		[path fill];
+		[NSGraphicsContext restoreGraphicsState];
+		
+		/* draw the focus range */
+		NSRange range = [[self objectValue] focusRange];		
+		[NSGraphicsContext saveGraphicsState]; //moveToSeqStart
+		NSAffineTransform *focusBoxStart = [NSAffineTransform transform];
+		[focusBoxStart translateXBy:range.location * _symbolWidth
+								 yBy:0];
+		[focusBoxStart concat];
+		
+		PCLog(@"(%d) %d => %d",focus, range.location, range.location + range.length);
+		NSBezierPath *focusBox = 
+		[NSBezierPath bezierPathWithRect:NSMakeRect(0,0, 
+													range.length * _symbolWidth, 10)];
+		[[[NSColor redColor] colorWithAlphaComponent:0.2] setFill];
+		[focusBox fill];
+		
+		[NSGraphicsContext restoreGraphicsState];
+	}
+    
 }
 
 - (void) drawPointFeature: (IMPointFeature*) a
@@ -250,10 +291,10 @@ const CGFloat IMSymbolWidth = 2.0;
     [NSGraphicsContext saveGraphicsState];
     
     NSBezierPath *p = [[[NSBezierPath alloc] init] autorelease];
-    [p moveToPoint:NSMakePoint(a.position * IMSymbolWidth, 0)];
-    [p lineToPoint:NSMakePoint(a.position * IMSymbolWidth - 5, -5)];
-    [p lineToPoint:NSMakePoint(a.position * IMSymbolWidth + 5, -5)];
-    [p lineToPoint:NSMakePoint(a.position * IMSymbolWidth, 0)];
+    [p moveToPoint:NSMakePoint(a.position * _symbolWidth, 0)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth - 5, -5)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth + 5, -5)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth, 0)];
     
     [NSGraphicsContext restoreGraphicsState];
 }
@@ -264,12 +305,12 @@ const CGFloat IMSymbolWidth = 2.0;
     [NSGraphicsContext saveGraphicsState];
 	NSAffineTransform *transform = [NSAffineTransform transform];
     
-	[transform translateXBy:a.start * IMSymbolWidth 
+	[transform translateXBy:a.start * _symbolWidth 
                         yBy:0];
     //[transform scaleXBy:IMSymbolWidth yBy:1.0];
     [transform concat];
     
-	NSRect insetRect = NSMakeRect(0, 0, [a length] * IMSymbolWidth , 10);
+	NSRect insetRect = NSMakeRect(0, 0, [a length] * _symbolWidth , 10);
     NSBezierPath *path = [NSBezierPath bezierPathWithRect: insetRect];
     
     [path setLineWidth: 1.0];
@@ -285,8 +326,15 @@ const CGFloat IMSymbolWidth = 2.0;
     [path fill];
     
     if (a.selected) {
-        [[NSColor redColor] setStroke];
-        [path stroke];
+		if (a.color == nil) {
+			[[NSColor redColor] setStroke];
+		} else {
+			
+			[[[a.color colorWithAlphaComponent:1.0] blendedColorWithFraction:0.5 
+																	 ofColor:[NSColor blackColor]] setStroke];
+			[path setLineWidth: 2];
+			[path stroke];
+		}
     }
     
 	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart

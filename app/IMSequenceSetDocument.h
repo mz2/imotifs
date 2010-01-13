@@ -20,8 +20,6 @@
     NSString *_name;
     NSArray *_sequences;
     
-    IMSequenceView *_sequenceView;
-    
     IMSequenceSetController *_sequenceSetController;
     
     NSTextField *_numberOfSequencesLabel;
@@ -45,7 +43,6 @@
 }
 
 @property(nonatomic,retain) NSString *name;
-@property(nonatomic,retain) IBOutlet IMSequenceView *sequenceView;
 @property(nonatomic,retain) IBOutlet IMSequenceSetController *sequenceSetController;
 @property(nonatomic,retain) NSArray *sequences;
 @property(nonatomic,retain) IBOutlet NSTextField *numberOfSequencesLabel;
@@ -64,6 +61,13 @@
 -(IBAction) toggleDrawer:(id) sender;
 -(IBAction) annotateSequencesWithFeatures: (id)sender;
 -(IBAction) closeAnnotationSetPickerSheet: (id) sender;
+
+-(IBAction) increaseWidth: (id) sender;
+-(IBAction) decreaseWidth: (id) sender;
+
+-(IBAction) moveFocusPositionLeft: (id) sender;
+-(IBAction) moveFocusPositionRight: (id) sender;
+
 
 +(NSArray*) sequenceSetDocuments;
 +(BOOL) atLeastOneSequenceSetDocumentIsOpen;

@@ -25,7 +25,6 @@
 @synthesize name = _name;
 @synthesize sequences = _sequences;
 @synthesize numberOfSequencesLabel = _numberOfSequencesLabel;
-@synthesize sequenceView = _sequenceView;
 @synthesize sequenceSetController = _sequenceSetController;
 @synthesize drawer = _drawer;
 @synthesize sequenceTable = _sequenceTable;
@@ -56,6 +55,10 @@
 }
 
 -(void) awakeFromNib {
+	[[NSNotificationCenter defaultCenter] addObserver:self
+											 selector:@selector(userDefaultsChanged:)
+												 name:NSUserDefaultsDidChangeNotification object:nil];
+	
     _sequenceCell = [[[IMSequenceViewCell alloc] 
                       initImageCell:[[_sequenceColumn dataCell] image]] autorelease];
     [_sequenceColumn setDataCell: _sequenceCell];
@@ -219,7 +222,7 @@
 			}
 		}
 	}
-	[self.sequenceTable reloadData];
+	[self.sequenceTable setNeedsDisplay];
 	[self didChangeValueForKey:@"sequences"];
 }
 
@@ -231,12 +234,14 @@
     NSUInteger i = 0;
     for (i = 0; i < self.sequences.count; i++) {
         if (![indexSet containsIndex:i]) {
-            [[self.sequences objectAtIndex:i] setFocusPosition: -1];            
+            PCLog(@"Deselecting sequence at index %d", i);
+			[[self.sequences objectAtIndex:i] setFocusPosition: NSNotFound];
         } 
     }
     PCLog(@"tableview selection changed");
     [self willChangeValueForKey:@"selectedPositionString"];
     [self didChangeValueForKey:@"selectedPositionString"];
+	[self.sequenceTable setNeedsDisplay];
 }
 
 -(NSMutableDictionary*) colorsForFeatureTypes:(NSSet*) features {
@@ -271,6 +276,69 @@
 
 +(BOOL) atLeastOneSequenceSetDocumentIsOpen {
 	return [[IMSequenceSetDocument sequenceSetDocuments] count] > 0;
+}
+
+-(IBAction) increaseWidth: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMSymbolWidthKey] + IMSymbolWidthIncrement;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMSymbolWidthKey];
+}
+
+-(IBAction) decreaseWidth: (id) sender {
+    NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
+    CGFloat newVal = [def floatForKey: IMSymbolWidthKey] - IMSymbolWidthIncrement;
+    if (newVal > 0.0) [def setFloat: newVal forKey: IMSymbolWidthKey];
+}
+
+-(IBAction) moveFocusPositionLeft: (id) sender {
+	if ([self.sequenceSetController selectedObjects].count == 0) {
+		//alert user or make the whole action disabled in case this is the case
+	}
+	for (IMSequence *s in [self.sequenceSetController selectedObjects]) {
+		if (s.focusPosition == NSNotFound) {
+			[s setFocusPosition: 0];
+		} else {
+			if (s.focusPosition > 0) {
+				[s setFocusPosition: s.focusPosition-1];
+			}
+		}
+	}
+	[self.sequenceTable setNeedsDisplay];
+}
+
+-(IBAction) moveFocusPositionRight: (id) sender {
+	if ([self.sequenceSetController selectedObjects].count == 0) {
+		//alert user or make the whole action disabled in case this is the case
+	}
+	for (IMSequence *s in [self.sequenceSetController selectedObjects]) {
+		if (s.focusPosition == NSNotFound) {
+			[s setFocusPosition: [[s description] length] - 1];
+		} else {
+			if (s.focusPosition < ([[s description] length] - 1)) {
+				[s setFocusPosition: s.focusPosition+1];
+			}
+		}
+	}
+	[self.sequenceTable setNeedsDisplay];
+}
+
+
+-(void) userDefaultsChanged:(NSNotification *)notification {
+    _sequenceCell.symbolWidth = [[NSUserDefaults standardUserDefaults] floatForKey:IMSymbolWidthKey];
+	[self.sequenceTable setNeedsDisplay];
+}
+
+-(void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+													name:NSUserDefaultsDidChangeNotification 
+												  object:nil];
+	
+	[_name release];
+	[_sequences release];
+	[_featureTypes release];
+	[_colorsByFeatureType release];
+	
+	[super dealloc];
 }
 
 @end

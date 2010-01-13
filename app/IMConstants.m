@@ -7,3 +7,6 @@
 //
 
 #import "IMConstants.h"
+
+NSString * const IMSymbolWidthKey = @"IMSymbolWidth";
+NSString * const IMSequenceFocusAreaHalfLengthKey = @"IMSequenceFocusAreaHalfLength";

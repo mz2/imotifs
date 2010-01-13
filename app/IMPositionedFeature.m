@@ -11,4 +11,14 @@
 
 @implementation IMPositionedFeature
 
+-(BOOL) overlapsWithPosition:(NSInteger) pos {
+	@throw [NSException exceptionWithName:@"IMUnimplementedMethodException" 
+								   reason:nil userInfo:nil];
+}
+
+-(BOOL) overlapsWithRange:(NSRange) range {
+	@throw [NSException exceptionWithName:@"IMUnimplementedMethodException" 
+								   reason:nil userInfo:nil];	
+}
+
 @end

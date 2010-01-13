@@ -53,6 +53,11 @@
 	return NO;
 }
 
+-(NSString*) description {
+    return [NSString stringWithFormat:@"[IMPointFeature position:%d strand:%d type:%@]",
+            self.position,self.strand,self.type];
+}
+
 //=========================================================== 
 // dealloc
 //=========================================================== 

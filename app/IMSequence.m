@@ -21,6 +21,7 @@
 
 
 @synthesize focusPosition = _focusPosition;
+
 @synthesize name = _name;
 @synthesize features = _features;
 
@@ -120,41 +121,134 @@
 	if (actualStart < 0) {actualStart = 0;}
 	if (actualEnd > [seq length]) {actualEnd = [seq length]-1;}
 	
-	return [seq substringWithRange:NSMakeRange(actualStart, actualEnd)];
+	return [seq substringWithRange:NSMakeRange(actualStart, actualEnd - actualStart + 1)];
 }
 
 -(NSAttributedString*) formattedSequenceFromPosition:(NSInteger) pos
 											  before:(NSInteger) before
 											   after:(NSInteger) after {
-	NSInteger actualStart,actualEnd;
-	NSString *seq = [self description];
-	actualStart = pos - before;
-	actualEnd = pos + after;
-	if (actualStart < 0) {actualStart = 0;}
-	if (actualEnd > [seq length]) {actualEnd = [seq length]-1;}
+	if ((pos < 0) || (pos == NSNotFound)) return [[[NSAttributedString alloc] initWithString:
+												   @"Select a position to see sequence around it in detail"] 
+												  autorelease];
 	
-	NSMutableAttributedString *str = [[NSMutableAttributedString alloc] initWithString:seq];
+	NSInteger actualStart,actualEnd,actualPos;
+	NSRange range = NSMakeRange(fmax(pos - before,0), fmax(pos + after + 1,0));
+	
+	NSString *seq = [self description];
+	NSUInteger slen = seq.length;
+	
+	actualStart = pos - before;
+	actualPos = before;
+	actualEnd = pos + after;
+	if (actualStart < 0) {actualPos = pos; actualStart = 0;}
+	//if (actualStart < 0) {actualStart = 0;}
+	if (actualEnd > [seq length]) {actualEnd = [seq length]-1;}
+	NSMutableAttributedString *str = [[[NSMutableAttributedString alloc] initWithString:
+									   [seq substringWithRange:NSMakeRange(actualStart, actualEnd - actualStart + 1)]] 
+									  autorelease];
+	
+	NSInteger offset = actualStart - (pos - before);
+	
+	//PCLog(@"pos:%d,before:%d,after:%d,actual start of string:%d,string length:%d,pos in string:%d", 
+	//	  pos, before, after, actualStart, str.length,actualPos);
 	
 	
 	for (IMFeature *feature in [self features]) {
+		if (![feature isKindOfClass:[IMPositionedFeature class]]) continue;
+		IMPositionedFeature *pf = (IMPositionedFeature*) feature;
+		if (![pf overlapsWithRange:range]) {
+			//PCLog(@"%@ does not overlap %d => %d",pf,range.location,range.length);
+			continue;
+		} else {
+		}
+		
 		
 		if ([feature isKindOfClass: [IMRangeFeature class]]) {
+			NSInteger s,e;
+			IMRangeFeature *rf = (IMRangeFeature*)feature;
+			
+			s = rf.start - pos;
+			e = rf.end - pos;
+			
+			
+			//PCLog(@"s:%d e:%d",s,e);
+			if (s < 0) {
+				
+
+			} else if (s > after) {
+				continue;
+			}
+			
+			//PCLog(@"s:%d e:%d",s,e);
+			if (before - s > 0) {
+				s = actualPos + s;
+				e = actualPos + e;
+			}
+			
+			if (e >= slen) {
+				e = slen - 1;
+			}
+			
+			//PCLog(@"s:%d e:%d (%d_",s,e,actualPos);
+			//PCLog(@"- - -");
+			if (offset == 0) {
+				if (s < 0) s = 0;
+				if (e <= 0) continue;
+				if (e >= str.length) e = str.length - 1;
+				
+				[str addAttribute: NSForegroundColorAttributeName 
+							value: [feature.color colorWithAlphaComponent:0.7]
+							range: NSMakeRange(fmax(s,0), fmax(e - s,0))];
+				
+				[str applyFontTraits: NSBoldFontMask 
+							   range: NSMakeRange(fmax(s,0), fmax(e - s,0))];
+				
+			} else {
+				
+				if (s < 0) s = 0;
+				if (e <= 0) continue;
+				if (e >= str.length) e = str.length - 1;
+				
+				[str addAttribute: NSForegroundColorAttributeName 
+							value: [feature.color colorWithAlphaComponent:0.7] 
+							range: NSMakeRange(fmax(s,0), fmax(e - s,0))];
+				
+				[str applyFontTraits: NSBoldFontMask 
+							   range: NSMakeRange(fmax(s,0), fmax(e - s,0))];
+				
+				
+				/*
+				PCLog(@"Position %d corresponds to %d in the string. Feature %d - %d => %d - %d", 
+					  pos,
+					  actualPos,
+					  rf.start,rf.end,
+					  s,e);
+				 */
+			}
+			
 			
 			
 		} else if ([feature isKindOfClass: [IMPointFeature class]]) {
-			
-		} else {
-			//ignore
+			IMPointFeature *pf = (IMPointFeature*) feature;
+			PCLog(@"Implement drawing point features such as this %@", pf);
 		}
 	}
 	
 	return str;
 }
 
+-(NSRange) focusRange {
+	if (self.focusPosition == NSNotFound) return NSMakeRange(0, 0);
+	
+	NSUInteger start = fmax(0,self.focusPosition-IMSequenceFocusAreaHalfLength);
+	NSUInteger end = fmin([[self description] length]-1,self.focusPosition+IMSequenceFocusAreaHalfLength);
+	return NSMakeRange(start, end - start + 1);
+}
+
 -(NSAttributedString*) focusPositionFormattedString {
 	return [self formattedSequenceFromPosition: self.focusPosition 
-										before: 10
-										 after: 10];
+										before: 20
+										 after: 20];
 }
 
 -(void) dealloc {
@@ -179,6 +273,10 @@ triggerChangeNotificationsForDependentKey: @"selectedFeaturesString"];
     [[self class] setKeys:
 	 [NSArray arrayWithObjects: @"selectedFeatures", nil]
 triggerChangeNotificationsForDependentKey: @"selectedFeaturesRangeString"];
+	
+	[[self class] setKeys:
+	 [NSArray arrayWithObjects: @"selectedFeatures", nil]
+triggerChangeNotificationsForDependentKey: @"focusPositionFormattedString"];
 }
 
 

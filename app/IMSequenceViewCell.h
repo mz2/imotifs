@@ -12,10 +12,11 @@
 @interface IMSequenceViewCell : NSActionCell <NSCopying> {
     
 @protected
-	NSRect _cellRectAtMouseEventStart;
     
-    
+    CGFloat _symbolWidth;
 }
+
+@property (readwrite) CGFloat symbolWidth;
 
 -(CGFloat) sequenceLengthInPixels:(IMSequence*) seq;
 -(CGFloat) sequence:(IMSequence*)seq lengthFractionAtPoint:(NSPoint) p;

@@ -61,7 +61,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(userDefaultsChanged:)
-                                                     name:@"NSUserDefaultsDidChangeNotification" object:nil];
+                                                     name:NSUserDefaultsDidChangeNotification object:nil];
     }
     return self;
 }
@@ -514,7 +514,8 @@ provideDataForType:(NSString *)type {
             NSArray *copiedMotifs = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             //PCLog(@"Copied motifs:%@",copiedMotifs);
             
-            NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(row, [copiedMotifs count])];
+            NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:
+										  NSMakeRange(row, [copiedMotifs count])];
             
             [motifSetController insertObjects:copiedMotifs atArrangedObjectIndexes:indexes];
             //[motifSetController insertObjects:copiedMotifs atArrangedObjectIndexes:row];
@@ -1122,21 +1123,6 @@ provideDataForType:(NSString *)type {
     }
 }
 
-- (void) dataReady:(NSNotification*) n {
-    NSData *d;
-    d = [[n userInfo] valueForKey:NSFileHandleNotificationDataItem];
-    PCLog(@"dataReady:%d bytes", [d length]);
-    if (task) {
-        [[pipe fileHandleForReading] readInBackgroundAndNotify];
-    }
-}
-
-- (void) taskTerminated:(NSNotification*) note {
-    PCLog(@"taskTerminated");
-    [task release];
-    task = nil;
-}
-
 -(BOOL) searchingByName {
     return [self searchType] == IMMotifSetSearchByName;
 }
@@ -1223,25 +1209,25 @@ provideDataForType:(NSString *)type {
     [self.drawerTableDelegate toggleEditable: sender];
 }
 
--(IBAction) increaseMotifHeight: (id) sender {
+-(IBAction) increaseHeight: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMMotifHeight] + IM_MOTIF_HEIGHT_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
 }
 
--(IBAction) decreaseMotifHeight: (id) sender {
+-(IBAction) decreaseHeight: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMMotifHeight] - IM_MOTIF_HEIGHT_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
 }
 
--(IBAction) increaseMotifWidth: (id) sender {
+-(IBAction) increaseWidth: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMColumnWidth] + IM_MOTIF_WIDTH_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
 }
 
--(IBAction) decreaseMotifWidth: (id) sender {
+-(IBAction) decreaseWidth: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMColumnWidth] - IM_MOTIF_WIDTH_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
@@ -1287,6 +1273,20 @@ provideDataForType:(NSString *)type {
 		}
 	}
     return a;
+}
+
+-(void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+													name:NSUserDefaultsDidChangeNotification 
+												  object:nil];
+	[motifSet release];
+    [motifNameCell release];
+    [motifViewCell release];
+    [pboardMotifs release];
+    [pboardMotifsOriginals release];
+    [motifComparitor release];
+	
+	[super dealloc];
 }
 
 @end

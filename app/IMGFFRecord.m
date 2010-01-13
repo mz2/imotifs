@@ -83,7 +83,8 @@
 }
 
 -(NSString*) identifier {
-    return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start,self.end,self.score];
+	//GFFs start counting at 1
+    return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start+1,self.end+1,self.score];
 }
 
 -(IMFeature*) toFeature {
