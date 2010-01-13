@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMFeature.h"
+#import "IMPositionedFeature.h"
 
-@interface IMRangeFeature : IMFeature {
+@interface IMRangeFeature : IMPositionedFeature {
     NSInteger _start;
 	NSInteger _end;
 }
@@ -32,5 +33,4 @@
                      strand:(IMStrand)strand
                        type:(NSString*)type;
 
--(BOOL) overlapsWithPosition:(NSInteger) pos;
 @end

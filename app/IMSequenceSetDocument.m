@@ -72,6 +72,7 @@
 
 - (void)tableView:(NSTableView *)tableView didClickTableColumn:(NSTableColumn *)tableColumn {
     PCLog(@"Did click table column %@", tableColumn);
+	
     [self willChangeValueForKey:@"selectedPositionString"];
     [self didChangeValueForKey:@"selectedPositionString"];
 }
@@ -246,7 +247,7 @@
     
     NSArray *colors = [NSColor colorRainbowWithAlternatingHueAtDeviceSaturation:1.0 
                                                                       hueOffset:0.2
-                                                                     brightness:0.5
+                                                                     brightness:0.8
                                                                           alpha:1.0
                                                                       numColors:features.count];
     NSUInteger i=0;

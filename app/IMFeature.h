@@ -23,4 +23,5 @@
 @property(nonatomic,retain) NSString *type;
 @property(nonatomic,retain) NSColor *color;
 
+
 @end

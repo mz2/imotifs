@@ -92,14 +92,15 @@ const CGFloat IMSymbolWidth = 2.0;
 		  p.x,p.y,cellFrame.origin.x,cellFrame.origin.y,cellP.x,cellP.y,controlView,untilMouseUp, symPos);
     
     IMSequence *seq = (IMSequence*)[self objectValue];
-    
-    [self willChangeValueForKey:@"features"];
+
+	[self willChangeValueForKey:@"features"];
+	[self willChangeValueForKey:@"selectedFeatures"];
     for (IMFeature *f in seq.features) {[f setSelected: NO];}
     NSArray *selectedFeats = [seq featuresOverlappingWithPosition: symPos];
-    PCLog(@"Selected features: %@ (%@)", selectedFeats, [seq features]);
+    PCLog(@"Selected features: %@ (all: %@)", selectedFeats, [seq features]);
     for (IMFeature *f in selectedFeats) {[f setSelected: YES];}
     [self didChangeValueForKey:@"features"];
-    
+	[self didChangeValueForKey:@"selectedFeatures"];
 	return [super trackMouse:theEvent 
 					  inRect: cellFrame 
 					  ofView: controlView 

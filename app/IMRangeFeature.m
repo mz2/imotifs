@@ -56,13 +56,18 @@
 }
 
 -(BOOL) overlapsWithPosition:(NSInteger) pos {
-    PCLog(@"%d [%d -- %d]", pos, self.start, self.end);
-	if (self.start > pos) return NO;
-	if (self.end < pos) return NO;
-    
-    PCLog(@"Overlaps with position");
+	if (self.start <= pos && self.end >= pos) return YES;	
+	return NO;
+}
+
+-(BOOL) overlapsWithRange:(NSRange) range {
+	NSInteger rangeStart = range.location;
+	NSInteger rangeEnd = range.location + range.length;
 	
-	return YES;
+	if (self.end >= rangeStart && self.end <= rangeEnd) return YES;
+	if (self.start >= rangeStart && self.start <= rangeEnd) return YES;
+	
+	return NO;
 }
 
 -(NSString*) description {
