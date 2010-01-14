@@ -26,6 +26,7 @@
 #import "NMOperationConfigDialogController.h"
 #import "NMAlignOperation.h"
 #import "NMShuffleOperation.h"
+#import "RegexKitLite.h"
 
 CGFloat const IM_MOTIF_HEIGHT_INCREMENT = 5.0;
 CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
@@ -1209,11 +1210,6 @@ provideDataForType:(NSString *)type {
     [self.drawerTableDelegate toggleEditable: sender];
 }
 
-
--(IBAction) importTRANSFAC: (id) sender {
-	
-}
-
 -(IBAction) exportTRANSFAC: (id) sender {
 	
 	NSSavePanel *seqFilePanel = [NSSavePanel savePanel];
@@ -1263,6 +1259,8 @@ provideDataForType:(NSString *)type {
 	for (Motif *m in self.motifSet.motifs) {
 
 		[str appendFormat:@"NA %@\n",m.name];
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"ID %@\n",m.name];
 		[str appendFormat:@"XX\n"];
 		[str appendFormat:@"P0 A C G T\n"];
 		

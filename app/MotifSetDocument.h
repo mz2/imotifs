@@ -171,7 +171,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 -(IBAction) increaseWidth: (id) sender;
 -(IBAction) decreaseWidth: (id) sender;
 
--(IBAction) importTRANSFAC: (id) sender;
 -(IBAction) exportTRANSFAC: (id) sender;
 
 -(NSString*) toTRANSFAC;

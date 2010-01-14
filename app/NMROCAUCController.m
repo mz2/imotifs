@@ -58,13 +58,17 @@
 -(void) browseForPositiveSeqsFileEnded: (NSOpenPanel*) sheet 
                     returnCode: (int) returnCode
                    contextInfo: (void*) contextInfo {
-    self.operation.positiveSeqsFile = sheet.filename;
+	if (returnCode) {
+		self.operation.positiveSeqsFile = sheet.filename;
+	}
 }
 
 -(void) browseForNegativeSeqsFileEnded: (NSOpenPanel*) sheet 
                             returnCode: (int) returnCode
                            contextInfo: (void*) contextInfo {
-    self.operation.negativeSeqsFile = sheet.filename;
+	if (returnCode) {
+		self.operation.negativeSeqsFile = sheet.filename;
+	}
 }
 
 -(IBAction) browseForMotifsFile:(id) sender {
@@ -81,7 +85,9 @@
 -(void) browseForMotifsFileEnded: (NSOpenPanel*) sheet 
                       returnCode: (int) returnCode
                      contextInfo: (void*) contextInfo {
-    self.operation.motifsFile = sheet.filename;
+	if (returnCode) {
+		self.operation.motifsFile = sheet.filename;
+	}
 }
 
 -(IBAction) browseForOutputFile:(id) sender {

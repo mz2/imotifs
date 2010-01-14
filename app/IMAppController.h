@@ -94,8 +94,12 @@ extern NSString *IMConsensusSearchCutoff;
 -(IBAction) retrieveSequences:(id) sender;
 -(IBAction) showHelp:(id) sender;
 
+-(IBAction) importTRANSFAC: (id) sender;
+
 -(BOOL) atLeastOneAnnotationSetDocumentIsOpen;
 -(BOOL) atLeastOneSequenceSetDocumentIsOpen;
 -(BOOL) atLeastOneMotifSetDocumentIsOpen;
+
+-(void) openTRANSFACFileAtPath:(NSString*)path;
 
 @end
