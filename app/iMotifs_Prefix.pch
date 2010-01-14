@@ -9,6 +9,7 @@
     #import <Cocoa/Cocoa.h>
     #import "IMConstants.h"
     #import "NSColor+IMColors.h"
+    #import "NSString+Quotes.h"
 
 #ifdef IMDEBUG
 // We make it a warning because when unit testing it's nice to see the logs in the list view instead of having to scroll through all the compiler output

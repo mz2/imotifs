@@ -9,6 +9,8 @@
 #import "NMScanOperation.h"
 #import "NMOperation.h"
 #import "IMRetrieveSequencesStatusDialogController.h"
+#import "IMAnnotationSetDocument.h"
+#import "IMSequenceSetDocument.h"
 
 @implementation NMScanOperation
 @synthesize motifPath = _motifPath;
@@ -22,7 +24,7 @@
     NSString *lp = 
     [[[[NMOperation nmicaPath] 
        stringByAppendingPathComponent:@"bin/nmscan"] 
-      stringByExpandingTildeInPath] autorelease];
+      stringByExpandingTildeInPath] retain];
     
     self = [super initWithLaunchPath: lp];
     if (self == nil) return nil;
@@ -31,9 +33,9 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:self.motifPath forKey:@"-motifs"];        
-    [args setObject:self.seqPath forKey:@"-seqs"];
-    [args setObject:self.outputPath forKey:@"-out"]; //TODO: add -out option to nmscan
+    [args setObject:[self.motifPath stringBySurroundingWithSingleQuotes] forKey:@"-motifs"];        
+    [args setObject:[self.seqPath stringBySurroundingWithSingleQuotes] forKey:@"-seqs"];
+    [args setObject:[self.outputPath stringBySurroundingWithSingleQuotes] forKey:@"-out"]; //TODO: add -out option to nmscan
     
 }
 
@@ -71,10 +73,50 @@
         
     }
     
+    if ([[NSFileManager defaultManager] fileExistsAtPath:self.outputPath]) {
+        NSError *err = nil;
+        IMAnnotationSetDocument *doc =
+        [[IMAnnotationSetDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath:self.outputPath] 
+                                                        ofType:@"GFF annotation set" 
+                                                         error:&err];
+        if (err != nil) {
+            [[NSAlert alertWithError: err] runModal];
+        } else {
+            [doc makeWindowControllers];
+            [doc showWindows];            
+        }
+        
+        NSError *serr = nil;
+        IMSequenceSetDocument *sdoc = 
+        [[IMSequenceSetDocument alloc] initWithContentsOfURL:[NSURL fileURLWithPath:self.seqPath] 
+                                                      ofType:@"FASTA sequence set" 
+                                                       error:&serr];
+        
+        if (serr != nil) {
+            [[NSAlert alertWithError: serr] runModal];
+        } else {
+            [sdoc makeWindowControllers];
+            [sdoc annotateSequencesWithFeaturesFromAnnotationSetDocument: doc];
+            [sdoc showWindows];
+            
+        }
+        
+    } else {
+        NSAlert *alert = [NSAlert alertWithMessageText:@"Error occurred with motif scanning" 
+                                         defaultButton:@"OK"
+                                       alternateButton:nil 
+                                           otherButton:nil
+                             informativeTextWithFormat:@"Output file has not been generated. Please inspect the commandline generated with 'Copy to Clipboard'."];
+        [alert runModal];
+    }
     PCLog(@"Done.");
     [_statusDialogController performSelectorOnMainThread: @selector(resultsReady:) 
                                               withObject: self 
                                            waitUntilDone: NO];
+}
+
+-(void) openFile:(id) sender {
+
 }
 
 -(BOOL) motifsFileExists {

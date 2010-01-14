@@ -316,6 +316,7 @@
 		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
 		95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */; };
 		95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */; };
+		95DD35CF10FF31CC00420BA5 /* NSString+Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */; };
 		95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */; };
 		95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */; };
 		95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD2B210F749CB0008CE43 /* IMFeature.m */; };
@@ -815,6 +816,8 @@
 		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
 		95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMScoreCutoffDialog.xib; sourceTree = "<group>"; };
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
+		95DD35CD10FF31CC00420BA5 /* NSString+Quotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Quotes.h"; sourceTree = "<group>"; };
+		95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Quotes.m"; sourceTree = "<group>"; };
 		95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRangeFeature.m; sourceTree = "<group>"; };
 		95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPointFeature.m; sourceTree = "<group>"; };
 		95DDD1E010F743FA0008CE43 /* IMPointFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPointFeature.h; sourceTree = "<group>"; };
@@ -1208,6 +1211,8 @@
 				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
 				95B49F4110FC88CF005DF489 /* NSColor+IMColors.h */,
 				95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */,
+				95DD35CD10FF31CC00420BA5 /* NSString+Quotes.h */,
+				95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */,
 			);
 			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
@@ -2034,6 +2039,7 @@
 				5F9DE2D810FE9E71003FC2A5 /* RegexKitLite.m in Sources */,
 				5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */,
 				5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */,
+				95DD35CF10FF31CC00420BA5 /* NSString+Quotes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

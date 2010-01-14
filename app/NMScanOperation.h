@@ -32,7 +32,7 @@
 @property(nonatomic,copy)NSString *seqPath;
 @property(nonatomic,copy)NSString *outputPath;
 
-
+-(void) openFiles:(id) sender;
 -(BOOL) motifsFileExists;
 -(BOOL) seqsFileExists;
 

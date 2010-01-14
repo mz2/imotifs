@@ -134,6 +134,7 @@
 }
 
 -(NSString*) selectedPositionString {
+    /*
     PCLog(@"Creating selected position string");
 	NSArray *selection = [self.sequenceSetController selectedObjects];
 	if (selection.count == 0) return @"No sequence is selected";
@@ -145,6 +146,17 @@
         if (seq.focusPosition == NSNotFound) return @"";
         
         return [NSString stringWithFormat:@"Selected position %d",seq.focusPosition];        
+    }*/
+    
+    NSArray *selection = [self.sequenceSetController selectedObjects];
+    if (selection.count == 0) return @"";
+    if (selection.count > 1) return [NSString stringWithFormat:@"%d sequences selected", selection.count];
+    else {
+        IMSequence *seq = (IMSequence*)[selection objectAtIndex:0];
+        if (seq.focusPosition == NSNotFound) return [NSString stringWithFormat:@"%@",seq.name];
+        else {
+            return [NSString stringWithFormat:@"%@ (%@)", [seq selectedFeaturesString]];
+        }
     }
 }
 
@@ -186,8 +198,6 @@
 		
 		if ([action isEqual: @"annotateSequencesWithFeatures"]) {
 			PCLog(@"Annotating sequences with features");
-
-			NSMutableDictionary *featuresBySeqName = [NSMutableDictionary dictionary];
             
 			NSUInteger curIndex = [indexes firstIndex];
 			PCLog(@"First index: %d", curIndex);
@@ -197,26 +207,7 @@
 					= [[IMAnnotationSetDocument annotationSetDocuments] 
 					   objectAtIndex:curIndex];
 				
-				for (IMGFFRecord *a in adoc.annotations) {
-					if ([featuresBySeqName objectForKey:a.seqName] == nil) {
-						[featuresBySeqName setObject:[NSMutableArray array] forKey: a.seqName];
-					}
-                    [self.featureTypes addObject: a.feature];
-					[[featuresBySeqName objectForKey:a.seqName] addObject:a];
-				}
-				
-                self.colorsByFeatureType = [self colorsForFeatureTypes:self.featureTypes];
-                
-				for (IMSequence *seq in self.sequences) {
-					[seq willChangeValueForKey:@"features"];
-					NSArray *annotations = [featuresBySeqName objectForKey: seq.name];
-					for (IMGFFRecord *a in annotations) {
-						IMFeature *feat = [a toFeature];
-                        feat.color = [self.colorsByFeatureType objectForKey: feat.type];
-                        [seq.features addObject: feat];
-					}
-					[seq didChangeValueForKey:@"features"];
-				}
+                [self annotateSequencesWithFeaturesFromAnnotationSetDocument: adoc];
 				
                 curIndex = [indexes indexGreaterThanIndex: curIndex];
 			}
@@ -224,6 +215,30 @@
 	}
 	[self.sequenceTable setNeedsDisplay];
 	[self didChangeValueForKey:@"sequences"];
+}
+
+-(void) annotateSequencesWithFeaturesFromAnnotationSetDocument:(IMAnnotationSetDocument*) adoc {
+    NSMutableDictionary *featuresBySeqName = [NSMutableDictionary dictionary];
+    for (IMGFFRecord *a in adoc.annotations) {
+        if ([featuresBySeqName objectForKey:a.seqName] == nil) {
+            [featuresBySeqName setObject:[NSMutableArray array] forKey: a.seqName];
+        }
+        [self.featureTypes addObject: a.feature];
+        [[featuresBySeqName objectForKey:a.seqName] addObject:a];
+    }
+    
+    self.colorsByFeatureType = [self colorsForFeatureTypes:self.featureTypes];
+    
+    for (IMSequence *seq in self.sequences) {
+        [seq willChangeValueForKey:@"features"];
+        NSArray *annotations = [featuresBySeqName objectForKey: seq.name];
+        for (IMGFFRecord *a in annotations) {
+            IMFeature *feat = [a toFeature];
+            feat.color = [self.colorsByFeatureType objectForKey: feat.type];
+            [seq.features addObject: feat];
+        }
+        [seq didChangeValueForKey:@"features"];
+    }    
 }
 
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification {
@@ -340,5 +355,4 @@
 	
 	[super dealloc];
 }
-
 @end

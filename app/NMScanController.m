@@ -22,11 +22,12 @@
     NSLog(@"Submitting scanning task");
     IMRetrieveSequencesStatusDialogController *operationDialogController = 
     [[IMRetrieveSequencesStatusDialogController alloc] initWithWindowNibName:@"IMRetrieveSequencesStatusDialog"];
-    operationDialogController.window.title = @"Determine motif overrepresentation";
+    operationDialogController.window.title = @"Scan sequences with motifs";
     [operationDialogController showWindow: self];
     
     [operationDialogController setOperation: self.operation];
     [self.operation setStatusDialogController: operationDialogController];
+    [self.operation.statusDialogController start: self];
     
     [[[[NSApplication sharedApplication] delegate] sharedOperationQueue] addOperation: self.operation];
     [self close];

@@ -18,7 +18,7 @@ extern NSString * const IMSequenceFocusAreaHalfLengthKey;
 
 const static CGFloat IMDefaultSymbolWidth = 2.0; 
 const static CGFloat IMSymbolWidthIncrement = 0.1;
-const static NSUInteger IMSequenceFocusAreaHalfLength = 20;
+const static NSUInteger IMSequenceFocusAreaHalfLength = 10;
 
 
 typedef enum IMStrand {

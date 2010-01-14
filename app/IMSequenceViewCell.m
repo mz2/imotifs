@@ -278,6 +278,16 @@
 		[NSGraphicsContext restoreGraphicsState];
 	}
     
+    [NSGraphicsContext saveGraphicsState];
+    /* focus detail string */
+    NSAffineTransform *trans = [NSAffineTransform transform];
+    [trans translateXBy:[[self objectValue] focusPosition] yBy:10];
+    [trans concat];
+    
+    NSAttributedString *fstring = [(IMSequence*)[self objectValue] focusPositionFormattedString];
+    [fstring drawInRect:NSMakeRect(-200, 0, 400, 25)];
+    
+    [NSGraphicsContext restoreGraphicsState];
 }
 
 - (void) drawPointFeature: (IMPointFeature*) a
@@ -336,6 +346,7 @@
 			[path stroke];
 		}
     }
+    
     
 	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
 }

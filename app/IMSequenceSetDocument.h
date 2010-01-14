@@ -15,6 +15,7 @@
 @class IMSequenceViewCell;
 @class IMAnnotationSetPickerWindow;
 @class IMAnnotationSetPickerTableDelegate;
+@class IMAnnotationSetDocument;
 
 @interface IMSequenceSetDocument : NSDocument <IMotifsDocument> {
     NSString *_name;
@@ -74,4 +75,6 @@
 +(BOOL) atLeastOneSequenceSetDocumentIsOpen;
 
 -(NSMutableDictionary*) colorsForFeatureTypes:(NSSet*) features;
+
+-(void) annotateSequencesWithFeaturesFromAnnotationSetDocument:(IMAnnotationSetDocument*) adoc;
 @end

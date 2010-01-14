@@ -128,7 +128,7 @@
 											  before:(NSInteger) before
 											   after:(NSInteger) after {
 	if ((pos < 0) || (pos == NSNotFound)) return [[[NSAttributedString alloc] initWithString:
-												   @"Select a position to see sequence around it in detail"] 
+												   @""] 
 												  autorelease];
 	
 	NSInteger actualStart,actualEnd,actualPos;
@@ -162,6 +162,10 @@
 		} else {
 		}
 		
+        
+        [str addAttribute: NSForegroundColorAttributeName 
+                    value: [NSColor redColor]
+                    range: NSMakeRange(actualPos,1)];
 		
 		if ([feature isKindOfClass: [IMRangeFeature class]]) {
 			NSInteger s,e;
@@ -233,6 +237,17 @@
 			PCLog(@"Implement drawing point features such as this %@", pf);
 		}
 	}
+    
+    NSMutableParagraphStyle *mutParaStyle=[[NSMutableParagraphStyle alloc] init];
+    [mutParaStyle setAlignment:NSCenterTextAlignment];
+    [str addAttributes:[NSDictionary dictionaryWithObject:mutParaStyle 
+                                                   forKey:NSParagraphStyleAttributeName] 
+                 range:NSMakeRange(0,[str length])];
+    [mutParaStyle release];
+    
+    [str addAttribute:NSFontAttributeName 
+                value:[NSFont fontWithName:@"Courier New" size:13] 
+                range:NSMakeRange(0, [str length])];
 	
 	return str;
 }
@@ -278,6 +293,5 @@ triggerChangeNotificationsForDependentKey: @"selectedFeaturesRangeString"];
 	 [NSArray arrayWithObjects: @"selectedFeatures", nil]
 triggerChangeNotificationsForDependentKey: @"focusPositionFormattedString"];
 }
-
 
 @end
