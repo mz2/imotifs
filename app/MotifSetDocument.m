@@ -1209,6 +1209,78 @@ provideDataForType:(NSString *)type {
     [self.drawerTableDelegate toggleEditable: sender];
 }
 
+
+-(IBAction) importTRANSFAC: (id) sender {
+	
+}
+
+-(IBAction) exportTRANSFAC: (id) sender {
+	
+	NSSavePanel *seqFilePanel = [NSSavePanel savePanel];
+	[seqFilePanel beginSheetForDirectory: nil
+									file: nil
+						  modalForWindow: [NSApp mainWindow]
+						   modalDelegate: self 
+						  didEndSelector: @selector(browseForTRANSFACOutputFile:returnCode:contextInfo:) 
+							 contextInfo: nil];
+	
+}
+
+
+-(void) browseForTRANSFACOutputFile: (NSOpenPanel*) sheet 
+						 returnCode: (int) returnCode
+						contextInfo: (void*) contextInfo {
+    if (returnCode) {
+        NSString *filename = sheet.filename;
+		
+		NSError *err = nil;
+		[[self toTRANSFAC] writeToFile:filename 
+							atomically:YES 
+							  encoding:NSUTF8StringEncoding 
+								 error:&err];
+		
+		if (err != nil) {[[NSAlert alertWithError: err] runModal];}
+    }
+}
+
+-(NSString*) toTRANSFAC {
+	/*
+	 NA Mync
+	 XX
+	 DE Mync
+	 XX
+	 P0 A C G T
+	 01 0 31 0 0 C
+	 02 29 0 0 2 A
+	 03 0 30 0 1 C
+	 04 2 1 28 0 G
+	 05 0 3 0 28 T
+	 06 0 0 31 0 G
+	 XX
+	 */
+	
+	NSMutableString *str = [NSMutableString string];
+	for (Motif *m in self.motifSet.motifs) {
+
+		[str appendFormat:@"NA %@\n",m.name];
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"P0 A C G T\n"];
+		
+		NSUInteger i = 1;
+		for (Multinomial *multi in m.columns) {
+			[str appendFormat:@"P%d %f %f %f %f\n",i++,
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"a"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"c"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"g"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"t"]]];
+		}
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"//\n"];
+	}
+	
+	return [[str copy] autorelease];
+}
+
 -(IBAction) increaseHeight: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMMotifHeight] + IM_MOTIF_HEIGHT_INCREMENT;

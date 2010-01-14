@@ -69,6 +69,7 @@
 -(IBAction) moveFocusPositionRight: (id) sender;
 
 
+
 +(NSArray*) sequenceSetDocuments;
 +(BOOL) atLeastOneSequenceSetDocumentIsOpen;
 

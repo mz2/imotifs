@@ -15,6 +15,7 @@
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
 		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
 		5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */; };
+		5F9DDFFC10FE2F7B003FC2A5 /* IMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 95113DF30FD91631006823C4 /* IMConstants.m */; };
 		5FA66A620E142A12009E5AFA /* IMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* IMAppController.m */; };
 		5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
 		5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8976C0E3158150084D9D8 /* MotifComparitor.m */; };
@@ -966,6 +967,15 @@
 			name = "Win Controller";
 			sourceTree = "<group>";
 		};
+		5F9DE2AC10FE99E4003FC2A5 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
 		5FA66A5F0E142A05009E5AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1275,6 +1285,7 @@
 		95414FD90F1245CF0083E72A /* Motif Set */ = {
 			isa = PBXGroup;
 			children = (
+				5F9DE2AC10FE99E4003FC2A5 /* Document */,
 				95AA6CE2108736F50000A8BD /* Actions */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
@@ -1282,8 +1293,6 @@
 				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
 				953D84900F2F9A1900049823 /* MotifSetDocumentController.h */,
 				953D84910F2F9A1900049823 /* MotifSetDocumentController.m */,
-				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
-				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
 				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
 			);
 			name = "Motif Set";
@@ -1986,6 +1995,7 @@
 				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
 				95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */,
 				5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */,
+				5F9DDFFC10FE2F7B003FC2A5 /* IMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
