@@ -10,6 +10,9 @@
 		5F2BC6FF108B666000A634F4 /* IMRetrievePeakSequencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */; };
 		5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */; };
 		5F2BC706108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */; };
+		5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */; };
+		5F5CD53A10FEB14300B15263 /* NMScanDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F5CD53910FEB14300B15263 /* NMScanDialog.xib */; };
+		5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5CD53E10FEB1BB00B15263 /* NMScanController.m */; };
 		5F61DFE70E2DF2C00091787E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5F61DFE60E2DF2C00091787E /* icon.icns */; };
 		5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */; };
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
@@ -544,6 +547,11 @@
 		5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrievePeakSequencesOperation.h; sourceTree = "<group>"; };
 		5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrievePeakSequencesOperation.m; sourceTree = "<group>"; };
 		5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOutputFileProducingOperation.h; sourceTree = "<group>"; };
+		5F5CD52910FEAFA400B15263 /* NMScanOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMScanOperation.h; sourceTree = "<group>"; };
+		5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMScanOperation.m; sourceTree = "<group>"; };
+		5F5CD53910FEB14300B15263 /* NMScanDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMScanDialog.xib; sourceTree = "<group>"; };
+		5F5CD53D10FEB1BB00B15263 /* NMScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMScanController.h; sourceTree = "<group>"; };
+		5F5CD53E10FEB1BB00B15263 /* NMScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMScanController.m; sourceTree = "<group>"; };
 		5F61DFE60E2DF2C00091787E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
 		5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetWindowController.h; sourceTree = "<group>"; };
@@ -952,6 +960,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F5CD52C10FEAFA700B15263 /* nmscan */ = {
+			isa = PBXGroup;
+			children = (
+				5F5CD53910FEB14300B15263 /* NMScanDialog.xib */,
+				5F5CD52910FEAFA400B15263 /* NMScanOperation.h */,
+				5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */,
+				5F5CD53D10FEB1BB00B15263 /* NMScanController.h */,
+				5F5CD53E10FEB1BB00B15263 /* NMScanController.m */,
+			);
+			name = nmscan;
+			sourceTree = "<group>";
+		};
 		5F9DDA1410FBD806003FC2A5 /* Doc Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,7 +1018,7 @@
 				95414FD90F1245CF0083E72A /* Motif Set */,
 				95414FDA0F1245DB0083E72A /* App Controller */,
 				95414FDB0F1245F00083E72A /* Preferences */,
-				953D81140F2F410700049823 /* NMICA Integration */,
+				953D81140F2F410700049823 /* NMICA Task Integration */,
 				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
 				95B2C6750EED8F11004605A6 /* Annotations Drawer */,
 				9563E2C2101E065F006F067A /* Pickers */,
@@ -1245,9 +1265,10 @@
 			name = nib;
 			sourceTree = "<group>";
 		};
-		953D81140F2F410700049823 /* NMICA Integration */ = {
+		953D81140F2F410700049823 /* NMICA Task Integration */ = {
 			isa = PBXGroup;
 			children = (
+				5F5CD52C10FEAFA700B15263 /* nmscan */,
 				9561D84510A04E3A003F37C6 /* nmshuffle */,
 				952B24BB10890FFC0051DACA /* nmrocauc */,
 				952B24BA10890FF60051DACA /* nmcutoff */,
@@ -1255,7 +1276,7 @@
 				951FF3DC0F32559000A9175C /* nmmakebg */,
 				951FF3DB0F32558800A9175C /* nminfer */,
 			);
-			name = "NMICA Integration";
+			name = "NMICA Task Integration";
 			sourceTree = "<group>";
 		};
 		953D811B0F2F418A00049823 /* doc */ = {
@@ -1890,6 +1911,7 @@
 				5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */,
 				9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */,
 				9562E67410F4D5380091549E /* IMAnnotationSetDocument.xib in Resources */,
+				5F5CD53A10FEB14300B15263 /* NMScanDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2010,6 +2032,8 @@
 				5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */,
 				5F9DDFFC10FE2F7B003FC2A5 /* IMConstants.m in Sources */,
 				5F9DE2D810FE9E71003FC2A5 /* RegexKitLite.m in Sources */,
+				5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */,
+				5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
