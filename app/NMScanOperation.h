@@ -18,6 +18,8 @@
 	NSString *_seqPath;
 	NSString *_outputPath;
 	
+	IMRetrieveSequencesStatusDialogController *_statusDialogController;
+	
 @protected
     NSFileHandle *_readHandle;
     NSData *_inData;

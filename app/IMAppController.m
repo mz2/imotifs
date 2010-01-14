@@ -25,6 +25,7 @@
 #import "RegexKitLite.h"
 #import "MotifSet.h"
 #import "Motif.h"
+#import "NMScanController.h"
 
 
 @implementation IMAppController
@@ -410,6 +411,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
  */
 
+-(IBAction) scanSequencesWithMotifs:(NSString*) seqs {
+	NSLog(@"Scan sequences with motifs");
+    NMScanController *controller = 
+	[[NMScanController alloc] initWithWindowNibName: @"NMScanDialog"];
+    [controller showWindow: self];
+}
 
 -(void) showHelp:(id) sender {
     NSLog(@"Showing help");

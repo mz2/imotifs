@@ -102,4 +102,6 @@ extern NSString *IMConsensusSearchCutoff;
 
 -(void) openTRANSFACFileAtPath:(NSString*)path;
 
+-(IBAction) scanSequencesWithMotifs:(NSString*) seqs;
+
 @end

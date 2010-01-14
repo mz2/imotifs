@@ -7,12 +7,14 @@
 //
 
 #import "NMScanOperation.h"
-
+#import "NMOperation.h"
+#import "IMRetrieveSequencesStatusDialogController.h"
 
 @implementation NMScanOperation
 @synthesize motifPath = _motifPath;
 @synthesize seqPath = _seqPath;
 @synthesize outputPath = _outputPath;
+@synthesize statusDialogController = _statusDialogController;
 
 // init
 - (id)init
@@ -29,11 +31,9 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:self.motifsFile forKey:@"-motifs"];        
-    [args setObject:self.positiveSeqsFile forKey:@"-seqs"];
+    [args setObject:self.motifPath forKey:@"-motifs"];        
+    [args setObject:self.seqPath forKey:@"-seqs"];
     [args setObject:self.outputPath forKey:@"-out"]; //TODO: add -out option to nmscan
-    
-    [args setObject:[NSNumber numberWithInt:_bootstraps] forKey:@"-bootstraps"];
     
 }
 
@@ -78,7 +78,7 @@
 }
 
 -(BOOL) motifsFileExists {
-    if (self.motifsFile == nil) return NO;
+    if (self.motifPath == nil) return NO;
     
     return [[NSFileManager defaultManager] fileExistsAtPath:self.motifPath];
 }
@@ -87,6 +87,10 @@
     if (self.seqPath == nil) return NO;
     
     return [[NSFileManager defaultManager] fileExistsAtPath:self.seqPath];
+}
+
+-(NSString*) outFilename {
+	return self.outputPath;
 }
 
 //=========================================================== 
