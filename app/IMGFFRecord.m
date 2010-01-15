@@ -102,6 +102,14 @@
     return nil;
 }
 
+-(NSUInteger) gffStart {
+    return [self start] + 1;
+}
+
+-(NSUInteger) gffEnd{
+    return [self end] + 1;
+}
+
 //=========================================================== 
 // dealloc
 //=========================================================== 
