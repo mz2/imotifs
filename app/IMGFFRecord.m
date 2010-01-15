@@ -71,7 +71,7 @@
 
 -(NSString*) description {
     return [NSString stringWithFormat:
-            @"%@\t%@\t%@\t%@\t%@\t%@\t%@\t%@",
+            @"%@\t%@\t%@\t%d\t%d\t%f\t%d\t%@",
             _seqName,
             _source,
             _feature,
@@ -83,16 +83,31 @@
 }
 
 -(NSString*) identifier {
-    return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start,self.end,self.score];
+	//GFFs start counting at 1
+    return [NSString stringWithFormat:@"%@_%@_%d_%d_%d",self.seqName,self.feature,self.start+1,self.end+1,self.score];
 }
 
 -(IMFeature*) toFeature {
     if (self.start == self.end) {
-        return [IMPointFeature pointFeatureWithPosition:self.start strand:self.strand];
+        return [IMPointFeature pointFeatureWithPosition:self.start 
+												 strand:self.strand
+                                                   type:self.feature];
     } else {
-        return [IMRangeFeature rangeFeatureWithStart:self.start end:self.end score:self.score strand:self.strand];
+        return [IMRangeFeature rangeFeatureWithStart:self.start 
+												 end:self.end 
+											   score:self.score 
+											  strand:self.strand
+                                                type:self.feature];
     }
     return nil;
+}
+
+-(NSUInteger) gffStart {
+    return [self start] + 1;
+}
+
+-(NSUInteger) gffEnd{
+    return [self end] + 1;
 }
 
 //=========================================================== 

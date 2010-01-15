@@ -85,10 +85,6 @@ extern NSString *IMMotifSetIndicesPboardType;
 	IBOutlet NSTextField *statusLabel;
     
     IBOutlet BOOL annotationsEditable;
-    //MotifComparitor *motifComparitor;
-	
-    NSTask *task;
-    NSPipe *pipe;
     
     IMMotifSetSearchType searchType;
 
@@ -170,12 +166,18 @@ extern NSString *IMMotifSetIndicesPboardType;
 -(IBAction) closePseudocountSheet: (id) sender;
 -(IBAction) toggleAnnotationsEditable: (id) sender;
 
--(IBAction) increaseMotifHeight: (id) sender;
--(IBAction) decreaseMotifHeight: (id) sender;
--(IBAction) increaseMotifWidth: (id) sender;
--(IBAction) decreaseMotifWidth: (id) sender;
+-(IBAction) increaseHeight: (id) sender;
+-(IBAction) decreaseHeight: (id) sender;
+-(IBAction) increaseWidth: (id) sender;
+-(IBAction) decreaseWidth: (id) sender;
+
+-(IBAction) exportTRANSFAC: (id) sender;
+
+-(NSString*) toTRANSFAC;
 
 -(BOOL) isMotifSetDocument;
 -(BOOL) isSequenceSetDocument;
 -(BOOL) isAnnotationSetDocument;
+
++(NSArray*) motifSetDocuments;
 @end

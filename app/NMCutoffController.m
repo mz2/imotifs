@@ -110,6 +110,7 @@
     
     [operationDialogController setOperation: self.operation];
     [self.operation setStatusDialogController: operationDialogController];
+    [self.operation.statusDialogController start: self];
     
     [[[[NSApplication sharedApplication] delegate] 
       sharedOperationQueue] addOperation: self.operation];

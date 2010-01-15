@@ -10,10 +10,16 @@
 		5F2BC6FF108B666000A634F4 /* IMRetrievePeakSequencesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC6FD108B666000A634F4 /* IMRetrievePeakSequencesController.m */; };
 		5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F2BC701108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib */; };
 		5F2BC706108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */; };
+		5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */; };
+		5F5CD53A10FEB14300B15263 /* NMScanDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5F5CD53910FEB14300B15263 /* NMScanDialog.xib */; };
+		5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F5CD53E10FEB1BB00B15263 /* NMScanController.m */; };
 		5F61DFE70E2DF2C00091787E /* icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = 5F61DFE60E2DF2C00091787E /* icon.icns */; };
 		5F66DF5B1089ECB9001159D8 /* DistributionBounds.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */; };
 		5F7ECB5A0E153CB900440A14 /* MotifSetWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */; };
 		5F83C9B90E363C4900369591 /* MotifNameCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F83C9B80E363C4900369591 /* MotifNameCell.m */; };
+		5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */; };
+		5F9DDFFC10FE2F7B003FC2A5 /* IMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 95113DF30FD91631006823C4 /* IMConstants.m */; };
+		5F9DE2D810FE9E71003FC2A5 /* RegexKitLite.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F9DE2D710FE9E70003FC2A5 /* RegexKitLite.m */; };
 		5FA66A620E142A12009E5AFA /* IMAppController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA66A610E142A12009E5AFA /* IMAppController.m */; };
 		5FB895260E2FBA8E0084D9D8 /* MotifSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */; };
 		5FB8976D0E3158150084D9D8 /* MotifComparitor.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FB8976C0E3158150084D9D8 /* MotifComparitor.m */; };
@@ -90,7 +96,6 @@
 		9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */; };
 		9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FD1810F248E300435D2A /* IMDocumentController.m */; };
 		9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FFE010F262CD00435D2A /* IMSequenceSetController.m */; };
-		9587FFEF10F2635300435D2A /* IMSequenceView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FFEE10F2635300435D2A /* IMSequenceView.m */; };
 		9595AE980FB9780500CE2BFF /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */; };
 		9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE970FB9780500CE2BFF /* IMNSColorExtras.m */; };
 		9595B0EA0FB9B79400CE2BFF /* MetamotifTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B0E90FB9B79400CE2BFF /* MetamotifTests.m */; };
@@ -299,6 +304,7 @@
 		95B3505D1023321B00F0E0BF /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505C1023321B00F0E0BF /* DBPrefsWindowController.m */; };
 		95B350601023326B00F0E0BF /* IMPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */; };
 		95B3507F10233A1600F0E0BF /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 95B3507E10233A1600F0E0BF /* General.png */; };
+		95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */; };
 		95BACE5A109CA94400FAA974 /* NMROCAUCOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE59109CA94400FAA974 /* NMROCAUCOperation.m */; };
 		95BACE63109CA9A600FAA974 /* NMROCAUCController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95BACE62109CA9A600FAA974 /* NMROCAUCController.m */; };
 		95C1C2DF109C83FE000E4224 /* NMCutoffOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C1C2DE109C83FE000E4224 /* NMCutoffOperation.m */; };
@@ -310,6 +316,7 @@
 		95D764E910231AEB009703AA /* Ensembl.gif in Resources */ = {isa = PBXBuildFile; fileRef = 95D764E810231AEB009703AA /* Ensembl.gif */; };
 		95DB40390FF626A300E42081 /* IMScoreCutoffDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */; };
 		95DB403B0FF6271700E42081 /* IMOverRepDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */; };
+		95DD35CF10FF31CC00420BA5 /* NSString+Quotes.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */; };
 		95DDD1E210F743FA0008CE43 /* IMRangeFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */; };
 		95DDD1E310F743FA0008CE43 /* IMPointFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */; };
 		95DDD2B310F749CB0008CE43 /* IMFeature.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD2B210F749CB0008CE43 /* IMFeature.m */; };
@@ -541,12 +548,21 @@
 		5F2BC704108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrievePeakSequencesOperation.h; sourceTree = "<group>"; };
 		5F2BC705108B70FC00A634F4 /* IMRetrievePeakSequencesOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrievePeakSequencesOperation.m; sourceTree = "<group>"; };
 		5F2BC707108B780A00A634F4 /* IMOutputFileProducingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMOutputFileProducingOperation.h; sourceTree = "<group>"; };
+		5F5CD52910FEAFA400B15263 /* NMScanOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMScanOperation.h; sourceTree = "<group>"; };
+		5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMScanOperation.m; sourceTree = "<group>"; };
+		5F5CD53910FEB14300B15263 /* NMScanDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NMScanDialog.xib; sourceTree = "<group>"; };
+		5F5CD53D10FEB1BB00B15263 /* NMScanController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMScanController.h; sourceTree = "<group>"; };
+		5F5CD53E10FEB1BB00B15263 /* NMScanController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMScanController.m; sourceTree = "<group>"; };
 		5F61DFE60E2DF2C00091787E /* icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = icon.icns; sourceTree = "<group>"; };
 		5F66DF5A1089ECB9001159D8 /* DistributionBounds.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DistributionBounds.m; path = ../libxms/DistributionBounds.m; sourceTree = SOURCE_ROOT; };
 		5F7ECB580E153CB900440A14 /* MotifSetWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetWindowController.h; sourceTree = "<group>"; };
 		5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetWindowController.m; sourceTree = "<group>"; };
 		5F83C9B70E363C4900369591 /* MotifNameCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifNameCell.h; sourceTree = "<group>"; };
 		5F83C9B80E363C4900369591 /* MotifNameCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifNameCell.m; sourceTree = "<group>"; };
+		5F9DDE3C10FDE655003FC2A5 /* IMPositionedFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPositionedFeature.h; sourceTree = "<group>"; };
+		5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPositionedFeature.m; sourceTree = "<group>"; };
+		5F9DE2D610FE9E70003FC2A5 /* RegexKitLite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegexKitLite.h; sourceTree = "<group>"; };
+		5F9DE2D710FE9E70003FC2A5 /* RegexKitLite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegexKitLite.m; sourceTree = "<group>"; };
 		5FA66A600E142A12009E5AFA /* IMAppController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMAppController.h; sourceTree = "<group>"; };
 		5FA66A610E142A12009E5AFA /* IMAppController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMAppController.m; sourceTree = "<group>"; };
 		5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetController.h; sourceTree = "<group>"; };
@@ -665,8 +681,6 @@
 		9587FD1810F248E300435D2A /* IMDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDocumentController.m; sourceTree = "<group>"; };
 		9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetController.h; sourceTree = "<group>"; };
 		9587FFE010F262CD00435D2A /* IMSequenceSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetController.m; sourceTree = "<group>"; };
-		9587FFED10F2635300435D2A /* IMSequenceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceView.h; sourceTree = "<group>"; };
-		9587FFEE10F2635300435D2A /* IMSequenceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceView.m; sourceTree = "<group>"; };
 		9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSArrayExtras.h; path = ../libxms/IMNSArrayExtras.h; sourceTree = SOURCE_ROOT; };
 		9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMNSArrayExtras.m; path = ../libxms/IMNSArrayExtras.m; sourceTree = SOURCE_ROOT; };
 		9595AE960FB9780500CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSColorExtras.h; path = ../libxms/IMNSColorExtras.h; sourceTree = SOURCE_ROOT; };
@@ -786,6 +800,8 @@
 		95B3505E1023326B00F0E0BF /* IMPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPrefsWindowController.h; sourceTree = "<group>"; };
 		95B3505F1023326B00F0E0BF /* IMPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPrefsWindowController.m; sourceTree = "<group>"; };
 		95B3507E10233A1600F0E0BF /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
+		95B49F4110FC88CF005DF489 /* NSColor+IMColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSColor+IMColors.h"; sourceTree = "<group>"; };
+		95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSColor+IMColors.m"; sourceTree = "<group>"; };
 		95BACE58109CA94400FAA974 /* NMROCAUCOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMROCAUCOperation.h; sourceTree = "<group>"; };
 		95BACE59109CA94400FAA974 /* NMROCAUCOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NMROCAUCOperation.m; sourceTree = "<group>"; };
 		95BACE61109CA9A600FAA974 /* NMROCAUCController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NMROCAUCController.h; sourceTree = "<group>"; };
@@ -800,6 +816,8 @@
 		95D764E810231AEB009703AA /* Ensembl.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = Ensembl.gif; sourceTree = "<group>"; };
 		95DB40380FF626A300E42081 /* IMScoreCutoffDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMScoreCutoffDialog.xib; sourceTree = "<group>"; };
 		95DB403A0FF6271700E42081 /* IMOverRepDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMOverRepDialog.xib; sourceTree = "<group>"; };
+		95DD35CD10FF31CC00420BA5 /* NSString+Quotes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Quotes.h"; sourceTree = "<group>"; };
+		95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Quotes.m"; sourceTree = "<group>"; };
 		95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRangeFeature.m; sourceTree = "<group>"; };
 		95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMPointFeature.m; sourceTree = "<group>"; };
 		95DDD1E010F743FA0008CE43 /* IMPointFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMPointFeature.h; sourceTree = "<group>"; };
@@ -945,6 +963,55 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5F5CD52C10FEAFA700B15263 /* nmscan */ = {
+			isa = PBXGroup;
+			children = (
+				5F5CD53910FEB14300B15263 /* NMScanDialog.xib */,
+				5F5CD52910FEAFA400B15263 /* NMScanOperation.h */,
+				5F5CD52A10FEAFA400B15263 /* NMScanOperation.m */,
+				5F5CD53D10FEB1BB00B15263 /* NMScanController.h */,
+				5F5CD53E10FEB1BB00B15263 /* NMScanController.m */,
+			);
+			name = nmscan;
+			sourceTree = "<group>";
+		};
+		5F9DDA1410FBD806003FC2A5 /* Doc Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587FC4710F23BFF00435D2A /* IMSequenceSetDocumentController.h */,
+				9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */,
+			);
+			name = "Doc Controller";
+			sourceTree = "<group>";
+		};
+		5F9DDA1810FBD812003FC2A5 /* Win Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9587FC4F10F23C8600435D2A /* IMSequenceSetWindowController.h */,
+				9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */,
+			);
+			name = "Win Controller";
+			sourceTree = "<group>";
+		};
+		5F9DE2AC10FE99E4003FC2A5 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
+				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
+				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
+			);
+			name = Document;
+			sourceTree = "<group>";
+		};
+		5F9DE2D910FE9E82003FC2A5 /* RegexKitLite */ = {
+			isa = PBXGroup;
+			children = (
+				5F9DE2D610FE9E70003FC2A5 /* RegexKitLite.h */,
+				5F9DE2D710FE9E70003FC2A5 /* RegexKitLite.m */,
+			);
+			name = RegexKitLite;
+			sourceTree = "<group>";
+		};
 		5FA66A5F0E142A05009E5AFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -954,7 +1021,7 @@
 				95414FD90F1245CF0083E72A /* Motif Set */,
 				95414FDA0F1245DB0083E72A /* App Controller */,
 				95414FDB0F1245F00083E72A /* Preferences */,
-				953D81140F2F410700049823 /* NMICA Integration */,
+				953D81140F2F410700049823 /* NMICA Task Integration */,
 				95800A8E0FE1538500D9068B /* Ensembl Sequence Retrieval */,
 				95B2C6750EED8F11004605A6 /* Annotations Drawer */,
 				9563E2C2101E065F006F067A /* Pickers */,
@@ -967,6 +1034,7 @@
 		5FB8976A0E3157F60084D9D8 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				5F9DE2D910FE9E82003FC2A5 /* RegexKitLite */,
 				953D7F0F0F2E07D200049823 /* Cocoa Extra Categories */,
 				953D81A70F2F4B5100049823 /* DDCLI */,
 				5FB898990E31E8450084D9D8 /* Matrix */,
@@ -1141,6 +1209,10 @@
 				955C93910FEA7645005E6148 /* NSString+ReverseSearch.m */,
 				95F893F7101F66C30021CCEB /* NSArray+UniqueObjects.h */,
 				95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */,
+				95B49F4110FC88CF005DF489 /* NSColor+IMColors.h */,
+				95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */,
+				95DD35CD10FF31CC00420BA5 /* NSString+Quotes.h */,
+				95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */,
 			);
 			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
@@ -1198,9 +1270,10 @@
 			name = nib;
 			sourceTree = "<group>";
 		};
-		953D81140F2F410700049823 /* NMICA Integration */ = {
+		953D81140F2F410700049823 /* NMICA Task Integration */ = {
 			isa = PBXGroup;
 			children = (
+				5F5CD52C10FEAFA700B15263 /* nmscan */,
 				9561D84510A04E3A003F37C6 /* nmshuffle */,
 				952B24BB10890FFC0051DACA /* nmrocauc */,
 				952B24BA10890FF60051DACA /* nmcutoff */,
@@ -1208,7 +1281,7 @@
 				951FF3DC0F32559000A9175C /* nmmakebg */,
 				951FF3DB0F32558800A9175C /* nminfer */,
 			);
-			name = "NMICA Integration";
+			name = "NMICA Task Integration";
 			sourceTree = "<group>";
 		};
 		953D811B0F2F418A00049823 /* doc */ = {
@@ -1252,6 +1325,7 @@
 		95414FD90F1245CF0083E72A /* Motif Set */ = {
 			isa = PBXGroup;
 			children = (
+				5F9DE2AC10FE99E4003FC2A5 /* Document */,
 				95AA6CE2108736F50000A8BD /* Actions */,
 				5FB895240E2FBA8E0084D9D8 /* MotifSetController.h */,
 				5FB895250E2FBA8E0084D9D8 /* MotifSetController.m */,
@@ -1259,9 +1333,6 @@
 				5F7ECB590E153CB900440A14 /* MotifSetWindowController.m */,
 				953D84900F2F9A1900049823 /* MotifSetDocumentController.h */,
 				953D84910F2F9A1900049823 /* MotifSetDocumentController.m */,
-				2A37F4AEFDCFA73011CA2CEA /* MotifSetDocument.h */,
-				2A37F4ACFDCFA73011CA2CEA /* MotifSetDocument.m */,
-				9545913D0FB06D8D00F0BEB5 /* MotifSetDocument.nib */,
 			);
 			name = "Motif Set";
 			sourceTree = "<group>";
@@ -1322,10 +1393,11 @@
 		9562E58B10F4AFEC0091549E /* Annotation Set */ = {
 			isa = PBXGroup;
 			children = (
-				95DDD29310F749710008CE43 /* GFF Record */,
+				9562E5FA10F4CC710091549E /* IMGFFRecord.h */,
+				9562E5FB10F4CC710091549E /* IMGFFRecord.m */,
 				95DDD29210F749610008CE43 /* Features */,
-				9562E6A410F4DF450091549E /* Array Controller */,
 				9562E5FD10F4CDEA0091549E /* Document */,
+				9562E6A410F4DF450091549E /* Array Controller */,
 			);
 			name = "Annotation Set";
 			sourceTree = "<group>";
@@ -1336,8 +1408,6 @@
 				9562E58C10F4B0080091549E /* IMAnnotationSetDocument.h */,
 				9562E58D10F4B0080091549E /* IMAnnotationSetDocument.m */,
 				9562E67310F4D5380091549E /* IMAnnotationSetDocument.xib */,
-				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
-				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
 			);
 			name = Document;
 			sourceTree = "<group>";
@@ -1362,6 +1432,7 @@
 		9563E2C2101E065F006F067A /* Pickers */ = {
 			isa = PBXGroup;
 			children = (
+				95B49F1410FC7DF2005DF489 /* Sequence Set Picker */,
 				95DDD57010F788870008CE43 /* Annotation Set Picker */,
 				95B2C6770EED8F40004605A6 /* Motif Name Picker */,
 				95B2C6740EED8EE3004605A6 /* Motif Set Picker */,
@@ -1614,6 +1685,15 @@
 			name = preferences;
 			sourceTree = "<group>";
 		};
+		95B49F1410FC7DF2005DF489 /* Sequence Set Picker */ = {
+			isa = PBXGroup;
+			children = (
+				95DDD4F410F7840E0008CE43 /* IMSequenceSetPickerWindow.h */,
+				95DDD4F510F7840E0008CE43 /* IMSequenceSetPickerWindow.m */,
+			);
+			name = "Sequence Set Picker";
+			sourceTree = "<group>";
+		};
 		95CE589710A5AECA00D00524 /* NestedMICA */ = {
 			isa = PBXGroup;
 			children = (
@@ -1641,17 +1721,10 @@
 				95DDD1DE10F743FA0008CE43 /* IMRangeFeature.m */,
 				95DDD1E010F743FA0008CE43 /* IMPointFeature.h */,
 				95DDD1DF10F743FA0008CE43 /* IMPointFeature.m */,
+				5F9DDE3C10FDE655003FC2A5 /* IMPositionedFeature.h */,
+				5F9DDE3D10FDE655003FC2A5 /* IMPositionedFeature.m */,
 			);
 			name = Features;
-			sourceTree = "<group>";
-		};
-		95DDD29310F749710008CE43 /* GFF Record */ = {
-			isa = PBXGroup;
-			children = (
-				9562E5FA10F4CC710091549E /* IMGFFRecord.h */,
-				9562E5FB10F4CC710091549E /* IMGFFRecord.m */,
-			);
-			name = "GFF Record";
 			sourceTree = "<group>";
 		};
 		95DDD57010F788870008CE43 /* Annotation Set Picker */ = {
@@ -1668,17 +1741,13 @@
 		95FE41CC10C8982600E034FE /* Sequence Set */ = {
 			isa = PBXGroup;
 			children = (
-				9562E03210F3533F0091549E /* Sequence View Cell */,
-				9562E03010F353340091549E /* Array Controller */,
-				9562E02B10F3530E0091549E /* Document */,
-				9587FC4710F23BFF00435D2A /* IMSequenceSetDocumentController.h */,
-				9587FC4810F23BFF00435D2A /* IMSequenceSetDocumentController.m */,
-				9587FC4F10F23C8600435D2A /* IMSequenceSetWindowController.h */,
-				9587FC5010F23C8700435D2A /* IMSequenceSetWindowController.m */,
-				9587FFED10F2635300435D2A /* IMSequenceView.h */,
-				9587FFEE10F2635300435D2A /* IMSequenceView.m */,
 				9562E00910F351910091549E /* IMSequence.h */,
 				9562E00A10F351910091549E /* IMSequence.m */,
+				9562E02B10F3530E0091549E /* Document */,
+				9562E03210F3533F0091549E /* Sequence View Cell */,
+				5F9DDA1810FBD812003FC2A5 /* Win Controller */,
+				5F9DDA1410FBD806003FC2A5 /* Doc Controller */,
+				9562E03010F353340091549E /* Array Controller */,
 			);
 			name = "Sequence Set";
 			sourceTree = "<group>";
@@ -1847,6 +1916,7 @@
 				5F2BC702108B685E00A634F4 /* IMRetrievePeakSequencesDialog.xib in Resources */,
 				9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */,
 				9562E67410F4D5380091549E /* IMAnnotationSetDocument.xib in Resources */,
+				5F5CD53A10FEB14300B15263 /* NMScanDialog.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1952,7 +2022,6 @@
 				9587FC5110F23C8700435D2A /* IMSequenceSetWindowController.m in Sources */,
 				9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */,
 				9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */,
-				9587FFEF10F2635300435D2A /* IMSequenceView.m in Sources */,
 				9562DF3910F3462F0091549E /* IMSequenceViewCell.m in Sources */,
 				9562E00B10F351910091549E /* IMSequence.m in Sources */,
 				9562E58E10F4B0080091549E /* IMAnnotationSetDocument.m in Sources */,
@@ -1964,6 +2033,13 @@
 				95DDD4F610F7840E0008CE43 /* IMSequenceSetPickerWindow.m in Sources */,
 				95DDD53010F786770008CE43 /* IMAnnotationSetPickerWindow.m in Sources */,
 				95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */,
+				95B49F4310FC88CF005DF489 /* NSColor+IMColors.m in Sources */,
+				5F9DDE3E10FDE655003FC2A5 /* IMPositionedFeature.m in Sources */,
+				5F9DDFFC10FE2F7B003FC2A5 /* IMConstants.m in Sources */,
+				5F9DE2D810FE9E71003FC2A5 /* RegexKitLite.m in Sources */,
+				5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */,
+				5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */,
+				95DD35CF10FF31CC00420BA5 /* NSString+Quotes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2147,7 +2223,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "IMDEBUG=YES";
+				GCC_PREPROCESSOR_DEFINITIONS = "IMDEBUG=1";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				JAVA_HOME = /System/Library/Frameworks/JavaVM.framework/Versions/1.5.0/Home;
@@ -2158,6 +2234,7 @@
 				);
 				NMICA_EXTRA_HOME = "${HOME}/workspace/nmica-extra";
 				NMICA_HOME = "${HOME}/workspace/nmica-dev";
+				OTHER_LDFLAGS = "-licucore";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";
@@ -2182,7 +2259,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = iMotifs_Prefix.pch;
-				GCC_PREPROCESSOR_DEFINITIONS = "DEBUG=YES";
+				GCC_PREPROCESSOR_DEFINITIONS = "";
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
@@ -2190,6 +2267,7 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/../../../workspace/nmica-dev/native\"",
 				);
+				OTHER_LDFLAGS = "-licucore";
 				PRIVATE_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/PrivateHeaders";
 				PRODUCT_NAME = iMotifs;
 				PUBLIC_HEADERS_FOLDER_PATH = "$(CONTENTS_FOLDER_PATH)/Headers";

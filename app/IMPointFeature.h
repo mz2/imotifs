@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMFeature.h"
+#import "IMPositionedFeature.h"
 
-@interface IMPointFeature : IMFeature {
+@interface IMPointFeature : IMPositionedFeature {
 	NSInteger _position;
 	
 }
@@ -17,8 +18,10 @@
 @property(nonatomic,assign)NSInteger position;
 
 - (id)initWithPosition:(NSInteger)aPosition
-                strand:(IMStrand)strand;
+                strand:(IMStrand)strand
+				  type:(NSString*) type;
 + (id)pointFeatureWithPosition:(NSInteger)aPosition 
-                        strand:(IMStrand)strand;
+                        strand:(IMStrand)strand
+						  type:(NSString*) type;
 
 @end

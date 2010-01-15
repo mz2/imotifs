@@ -95,9 +95,9 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject: self.motifsAFile 
+    [args setObject: [self.motifsAFile stringBySurroundingWithSingleQuotes] 
              forKey: @"-database"];
-    [args setObject: self.motifsBFile 
+    [args setObject: [self.motifsBFile stringBySurroundingWithSingleQuotes] 
              forKey: @"-motifs"];
     [args setObject: [NSNumber numberWithInt:self.bootstraps] 
              forKey:@"-bootstraps"];
@@ -114,7 +114,7 @@
         self.outputFile = outputTempFile;
     }
     
-    [args setObject: self.outputFile forKey:@"-out"];
+    [args setObject: [self.outputFile stringBySurroundingWithSingleQuotes] forKey:@"-out"];
 }
 
 -(void) initializeTask:(NSTask*)t {

@@ -6,24 +6,29 @@
 //  Copyright 2008 Matias Piipari. All rights reserved.
 //
 
+#import "IMConstants.h"
 #import <BioCocoa/BCSequenceArray.h>
 #import "IMSequenceViewCell.h"
 #import "IMRangeFeature.h"
+#import "IMPointFeature.h"
 #import "IMSequence.h"
 
 @interface IMSequenceViewCell (private)
-- (void) drawSequence: (BCSequence*) seq 
+- (void) drawSequence: (IMSequence*) seq 
 			   inRect: (NSRect)rect;
 - (void) drawRangeFeature: (IMRangeFeature*) a
-				 forSequence: (BCSequence*) seq
+				 forSequence: (IMSequence*) seq
 					  inRect: (NSRect) rect;
+
+- (void) drawPointFeature: (IMPointFeature*) a
+              forSequence: (IMSequence*) seq
+                   inRect: (NSRect) rect;
+
 -(NSInteger) symbolPositionAtPoint:(NSPoint) p;
 @end
 
-const CGFloat IMSymbolWidth = 2.0;
-
-
 @implementation IMSequenceViewCell
+@synthesize symbolWidth = _symbolWidth;
 
 - (void) awakeFromNib {
     [super awakeFromNib];
@@ -34,7 +39,7 @@ const CGFloat IMSymbolWidth = 2.0;
 - (id) initImageCell:(NSImage*) image {
     self = [super initImageCell:image];
     if (self != nil) {
-        
+        _symbolWidth = [[NSUserDefaults standardUserDefaults] floatForKey:IMSymbolWidthKey];
     }
     return self;
 }
@@ -44,18 +49,21 @@ const CGFloat IMSymbolWidth = 2.0;
     PCLog(@"MotifViewCell: initialising motif view text cell");
     self = [super initTextCell:str];
     if (self != nil) {
-        
+        _symbolWidth = [[NSUserDefaults standardUserDefaults] floatForKey:IMSymbolWidthKey];
     }
     return self;
 }
 
 - (id)initWithCoder:(NSCoder *)coder {
     self = [super initWithCoder:coder];	
+	_symbolWidth = [coder decodeFloatForKey:IMSymbolWidthKey];
+	
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)coder {
     [super encodeWithCoder:coder];
+	[coder encodeFloat:_symbolWidth forKey:IMSymbolWidthKey];
 }
 
 - (id)copyWithZone:(NSZone *)zone {
@@ -64,6 +72,7 @@ const CGFloat IMSymbolWidth = 2.0;
     [[self objectValue] retain];
     [cellCopy setObjectValue: self.objectValue];
     [cellCopy setImage: self.image];
+	[cellCopy setSymbolWidth: self.symbolWidth];
     
     return [cellCopy retain];
 }
@@ -78,35 +87,46 @@ const CGFloat IMSymbolWidth = 2.0;
     
     
 	NSPoint cellP = NSMakePoint(p.x - cellFrame.origin.x,p.y - cellFrame.origin.y);
-	[[self objectValue] setFocusPosition: [self symbolPositionAtPoint: cellP]];
-    
-	PCLog(@"Track mouse event %f,%f in rect %f,%f (%f,%f) of view %@ until mouse up %d",
-		  p.x,p.y,cellFrame.origin.x,cellFrame.origin.y,cellP.x,cellP.y,controlView,untilMouseUp);
-    
-    
+	
+	NSInteger symPos = [self symbolPositionAtPoint: cellP];
+	
+	//toggle selection
+	/*
+	if ([[self objectValue] focusPosition] == symPos) {
+		[[self objectValue] setFocusPosition: NSNotFound];
+	} else {
+		[[self objectValue] setFocusPosition: symPos];		
+	}*/
+	[[self objectValue] setFocusPosition: symPos];
+        
+    IMSequence *seq = (IMSequence*)[self objectValue];
+
+	[self willChangeValueForKey:@"features"];
+	[self willChangeValueForKey:@"selectedFeatures"];
+    for (IMFeature *f in seq.features) {[f setSelected: NO];}
+    NSArray *selectedFeats = [seq featuresOverlappingWithPosition: symPos];
+    //PCLog(@"Selected features: %@ (all: %@)", selectedFeats, [seq features]);
+    for (IMFeature *f in selectedFeats) {[f setSelected: YES];}
+    [self didChangeValueForKey:@"features"];
+	[self didChangeValueForKey:@"selectedFeatures"];
 	return [super trackMouse:theEvent 
 					  inRect: cellFrame 
 					  ofView: controlView 
 				untilMouseUp: untilMouseUp];
-    
 }
 
 -(CGFloat) sequenceLengthInPixels:(IMSequence*) seq {
-	return (IMSymbolWidth * (CGFloat)[self.objectValue length]);
+	return (_symbolWidth * (CGFloat)[self.objectValue length]);
 }
 -(CGFloat) sequence:(IMSequence*)seq lengthFractionAtPoint:(NSPoint) p {
 	return (p.x - IMSequenceCellMargin) / [self sequenceLengthInPixels: seq];
 }
 
-
 -(NSInteger) symbolPositionAtPoint:(NSPoint) p {
 	IMSequence *seq = (IMSequence*)[self objectValue];
 	CGFloat seqLength = [self sequenceLengthInPixels: seq];
-    
 	CGFloat lengthFraction = [self sequence:seq lengthFractionAtPoint:p];
-    
-    
-	CGFloat syms = (lengthFraction * seqLength) / IMSymbolWidth;
+	CGFloat syms = (lengthFraction * seqLength) / _symbolWidth;
     
 	if (lengthFraction > 1.0) {
 		return NSNotFound;
@@ -120,24 +140,10 @@ const CGFloat IMSymbolWidth = 2.0;
 /*
  - (BOOL)startTrackingAt:(NSPoint)startPoint 
  inView:(NSView *)controlView {
- //PCLog(@"Start tracking at %f,%f in view %@", startPoint.x,startPoint.y, controlView);
  return [super startTrackingAt:startPoint inView: controlView];
  }
  
- - (BOOL)continueTracking:(NSPoint)lastPoint 
- at:(NSPoint)currentPoint
- inView:(NSView *)controlView {
- PCLog(@"Continue tracking from %f,%f to %f,%f in view %@", 
- lastPoint.x,
- lastPoint.y,
- currentPoint.x,
- currentPoint.y,
- controlView);
- return [super continueTracking:lastPoint at:currentPoint inView:controlView];
- }
- 
  - (void)stopTracking:(NSPoint)lastPoint at:(NSPoint)stopPoint inView:(NSView *)controlView mouseIsUp:(BOOL)flag {
- PCLog(@"Stop tracking at %f,%f in view %@. mouse is up:%d", lastPoint,stopPoint,controlView,flag);
  [super stopTracking:lastPoint at:stopPoint inView:controlView mouseIsUp:flag];
  }
  */
@@ -171,12 +177,6 @@ const CGFloat IMSymbolWidth = 2.0;
     else
         currentTint=[self controlTint];
     
-    /*
-     if ([[self objectValue] color]) {
-     [[[self objectValue] color] set];
-     [NSBezierPath fillRect: cellFrame];
-     }*/
-    
     NSColor *tintColor=[NSColor colorForControlTint:currentTint];
     [tintColor set];
     
@@ -195,71 +195,158 @@ const CGFloat IMSymbolWidth = 2.0;
                             yBy:cellFrame.origin.y];
     [cellTransform concat];
     
-    [self drawSequence: (BCSequence*)self.objectValue inRect: cellFrame];
+    [self drawSequence: (IMSequence*)self.objectValue inRect: cellFrame];
     
     [NSGraphicsContext restoreGraphicsState];
 }
 
-- (void) drawSequence: (BCSequence*) seq inRect: (NSRect)rect {
+- (void) drawSequence: (IMSequence*) seq inRect: (NSRect)rect {
 	NSAffineTransform *moveToSeqStart = [NSAffineTransform transform];
 	[moveToSeqStart translateXBy:IMSequenceCellMargin yBy:IMSequenceCellMargin];
 	[moveToSeqStart concat];
 	[NSGraphicsContext saveGraphicsState];
     
     
-	CGFloat seqWidthOnScreen = seq.length * IMSymbolWidth;	
-	PCLog(@"Seq will be %.2f pixels long on screen", seqWidthOnScreen);
+	CGFloat seqWidthOnScreen = seq.length * _symbolWidth;	
+	//PCLog(@"Seq will be %.2f pixels long on screen", seqWidthOnScreen);
     
     
-	NSRect insetRect = NSMakeRect(0, 1, seqWidthOnScreen, 8);
+	NSRect insetRect = NSMakeRect(0, 2, seqWidthOnScreen, 6);
     NSBezierPath *path = [NSBezierPath bezierPathWithRect: insetRect];
     
     
     [path setLineWidth: 1.0];
-    [[NSColor blackColor] setFill];
-    [[NSColor grayColor] setStroke];
-    [path fill];
+    [[NSColor grayColor] setFill];
+    [[NSColor blackColor] setStroke];
+    //[path fill];
     [path stroke];
+	
     
-	[self drawRangeFeature:
-	 [IMRangeFeature rangeFeatureWithStart: 10 end: 20 score: 10 strand:IMStrandNA]
-                  forSequence: seq
-                       inRect: rect];
-    
-	[self drawRangeFeature:
-	 [IMRangeFeature rangeFeatureWithStart: 80 end: 100 score: 10 strand:IMStrandNA]
-				  forSequence: seq
-					   inRect: rect];
-    
-	if ([[self objectValue] focusPosition] != NSNotFound) {
-        
-		NSRect rect = NSMakeRect([[self objectValue] focusPosition] * IMSymbolWidth, 0, 10, 10);
-		NSBezierPath* circlePath = [NSBezierPath bezierPath];
-		[circlePath appendBezierPathWithOvalInRect: rect];
-        
-		[[NSColor redColor] setFill];
-		[circlePath stroke];
+
+	for (IMFeature *f in [seq features]) {
+		if ([f isKindOfClass:[IMRangeFeature class]]) {
+			[self drawRangeFeature: (IMRangeFeature*)f
+					   forSequence: seq
+							inRect: rect];
+		}
+        if ([f isKindOfClass:[IMPointFeature class]]) {
+            [self drawPointFeature: (IMPointFeature*)f
+                       forSequence: seq
+                            inRect: rect];
+        }
+	}
+	
+	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
+	
+	NSInteger focus = [[self objectValue] focusPosition];
+	
+	if (focus != NSNotFound) {
+		[NSGraphicsContext saveGraphicsState]; //moveToSeqStart
+		NSAffineTransform *moveToSeqStart = [NSAffineTransform transform];
+		
+		[moveToSeqStart translateXBy:[[self objectValue] focusPosition] * _symbolWidth
+								 yBy:5];
+		[moveToSeqStart concat];
+		
+		
+		NSBezierPath* path = [[[NSBezierPath alloc] init] autorelease];
+		[path moveToPoint:NSMakePoint(-6, 0)];
+		[path lineToPoint:NSMakePoint(0, -6)];
+		[path lineToPoint:NSMakePoint(6, 0)];
+		[path lineToPoint:NSMakePoint(0, 6)];		
+		[path lineToPoint:NSMakePoint(-6, 0)];
+		
+		[[[NSColor redColor] colorWithAlphaComponent:0.8] setFill];
+		[path fill];
+		[NSGraphicsContext restoreGraphicsState];
+		
+		/* draw the focus range */
+		NSRange range = [[self objectValue] focusRange];		
+		[NSGraphicsContext saveGraphicsState]; //moveToSeqStart
+		NSAffineTransform *focusBoxStart = [NSAffineTransform transform];
+		[focusBoxStart translateXBy:range.location * _symbolWidth
+								 yBy:0];
+		[focusBoxStart concat];
+		
+		PCLog(@"(%d) %d => %d",focus, range.location, range.location + range.length);
+		NSBezierPath *focusBox = 
+		[NSBezierPath bezierPathWithRect:NSMakeRect(0,0, 
+													range.length * _symbolWidth, 10)];
+		[[[NSColor redColor] colorWithAlphaComponent:0.2] setFill];
+		[focusBox fill];
+		
+		[NSGraphicsContext restoreGraphicsState];
 	}
     
-	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
+    [NSGraphicsContext saveGraphicsState];
+    /* focus detail string */
+    NSAffineTransform *trans = [NSAffineTransform transform];
+    [trans translateXBy:[[self objectValue] focusPosition] yBy:10];
+    [trans concat];
+    
+    NSAttributedString *fstring = [(IMSequence*)[self objectValue] focusPositionFormattedString];
+    [fstring drawInRect:NSMakeRect(-200, 0, 400, 25)];
+    
+    [NSGraphicsContext restoreGraphicsState];
+}
+
+- (void) drawPointFeature: (IMPointFeature*) a
+              forSequence: (IMSequence*) seq
+                   inRect: (NSRect) rect {
+    NSAffineTransform *moveToSeqStart = [NSAffineTransform transform];
+    
+	[moveToSeqStart translateXBy:a.position yBy:5];
+	[moveToSeqStart concat];
+	
+    [NSGraphicsContext saveGraphicsState];
+    
+    NSBezierPath *p = [[[NSBezierPath alloc] init] autorelease];
+    [p moveToPoint:NSMakePoint(a.position * _symbolWidth, 0)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth - 5, -5)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth + 5, -5)];
+    [p lineToPoint:NSMakePoint(a.position * _symbolWidth, 0)];
+    
+    [NSGraphicsContext restoreGraphicsState];
 }
 
 - (void) drawRangeFeature: (IMRangeFeature*) a
-				 forSequence: (BCSequence*) seq
-					  inRect: (NSRect) rect {
-	NSAffineTransform *moveToSeqStart = [NSAffineTransform transform];
-	[moveToSeqStart translateXBy:a.start * IMSymbolWidth yBy:0];
-	[moveToSeqStart concat];
-	[NSGraphicsContext saveGraphicsState];
+              forSequence: (IMSequence*) seq
+                   inRect: (NSRect) rect {
+    [NSGraphicsContext saveGraphicsState];
+	NSAffineTransform *transform = [NSAffineTransform transform];
     
-	NSRect insetRect = NSMakeRect(0, 0, [a length] * IMSymbolWidth, 10);
+	[transform translateXBy:a.start * _symbolWidth 
+                        yBy:0];
+    //[transform scaleXBy:IMSymbolWidth yBy:1.0];
+    [transform concat];
+    
+	NSRect insetRect = NSMakeRect(0, 0, [a length] * _symbolWidth , 10);
     NSBezierPath *path = [NSBezierPath bezierPathWithRect: insetRect];
     
-    [path setLineWidth: 2.0];
-    [[NSColor blueColor] setFill];
-    [[NSColor darkGrayColor] setStroke];
+    [path setLineWidth: 1.0];
+    
+    if (a.color == nil) {[[NSColor colorWithDeviceHue:0.0 saturation:0.0 brightness:0.8 alpha:0.5] setFill];} 
+    else {
+        if (a.selected) {
+            [[a.color colorWithAlphaComponent:1.0] setFill];
+        } else {
+            [[a.color colorWithAlphaComponent:0.5] setFill];
+        }
+    }
     [path fill];
-    [path stroke];
+    
+    if (a.selected) {
+		if (a.color == nil) {
+			[[NSColor redColor] setStroke];
+		} else {
+			
+			[[[a.color colorWithAlphaComponent:1.0] blendedColorWithFraction:0.5 
+																	 ofColor:[NSColor blackColor]] setStroke];
+			[path setLineWidth: 2];
+			[path stroke];
+		}
+    }
+    
     
 	[NSGraphicsContext restoreGraphicsState]; //moveToSeqStart
 }

@@ -13,6 +13,14 @@ const static NSInteger IMAdviseableNumMotifsForNMInfer = 10;
 
 const static CGFloat const IMSequenceCellMargin = 4.0;
 
+extern NSString * const IMSymbolWidthKey;
+extern NSString * const IMSequenceFocusAreaHalfLengthKey;
+
+const static CGFloat IMDefaultSymbolWidth = 2.0; 
+const static CGFloat IMSymbolWidthIncrement = 0.1;
+const static NSUInteger IMSequenceFocusAreaHalfLength = 10;
+
+
 typedef enum IMStrand {
     IMStrandPositive = 1,
     IMStrandNegative = -1,

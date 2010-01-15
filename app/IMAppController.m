@@ -20,6 +20,13 @@
 #import "IMRetrieveSequencesDialogController.h"
 #import "IMRetrievePeakSequencesController.h"
 #import "MotifSetDocument.h"
+#import "IMAnnotationSetDocument.h"
+#import "IMSequenceSetDocument.h"
+#import "RegexKitLite.h"
+#import "MotifSet.h"
+#import "Motif.h"
+#import "NMScanController.h"
+
 
 @implementation IMAppController
 @synthesize preferenceController;
@@ -66,6 +73,12 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [defaultValues setObject: [NSNumber numberWithFloat: IMDefaultColWidth] 
                       forKey: IMColumnWidth];
     
+	[defaultValues setObject: [NSNumber numberWithFloat:IMDefaultSymbolWidth] 
+					  forKey:IMSymbolWidthKey];
+	
+	[defaultValues setObject: [NSNumber numberWithInt:IMSequenceFocusAreaHalfLength] 
+					  forKey: IMSequenceFocusAreaHalfLengthKey];
+	
     [defaultValues setObject: [NSNumber numberWithBool:YES] forKey:@"IMUseBuiltInNMICA"];
     
     [defaultValues setObject: @"anonymous" forKey:@"IMEnsemblUser"];
@@ -239,6 +252,140 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
     [controller showWindow: self];
 }
 
+-(IBAction) importTRANSFAC: (id) sender {
+    NSOpenPanel *oPanel = [NSOpenPanel openPanel];
+	
+    [oPanel setAllowsMultipleSelection:YES];
+    NSInteger result = [oPanel runModalForDirectory:NSHomeDirectory()
+											   file:nil 
+											  types:nil];
+    if (result == NSOKButton) {
+        NSArray *filesToOpen = [oPanel filenames];
+        int i, count = [filesToOpen count];
+        for (i=0; i<count; i++) {
+            NSString *aFile = [filesToOpen objectAtIndex:i];
+			[self openTRANSFACFileAtPath: aFile];
+        }
+    }
+}
+
+-(void) openTRANSFACFileAtPath:(NSString*)infilename {
+	MotifSet *mset = [[[MotifSet alloc] init] autorelease];
+	
+	NSError *readErr = nil;
+	NSString *fileContents = [NSString stringWithContentsOfFile:infilename encoding:NSUTF8StringEncoding error:&readErr];
+	
+	if (readErr != nil) {[NSAlert alertWithError: readErr];}
+	
+	NSArray *lines = [fileContents componentsSeparatedByString:@"\n"];
+	
+	
+	NSString *name = nil;
+	NSMutableArray *cols = nil;
+	NSMutableArray *motifs = [NSMutableArray array];
+	Motif *motif = nil;
+	
+	PCLog(@"Parsing lines %@", lines);
+	
+	for (NSString *line in lines) {
+		PCLog(@"%@",line);
+		NSArray *nameComponents = [line captureComponentsMatchedByRegex:@"NA\\s+(.*)"];
+		NSArray *idComponents = [line captureComponentsMatchedByRegex:@"ID\\s+(.*)"];
+		//NSLog(@"qComponents:%@ %@ ", qComponents, [qComponents objectAtIndex:1]);
+		if (idComponents.count > 1) {
+			name = [idComponents objectAtIndex: 1];
+		}
+		if (nameComponents.count > 1) {
+			name = [nameComponents objectAtIndex: 1];
+		}
+		
+		NSArray *colHeaderComponents = [line captureComponentsMatchedByRegex:@"^(P0)"];
+		
+		if (colHeaderComponents.count > 1) {
+			PCLog(@"Column header");
+			cols = [NSMutableArray array];
+		}
+		
+		NSArray *colComponents = [line captureComponentsMatchedByRegex:@"^P(\\d+)\\s+(.*)"];
+		if (colComponents.count > 2) {
+			PCLog(@"Column");
+			NSString *colNum = [colComponents objectAtIndex:1];
+			NSArray *weights = [[colComponents objectAtIndex: 2] componentsSeparatedByString:@" "];
+			PCLog(@"Weights for column %@: %@", colNum, weights);
+			
+			Multinomial *multi = [[[Multinomial alloc] initWithAlphabet:[Alphabet withName:@"dna"]] autorelease];
+			
+			[multi symbol: [[Alphabet withName:@"dna"] 
+							symbolWithName:@"a"] 
+			   withWeight: [[weights objectAtIndex:0] floatValue]];
+			[multi symbol: [[Alphabet withName:@"dna"] 
+							symbolWithName:@"c"] 
+			   withWeight: [[weights objectAtIndex:1] floatValue]];
+			[multi symbol: [[Alphabet withName:@"dna"] 
+							symbolWithName:@"g"] 
+			   withWeight: [[weights objectAtIndex:2] floatValue]];
+			[multi symbol: [[Alphabet withName:@"dna"] 
+							symbolWithName:@"t"] 
+			   withWeight: [[weights objectAtIndex:3] floatValue]];
+			
+			[cols addObject: multi];
+		}
+		
+		NSArray *endComponents = [line captureComponentsMatchedByRegex:@"(//)"];
+		
+		if (endComponents.count > 1) {
+			motif = [[[Motif alloc] initWithAlphabet: [Alphabet withName:@"dna"] 
+										  andColumns: cols] autorelease];
+			cols = nil;
+			name = nil;
+		}
+		
+		if (colHeaderComponents.count > 1) {
+			PCLog(@"Column header");
+			cols = [NSMutableArray array];
+			if (motif != nil) {
+				[motifs addObject: motif];
+			} else {
+				PCLog(@"Error with parsing TRANSFAC file");
+			}
+		}
+	}
+	
+	for (Motif *m in motifs) {
+		[mset addMotif: m];
+	}
+	
+	NSString *transfacExportTempPath = 
+	[[NSTemporaryDirectory() stringByAppendingPathComponent:
+	  [NSString stringWithFormat: @"%d%@", rand(), @".xms"]] retain];
+	
+	NSError *err = nil;
+	
+	PCLog(@"%@",[[mset toXMS] description]);
+	[[[mset toXMS] description] writeToFile:transfacExportTempPath 
+								 atomically:YES
+								   encoding:NSUTF8StringEncoding 
+									  error:&err];
+	if (err != nil) {[[NSAlert alertWithError:err] runModal];}
+	
+	NSError *exportErr = nil;
+	MotifSetDocument *doc = [[MotifSetDocument alloc] 
+							 initWithContentsOfURL:[NSURL fileURLWithPath:transfacExportTempPath] 
+																   ofType:@"Motif set" 
+																	error:&exportErr];
+	[[NSFileManager defaultManager] removeFileAtPath: transfacExportTempPath 
+											 handler: nil];
+	[doc makeWindowControllers];
+	[doc showWindows];
+
+	
+	if (exportErr != nil) {
+		[[NSAlert alertWithError:exportErr] runModal];
+	}
+	[doc showWindows];
+}
+
+
 - (void)applicationWillFinishLaunching:(NSNotification *)aNotification {
     //MotifSetDocumentController *msetDocController = [[MotifSetDocumentController alloc] init];
     //this object is set as the shared document controller because it's the first to be loaded, so it can be released.
@@ -264,9 +411,28 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 }
  */
 
+-(IBAction) scanSequencesWithMotifs:(NSString*) seqs {
+	NSLog(@"Scan sequences with motifs");
+    NMScanController *controller = 
+	[[NMScanController alloc] initWithWindowNibName: @"NMScanDialog"];
+    [controller showWindow: self];
+}
 
 -(void) showHelp:(id) sender {
     NSLog(@"Showing help");
     [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://wiki.github.com/mz2/imotifs"]];
 }
+
+-(BOOL) atLeastOneAnnotationSetDocumentIsOpen {
+	return [[IMAnnotationSetDocument annotationSetDocuments] count] > 0;
+}
+
+-(BOOL) atLeastOneSequenceSetDocumentIsOpen {
+	return [[IMSequenceSetDocument sequenceSetDocuments] count] > 0;
+}
+
+-(BOOL) atLeastOneMotifSetDocumentIsOpen {
+	return [[MotifSetDocument motifSetDocuments] count] > 0;
+}
+
 @end

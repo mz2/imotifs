@@ -1,3 +1,12 @@
+h3. 0.2.5 - Major revisions: motif scanning + sequence feature viewing support
+
+* Error handling improved: analysis tools will not let you run or copy to clipboard before all required arguments have been included.
+* Warning messages added to the motif inference configuration dialog to warn about long-running tasks.
+* Packaged as a 32-bit universal binary, including all the dependent libraries that are packaged with iMotifs.
+* Motif scanning: run nmscan on a set of sequences, then view the motif hits on the sequence.
+* FASTA sequence support (BioCocoa's FASTA parser is used). 
+* GFF file support: a sortable table is shown for sequence features.
+
 h3. 0.2.4 - User suggested to run NMICA as a batch job for large computations, bug fixes to reciprocal matching
 
 * Motif discovery configuration dialog now suggests running the task as a batch job with the assistance of 'Copy to clipboard' and Terminal, when the user has specified  more than 200 sequences and/or more than 10 motifs.

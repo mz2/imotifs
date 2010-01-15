@@ -135,7 +135,7 @@
     }
     
     if (self.selectGeneListFromFile && self.geneNameListFilename) {
-        [args setObject: self.geneNameListFilename forKey: @"-filterByIdsInFile"];
+        [args setObject: [self.geneNameListFilename stringBySurroundingWithSingleQuotes] forKey: @"-filterByIdsInFile"];
     }
 	
 	if (self.searchType == IMRetrieveSequencesSearchTypeStableID) {
@@ -159,7 +159,7 @@
     }
     
     if (self.dbUser != nil) {
-        [args setObject:self.dbUser forKey:@"-user"];
+        [args setObject:[self.dbUser stringBySurroundingWithSingleQuotes] forKey:@"-user"];
     }
     
     if (self.dbPassword != nil) {
@@ -167,7 +167,7 @@
     }
         
     if (self.outFilename != nil) {
-        [args setObject:self.outFilename forKey:@"-out"];
+        [args setObject:[self.outFilename stringBySurroundingWithSingleQuotes] forKey:@"-out"];
     }
     
 }
@@ -214,7 +214,7 @@
 -(void) setStatusDialogController:(IMRetrieveSequencesStatusDialogController*) controller {
     //[[controller lastEntryView] setString: 
     statusDialogController = controller;
-    [statusDialogController.spinner startAnimation:self];
+    [statusDialogController start: self];
 }
 
 -(BOOL) enableChoosingGeneIDListBySearching {

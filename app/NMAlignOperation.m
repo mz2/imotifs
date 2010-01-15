@@ -72,10 +72,10 @@
     
     if (outputTempPath == nil) {
         if (outputPath != nil) {
-            [args setObject:self.outputPath forKey:@"-out"];
+            [args setObject:[self.outputPath stringBySurroundingWithSingleQuotes] forKey:@"-out"];
         }        
     } else {
-        [args setObject:outputTempPath forKey:@"-out"];
+        [args setObject:[outputTempPath stringBySurroundingWithSingleQuotes] forKey:@"-out"];
     }
     
     if (self.maxPrecision > 0.0) {

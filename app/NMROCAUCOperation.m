@@ -43,10 +43,10 @@
 
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:self.motifsFile forKey:@"-motifs"];        
-    [args setObject:self.positiveSeqsFile forKey:@"-positiveSeqs"];        
-    [args setObject:self.negativeSeqsFile forKey:@"-negativeSeqs"];        
-    [args setObject:self.outputFile forKey:@"-out"];
+    [args setObject:[self.motifsFile stringBySurroundingWithSingleQuotes] forKey:@"-motifs"];        
+    [args setObject:[self.positiveSeqsFile stringBySurroundingWithSingleQuotes] forKey:@"-positiveSeqs"];        
+    [args setObject:[self.negativeSeqsFile stringBySurroundingWithSingleQuotes] forKey:@"-negativeSeqs"];        
+    [args setObject:[self.outputFile stringBySurroundingWithSingleQuotes] forKey:@"-out"];
     
     [args setObject:[NSNumber numberWithInt:_bootstraps] forKey:@"-bootstraps"];
     

@@ -8,18 +8,35 @@
 
 #import <Cocoa/Cocoa.h>
 #import <BioCocoa/BCSequenceArray.h>
+@class IMFeature;
 
 @interface IMSequence : BCSequence {
     NSInteger _focusPosition;
-    NSString *_name;
-    
-    NSSet *_features;
+	
+	NSString *_name;
+    NSMutableSet *_features;
+	
+	
 }
 
 @property (readwrite) NSInteger focusPosition;
 @property (copy,readwrite) NSString *name;
-@property (retain,readwrite) NSSet *features;
+@property (retain,readwrite) NSMutableSet *features;
+@property (retain,readonly) NSSet *selectedFeatures;
+@property (retain,readonly) NSString *selectedFeaturesString;
+@property (retain,readonly) NSString *selectedFeaturesRangeString;
 
 -(NSArray*) featuresOverlappingWithPosition:(NSInteger) position;
+
+-(NSString*) sequenceFromPosition:(NSInteger) pos
+						   before:(NSInteger) before
+							after:(NSInteger) after;
+
+-(NSAttributedString*) formattedSequenceFromPosition:(NSInteger) pos
+											  before:(NSInteger) before
+											   after:(NSInteger) after;
+-(NSAttributedString*) focusPositionFormattedString;
+
+-(NSRange) focusRange;
 
 @end

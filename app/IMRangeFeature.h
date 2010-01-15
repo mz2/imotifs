@@ -8,8 +8,9 @@
 
 #import <Cocoa/Cocoa.h>
 #import "IMFeature.h"
+#import "IMPositionedFeature.h"
 
-@interface IMRangeFeature : IMFeature {
+@interface IMRangeFeature : IMPositionedFeature {
     NSInteger _start;
 	NSInteger _end;
 }
@@ -24,11 +25,12 @@
 - (id)initWithStart:(NSInteger)aStart 
                 end:(NSInteger)anEnd
               score:(CGFloat)score
-             strand:(IMStrand)strand;
+             strand:(IMStrand)strand
+               type:(NSString*)type;
 + (id)rangeFeatureWithStart:(NSInteger)aStart 
                         end:(NSInteger)anEnd
                       score:(CGFloat)score
-                     strand:(IMStrand)strand;
+                     strand:(IMStrand)strand
+                       type:(NSString*)type;
 
--(BOOL) overlapsWithPosition:(NSInteger) pos;
 @end

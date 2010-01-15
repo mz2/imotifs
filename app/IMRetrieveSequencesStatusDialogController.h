@@ -14,13 +14,16 @@
     IBOutlet NSButton *cancelButton;
     IBOutlet NSProgressIndicator *spinner;
     IBOutlet NSTextView *lastEntryView;
-
+    IBOutlet NSTextField *_doneLabel;
+    
     id<IMOutputFileProducingOperation> operation;
 }
 
 @property (retain, readwrite) NSProgressIndicator *spinner;
 
 @property (retain, readwrite) NSButton *cancelButton;
+@property (retain, readwrite) NSTextField *doneLabel;
+
 @property (retain, readwrite) NSButton *showResultsButton;
 
 @property (nonatomic, retain, readwrite) id<IMOutputFileProducingOperation> operation;
@@ -28,5 +31,7 @@
 
 -(IBAction) resultsReady:(id) sender;
 -(IBAction) showResults:(id) sender;
+
+-(IBAction) start:(id) sender;
 -(IBAction) stop:(id) sender;
 @end

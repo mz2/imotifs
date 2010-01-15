@@ -57,13 +57,19 @@
                              encoding:NSUTF8StringEncoding
                              error:&error];
         
+	
         if (error != nil) {
             NSAlert *theAlert = [NSAlert alertWithError:error];
             [theAlert runModal]; // Ignore return value.
+			return NO;
         }
+		
+		self.name = [url path];
         
         NSArray *components = [str componentsSeparatedByString:@"\n"];
         for (NSString *line in components) {
+            if (line.length < 2) continue;
+            
             if ([[line substringToIndex:1] isEqual:@"#"]) {
                 PCLog(@"Ignoring comment line %@", line);
                 continue;
@@ -95,8 +101,8 @@
                 [[[IMGFFRecord alloc] initWithSeqName:[cols objectAtIndex:0]
                                                source:[cols objectAtIndex:1] 
                                               feature:[cols objectAtIndex:2] 
-                                                start:[[cols objectAtIndex:3] intValue] 
-                                                  end:[[cols objectAtIndex:4] intValue]
+                                                start:[[cols objectAtIndex:3] intValue] - 1 //GFFs start at 1 
+                                                  end:[[cols objectAtIndex:4] intValue] - 1 //GFFs start at 1
                                                 score:[[cols objectAtIndex: 5] doubleValue] 
                                                strand:strand
                                            attributes:attrStr] autorelease];
@@ -126,9 +132,16 @@
     return NO;
 }
 
+
 +(NSArray*) annotationSetDocuments {
     NSMutableArray *a = [NSMutableArray array];
-    
+	
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents]) {
+		if ([doc isKindOfClass:[IMAnnotationSetDocument class]]) {
+			[a addObject: doc];
+		}
+	}
+    return a;
 }
 
 @end

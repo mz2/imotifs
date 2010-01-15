@@ -145,9 +145,9 @@
 
     if (self.peakRegionFilename != nil) {
         if (self.formatIsGFF) {
-            [args setObject:self.peakRegionFilename forKey:@"-features"];
+            [args setObject:[self.peakRegionFilename stringBySurroundingWithSingleQuotes] forKey:@"-features"];
         } else {
-            [args setObject:self.peakRegionFilename forKey:@"-peaks"];
+            [args setObject:[self.peakRegionFilename stringBySurroundingWithSingleQuotes] forKey:@"-peaks"];
         }
     }
     
@@ -231,7 +231,7 @@
 -(void) setStatusDialogController:(IMRetrieveSequencesStatusDialogController*) controller {
     //[[controller lastEntryView] setString: 
     _statusDialogController = controller;
-    [_statusDialogController.spinner startAnimation:self];
+    [_statusDialogController start:self];
 }
 
 -(BOOL) formatIsGFF {

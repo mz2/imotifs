@@ -47,8 +47,8 @@
 #pragma mark IMTaskOperation
 
 -(void) initializeArguments:(NSMutableDictionary*)args {
-    [args setObject:self.inputSequencePath forKey:@"-seqs"];
-    [args setObject:self.outputBackgroundModelFilePath forKey:@"-out"];
+    [args setObject:[self.inputSequencePath stringBySurroundingWithSingleQuotes] forKey:@"-seqs"];
+    [args setObject:[self.outputBackgroundModelFilePath stringBySurroundingWithSingleQuotes] forKey:@"-out"];
     [args setObject:[NSString stringWithFormat:@"%d",self.classes] forKey:@"-classes"];
     [args setObject:[NSString stringWithFormat:@"%d",self.order] forKey:@"-order"];
 }
@@ -62,7 +62,7 @@
 }
 
 -(void) run {
-    [_statusDialogController.spinner performSelectorOnMainThread: @selector(startAnimation:) 
+    [_statusDialogController performSelectorOnMainThread: @selector(start:) 
                                               withObject: self 
                                            waitUntilDone: NO];
     NSData *inData = nil;

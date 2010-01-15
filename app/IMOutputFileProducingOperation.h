@@ -15,4 +15,6 @@
 -(void) cancel;
 -(NSString*) outFilename;
 
+@optional
+-(IBAction) openFile:(id)sender;
 @end

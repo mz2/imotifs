@@ -49,10 +49,10 @@
 }
 
 -(void) initializeArguments:(NSMutableDictionary*) args {
-    [args setObject:self.motifsFile forKey:@"-motifs"];        
-    [args setObject:self.seqsFile forKey:@"-seqs"];        
-    [args setObject:self.bgFile forKey:@"-backgroundModel"];        
-    [args setObject:self.outputFile forKey:@"-out"];
+    [args setObject:[self.motifsFile stringBySurroundingWithSingleQuotes] forKey:@"-motifs"];        
+    [args setObject:[self.seqsFile stringBySurroundingWithSingleQuotes] forKey:@"-seqs"];        
+    [args setObject:[self.bgFile stringBySurroundingWithSingleQuotes] forKey:@"-backgroundModel"];        
+    [args setObject:[self.outputFile stringBySurroundingWithSingleQuotes] forKey:@"-out"];
     
     [args setObject:[NSNumber numberWithDouble:_significanceThreshold] forKey:@"-confThreshold"];
     [args setObject:[NSNumber numberWithDouble:_binSize] forKey:@"-bucketSize"];

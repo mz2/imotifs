@@ -201,7 +201,8 @@
             
             if (rangeToCore.location != NSNotFound) {
                 NSString *organismName = [dbName substringToIndex: rangeToCore.location];
-                NSRange substrRange = NSMakeRange(rangeToCore.location + rangeToCore.length, dbName.length - rangeToCore.location - rangeToCore.length);
+                NSRange substrRange = NSMakeRange(rangeToCore.location + rangeToCore.length, 
+												  dbName.length - rangeToCore.location - rangeToCore.length);
                 NSString *schemaVersion = [dbName substringWithRange:substrRange];
                 if ([versions objectForKey: organismName] == nil) {
                     [versions setObject:[NSMutableArray array] forKey: organismName];

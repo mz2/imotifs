@@ -26,6 +26,7 @@
 #import "NMOperationConfigDialogController.h"
 #import "NMAlignOperation.h"
 #import "NMShuffleOperation.h"
+#import "RegexKitLite.h"
 
 CGFloat const IM_MOTIF_HEIGHT_INCREMENT = 5.0;
 CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
@@ -61,7 +62,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
         
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(userDefaultsChanged:)
-                                                     name:@"NSUserDefaultsDidChangeNotification" object:nil];
+                                                     name:NSUserDefaultsDidChangeNotification object:nil];
     }
     return self;
 }
@@ -514,7 +515,8 @@ provideDataForType:(NSString *)type {
             NSArray *copiedMotifs = [NSKeyedUnarchiver unarchiveObjectWithData:data];
             //PCLog(@"Copied motifs:%@",copiedMotifs);
             
-            NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:NSMakeRange(row, [copiedMotifs count])];
+            NSMutableIndexSet *indexes = [NSMutableIndexSet indexSetWithIndexesInRange:
+										  NSMakeRange(row, [copiedMotifs count])];
             
             [motifSetController insertObjects:copiedMotifs atArrangedObjectIndexes:indexes];
             //[motifSetController insertObjects:copiedMotifs atArrangedObjectIndexes:row];
@@ -969,10 +971,11 @@ provideDataForType:(NSString *)type {
 }
 
 -(IBAction) bestReciprocalHitsWith: (id)sender {
+	/*
     if (!motifSetPickerSheet) {
         [NSBundle loadNibNamed: @"MotifSetPickerWindow" 
 						 owner: self];
-	}
+	}*/
 	
 	[motifSetPickerTableDelegate setMotifSetDocument: self];
 	[motifSetPickerTableView reloadData];
@@ -1086,11 +1089,7 @@ provideDataForType:(NSString *)type {
 				PCLog(@"curIndex: %d", curIndex);
 				MotifSet *mset = [[motifSetPickerTableDelegate otherMotifSets] objectAtIndex: curIndex];
                 
-                //NSArray *bestHitPairs;
                 if ([action isEqual:@"bestHitsWith"]) {
-                    //bestHitPairs = [motifComparitor 
-                    //                        bestMotifPairsHitsFrom: self.motifSet.motifs 
-                    //                        to: mset.motifs];
                     BestHitsOperation *bestHitsOperation = [[BestHitsOperation alloc] 
                                                             initWithComparitor: motifComparitor
                                                             from: self.motifSet.motifs 
@@ -1101,9 +1100,6 @@ provideDataForType:(NSString *)type {
                     [bestHitsOperation release];
                     
 				} else {
-                    //bestHitPairs = [motifComparitor 
-                    //                        bestReciprocalHitsFrom:self.motifSet.motifs 
-                    //                        to: mset.motifs];
                     NMShuffleOperation *bestRecipHitsOperation = [[NMShuffleOperation alloc] 
                                                                  initWithMotifs: self.motifSet 
                                                                         against: mset
@@ -1113,43 +1109,7 @@ provideDataForType:(NSString *)type {
                      addOperation:bestRecipHitsOperation];
                     [bestRecipHitsOperation release];
                 }
-				//PCLog(@"Found %d pairs", [bestHitPairs count]);
-                
-                
-                /*
-                NSError *error;
-                MotifSetDocument *msetDocument = [[NSDocumentController sharedDocumentController] 
-                                                 makeUntitledDocumentOfType:@"Motif set" 
-                                                 error:&error];
-                
-                if (msetDocument) {
-                    [[NSDocumentController sharedDocumentController] addDocument: msetDocument];
-                    [msetDocument makeWindowControllers];
-                    for (MotifPair *mp in bestHitPairs) {
-                        Motif *m1 = [[Motif alloc] initWithMotif: mp.m1];
-                        Motif *m2;
-                        if ([mp flipped]) 
-                            m2 = [[Motif alloc] initWithMotif: [mp.m2 reverseComplement]];
-                        else
-                            m2 = [[Motif alloc] initWithMotif: mp.m2];
-                        [m2 setOffset: mp.offset];
-                        [[msetDocument motifSet] addMotif: m1]; 
-                        [[msetDocument motifSet] addMotif: m2];
-                        PCLog(@"%@ -> %@ : %d (%d)",
-                              m1.name,
-                              m2.name,
-                              mp.offset,
-                              mp.flipped);
-                    }
-                    [msetDocument showWindows];
-                    
-                } else {
-                    NSAlert *alert = [NSAlert alertWithError:error];
-                    int button = [alert runModal];
-                    if (button != NSAlertFirstButtonReturn) {
-                        // handle
-                    }
-                }*/
+				
                 curIndex = [indexes indexGreaterThanIndex: curIndex];
 			}
 		}
@@ -1162,21 +1122,6 @@ provideDataForType:(NSString *)type {
         // recovery did not succeed, or no recovery attempter
         // proceed accordingly
     }
-}
-
-- (void) dataReady:(NSNotification*) n {
-    NSData *d;
-    d = [[n userInfo] valueForKey:NSFileHandleNotificationDataItem];
-    PCLog(@"dataReady:%d bytes", [d length]);
-    if (task) {
-        [[pipe fileHandleForReading] readInBackgroundAndNotify];
-    }
-}
-
-- (void) taskTerminated:(NSNotification*) note {
-    PCLog(@"taskTerminated");
-    [task release];
-    task = nil;
 }
 
 -(BOOL) searchingByName {
@@ -1265,25 +1210,94 @@ provideDataForType:(NSString *)type {
     [self.drawerTableDelegate toggleEditable: sender];
 }
 
--(IBAction) increaseMotifHeight: (id) sender {
+-(IBAction) exportTRANSFAC: (id) sender {
+	
+	NSSavePanel *seqFilePanel = [NSSavePanel savePanel];
+	[seqFilePanel beginSheetForDirectory: nil
+									file: nil
+						  modalForWindow: [NSApp mainWindow]
+						   modalDelegate: self 
+						  didEndSelector: @selector(browseForTRANSFACOutputFile:returnCode:contextInfo:) 
+							 contextInfo: nil];
+	
+}
+
+
+-(void) browseForTRANSFACOutputFile: (NSOpenPanel*) sheet 
+						 returnCode: (int) returnCode
+						contextInfo: (void*) contextInfo {
+    if (returnCode) {
+        NSString *filename = sheet.filename;
+		
+		NSError *err = nil;
+		[[self toTRANSFAC] writeToFile:filename 
+							atomically:YES 
+							  encoding:NSUTF8StringEncoding 
+								 error:&err];
+		
+		if (err != nil) {[[NSAlert alertWithError: err] runModal];}
+    }
+}
+
+-(NSString*) toTRANSFAC {
+	/*
+	 NA Mync
+	 XX
+	 DE Mync
+	 XX
+	 P0 A C G T
+	 01 0 31 0 0 C
+	 02 29 0 0 2 A
+	 03 0 30 0 1 C
+	 04 2 1 28 0 G
+	 05 0 3 0 28 T
+	 06 0 0 31 0 G
+	 XX
+	 */
+	
+	NSMutableString *str = [NSMutableString string];
+	for (Motif *m in self.motifSet.motifs) {
+
+		[str appendFormat:@"NA %@\n",m.name];
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"ID %@\n",m.name];
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"P0 A C G T\n"];
+		
+		NSUInteger i = 1;
+		for (Multinomial *multi in m.columns) {
+			[str appendFormat:@"P%d %f %f %f %f\n",i++,
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"a"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"c"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"g"]],
+			 [multi weightForSymbol:[[Alphabet withName:@"dna"] symbolWithName: @"t"]]];
+		}
+		[str appendFormat:@"XX\n"];
+		[str appendFormat:@"//\n"];
+	}
+	
+	return [[str copy] autorelease];
+}
+
+-(IBAction) increaseHeight: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMMotifHeight] + IM_MOTIF_HEIGHT_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
 }
 
--(IBAction) decreaseMotifHeight: (id) sender {
+-(IBAction) decreaseHeight: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMMotifHeight] - IM_MOTIF_HEIGHT_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMMotifHeight];
 }
 
--(IBAction) increaseMotifWidth: (id) sender {
+-(IBAction) increaseWidth: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMColumnWidth] + IM_MOTIF_WIDTH_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
 }
 
--(IBAction) decreaseMotifWidth: (id) sender {
+-(IBAction) decreaseWidth: (id) sender {
     NSUserDefaults *def =[NSUserDefaults standardUserDefaults];
     CGFloat newVal = [def floatForKey: IMColumnWidth] - IM_MOTIF_WIDTH_INCREMENT;
     if (newVal > 0.0) [def setFloat: newVal forKey: IMColumnWidth];
@@ -1318,6 +1332,31 @@ provideDataForType:(NSString *)type {
 
 -(BOOL) isAnnotationSetDocument {
     return NO;
+}
+
++(NSArray*) motifSetDocuments {
+    NSMutableArray *a = [NSMutableArray array];
+	
+	for (NSDocument *doc in [[NSDocumentController sharedDocumentController] documents]) {
+		if ([doc isKindOfClass:[MotifSetDocument class]]) {
+			[a addObject: a];
+		}
+	}
+    return a;
+}
+
+-(void) dealloc {
+	[[NSNotificationCenter defaultCenter] removeObserver:self 
+													name:NSUserDefaultsDidChangeNotification 
+												  object:nil];
+	[motifSet release];
+    [motifNameCell release];
+    [motifViewCell release];
+    [pboardMotifs release];
+    [pboardMotifsOriginals release];
+    [motifComparitor release];
+	
+	[super dealloc];
 }
 
 @end

@@ -15,12 +15,11 @@
 @class IMSequenceViewCell;
 @class IMAnnotationSetPickerWindow;
 @class IMAnnotationSetPickerTableDelegate;
+@class IMAnnotationSetDocument;
 
 @interface IMSequenceSetDocument : NSDocument <IMotifsDocument> {
     NSString *_name;
     NSArray *_sequences;
-    
-    IMSequenceView *_sequenceView;
     
     IMSequenceSetController *_sequenceSetController;
     
@@ -36,13 +35,15 @@
     
     IMAnnotationSetPickerWindow *_annotationSetPicker;
     IMAnnotationSetPickerTableDelegate *_annotationSetPickerTableDelegate;
-	
+
+    NSMutableSet *_featureTypes;
+    NSMutableDictionary *_colorsByFeatureType;
+    
     @protected
     IMSequenceViewCell *_sequenceCell;
 }
 
 @property(nonatomic,retain) NSString *name;
-@property(nonatomic,retain) IBOutlet IMSequenceView *sequenceView;
 @property(nonatomic,retain) IBOutlet IMSequenceSetController *sequenceSetController;
 @property(nonatomic,retain) NSArray *sequences;
 @property(nonatomic,retain) IBOutlet NSTextField *numberOfSequencesLabel;
@@ -53,12 +54,27 @@
 @property(nonatomic,retain) IBOutlet IMAnnotationSetPickerTableDelegate *annotationSetPickerTableDelegate;
 @property(nonatomic,retain) IBOutlet NSDrawer *drawer;
 
+@property(nonatomic,readonly) NSString *selectedPositionString;
+@property(nonatomic,retain) NSMutableSet *featureTypes;
+@property(nonatomic,retain) NSMutableDictionary *colorsByFeatureType;
 @property(nonatomic,retain) IBOutlet NSTextField *sequenceDetailView;
 
 -(IBAction) toggleDrawer:(id) sender;
-
 -(IBAction) annotateSequencesWithFeatures: (id)sender;
 -(IBAction) closeAnnotationSetPickerSheet: (id) sender;
 
--(NSString*) selectedPositionString;
+-(IBAction) increaseWidth: (id) sender;
+-(IBAction) decreaseWidth: (id) sender;
+
+-(IBAction) moveFocusPositionLeft: (id) sender;
+-(IBAction) moveFocusPositionRight: (id) sender;
+
+
+
++(NSArray*) sequenceSetDocuments;
++(BOOL) atLeastOneSequenceSetDocumentIsOpen;
+
+-(NSMutableDictionary*) colorsForFeatureTypes:(NSSet*) features;
+
+-(void) annotateSequencesWithFeaturesFromAnnotationSetDocument:(IMAnnotationSetDocument*) adoc;
 @end

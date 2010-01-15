@@ -29,6 +29,8 @@
 @property(nonatomic,assign)IMStrand strand;
 @property(nonatomic,readonly)NSString *strandString;
 @property(nonatomic,retain)NSString *attributes;
+@property(readonly) NSUInteger gffStart;
+@property(readonly) NSUInteger gffEnd;
 
 - (id)initWithSeqName:(NSString*)aSeqName
                source:(NSString*)aSource
