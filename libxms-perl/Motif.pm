@@ -34,8 +34,9 @@ use TFBS::Matrix::PFM;
 
 sub new {
 
+    my $class = shift;
     my $self = {};
-    my($class,$weightmatrix,$name,$threshold,%prop) = @_;
+    my($weightmatrix,$name,$threshold,%prop) = @_;
     $self->{name} = $name;
     $self->{weightmatrix} = $weightmatrix;
     $self->{threshold} = 0.0;

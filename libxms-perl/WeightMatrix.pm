@@ -30,9 +30,11 @@ use XML::Reader;
 
 
 sub new {
+    
+    my $class = shift;
     my $self = {};
-    my($class,@name) = @_;
-    $self->{alphabet} = "Protein";
+    my(@name) = @_;
+    $self->{alphabet} = "DNA";
    
     $self->{cols} = \@name;
    

@@ -35,12 +35,12 @@ use XML::DOM;
 
 sub new {
 
+    my $class = shift;
     my $self = {};
-    my($class,@motifs) = @_;
+    my(@motifs) = @_;
     my ($temp) = @motifs;
 
-    if(ref($temp) eq "Motif"){
-
+    if(ref($temp) eq "XMS::Motif"){
 	@{$self->{motifs}} = @motifs;
 
     }else{
@@ -118,8 +118,8 @@ sub new {
 		}
 	    }
 
-	    my $wmobj = WeightMatrix->new(@columnsarray);
-	    my $motifobj = Motif->new($wmobj,$motifname,$threshold,%annotations);
+	    my $wmobj = XMS::WeightMatrix->new(@columnsarray);
+	    my $motifobj = XMS::Motif->new($wmobj,$motifname,$threshold,%annotations);
 	    $motifarray[$m] = $motifobj;
 	    $m++;
 	}
