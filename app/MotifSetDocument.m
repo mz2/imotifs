@@ -1,3 +1,19 @@
+/*
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the
+Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+Boston, MA  02110-1301, USA.
+*/
 //
 //  MyDocument.m
 //  iMotif
@@ -33,12 +49,11 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 
 @interface MotifSetDocument (private)
 -(void) initializeUI;
-
 @end
 
 @implementation MotifSetDocument
 @synthesize motifTable;
-@synthesize motifNameCell,motifViewCell;
+@synthesize motifViewCell;
 @synthesize nameColumn;
 @synthesize motifComparitor;
 @synthesize motifColumn;
@@ -78,11 +93,6 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
     motifViewCell = [[[MotifViewCell alloc] 
                       initImageCell:[[motifColumn dataCell] image]] autorelease];
     [motifViewCell setColumnDisplayOffset: [[self motifSet] columnCountWithOffsets]];
-    /*motifNameCell = [[[MotifNameCell alloc]
-                      initTextCell:@""] autorelease];
-    [nameColumn setDataCell: motifNameCell];
-     */
-    
     
     [motifColumn setDataCell: motifViewCell];
     pboardMotifs = nil;
@@ -224,11 +234,10 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 - (BOOL)readFromData: (NSData *)data 
               ofType: (NSString *)typeName 
                error: (NSError **)outError {
+    PCLog(@"Reading from data");
     if ([typeName isEqual:@"Motif set"]) {
-        [self setMotifSet:[MotifSetParser motifSetFromData: data]];
-        //if (motifSet.name == nil) {
-        //    [motifSet setName: [self displayName]];            
-        //}
+        PCLog(@"Reading motif set from data");
+        [self setMotifSet:[MotifSetParser motifSetFromData: data error:outError]];
         
         return motifSet != nil ? YES : NO;
     } else {
@@ -242,8 +251,15 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
 -(BOOL)readFromURL:(NSURL*) url 
             ofType:(NSString*)type 
              error:(NSError**) outError {
+    PCLog(@"Reading from URL...");
     if ([type isEqual:@"Motif set"]) {
-        [self setMotifSet:[MotifSetParser motifSetFromURL:url]];
+        PCLog(@"Reading motif set from URL %@", url);
+        @try {
+            
+        } @catch (NSException *e) {
+            PCLog(@"Caught an exception %@ when trying to read from URL", e);
+        }
+        [self setMotifSet:[MotifSetParser motifSetFromURL:url error:outError]];
         
         if (![[motifSet annotations] objectForKey:@"imotifs-window-autosave-id"]) {
             [[motifSet annotations] setObject: [NSString stringWithFormat:@"%d",rand()] 
@@ -252,7 +268,7 @@ CGFloat const IM_MOTIF_WIDTH_INCREMENT = 1.0;
         //[motifSet setName: [self displayName]];
         return motifSet != nil ? YES : NO;
     } else {
-        ddfprintf(stderr, @"Trying to read an unsupported type : %@\n", type);
+        PCLog(@"Trying to read an unsupported type : %@\n", type);
         return NO;
     }
 }
@@ -528,7 +544,11 @@ provideDataForType:(NSString *)type {
         } else if ([types containsObject:NSFilenamesPboardType]) {
             NSArray *filenames = [[info draggingPasteboard] propertyListForType:NSFilenamesPboardType];
             for (NSString *filename in filenames) {
-                MotifSet *mset = [MotifSetParser motifSetFromURL:[NSURL fileURLWithPath:filename]];
+                NSError *err = nil;
+                MotifSet *mset = [MotifSetParser motifSetFromURL:[NSURL fileURLWithPath:filename] error:&err];
+                if (err == nil) {
+                    [[NSAlert alertWithError: err] runModal];
+                }
                 
                 NSInteger mI;
                 for (mI = 0; mI < [mset count]; mI++) {
@@ -1350,8 +1370,8 @@ provideDataForType:(NSString *)type {
 													name:NSUserDefaultsDidChangeNotification 
 												  object:nil];
 	[motifSet release];
-    [motifNameCell release];
-    [motifViewCell release];
+    //[motifNameCell release];
+    //[motifViewCell release];
     [pboardMotifs release];
     [pboardMotifsOriginals release];
     [motifComparitor release];

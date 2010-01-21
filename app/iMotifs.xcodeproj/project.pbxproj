@@ -58,6 +58,8 @@
 		95113F490FD9685F006823C4 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
 		95113F4E0FD96869006823C4 /* Sparkle.framework in Copy the Sparkle Framework */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
 		95113F550FD9686B006823C4 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 95113F470FD9685F006823C4 /* Sparkle.framework */; };
+		9514C3B91108787B006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514C3B711087879006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar */; };
+		9514C3BA1108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar in Frameworks */ = {isa = PBXBuildFile; fileRef = 9514C3B81108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar */; };
 		9515BDE41022443700188C5A /* IMRetrieveSequencesStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */; };
 		9515BDE71022445800188C5A /* IMRetrieveSequencesStatusDialogController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */; };
 		951FF3D90F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib in Resources */ = {isa = PBXBuildFile; fileRef = 951FF3D80F32557B00A9175C /* NMTrainBGOperationStatusDialog.xib */; };
@@ -96,6 +98,8 @@
 		9587FC5310F23CA500435D2A /* IMSequenceSetDocument.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9587FC5210F23CA500435D2A /* IMSequenceSetDocument.xib */; };
 		9587FD1910F248E300435D2A /* IMDocumentController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FD1810F248E300435D2A /* IMDocumentController.m */; };
 		9587FFE110F262CD00435D2A /* IMSequenceSetController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9587FFE010F262CD00435D2A /* IMSequenceSetController.m */; };
+		959005AF1100B95100D9FF9D /* NSWorkspace+FileInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 959005AE1100B95100D9FF9D /* NSWorkspace+FileInfo.m */; };
+		9590063A1100D47A00D9FF9D /* NSError+EasyError.m in Sources */ = {isa = PBXBuildFile; fileRef = 959006391100D47A00D9FF9D /* NSError+EasyError.m */; };
 		9595AE980FB9780500CE2BFF /* IMNSArrayExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */; };
 		9595AE990FB9780500CE2BFF /* IMNSColorExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595AE970FB9780500CE2BFF /* IMNSColorExtras.m */; };
 		9595B0EA0FB9B79400CE2BFF /* MetamotifTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9595B0E90FB9B79400CE2BFF /* MetamotifTests.m */; };
@@ -215,7 +219,6 @@
 		959E3D3B0EE6941100072A66 /* MotifSetPickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3D3A0EE6941100072A66 /* MotifSetPickerWindow.m */; };
 		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
 		95AA6BDF108731250000A8BD /* libnmica.jnilib in Copy NestedMICA Native Library */ = {isa = PBXBuildFile; fileRef = 95AA6BB1108730DD0000A8BD /* libnmica.jnilib */; };
-		95AA6BF4108731AA0000A8BD /* biojava.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB3108730ED0000A8BD /* biojava.jar */; };
 		95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */; };
 		95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB5108730F30000A8BD /* blog.jar */; };
 		95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB6108730F50000A8BD /* bytecode.jar */; };
@@ -290,12 +293,10 @@
 		95AA6CA5108732DA0000A8BD /* commons-collections-2.1.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */; };
 		95AA6CA6108732DA0000A8BD /* commons-dbcp-1.2.2.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */; };
 		95AA6CA7108732DA0000A8BD /* commons-pool-1.1.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */; };
-		95AA6CA8108732DA0000A8BD /* hsqldb.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C291087326D0000A8BD /* hsqldb.jar */; };
 		95AA6CA9108732DA0000A8BD /* mysql-connector-java-3.1.14-bin.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */; };
 		95AA6CAA108732DA0000A8BD /* nmica-extra.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2B108732700000A8BD /* nmica-extra.jar */; };
 		95AA6CAB108732DA0000A8BD /* picard-1.03.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2C108732710000A8BD /* picard-1.03.jar */; };
 		95AA6CAC108732DA0000A8BD /* sam-1.03.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2D108732710000A8BD /* sam-1.03.jar */; };
-		95AA6CAD108732DA0000A8BD /* sqlitejdbc-v056-pure.jar in Copy NestedMICA-extra JARs */ = {isa = PBXBuildFile; fileRef = 95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */; };
 		95B2C60A0EED72E5004605A6 /* MotifComparisonOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6090EED72E5004605A6 /* MotifComparisonOperation.m */; };
 		95B2C6330EED7DFB004605A6 /* BestHitsOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6320EED7DFB004605A6 /* BestHitsOperation.m */; };
 		95B2C67A0EED8F54004605A6 /* MotifNamePickerWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 95B2C6790EED8F54004605A6 /* MotifNamePickerWindow.m */; };
@@ -391,7 +392,6 @@
 			dstPath = nmica/lib;
 			dstSubfolderSpec = 15;
 			files = (
-				95AA6BF4108731AA0000A8BD /* biojava.jar in Copy NestedMICA JARs */,
 				95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */,
 				95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */,
 				95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */,
@@ -435,12 +435,10 @@
 				95AA6CA5108732DA0000A8BD /* commons-collections-2.1.jar in Copy NestedMICA-extra JARs */,
 				95AA6CA6108732DA0000A8BD /* commons-dbcp-1.2.2.jar in Copy NestedMICA-extra JARs */,
 				95AA6CA7108732DA0000A8BD /* commons-pool-1.1.jar in Copy NestedMICA-extra JARs */,
-				95AA6CA8108732DA0000A8BD /* hsqldb.jar in Copy NestedMICA-extra JARs */,
 				95AA6CA9108732DA0000A8BD /* mysql-connector-java-3.1.14-bin.jar in Copy NestedMICA-extra JARs */,
 				95AA6CAA108732DA0000A8BD /* nmica-extra.jar in Copy NestedMICA-extra JARs */,
 				95AA6CAB108732DA0000A8BD /* picard-1.03.jar in Copy NestedMICA-extra JARs */,
 				95AA6CAC108732DA0000A8BD /* sam-1.03.jar in Copy NestedMICA-extra JARs */,
-				95AA6CAD108732DA0000A8BD /* sqlitejdbc-v056-pure.jar in Copy NestedMICA-extra JARs */,
 			);
 			name = "Copy NestedMICA-extra JARs";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +615,8 @@
 		95113DF20FD91631006823C4 /* IMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMConstants.h; sourceTree = "<group>"; };
 		95113DF30FD91631006823C4 /* IMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMConstants.m; sourceTree = "<group>"; };
 		95113F470FD9685F006823C4 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = /Library/Frameworks/Sparkle.framework; sourceTree = "<absolute>"; };
+		9514C3B711087879006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "biojava-3.0-core-SNAPSHOT.jar"; path = "../../../workspace/nmica-dev/lib/biojava-3.0-core-SNAPSHOT.jar"; sourceTree = SOURCE_ROOT; };
+		9514C3B81108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "biojava-3.0-gui-SNAPSHOT.jar"; path = "../../../workspace/nmica-dev/lib/biojava-3.0-gui-SNAPSHOT.jar"; sourceTree = SOURCE_ROOT; };
 		9515BDE31022443700188C5A /* IMRetrieveSequencesStatusDialog.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IMRetrieveSequencesStatusDialog.xib; sourceTree = "<group>"; };
 		9515BDE51022445800188C5A /* IMRetrieveSequencesStatusDialogController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMRetrieveSequencesStatusDialogController.h; sourceTree = "<group>"; };
 		9515BDE61022445800188C5A /* IMRetrieveSequencesStatusDialogController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMRetrieveSequencesStatusDialogController.m; sourceTree = "<group>"; };
@@ -681,6 +681,10 @@
 		9587FD1810F248E300435D2A /* IMDocumentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMDocumentController.m; sourceTree = "<group>"; };
 		9587FFDF10F262CD00435D2A /* IMSequenceSetController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IMSequenceSetController.h; sourceTree = "<group>"; };
 		9587FFE010F262CD00435D2A /* IMSequenceSetController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IMSequenceSetController.m; sourceTree = "<group>"; };
+		959005AD1100B95100D9FF9D /* NSWorkspace+FileInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSWorkspace+FileInfo.h"; sourceTree = "<group>"; };
+		959005AE1100B95100D9FF9D /* NSWorkspace+FileInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSWorkspace+FileInfo.m"; sourceTree = "<group>"; };
+		959006381100D47A00D9FF9D /* NSError+EasyError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSError+EasyError.h"; sourceTree = "<group>"; };
+		959006391100D47A00D9FF9D /* NSError+EasyError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSError+EasyError.m"; sourceTree = "<group>"; };
 		9595AE940FB9780500CE2BFF /* IMNSArrayExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSArrayExtras.h; path = ../libxms/IMNSArrayExtras.h; sourceTree = SOURCE_ROOT; };
 		9595AE950FB9780500CE2BFF /* IMNSArrayExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = IMNSArrayExtras.m; path = ../libxms/IMNSArrayExtras.m; sourceTree = SOURCE_ROOT; };
 		9595AE960FB9780500CE2BFF /* IMNSColorExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IMNSColorExtras.h; path = ../libxms/IMNSColorExtras.h; sourceTree = SOURCE_ROOT; };
@@ -705,7 +709,6 @@
 		959E3DAF0EE69B8400072A66 /* MotifSetPickerTableDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MotifSetPickerTableDelegate.h; sourceTree = "<group>"; };
 		959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerTableDelegate.m; sourceTree = "<group>"; };
 		95AA6BB1108730DD0000A8BD /* libnmica.jnilib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnmica.jnilib; path = "../../../workspace/nmica-dev/native/libnmica.jnilib"; sourceTree = SOURCE_ROOT; };
-		95AA6BB3108730ED0000A8BD /* biojava.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = biojava.jar; path = "../../../workspace/nmica-dev/lib/biojava.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "bjv2-core-0.1.jar"; path = "../../../workspace/nmica-dev/lib/bjv2-core-0.1.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB5108730F30000A8BD /* blog.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = blog.jar; path = "../../../workspace/nmica-dev/lib/blog.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB6108730F50000A8BD /* bytecode.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = bytecode.jar; path = "../../../workspace/nmica-dev/lib/bytecode.jar"; sourceTree = SOURCE_ROOT; };
@@ -729,12 +732,10 @@
 		95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-collections-2.1.jar"; path = "../../../workspace/nmica-extra/lib/commons-collections-2.1.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-dbcp-1.2.2.jar"; path = "../../../workspace/nmica-extra/lib/commons-dbcp-1.2.2.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "commons-pool-1.1.jar"; path = "../../../workspace/nmica-extra/lib/commons-pool-1.1.jar"; sourceTree = SOURCE_ROOT; };
-		95AA6C291087326D0000A8BD /* hsqldb.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = hsqldb.jar; path = "../../../workspace/nmica-extra/lib/hsqldb.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "mysql-connector-java-3.1.14-bin.jar"; path = "../../../workspace/nmica-extra/lib/mysql-connector-java-3.1.14-bin.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C2B108732700000A8BD /* nmica-extra.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "nmica-extra.jar"; path = "../../../workspace/nmica-extra/lib/nmica-extra.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C2C108732710000A8BD /* picard-1.03.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "picard-1.03.jar"; path = "../../../workspace/nmica-extra/lib/picard-1.03.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C2D108732710000A8BD /* sam-1.03.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "sam-1.03.jar"; path = "../../../workspace/nmica-extra/lib/sam-1.03.jar"; sourceTree = SOURCE_ROOT; };
-		95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "sqlitejdbc-v056-pure.jar"; path = "../../../workspace/nmica-extra/lib/sqlitejdbc-v056-pure.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6C391087327D0000A8BD /* ngconservation */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngconservation; path = "../../../workspace/nmica-extra/bin/ngconservation"; sourceTree = SOURCE_ROOT; };
 		95AA6C3A1087327D0000A8BD /* ngcount */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngcount; path = "../../../workspace/nmica-extra/bin/ngcount"; sourceTree = SOURCE_ROOT; };
 		95AA6C3B1087327D0000A8BD /* ngdepth */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = ngdepth; path = "../../../workspace/nmica-extra/bin/ngdepth"; sourceTree = SOURCE_ROOT; };
@@ -851,6 +852,8 @@
 				950CCF220FE26C2200549134 /* BWToolkitFramework.framework in Frameworks */,
 				9595E5D60FE65B9500FDD520 /* ActiveRecord.framework in Frameworks */,
 				95CD86AB10AACF2B005BA446 /* BioCocoa.framework in Frameworks */,
+				9514C3B91108787B006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar in Frameworks */,
+				9514C3BA1108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1213,6 +1216,10 @@
 				95B49F4210FC88CF005DF489 /* NSColor+IMColors.m */,
 				95DD35CD10FF31CC00420BA5 /* NSString+Quotes.h */,
 				95DD35CE10FF31CC00420BA5 /* NSString+Quotes.m */,
+				959005AD1100B95100D9FF9D /* NSWorkspace+FileInfo.h */,
+				959005AE1100B95100D9FF9D /* NSWorkspace+FileInfo.m */,
+				959006381100D47A00D9FF9D /* NSError+EasyError.h */,
+				959006391100D47A00D9FF9D /* NSError+EasyError.m */,
 			);
 			name = "Cocoa Extra Categories";
 			sourceTree = "<group>";
@@ -1485,7 +1492,8 @@
 		95AA6BA8108730910000A8BD /* libraries */ = {
 			isa = PBXGroup;
 			children = (
-				95AA6BB3108730ED0000A8BD /* biojava.jar */,
+				9514C3B711087879006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar */,
+				9514C3B81108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar */,
 				95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */,
 				95AA6BB5108730F30000A8BD /* blog.jar */,
 				95AA6BB6108730F50000A8BD /* bytecode.jar */,
@@ -1598,12 +1606,10 @@
 				95AA6C261087326C0000A8BD /* commons-collections-2.1.jar */,
 				95AA6C271087326D0000A8BD /* commons-dbcp-1.2.2.jar */,
 				95AA6C281087326D0000A8BD /* commons-pool-1.1.jar */,
-				95AA6C291087326D0000A8BD /* hsqldb.jar */,
 				95AA6C2A1087326F0000A8BD /* mysql-connector-java-3.1.14-bin.jar */,
 				95AA6C2B108732700000A8BD /* nmica-extra.jar */,
 				95AA6C2C108732710000A8BD /* picard-1.03.jar */,
 				95AA6C2D108732710000A8BD /* sam-1.03.jar */,
-				95AA6C2E108732710000A8BD /* sqlitejdbc-v056-pure.jar */,
 			);
 			name = libraries;
 			sourceTree = "<group>";
@@ -2040,6 +2046,8 @@
 				5F5CD52B10FEAFA400B15263 /* NMScanOperation.m in Sources */,
 				5F5CD53F10FEB1BC00B15263 /* NMScanController.m in Sources */,
 				95DD35CF10FF31CC00420BA5 /* NSString+Quotes.m in Sources */,
+				959005AF1100B95100D9FF9D /* NSWorkspace+FileInfo.m in Sources */,
+				9590063A1100D47A00D9FF9D /* NSError+EasyError.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
