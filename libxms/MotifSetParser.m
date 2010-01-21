@@ -1,3 +1,19 @@
+/*
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+You should have received a copy of the GNU Library General Public
+License along with this library; if not, write to the
+Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
+Boston, MA  02110-1301, USA.
+*/
 //
 //  MotifSetParser.m
 //  XMSParser
@@ -119,31 +135,36 @@
     return dist;
 }
 
-+(MotifSet*) motifSetFromData:(NSData*) data {
++(MotifSet*) motifSetFromData:(NSData*) data error:(NSError**)err {
     NSError *docError;
     NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] 
                              initWithData:data 
                              options:0 
                              error:&docError];
+    MotifSet *ms = nil;
+    
     if (docError != nil) {
-        [xmlDoc release];
-        xmlDoc = nil;
+        [xmlDoc release],xmlDoc = nil;
         PCLog(@"Error parsing an XMS file from input data");
         
-        @throw [NSException exceptionWithName: @"XMSParsingException" 
-                                       reason: [docError description] 
-                                     userInfo: nil];
+        err = &docError;
+    } else {
+        @try {
+            ms = [self motifSetFromXML:xmlDoc error:err];
+        } @catch (NSException *e) {
+            NSError *excError = [NSError errorWithCode:4 description:[e reason]];
+            *err = excError;
+        }
     }
     
-    
-    MotifSet *ms = [self motifSetFromXML:xmlDoc];
     [xmlDoc release];
     return ms;
 }
 
 
-+(MotifSet*) motifSetFromURL:(NSURL*) url {
++(MotifSet*) motifSetFromURL:(NSURL*) url error:(NSError**) err {
     NSError *docError;
+    MotifSet *ms;
     NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] 
                              initWithContentsOfURL:url 
                              options:0 
@@ -152,24 +173,19 @@
         [xmlDoc release];
         xmlDoc = nil;
         PCLog(@"Error parsing an XMS file from input data at URL %@", url);
-        @throw [NSException exceptionWithName: @"XMSParsingException" 
-                                       reason: [docError description] 
-                                     userInfo: nil];
+        
+        *err = docError;
+        return nil;
+    } else {
+        ms = [self motifSetFromXML: xmlDoc error: err];
     }
-    
-    MotifSet *ms = [self motifSetFromXML:xmlDoc];
-    [xmlDoc release];
+    [xmlDoc release],xmlDoc = nil;
     return ms;
 }
 
 
-+(MotifSet*) motifSetFromXML:(NSXMLDocument*) xmlDoc {
++(MotifSet*) motifSetFromXML:(NSXMLDocument*) xmlDoc error:(NSError**) err {
     MotifSet* motifSet = [[[MotifSet alloc] init] autorelease];
-    //NSError *docError;
-    //NSXMLDocument *xmlDoc = [[NSXMLDocument alloc] 
-    //                         initWithContentsOfURL:url 
-    //                         options:0 
-    //                         error:&docError];
 
     NSError *motifSetNodeError;
     NSArray *motifSetNodes = [xmlDoc nodesForXPath:@"/motifset" 
@@ -179,16 +195,15 @@
         PCLog(@"ERROR: %@",motifSetNodeError);
         [motifSet release];
         motifSet = nil;
-        @throw [NSException exceptionWithName:@"XMSParsingException" 
-                                       reason:[motifSetNodeError description] 
-                                     userInfo:nil];
+        
+        err = &motifSetNodeError;
     } else if ([motifSetNodes count] != 1) {
         [motifSet release];
         motifSet = nil;
-        @throw [NSException exceptionWithName:@"XMSParsingException" 
-                                       reason:
-                [NSString stringWithFormat:@"One <motifset> node expected (%d encountered)",[motifSetNodes count]] 
-                                     userInfo:nil];
+        
+        NSError *e = [NSError errorWithCode:4 description:@"Only one <motifset> element expected"];
+        *err = e;
+        return nil;
     }
     
     [self parseAnnotationsForAnnotable:motifSet
@@ -201,17 +216,19 @@
         PCLog(@"ERROR: %@",motifNodeError);
         [motifNodes release];
         motifNodes = nil;
-        @throw [NSException exceptionWithName:@"XMSParsingException" 
-                                       reason:[motifNodeError description] 
-                                     userInfo:nil];
+        
+        err = &motifNodeError;
+        return nil;
     }
     
     for (NSXMLElement *node in motifNodes) {
         NSArray *wmNodes = [self weightMatrixNodes:node];
-        if ([wmNodes count] != 1) {
-            @throw [NSException exceptionWithName:@"XMSParsingException" 
-                                           reason:[NSString stringWithFormat:@"Unexpected number of <weightmatrix> nodes: %d",[wmNodes count]] 
-                                         userInfo:nil];
+        if ([wmNodes count] != 1) {            
+            NSError *e = [NSError errorWithDomain:@"IMErrorDomain" 
+                                             code:2
+                                         userInfo:[NSString stringWithFormat: @"Unexpected number of <weightmatrix> nodes: %d",[wmNodes count]]];
+            *err = e;
+            return nil;
         }
         NSMutableArray *dists = [NSMutableArray array];
         NSXMLElement *wmNode = [wmNodes objectAtIndex:0];
@@ -267,13 +284,6 @@
                 Dirichlet *dir = [[Dirichlet alloc] initWithAlphabet: [motif alphabet] 
                                                                means: multinom 
                                                            precision: prec];
-                //DistributionBounds *distBounds = [dir confidenceAtMinInterval:0.05 maxInterval:0.95];
-                
-                //for (Symbol *sym in dir.alphabet.symbols) {
-                //    SymbolBounds *symBounds = [distBounds boundsForSymbol: sym];
-                    //NSLog(@"%.3f -- %.3f (%.3f)", symBounds.min,symBounds.max,symBounds.mean);
-                //}
-                
                 
                 [dirs addObject:dir];
                 [dir release];
