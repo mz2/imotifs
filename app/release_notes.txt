@@ -1,3 +1,9 @@
+h3. 0.2.6 - More error dialogs instead of crashes for error situations
+
+* Some more error situations covered in file loading and with launching external analysis tools.
+
+Please send feedback, questions, ideas to imotifs@googlegroups.com or matias.piipari@gmail.com!
+
 h3. 0.2.5 - Major revisions: motif scanning + sequence feature viewing support
 
 * Error handling improved: analysis tools will not let you run or copy to clipboard before all required arguments have been included.
