@@ -30,9 +30,11 @@ use XML::Reader;
 
 
 sub new {
+    
+    my $class = shift;
     my $self = {};
-    my($class,@name) = @_;
-    $self->{alphabet} = "Protein";
+    my(@name) = @_;
+    $self->{alphabet} = "DNA";
    
     $self->{cols} = \@name;
    
@@ -266,10 +268,10 @@ Harpreet Saini, hsaini@ebi.ac.uk
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (C) 2009 by hsaini
+Copyright (C) 2009 by harpreet saini
 
 This library is free software; you can redistribute it and/or modify
-it under the same terms as Perl itself, either Perl version 5.8.8 or,
+it under the same terms as Perl itself, either Perl version 5.8.9 or,
 at your option, any later version of Perl 5 you may have available.
 
 
