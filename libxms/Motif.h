@@ -78,5 +78,7 @@ Boston, MA  02110-1301, USA.
 
 -(NSXMLElement*) toXMSMotifNode;
 
+-(void) removeColumnAtIndex:(NSInteger) i;
+
 -(void) clearCachedValues;
 @end

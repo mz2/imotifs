@@ -187,6 +187,9 @@ extern NSString *IMMotifSetIndicesPboardType;
 
 -(IBAction) exportTRANSFAC: (id) sender;
 
+-(IBAction) trimLeft:(id) sender;
+-(IBAction) trimRight:(id) sender;
+
 -(NSString*) toTRANSFAC;
 
 -(BOOL) isMotifSetDocument;

@@ -220,7 +220,6 @@
 		959E3DB10EE69B8400072A66 /* MotifSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */; };
 		95AA6BDF108731250000A8BD /* libnmica.jnilib in Copy NestedMICA Native Library */ = {isa = PBXBuildFile; fileRef = 95AA6BB1108730DD0000A8BD /* libnmica.jnilib */; };
 		95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */; };
-		95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB5108730F30000A8BD /* blog.jar */; };
 		95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB6108730F50000A8BD /* bytecode.jar */; };
 		95AA6BF8108731AA0000A8BD /* colt.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB7108730F50000A8BD /* colt.jar */; };
 		95AA6BF9108731AA0000A8BD /* Jama-1.0.2.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */; };
@@ -250,7 +249,6 @@
 		95AA6C7A108732CC0000A8BD /* nmbgsample in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C421087327D0000A8BD /* nmbgsample */; };
 		95AA6C7B108732CC0000A8BD /* nmcanonicalizegenes in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C431087327D0000A8BD /* nmcanonicalizegenes */; };
 		95AA6C7C108732CC0000A8BD /* nmconcatenate in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C441087327D0000A8BD /* nmconcatenate */; };
-		95AA6C7D108732CC0000A8BD /* nmconvert in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C451087327D0000A8BD /* nmconvert */; };
 		95AA6C7E108732CC0000A8BD /* nmconvertxms in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C461087327D0000A8BD /* nmconvertxms */; };
 		95AA6C7F108732CC0000A8BD /* nmcoveredseq in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C471087327D0000A8BD /* nmcoveredseq */; };
 		95AA6C80108732CC0000A8BD /* nmcutoff in Copy NestedMICA-extra Scripts */ = {isa = PBXBuildFile; fileRef = 95AA6C481087327D0000A8BD /* nmcutoff */; };
@@ -326,6 +324,8 @@
 		95DDD57810F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 95DDD57710F788A70008CE43 /* IMAnnotationSetPickerTableDelegate.m */; };
 		95E2EF540FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
 		95E2EF550FDD1512001F14A2 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 95E2EF530FDD1512001F14A2 /* dsa_pub.pem */; };
+		95F481541108A48B0072EC31 /* biojava-3.0-core-SNAPSHOT.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 9514C3B711087879006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar */; };
+		95F481551108A48B0072EC31 /* biojava-3.0-gui-SNAPSHOT.jar in Copy NestedMICA JARs */ = {isa = PBXBuildFile; fileRef = 9514C3B81108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar */; };
 		95F680370F2622AC00FD797B /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95F680360F2622AC00FD797B /* ApplicationServices.framework */; };
 		95F6D2F9109B5E43003C327C /* IMEnsemblConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F6D2F8109B5E43003C327C /* IMEnsemblConnection.m */; };
 		95F893F9101F66C30021CCEB /* NSArray+UniqueObjects.m in Sources */ = {isa = PBXBuildFile; fileRef = 95F893F8101F66C30021CCEB /* NSArray+UniqueObjects.m */; };
@@ -392,8 +392,9 @@
 			dstPath = nmica/lib;
 			dstSubfolderSpec = 15;
 			files = (
+				95F481541108A48B0072EC31 /* biojava-3.0-core-SNAPSHOT.jar in Copy NestedMICA JARs */,
+				95F481551108A48B0072EC31 /* biojava-3.0-gui-SNAPSHOT.jar in Copy NestedMICA JARs */,
 				95AA6BF5108731AA0000A8BD /* bjv2-core-0.1.jar in Copy NestedMICA JARs */,
-				95AA6BF6108731AA0000A8BD /* blog.jar in Copy NestedMICA JARs */,
 				95AA6BF7108731AA0000A8BD /* bytecode.jar in Copy NestedMICA JARs */,
 				95AA6BF8108731AA0000A8BD /* colt.jar in Copy NestedMICA JARs */,
 				95AA6BF9108731AA0000A8BD /* Jama-1.0.2.jar in Copy NestedMICA JARs */,
@@ -461,7 +462,6 @@
 				95AA6C7A108732CC0000A8BD /* nmbgsample in Copy NestedMICA-extra Scripts */,
 				95AA6C7B108732CC0000A8BD /* nmcanonicalizegenes in Copy NestedMICA-extra Scripts */,
 				95AA6C7C108732CC0000A8BD /* nmconcatenate in Copy NestedMICA-extra Scripts */,
-				95AA6C7D108732CC0000A8BD /* nmconvert in Copy NestedMICA-extra Scripts */,
 				95AA6C7E108732CC0000A8BD /* nmconvertxms in Copy NestedMICA-extra Scripts */,
 				95AA6C7F108732CC0000A8BD /* nmcoveredseq in Copy NestedMICA-extra Scripts */,
 				95AA6C80108732CC0000A8BD /* nmcutoff in Copy NestedMICA-extra Scripts */,
@@ -710,7 +710,6 @@
 		959E3DB00EE69B8400072A66 /* MotifSetPickerTableDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MotifSetPickerTableDelegate.m; sourceTree = "<group>"; };
 		95AA6BB1108730DD0000A8BD /* libnmica.jnilib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnmica.jnilib; path = "../../../workspace/nmica-dev/native/libnmica.jnilib"; sourceTree = SOURCE_ROOT; };
 		95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "bjv2-core-0.1.jar"; path = "../../../workspace/nmica-dev/lib/bjv2-core-0.1.jar"; sourceTree = SOURCE_ROOT; };
-		95AA6BB5108730F30000A8BD /* blog.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = blog.jar; path = "../../../workspace/nmica-dev/lib/blog.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB6108730F50000A8BD /* bytecode.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = bytecode.jar; path = "../../../workspace/nmica-dev/lib/bytecode.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB7108730F50000A8BD /* colt.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = colt.jar; path = "../../../workspace/nmica-dev/lib/colt.jar"; sourceTree = SOURCE_ROOT; };
 		95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */ = {isa = PBXFileReference; lastKnownFileType = archive.jar; name = "Jama-1.0.2.jar"; path = "../../../workspace/nmica-dev/lib/Jama-1.0.2.jar"; sourceTree = SOURCE_ROOT; };
@@ -748,7 +747,6 @@
 		95AA6C421087327D0000A8BD /* nmbgsample */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmbgsample; path = "../../../workspace/nmica-extra/bin/nmbgsample"; sourceTree = SOURCE_ROOT; };
 		95AA6C431087327D0000A8BD /* nmcanonicalizegenes */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcanonicalizegenes; path = "../../../workspace/nmica-extra/bin/nmcanonicalizegenes"; sourceTree = SOURCE_ROOT; };
 		95AA6C441087327D0000A8BD /* nmconcatenate */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconcatenate; path = "../../../workspace/nmica-extra/bin/nmconcatenate"; sourceTree = SOURCE_ROOT; };
-		95AA6C451087327D0000A8BD /* nmconvert */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconvert; path = "../../../workspace/nmica-extra/bin/nmconvert"; sourceTree = SOURCE_ROOT; };
 		95AA6C461087327D0000A8BD /* nmconvertxms */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmconvertxms; path = "../../../workspace/nmica-extra/bin/nmconvertxms"; sourceTree = SOURCE_ROOT; };
 		95AA6C471087327D0000A8BD /* nmcoveredseq */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcoveredseq; path = "../../../workspace/nmica-extra/bin/nmcoveredseq"; sourceTree = SOURCE_ROOT; };
 		95AA6C481087327D0000A8BD /* nmcutoff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = nmcutoff; path = "../../../workspace/nmica-extra/bin/nmcutoff"; sourceTree = SOURCE_ROOT; };
@@ -1495,7 +1493,6 @@
 				9514C3B711087879006DE3C8 /* biojava-3.0-core-SNAPSHOT.jar */,
 				9514C3B81108787B006DE3C8 /* biojava-3.0-gui-SNAPSHOT.jar */,
 				95AA6BB4108730F30000A8BD /* bjv2-core-0.1.jar */,
-				95AA6BB5108730F30000A8BD /* blog.jar */,
 				95AA6BB6108730F50000A8BD /* bytecode.jar */,
 				95AA6BB7108730F50000A8BD /* colt.jar */,
 				95AA6BB8108730F60000A8BD /* Jama-1.0.2.jar */,
@@ -1556,7 +1553,6 @@
 				95AA6C421087327D0000A8BD /* nmbgsample */,
 				95AA6C431087327D0000A8BD /* nmcanonicalizegenes */,
 				95AA6C441087327D0000A8BD /* nmconcatenate */,
-				95AA6C451087327D0000A8BD /* nmconvert */,
 				95AA6C461087327D0000A8BD /* nmconvertxms */,
 				95AA6C471087327D0000A8BD /* nmcoveredseq */,
 				95AA6C481087327D0000A8BD /* nmcutoff */,

@@ -346,4 +346,17 @@ Boston, MA  02110-1301, USA.
         [col addPseudocounts: cnt];
     }
 }
+
+-(void) removeColumnAtIndex:(NSInteger) i {
+    PCLog(@"Will remove column at index %d", i);
+    [self willChangeValueForKey:@"columns"];
+    
+    NSMutableArray *cols = [[self columns] mutableCopy];
+    [cols removeObjectAtIndex: i];
+    [cols retain];
+    [columns release];
+    columns = cols;
+    
+    [self didChangeValueForKey:@"columns"];
+}
 @end

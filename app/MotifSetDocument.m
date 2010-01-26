@@ -737,28 +737,6 @@ provideDataForType:(NSString *)type {
     //[dict release];
 }
 
-/*
-- (void) reverseComplement:(id) sender {
-    PCLog(@"MotifSetDocument: reverseComplement");
-    NSIndexSet *indices = [[self motifTable] selectedRowIndexes];
-    NSUInteger ind = [indices firstIndex];
-    
-    while (ind != NSNotFound) {
-        
-        //NSUInteger repInd = [[[self motifSet] motifs] indexOfObject:[displayedMotifs objectAtIndex: ind]];
-        Motif *revCompMotif = [[[motifSetController arrangedObjects] objectAtIndex:ind] reverseComplement];
-        [[motifSetController arrangedObjects] replaceObjectAtIndex:ind 
-                                                        withObject:revCompMotif];
-        //[motifSet replaceMotifAtIndex:repInd 
-        //                     withMotif:revCompMotif];
-        ind = [indices indexGreaterThanIndex: ind];
-    }
-    
-    [motifTable reloadData];
-    [motifTable setNeedsDisplay:YES];
-}*/
-
-
 - (void) reverseComplement:(id) sender {
 
     
@@ -1340,6 +1318,26 @@ provideDataForType:(NSString *)type {
 -(void) motifAlignmentDone:(NMAlignOperation*) oper {
     [self.alignmentProgressIndicator stopAnimation: self];
     [self.alignmentProgressIndicator setHidden: YES];
+}
+
+-(IBAction) trimLeft:(id) sender {
+    PCLog(@"Trimming leftmost column from motif");
+    
+    for (Motif *m in [motifSetController selectedObjects]) {
+        [m removeColumnAtIndex:0];
+    }
+    
+    [self.motifTable setNeedsDisplay];
+}
+
+-(IBAction) trimRight:(id) sender {
+    PCLog(@"Trimming rightmost column from motif");
+    
+    for (Motif *m in [motifSetController selectedObjects]) {
+        [m removeColumnAtIndex:m.columns.count-1];
+    }
+    
+    [self.motifTable setNeedsDisplay];
 }
 
 -(BOOL) isMotifSetDocument {

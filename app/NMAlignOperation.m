@@ -44,7 +44,7 @@ Boston, MA  02110-1301, USA.
 @synthesize readHandle, errorReadHandle;
 
 -(id) initWithMotifSet:(MotifSet*) mset {
-    //[NMOperation setupNMICAEnvVars]; // this is now done in IMTaskOperation
+    [NMOperation setupNMICAEnvVars]; // this is done in IMTaskOperation's constructor too, but that gets called only later
     NSString *lp = 
     [[[[NMOperation nmicaExtraPath] stringByAppendingPathComponent:@"bin/nmalign"] 
       stringByExpandingTildeInPath] retain];
@@ -191,11 +191,11 @@ Boston, MA  02110-1301, USA.
                                 waitUntilDone:YES];
                         
         } else {
-            [[NSAlert alertWithMessageText:@"Maximum likelihood metamotif inference failed" 
+            [[NSAlert alertWithMessageText:@"Motif alignment failed" 
                              defaultButton:@"OK" 
                            alternateButton:nil
                                otherButton:nil 
-                 informativeTextWithFormat:@"Estimating the maximum likelihood metamotif model for these weight matrices failed."] runModal];
+                 informativeTextWithFormat:@"Motif alignment failed."] runModal];
         }
         
         if ([[NSFileManager defaultManager] fileExistsAtPath: outputTempPath]) {

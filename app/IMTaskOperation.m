@@ -35,6 +35,7 @@ Boston, MA  02110-1301, USA.
 
 -(id) initWithLaunchPath:(NSString*) lp {
     self = [super init];
+    PCLog(@"Setting up NMICA env vars");
     [NMOperation setupNMICAEnvVars];
     if (self) {
         arguments = [[NSMutableDictionary alloc] init];
