@@ -1,3 +1,11 @@
+h3. 0.2.8 Bug fix: Biojava 3 library paths fixed
+
+* Fixed the Biojava 3 paths for NMICA tools => NMICA works OK again.
+
+h3. 0.2.7 - Analysis tools compiled with the Biojava3 snapshot
+
+* Version 0.2.6 was missing the Biojava library that the iMotifs analysis tools package requires.
+
 h3. 0.2.6 - More error dialogs instead of crashes for error situations
 
 * Some more error situations covered in file loading and with launching external analysis tools.
