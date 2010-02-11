@@ -78,16 +78,15 @@ Boston, MA  02110-1301, USA.
 -(IBAction) motifDiscoveryDone:(id) sender {
     [spinner stopAnimation: self];
     [closeButton setEnabled: NO];
-    //[showResultsButton setHidden: NO];
+    [closeButton setHidden: YES];
+    [showResultsButton setHidden: NO];
+    [showResultsButton setEnabled: YES];
 }
 -(IBAction) showResults:(id) sender {
     [self close];
     PCLog(@"Getting motifs from %@", [operation outputMotifSetPath]);
-    MotifSetDocument *doc = [[MotifSetDocument alloc] 
-                             initWithContentsOfFile:
-                             [NSURL fileURLWithPath: operation.outputMotifSetPath] 
-                             ofType:@"Motif set"];
-    [doc showWindows];
+    [[NSWorkspace sharedWorkspace] selectFile:operation.outputMotifSetPath 
+                     inFileViewerRootedAtPath: nil];
     //try setting the motif set by hand?
 }
 

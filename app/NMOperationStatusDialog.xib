@@ -393,14 +393,14 @@
 						<object class="BWTransparentButton" id="15287803">
 							<reference key="NSNextResponder" ref="528997256"/>
 							<int key="NSvFlags">-2147483380</int>
-							<string key="NSFrame">{{197, 15}, {110, 28}}</string>
+							<string key="NSFrame">{{196, 16}, {111, 28}}</string>
 							<reference key="NSSuperview" ref="528997256"/>
 							<bool key="NSEnabled">YES</bool>
 							<object class="BWTransparentButtonCell" key="NSCell" id="1023115466">
 								<int key="NSCellFlags">-2080244224</int>
 								<int key="NSCellFlags2">134348800</int>
 								<object class="NSAttributedString" key="NSContents">
-									<string key="NSString">View Results</string>
+									<string key="NSString">Reveal in Finder</string>
 									<reference key="NSAttributes" ref="546359530"/>
 								</object>
 								<reference key="NSSupport" ref="26"/>
