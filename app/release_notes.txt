@@ -1,3 +1,7 @@
+h3. 0.2.9 Bug fixes
+* Application packaged again with the correct native libraries.
+* NMICA motif inference status dialog 'Show results' button shown again correctly.
+
 h3. 0.2.8 Bug fix: Biojava 3 library paths fixed
 
 * Fixed the Biojava 3 paths for NMICA tools => NMICA works OK again.
