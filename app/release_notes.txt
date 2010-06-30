@@ -1,3 +1,7 @@
+h3. 0.3.0: NMICA analysis tools work on Intel and PPC (32-bit and 64-bit)
+* NMICA native library built as an universal binary that supports all of i386, x64_64 and PPC platforms. In English this means that analysis tools should now work on both old and new Macs running OS X 10.5 or above.
+* Menu entry 'Report an issue / Request a feature' in the iMotifs menu makes reporting bugs and feature requests easier.
+
 h3. 0.2.9 Bug fixes
 * Application packaged again with the correct native libraries.
 * NMICA motif inference status dialog 'Show results' button shown again correctly.

@@ -451,4 +451,9 @@ NSString *IMConsensusSearchCutoff = @"IMConsensusSearchDefaultCutoffKey";
 	return [[MotifSetDocument motifSetDocuments] count] > 0;
 }
 
+-(IBAction) reportIssue:(id) sender {
+    NSLog(@"Reporting an issue");
+    [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"http://github.com/mz2/imotifs/issues"]];
+}
+
 @end

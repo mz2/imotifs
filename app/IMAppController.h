@@ -120,4 +120,6 @@ extern NSString *IMConsensusSearchCutoff;
 
 -(IBAction) scanSequencesWithMotifs:(NSString*) seqs;
 
+-(IBAction) reportIssue:(id) sender;
+
 @end
